@@ -160,17 +160,46 @@ function HomePage() {
                 <span
                   className="relative font-serif italic font-medium px-5 py-1 sm:px-8 sm:py-1.5 rounded-full inline-block"
                   style={{
-                    backdropFilter: "blur(10px) saturate(170%) contrast(110%)",
-                    WebkitBackdropFilter: "blur(10px) saturate(170%) contrast(110%)",
+                    backdropFilter: "blur(10px) saturate(180%) contrast(112%)",
+                    WebkitBackdropFilter: "blur(10px) saturate(180%) contrast(112%)",
                     background:
-                      "radial-gradient(120% 140% at 25% 20%, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.12) 38%, rgba(255,255,255,0.04) 65%, rgba(255,255,255,0.18) 100%)",
+                      "radial-gradient(120% 140% at 25% 20%, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.12) 38%, rgba(255,255,255,0.04) 65%, rgba(255,255,255,0.2) 100%)",
                     boxShadow:
-                      "inset 0 1px 1px rgba(255,255,255,0.85), inset 0 -2px 8px rgba(15,23,42,0.25), inset 0 0 30px rgba(255,255,255,0.18), 0 12px 40px -8px rgba(0,71,255,0.35)",
+                      "inset 0 1px 1px rgba(255,255,255,0.9), inset 0 -2px 10px rgba(15,23,42,0.28), inset 0 0 36px rgba(255,255,255,0.22), 0 14px 44px -8px rgba(0,71,255,0.4)",
                     border: "1px solid rgba(255,255,255,0.55)",
-                    textShadow: "0 2px 18px rgba(255,255,255,0.35)",
+                    filter: "url(#lens-distort)",
                   }}
                 >
-                  smarter.
+                  {/* chromatic aberration stack — red/cyan offsets behind the main text */}
+                  <span
+                    aria-hidden
+                    className="absolute inset-0 flex items-center justify-center px-5 sm:px-8 mix-blend-screen"
+                    style={{
+                      color: "rgba(255,0,90,0.55)",
+                      transform: "translateX(-1.2px)",
+                      filter: "blur(0.3px)",
+                    }}
+                  >
+                    smarter.
+                  </span>
+                  <span
+                    aria-hidden
+                    className="absolute inset-0 flex items-center justify-center px-5 sm:px-8 mix-blend-screen"
+                    style={{
+                      color: "rgba(0,210,255,0.55)",
+                      transform: "translateX(1.2px)",
+                      filter: "blur(0.3px)",
+                    }}
+                  >
+                    smarter.
+                  </span>
+                  <span
+                    className="relative"
+                    style={{ textShadow: "0 2px 18px rgba(255,255,255,0.35)" }}
+                  >
+                    smarter.
+                  </span>
+
                   {/* top catchlight */}
                   <span
                     aria-hidden
@@ -181,7 +210,7 @@ function HomePage() {
                       width: "38%",
                       height: "30%",
                       background:
-                        "radial-gradient(ellipse at center, rgba(255,255,255,0.7), rgba(255,255,255,0) 70%)",
+                        "radial-gradient(ellipse at center, rgba(255,255,255,0.75), rgba(255,255,255,0) 70%)",
                       filter: "blur(2px)",
                     }}
                   />
@@ -195,8 +224,18 @@ function HomePage() {
                       right: "22%",
                       height: "22%",
                       background:
-                        "radial-gradient(ellipse at center, rgba(0,71,255,0.22), rgba(0,71,255,0) 70%)",
+                        "radial-gradient(ellipse at center, rgba(0,71,255,0.28), rgba(0,71,255,0) 70%)",
                       filter: "blur(3px)",
+                    }}
+                  />
+                  {/* inner edge curvature ring — sells the convex lens shape */}
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 rounded-full"
+                    style={{
+                      boxShadow: "inset 0 0 0 1.5px rgba(255,255,255,0.18)",
+                      background:
+                        "radial-gradient(ellipse at 50% 110%, rgba(0,71,255,0.18), transparent 55%)",
                     }}
                   />
                 </span>
