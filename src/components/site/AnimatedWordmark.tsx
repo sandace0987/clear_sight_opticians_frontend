@@ -30,11 +30,14 @@ function ShufflingWord({
   className?: string;
   delay?: number;
 }) {
-  const [i, setI] = useState(() => Math.floor(Math.random() * STYLES.length));
-  const [c, setC] = useState(() => Math.floor(Math.random() * CASINGS.length));
+  const [i, setI] = useState(0);
+  const [c, setC] = useState(0);
   const [flip, setFlip] = useState(false);
 
   useEffect(() => {
+    // Randomize after mount to avoid SSR/CSR hydration mismatch
+    setI(Math.floor(Math.random() * STYLES.length));
+    setC(Math.floor(Math.random() * CASINGS.length));
     let id: ReturnType<typeof setInterval>;
     const start = setTimeout(() => {
       id = setInterval(() => {
