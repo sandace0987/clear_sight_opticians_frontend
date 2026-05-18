@@ -10,6 +10,7 @@ import {
 
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { FloatingVideoCard } from "@/components/site/FloatingVideoCard";
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
