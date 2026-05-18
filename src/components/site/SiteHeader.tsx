@@ -46,13 +46,14 @@ export function SiteHeader() {
           </Link>
 
           {/* Right */}
-          <div className="hidden md:flex flex-1 items-center justify-end gap-5">
+          <div className="hidden md:flex flex-1 items-center justify-end gap-3">
             <a
               href="tel:+919999999999"
-              className="hidden lg:inline-flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
+              className="hidden lg:inline-flex items-center gap-2 rounded-full bg-accent text-accent-foreground px-4 py-2 text-sm font-medium hover:bg-foreground hover:text-background transition-colors"
             >
               <Phone className="size-4" /> Call
             </a>
+            <ThemeToggle />
             <Link
               to="/contact"
               className="bg-electric text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-ink transition-colors"
