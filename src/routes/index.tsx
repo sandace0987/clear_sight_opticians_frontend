@@ -483,7 +483,7 @@ function HomePage() {
             </p>
             <div className="mt-10 space-y-4 text-sm text-white/80">
               <p className="inline-flex items-center gap-3"><Phone className="size-4 text-electric" /> +91 99999 99999</p>
-              <p className="inline-flex items-center gap-3"><Mail className="size-4 text-electric" /> hello@clearsight.in</p>
+              <p className="inline-flex items-center gap-3"><Mail className="size-4 text-electric" /><span>hello@clearsight.in</span></p>
               <p className="inline-flex items-start gap-3"><MapPin className="size-4 text-electric mt-0.5" /> Kukatpally, Banjara Hills, Jubilee Hills</p>
             </div>
           </div>
