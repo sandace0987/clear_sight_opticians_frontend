@@ -51,11 +51,11 @@ export function SiteHeader() {
             />
           </Link>
 
-          {/* Wordmark — inline on mobile, absolutely centered on desktop */}
+          {/* Wordmark — absolutely centered on desktop only */}
           <Link
             to="/"
             aria-label="Clear Sight Opticians home"
-            className="hidden sm:inline-flex flex-1 min-w-0 items-center justify-center md:absolute md:left-1/2 md:-translate-x-1/2 md:flex-none"
+            className="hidden md:inline-flex absolute left-1/2 -translate-x-1/2 items-center"
           >
             <AnimatedWordmark />
           </Link>
@@ -78,13 +78,15 @@ export function SiteHeader() {
           </div>
 
           {/* Mobile right cluster */}
-          <div className="md:hidden flex items-center gap-2 shrink-0">
+          <div className="md:hidden flex items-center gap-1.5 shrink-0">
             <Link
               to="/contact"
-              className="bg-electric text-white px-3 py-2 rounded-full text-[11px] font-semibold hover:bg-ink transition-colors whitespace-nowrap"
+              aria-label="Book Eye Test"
+              className="inline-flex size-9 items-center justify-center rounded-full bg-electric text-white hover:bg-ink transition-colors"
             >
-              Book Eye Test
+              <CalendarCheck className="size-4" />
             </Link>
+            <ThemeToggle />
             <button
               type="button"
               aria-label="Open menu"
