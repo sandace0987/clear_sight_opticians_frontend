@@ -195,99 +195,43 @@ function HomePage() {
         </div>
       </section>
 
-      {/* ============== SMART GLASSES SPOTLIGHT ============== */}
-      <section id="smart" className="px-6 lg:px-10 py-20 lg:py-32 bg-secondary/60">
-        <div className="mx-auto max-w-7xl">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
-            <div className="w-full lg:w-1/2 relative">
-              <div className="relative aspect-square w-full rounded-3xl bg-white shadow-xl ring-1 ring-border overflow-hidden">
-                <img src={raybanMeta} alt="Ray-Ban Meta smart glasses" width={1024} height={1024} loading="lazy" className="w-full h-full object-cover" />
-              </div>
-              <div className="absolute -top-5 -right-5 sm:-top-8 sm:-right-8 bg-electric text-white size-28 sm:size-36 rounded-full flex flex-col items-center justify-center rotate-12 shadow-2xl ring-4 ring-background">
-                <span className="text-[10px] font-bold uppercase tracking-wider">Special Offer</span>
-                <span className="text-3xl sm:text-4xl font-bold leading-none mt-1">25%</span>
-                <span className="text-[10px] font-medium uppercase tracking-wide mt-0.5">Off</span>
-              </div>
-            </div>
-            <div className="w-full lg:w-1/2">
-              <span className="text-electric font-bold tracking-[0.22em] text-xs uppercase mb-4 block">
-                Future of Vision
-              </span>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tighter leading-[1.02] mb-6">
-                The Smart Series
-                <br />
-                <span className="font-serif italic font-medium text-electric">Ray-Ban Meta</span>
-              </h2>
-              <p className="text-muted-foreground text-base sm:text-lg mb-8 max-w-lg leading-relaxed">
-                Capture, call and listen with the next generation of smart eyewear. Integrated
-                AI meets timeless design — and pairs beautifully with Oakley Meta for athletes.
-              </p>
-              <ul className="space-y-3.5 mb-10">
-                {[
-                  { icon: Camera, text: "Built-in 12MP ultra-wide camera" },
-                  { icon: Headphones, text: "Open-ear audio for music & calls" },
-                  { icon: Cpu, text: "Meta AI voice assistant on-device" },
-                ].map((f) => (
-                  <li key={f.text} className="flex items-center gap-4 text-sm font-medium">
-                    <span className="size-10 rounded-full bg-white grid place-items-center ring-1 ring-border">
-                      <f.icon className="size-4 text-electric" />
-                    </span>
-                    {f.text}
-                  </li>
-                ))}
-              </ul>
-              <div className="flex flex-wrap gap-3">
-                <Link
-                  to="/smart-glasses"
-                  className="inline-flex items-center gap-2 bg-ink text-white px-7 py-3.5 rounded-full text-sm font-semibold hover:bg-electric transition-colors"
-                >
-                  Explore Smart Glasses
-                  <ArrowUpRight className="size-4" />
-                </Link>
-                <Link
-                  to="/offers"
-                  className="inline-flex items-center gap-2 border-2 border-ink/15 px-7 py-3 rounded-full text-sm font-semibold hover:border-electric hover:text-electric transition-colors"
-                >
-                  See offers
-                </Link>
-              </div>
-            </div>
-          </div>
+      {/* ============== SMART GLASSES — SCROLL 3D SEQUENCE ============== */}
+      <SmartGlassesScroll />
 
-          {/* Oakley companion */}
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="md:col-span-2 relative rounded-3xl overflow-hidden bg-ink text-white p-8 sm:p-10 flex flex-col justify-between min-h-[260px]">
-              <img src={oakleyMeta} alt="Oakley Meta performance glasses" width={1024} height={1024} loading="lazy" className="absolute inset-0 w-full h-full object-cover opacity-70" />
-              <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/60 to-transparent" />
-              <div className="relative">
-                <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur text-[10px] font-bold uppercase tracking-widest border border-white/15">
-                  Performance
-                </span>
-                <h3 className="mt-5 text-3xl sm:text-4xl font-bold tracking-tight max-w-md">
-                  Oakley Meta — for the way you move.
-                </h3>
-              </div>
-              <div className="relative flex flex-wrap items-center justify-between gap-4">
-                <p className="text-white/70 text-sm max-w-sm">
-                  HSTN & Sphaera silhouettes with advanced audio, capture and Meta AI.
-                </p>
-                <Link to="/smart-glasses" className="inline-flex items-center gap-2 text-sm font-semibold text-electric">
-                  Shop Oakley Meta <ArrowUpRight className="size-4" />
-                </Link>
-              </div>
+      {/* ============== OAKLEY COMPANION + OFFER ============== */}
+      <section className="px-6 lg:px-10 py-16 lg:py-24 bg-secondary/60">
+        <div className="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="md:col-span-2 relative rounded-3xl overflow-hidden bg-ink text-white p-8 sm:p-10 flex flex-col justify-between min-h-[260px]">
+            <img src={oakleyMeta} alt="Oakley Meta performance glasses" width={1024} height={1024} loading="lazy" className="absolute inset-0 w-full h-full object-cover opacity-70" />
+            <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/60 to-transparent" />
+            <div className="relative">
+              <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur text-[10px] font-bold uppercase tracking-widest border border-white/15">
+                Performance
+              </span>
+              <h3 className="mt-5 text-3xl sm:text-4xl font-bold tracking-tight max-w-md">
+                Oakley Meta — for the way you move.
+              </h3>
             </div>
-            <div className="rounded-3xl bg-electric text-white p-8 flex flex-col justify-between">
-              <div>
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">Limited</span>
-                <p className="mt-3 text-3xl font-bold leading-tight">Up to 30% off smart eyewear</p>
-              </div>
-              <p className="text-white/85 text-sm mt-6">
-                Visit any branch for an in-person demo. Stock moves quickly.
+            <div className="relative flex flex-wrap items-center justify-between gap-4">
+              <p className="text-white/70 text-sm max-w-sm">
+                HSTN &amp; Sphaera silhouettes with advanced audio, capture and Meta AI.
               </p>
-              <Link to="/stores" className="mt-6 inline-flex items-center gap-2 bg-white text-electric px-5 py-3 rounded-full text-sm font-semibold w-fit">
-                Find a store <ArrowUpRight className="size-4" />
+              <Link to="/smart-glasses" className="inline-flex items-center gap-2 text-sm font-semibold text-electric">
+                Shop Oakley Meta <ArrowUpRight className="size-4" />
               </Link>
             </div>
+          </div>
+          <div className="rounded-3xl bg-electric text-white p-8 flex flex-col justify-between">
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">Limited</span>
+              <p className="mt-3 text-3xl font-bold leading-tight">Up to 30% off smart eyewear</p>
+            </div>
+            <p className="text-white/85 text-sm mt-6">
+              Visit any branch for an in-person demo. Stock moves quickly.
+            </p>
+            <Link to="/stores" className="mt-6 inline-flex items-center gap-2 bg-white text-electric px-5 py-3 rounded-full text-sm font-semibold w-fit">
+              Find a store <ArrowUpRight className="size-4" />
+            </Link>
           </div>
         </div>
       </section>
