@@ -308,9 +308,6 @@ function HomePage() {
         </div>
       </section>
 
-      {/* ============== SMART GLASSES UNBOXING SEQUENCE ============== */}
-      <SmartGlassesScroll id="smart-glasses-story" />
-
       {/* ============== OAKLEY COMPANION + OFFER ============== */}
       <section className="px-6 lg:px-10 py-16 lg:py-24 bg-secondary/60">
         <div className="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-3 gap-6">
