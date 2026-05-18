@@ -27,7 +27,8 @@ import productAviator from "@/assets/product-aviator.jpg";
 import productGoldWire from "@/assets/product-gold-wire.jpg";
 import productAzure from "@/assets/product-azure.jpg";
 import storeInterior from "@/assets/store-interior.jpg";
-
+          {/* Liquid-glass lens bubble */}
+          <LensBubble className="top-16 right-10 lg:top-24 lg:right-20" size={180} />
 
 export const Route = createFileRoute("/")({
   head: () => ({
