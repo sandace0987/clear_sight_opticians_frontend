@@ -15,8 +15,8 @@ import {
   Mail,
   Clock,
   Quote,
-  Glasses,
 } from "lucide-react";
+import { CategoryGlasses } from "@/components/site/CategoryGlasses";
 import heroPortrait from "@/assets/hero-portrait.jpg";
 
 import raybanMetaHero from "@/assets/rayban-meta-hero.jpg";
