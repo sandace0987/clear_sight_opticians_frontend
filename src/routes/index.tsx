@@ -15,6 +15,7 @@ import {
   Mail,
   Clock,
   Quote,
+  Glasses,
 } from "lucide-react";
 import heroPortrait from "@/assets/hero-portrait.jpg";
 
@@ -408,10 +409,15 @@ function HomePage() {
                 to="/brands"
                 className="group relative aspect-[5/4] rounded-2xl bg-secondary p-6 sm:p-8 flex flex-col justify-between overflow-hidden hover:bg-ink hover:text-white transition-colors"
               >
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground group-hover:text-white/50">
+                <Glasses
+                  aria-hidden
+                  strokeWidth={1}
+                  className="absolute -right-4 -bottom-4 size-40 sm:size-48 text-foreground/10 group-hover:text-white/20 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6 pointer-events-none"
+                />
+                <span className="relative text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground group-hover:text-white/50">
                   0{i + 1}
                 </span>
-                <div>
+                <div className="relative">
                   <h3 className="text-2xl sm:text-3xl font-bold tracking-tight">{c.title}</h3>
                   <p className="text-sm text-muted-foreground group-hover:text-white/70 mt-1">{c.count}</p>
                 </div>
