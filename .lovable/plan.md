@@ -1,31 +1,24 @@
-## Goal
-Turn the "See How It Works" card (currently absolutely positioned inside the hero) into a card that **floats with the user as they scroll** the entire site, and wire its play button to open a **video popup placeholder** modal.
+## Two changes
 
-## Changes
+### 1. Full brand name in header
+Update `src/components/site/SiteHeader.tsx` logo: `Clear Sight` → `Clear Sight Opticians`, keeping `Sight` in electric blue and `Opticians` in a lighter muted weight so the lockup still reads tight (e.g. `CLEAR SIGHT OPTICIANS` with `SIGHT` colored). Slightly reduce tracking on `lg` so it fits the existing header height.
 
-### 1. Extract into a new component
-Create `src/components/site/FloatingVideoCard.tsx`:
-- Position: `fixed bottom-6 right-6 lg:bottom-8 lg:right-8 z-40` so it floats over all sections while scrolling.
-- Keep current visual design (white card, eye-test thumbnail, play icon, title, copy, avatar dots).
-- Hidden on small screens (`hidden md:flex`) to avoid covering mobile content; show a compact pill on `md+`.
-- Add a small close (X) button so users can dismiss it; state stored in `useState` (session-only, no persistence needed).
-- Subtle entrance: reuse the existing `fade-up` animation, delayed.
-- The whole card / play button is a `<button>` that opens the video dialog.
+Also tighten the mobile menu spacing so the longer name doesn't crowd the menu button.
 
-### 2. Video popup placeholder
-Use existing shadcn `Dialog` (`src/components/ui/dialog.tsx`):
-- Large 16:9 modal (`max-w-3xl`), rounded, dark background.
-- Inside: a placeholder block (aspect-video, `bg-ink`) with a centered Play icon and caption "Video coming soon" — clearly a placeholder, ready to swap for a real `<video>` / YouTube embed later.
-- Title: "See How It Works" with short description.
+### 2. Liquid-glass "lens" bubble
+Add a new component `src/components/site/LensBubble.tsx`: a circular floating element pinned in the hero (top-right of the hero image) that mimics Apple's liquid-glass look:
+- Translucent circle (~140-180px) with `backdrop-blur-xl` and `backdrop-saturate-150`
+- Soft white border + inset highlight via layered gradients (top-left bright fall-off, bottom-right shadow) for the refractive bevel
+- A second inner highlight blob (radial gradient) sits inside to read as a glass "catchlight"
+- Subtle floating motion via CSS keyframe (gentle up-down + slow rotate) so it feels alive without distracting
+- Hidden on small screens to preserve mobile layout
 
-### 3. Mount globally
-- Remove the absolute floating card block from `src/routes/index.tsx` (lines ~180–201).
-- Mount `<FloatingVideoCard />` in `src/routes/__root.tsx` so it persists across all pages while scrolling. (Confirm during implementation whether the user wants it site-wide or home-only — default: site-wide since the request is "floats while you scroll the website".)
+Position it absolutely inside the existing hero on `src/routes/index.tsx` so it overlaps the portrait — making the portrait look magnified through an optical lens. No content inside; purely decorative.
 
-### 4. Hydration cleanup
-While editing the hero, also fix the small SSR hydration mismatch flagged in runtime errors by ensuring no stray whitespace inside the `hello@clearsight.in` mail link (minor, unrelated to selection but in the same file area).
+CSS additions in `src/styles.css`:
+- New `@keyframes float-lens` (8s ease-in-out infinite, translateY + slight rotate)
+- Optional `--shadow-lens` token for the soft outer drop shadow
 
-## Technical notes
-- No new dependencies — `Dialog` and `lucide-react` Play/X icons already available.
-- `fixed` + `z-40` keeps it below the sticky header (`z-50`) so the header isn't covered.
-- Component is purely presentational; video source is a clearly-marked placeholder div to be replaced later.
+### Notes
+- Pure CSS — no new dependencies, no real refraction shader (sandbox has no WebGPU). The look comes from backdrop-blur + layered gradients, which is exactly how Apple's marketing liquid-glass mocks are built.
+- Also fixes the small SSR hydration warning on the contact page mail link while I'm editing.
