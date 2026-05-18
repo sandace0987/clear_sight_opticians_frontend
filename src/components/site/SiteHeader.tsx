@@ -4,13 +4,13 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 const NAV = [
-  { to: "/", label: "Home" },
-  { to: "/brands", label: "Brands" },
-  { to: "/smart-glasses", label: "Smart Glasses" },
-  { to: "/offers", label: "Offers" },
-  { to: "/stores", label: "Stores" },
-  { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
+  { to: "/", hash: undefined, label: "Home" },
+  { to: "/", hash: "brands", label: "Brands" },
+  { to: "/", hash: "smart-glasses", label: "Smart Glasses" },
+  { to: "/", hash: "offers", label: "Offers" },
+  { to: "/", hash: "stores", label: "Stores" },
+  { to: "/", hash: "about", label: "About" },
+  { to: "/", hash: "contact", label: "Contact" },
 ] as const;
 
 export function SiteHeader() {
