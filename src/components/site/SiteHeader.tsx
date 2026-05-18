@@ -2,6 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { Search, Menu, X, Phone } from "lucide-react";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { AnimatedWordmark } from "./AnimatedWordmark";
 
 const NAV = [
   { to: "/", hash: undefined, label: "Home" },
@@ -37,10 +38,7 @@ export function SiteHeader() {
 
           {/* Logo */}
           <Link to="/" className="flex-1 md:text-center group">
-            <span className="text-[13px] lg:text-[15px] font-bold tracking-[0.18em] lg:tracking-[0.2em] uppercase whitespace-nowrap">
-              Clear <span className="text-electric">Sight</span>{" "}
-              <span className="text-muted-foreground font-medium">Opticians</span>
-            </span>
+            <AnimatedWordmark />
           </Link>
 
           {/* Right */}
