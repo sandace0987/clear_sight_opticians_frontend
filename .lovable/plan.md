@@ -1,24 +1,25 @@
-## Two changes
+## Plan: integrate the Clear Sight Opticians logo
 
-### 1. Full brand name in header
-Update `src/components/site/SiteHeader.tsx` logo: `Clear Sight` → `Clear Sight Opticians`, keeping `Sight` in electric blue and `Opticians` in a lighter muted weight so the lockup still reads tight (e.g. `CLEAR SIGHT OPTICIANS` with `SIGHT` colored). Slightly reduce tracking on `lg` so it fits the existing header height.
+### 1. Add the asset
+- Copy `user-uploads://20250717_1431_Clear_Sight_Logo_remix...avif` → `src/assets/clear-sight-logo.avif`
+- Also export a PNG copy (`src/assets/clear-sight-logo.png`) for favicon/OG share image use, since some platforms don't render AVIF.
 
-Also tighten the mobile menu spacing so the longer name doesn't crowd the menu button.
+### 2. Header (`src/components/site/SiteHeader.tsx`)
+- Place the logo mark to the left of the animated wordmark inside the `<Link to="/">` lockup.
+- Size: `h-8 lg:h-10 w-auto`, with `object-contain`.
+- Keep `AnimatedWordmark` next to it so the shuffling typography effect is preserved — the mark anchors identity, the wordmark stays playful.
+- On mobile the mark stays visible; wordmark shrinks as today.
 
-### 2. Liquid-glass "lens" bubble
-Add a new component `src/components/site/LensBubble.tsx`: a circular floating element pinned in the hero (top-right of the hero image) that mimics Apple's liquid-glass look:
-- Translucent circle (~140-180px) with `backdrop-blur-xl` and `backdrop-saturate-150`
-- Soft white border + inset highlight via layered gradients (top-left bright fall-off, bottom-right shadow) for the refractive bevel
-- A second inner highlight blob (radial gradient) sits inside to read as a glass "catchlight"
-- Subtle floating motion via CSS keyframe (gentle up-down + slow rotate) so it feels alive without distracting
-- Hidden on small screens to preserve mobile layout
+### 3. Footer (`src/components/site/SiteFooter.tsx`)
+- Replace the large stacked "Clear Sight / Opticians" text block in the left column with the logo (h-14) followed by the existing tagline paragraph. Cleaner and more brand-consistent on the dark `bg-ink`.
 
-Position it absolutely inside the existing hero on `src/routes/index.tsx` so it overlaps the portrait — making the portrait look magnified through an optical lens. No content inside; purely decorative.
+### 4. Favicon + social share (`src/routes/__root.tsx`)
+- Wire the PNG copy as `<link rel="icon">` and as the default `og:image` / `twitter:image` in the root `head()`.
 
-CSS additions in `src/styles.css`:
-- New `@keyframes float-lens` (8s ease-in-out infinite, translateY + slight rotate)
-- Optional `--shadow-lens` token for the soft outer drop shadow
+### 5. Optional brand watermark in hero (`src/routes/index.tsx`)
+- Subtle: a low-opacity (≈8%) logo mark pinned to a corner of the hero background as a textural brand cue. Skippable if it competes with the new Ray-Ban Meta hero image — will judge after wiring and remove if noisy.
 
 ### Notes
-- Pure CSS — no new dependencies, no real refraction shader (sandbox has no WebGPU). The look comes from backdrop-blur + layered gradients, which is exactly how Apple's marketing liquid-glass mocks are built.
-- Also fixes the small SSR hydration warning on the contact page mail link while I'm editing.
+- No business-logic changes. Pure presentation.
+- Will preserve the animated wordmark exactly as-is; the logo complements it rather than replacing it.
+- If the user prefers the logo to fully replace the animated wordmark in the header, that's a one-line swap — easy follow-up.
