@@ -162,6 +162,31 @@ function HomePage() {
                   }}
                 >
                   smarter.
+                  {/* iridescent glass tint synced with scroll */}
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 rounded-full lens-iridescence mix-blend-screen opacity-60"
+                    style={{
+                      background:
+                        "linear-gradient(115deg, rgba(0,71,255,0.0) 0%, rgba(0,71,255,0.22) 20%, rgba(255,255,255,0.35) 38%, rgba(255,0,128,0.18) 58%, rgba(0,200,255,0.22) 78%, rgba(0,71,255,0.0) 100%)",
+                    }}
+                  />
+                  {/* shimmer sweep clipped to pill */}
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 rounded-full overflow-hidden"
+                  >
+                    <span
+                      className="absolute top-0 bottom-0 w-[45%] lens-shimmer-track"
+                      style={{
+                        background:
+                          "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.55) 50%, rgba(255,255,255,0) 100%)",
+                        filter: "blur(6px)",
+                        mixBlendMode: "screen",
+                      }}
+                    />
+                  </span>
+
                   {/* top catchlight */}
                   <span
                     aria-hidden
