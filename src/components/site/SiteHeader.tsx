@@ -3,6 +3,7 @@ import { Menu, X, Phone } from "lucide-react";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { AnimatedWordmark } from "./AnimatedWordmark";
+import { ThemeToggle } from "./ThemeToggle";
 import logoUrl from "@/assets/clear-sight-logo.avif";
 
 const NAV = [
