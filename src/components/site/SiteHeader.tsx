@@ -49,7 +49,7 @@ export function SiteHeader() {
           <Link
             to="/"
             aria-label="Clear Sight Opticians home"
-            className="flex-1 min-w-0 inline-flex items-center justify-center md:absolute md:left-1/2 md:-translate-x-1/2 md:flex-none"
+            className="hidden sm:inline-flex flex-1 min-w-0 items-center justify-center md:absolute md:left-1/2 md:-translate-x-1/2 md:flex-none"
           >
             <AnimatedWordmark />
           </Link>
