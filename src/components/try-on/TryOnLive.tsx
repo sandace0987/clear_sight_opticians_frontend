@@ -13,9 +13,13 @@ const WASM_BASE = "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.35/
 const MODEL_URL =
   "https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task";
 
-// Eye outer corners in MediaPipe Face Mesh (468-point topology).
-const LEFT_EYE_OUTER = 33;   // user's left eye, outer corner
-const RIGHT_EYE_OUTER = 263; // user's right eye, outer corner
+// MediaPipe Face Mesh (468-point topology).
+// Temples / sides of head — gives true face width to match glasses width.
+const LEFT_TEMPLE = 234;   // user's left temple
+const RIGHT_TEMPLE = 454;  // user's right temple
+// Eye centers for vertical placement
+const LEFT_EYE_CENTER = 159;  // upper eyelid mid (user's left)
+const RIGHT_EYE_CENTER = 386; // upper eyelid mid (user's right)
 
 type Props = {
   onClose: () => void;
