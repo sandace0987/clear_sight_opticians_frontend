@@ -2,11 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowUpRight,
   Heart,
-  
   Sparkles,
   Cpu,
-  Headphones,
-  Camera,
   Eye,
   ShieldCheck,
   Gem,
@@ -21,7 +18,6 @@ import {
 import heroPortrait from "@/assets/hero-portrait.jpg";
 import { LensBubble } from "@/components/site/LensBubble";
 import { SmartGlassesScroll } from "@/components/site/SmartGlassesScroll";
-import raybanMeta from "@/assets/rayban-meta.jpg";
 import oakleyMeta from "@/assets/oakley-meta.jpg";
 import productTortoise from "@/assets/product-tortoise.jpg";
 import productAviator from "@/assets/product-aviator.jpg";
