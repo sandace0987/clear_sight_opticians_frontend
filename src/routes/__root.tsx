@@ -82,6 +82,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: "Curated luxury frames and next-generation smart glasses, fitted by experts across Hyderabad." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "theme-color", content: "#ffffff", media: "(prefers-color-scheme: light)" },
+      { name: "theme-color", content: "#0b0b12", media: "(prefers-color-scheme: dark)" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
