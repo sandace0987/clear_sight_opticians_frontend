@@ -89,6 +89,7 @@ export function SiteHeader() {
               key={item.label}
               to={item.to}
               hash={item.hash}
+              onClick={handleHashClick(item.hash)}
               activeOptions={{ exact: true, includeHash: true }}
               className="text-muted-foreground hover:text-foreground transition-colors"
               activeProps={{ className: "text-electric" }}
