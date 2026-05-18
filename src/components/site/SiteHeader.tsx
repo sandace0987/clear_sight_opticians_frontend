@@ -3,6 +3,7 @@ import { Search, Menu, X, Phone } from "lucide-react";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { AnimatedWordmark } from "./AnimatedWordmark";
+import logoUrl from "@/assets/clear-sight-logo.avif";
 
 const NAV = [
   { to: "/", hash: undefined, label: "Home" },
