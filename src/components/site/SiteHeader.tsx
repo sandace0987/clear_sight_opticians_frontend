@@ -24,8 +24,14 @@ export function SiteHeader() {
   useEffect(() => setOpen(false), [location.pathname]);
 
   const handleHashClick = (hash: string | undefined) => (e: React.MouseEvent) => {
-    if (!hash) return;
     if (location.pathname !== "/") return; // let router handle cross-route nav
+    if (!hash) {
+      // "Home" — scroll to top
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setOpen(false);
+      return;
+    }
     e.preventDefault();
     const el = document.getElementById(hash);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
