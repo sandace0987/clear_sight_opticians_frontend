@@ -25,14 +25,22 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 bg-background/85 backdrop-blur-xl border-b border-border/60">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="flex h-16 lg:h-20 items-center justify-between gap-6">
-          {/* Logo */}
-          <Link to="/" className="flex-1 group inline-flex items-center justify-start gap-2.5">
+        <div className="relative flex h-16 lg:h-20 items-center justify-between gap-6">
+          {/* Logo mark — left */}
+          <Link to="/" aria-label="Clear Sight Opticians" className="flex-1 inline-flex items-center justify-start">
             <img
               src={logoUrl}
               alt="Clear Sight Opticians"
               className="h-8 lg:h-10 w-auto object-contain shrink-0"
             />
+          </Link>
+
+          {/* Wordmark — absolutely centered */}
+          <Link
+            to="/"
+            aria-label="Clear Sight Opticians home"
+            className="hidden md:inline-flex absolute left-1/2 -translate-x-1/2 items-center"
+          >
             <AnimatedWordmark />
           </Link>
 
