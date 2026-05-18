@@ -37,8 +37,9 @@ export function SiteHeader() {
 
           {/* Logo */}
           <Link to="/" className="flex-1 md:text-center group">
-            <span className="text-base lg:text-lg font-bold tracking-[0.22em] uppercase">
-              Clear <span className="text-electric">Sight</span>
+            <span className="text-[13px] lg:text-[15px] font-bold tracking-[0.18em] lg:tracking-[0.2em] uppercase whitespace-nowrap">
+              Clear <span className="text-electric">Sight</span>{" "}
+              <span className="text-muted-foreground font-medium">Opticians</span>
             </span>
           </Link>
 
