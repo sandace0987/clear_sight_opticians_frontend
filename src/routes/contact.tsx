@@ -40,7 +40,8 @@ function ContactPage() {
             <div>
               <h3 className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground mb-3">Email</h3>
               <a href="mailto:hello@clearsight.in" className="text-xl font-bold tracking-tight inline-flex items-center gap-3 break-all">
-                <Mail className="size-5 text-electric" /> hello@clearsight.in
+                <Mail className="size-5 text-electric" />
+                <span>hello@clearsight.in</span>
               </a>
             </div>
             <div>
