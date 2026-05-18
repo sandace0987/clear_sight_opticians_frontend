@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import heroPortrait from "@/assets/hero-portrait.jpg";
 
-import { SmartGlassesScroll } from "@/components/site/SmartGlassesScroll";
+import { SmartGlassesScrub } from "@/components/site/SmartGlassesScrub";
 import oakleyMeta from "@/assets/oakley-meta.jpg";
 import productTortoise from "@/assets/product-tortoise.jpg";
 import productAviator from "@/assets/product-aviator.jpg";
