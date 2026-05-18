@@ -15,8 +15,8 @@ import {
   Mail,
   Clock,
   Quote,
-  Glasses,
 } from "lucide-react";
+import { CategoryGlasses } from "@/components/site/CategoryGlasses";
 import heroPortrait from "@/assets/hero-portrait.jpg";
 
 import raybanMetaHero from "@/assets/rayban-meta-hero.jpg";
@@ -409,10 +409,9 @@ function HomePage() {
                 to="/brands"
                 className="group relative aspect-[5/4] rounded-2xl bg-secondary p-6 sm:p-8 flex flex-col justify-between overflow-hidden hover:bg-ink hover:text-white transition-colors"
               >
-                <Glasses
-                  aria-hidden
-                  strokeWidth={1}
-                  className="absolute -right-4 -bottom-4 size-40 sm:size-48 text-foreground/10 group-hover:text-white/20 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6 pointer-events-none"
+                <CategoryGlasses
+                  variant={c.title}
+                  className="absolute -right-6 -bottom-6 w-56 sm:w-64 h-auto text-foreground/15 group-hover:text-white/25 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6 pointer-events-none"
                 />
                 <span className="relative text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground group-hover:text-white/50">
                   0{i + 1}
