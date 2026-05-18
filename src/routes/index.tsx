@@ -26,7 +26,7 @@ import productGoldWire from "@/assets/product-gold-wire.jpg";
 import productAzure from "@/assets/product-azure.jpg";
 import storeInterior from "@/assets/store-interior.jpg";
 import { TryOnSection } from "@/components/try-on/TryOnSection";
-import { SmartGlassesScroll } from "@/components/site/SmartGlassesScroll";
+
 
 
 export const Route = createFileRoute("/")({
@@ -307,9 +307,6 @@ function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* ============== SMART GLASSES UNBOXING SEQUENCE ============== */}
-      <SmartGlassesScroll id="smart-glasses-story" />
 
       {/* ============== OAKLEY COMPANION + OFFER ============== */}
       <section className="px-6 lg:px-10 py-16 lg:py-24 bg-secondary/60">
