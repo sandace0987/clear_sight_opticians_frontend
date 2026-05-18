@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Search, Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { AnimatedWordmark } from "./AnimatedWordmark";
@@ -25,20 +25,8 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 bg-background/85 backdrop-blur-xl border-b border-border/60">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="flex h-16 lg:h-20 items-center justify-between gap-6">
-          {/* Search */}
-          <div className="hidden md:flex flex-1 items-center">
-            <label className="relative w-full max-w-xs">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
-              <input
-                type="text"
-                placeholder="Search eyewear, brands…"
-                className="w-full pl-11 pr-4 py-2.5 bg-secondary border border-border rounded-full text-sm placeholder:text-muted-foreground focus:outline-none focus:border-electric transition-colors"
-              />
-            </label>
-          </div>
-
           {/* Logo */}
-          <Link to="/" className="flex-1 md:text-center group inline-flex items-center justify-center gap-2.5">
+          <Link to="/" className="flex-1 group inline-flex items-center justify-start gap-2.5">
             <img
               src={logoUrl}
               alt="Clear Sight Opticians"
