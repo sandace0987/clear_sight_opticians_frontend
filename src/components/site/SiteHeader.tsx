@@ -4,13 +4,13 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 const NAV = [
-  { to: "/", label: "Home" },
-  { to: "/brands", label: "Brands" },
-  { to: "/smart-glasses", label: "Smart Glasses" },
-  { to: "/offers", label: "Offers" },
-  { to: "/stores", label: "Stores" },
-  { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
+  { to: "/", hash: undefined, label: "Home" },
+  { to: "/", hash: "brands", label: "Brands" },
+  { to: "/", hash: "smart-glasses", label: "Smart Glasses" },
+  { to: "/", hash: "offers", label: "Offers" },
+  { to: "/", hash: "stores", label: "Stores" },
+  { to: "/", hash: "about", label: "About" },
+  { to: "/", hash: "contact", label: "Contact" },
 ] as const;
 
 export function SiteHeader() {
@@ -74,9 +74,10 @@ export function SiteHeader() {
         <nav className="hidden md:flex justify-center gap-8 lg:gap-10 pb-3 -mt-1 text-[12px] font-medium uppercase tracking-[0.18em]">
           {NAV.map((item) => (
             <Link
-              key={item.to}
+              key={item.label}
               to={item.to}
-              activeOptions={{ exact: item.to === "/" }}
+              hash={item.hash}
+              activeOptions={{ exact: true, includeHash: true }}
               className="text-muted-foreground hover:text-foreground transition-colors"
               activeProps={{ className: "text-electric" }}
             >
@@ -96,9 +97,10 @@ export function SiteHeader() {
         <nav className="px-6 py-5 flex flex-col gap-2">
           {NAV.map((item) => (
             <Link
-              key={item.to}
+              key={item.label}
               to={item.to}
-              activeOptions={{ exact: item.to === "/" }}
+              hash={item.hash}
+              activeOptions={{ exact: true, includeHash: true }}
               className="py-2 text-sm font-medium text-foreground/80"
               activeProps={{ className: "text-electric" }}
             >
