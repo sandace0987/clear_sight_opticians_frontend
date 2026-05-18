@@ -26,7 +26,7 @@ import productAviator from "@/assets/product-aviator.jpg";
 import productGoldWire from "@/assets/product-gold-wire.jpg";
 import productAzure from "@/assets/product-azure.jpg";
 import storeInterior from "@/assets/store-interior.jpg";
-import eyeTest from "@/assets/eye-test.jpg";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
