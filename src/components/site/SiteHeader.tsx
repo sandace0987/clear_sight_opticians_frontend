@@ -23,6 +23,15 @@ export function SiteHeader() {
 
   useEffect(() => setOpen(false), [location.pathname]);
 
+  const handleHashClick = (hash: string | undefined) => (e: React.MouseEvent) => {
+    if (!hash) return;
+    if (location.pathname !== "/") return; // let router handle cross-route nav
+    e.preventDefault();
+    const el = document.getElementById(hash);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    setOpen(false);
+  };
+
   return (
     <header className="sticky top-0 z-50 bg-background/85 backdrop-blur-xl border-b border-border/60">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
