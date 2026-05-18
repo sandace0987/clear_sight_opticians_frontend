@@ -11,6 +11,7 @@ import {
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { FloatingVideoCard } from "@/components/site/FloatingVideoCard";
+import { ScrollToTop } from "@/components/site/ScrollToTop";
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -134,6 +135,7 @@ function RootComponent() {
         </main>
         <SiteFooter />
         <FloatingVideoCard />
+        <ScrollToTop />
       </div>
     </QueryClientProvider>
   );
