@@ -7,11 +7,11 @@ export function SiteFooter() {
     <footer className="bg-ink text-white px-6 lg:px-10 pt-20 pb-10">
       <div className="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-12 gap-12">
         <div className="md:col-span-5">
-          <h2 className="text-3xl font-bold tracking-tighter mb-4">
-            Clear Sight
-            <br />
-            <span className="font-serif italic text-white/40">Opticians</span>
-          </h2>
+          <img
+            src={logoUrl}
+            alt="Clear Sight Opticians"
+            className="h-16 w-auto mb-6 brightness-0 invert opacity-90"
+          />
           <p className="text-white/60 max-w-sm leading-relaxed">
             The premier optical destination in Hyderabad — luxury frames, smart eyewear
             and clinical-grade eye care, fitted by experts.
