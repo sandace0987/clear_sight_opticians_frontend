@@ -4,7 +4,7 @@ import { getBrand, BRANDS, type BrandData } from "@/lib/brand-catalog";
 import { GlassSilhouette } from "@/components/site/GlassSilhouette";
 import { EnquireDialog } from "@/components/site/EnquireDialog";
 
-export const Route = createFileRoute("/brands/$brand")({
+export const Route = createFileRoute("/brands_/$brand")({
   head: ({ params }) => {
     const b = getBrand(params.brand);
     const title = b ? `${b.name} — Clear Sight Opticians` : "Brand — Clear Sight Opticians";
