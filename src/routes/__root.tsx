@@ -12,6 +12,7 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { FloatingVideoCard } from "@/components/site/FloatingVideoCard";
 import { ScrollToTop } from "@/components/site/ScrollToTop";
+import { PageTransition } from "@/components/motion/PageTransition";
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -131,7 +132,9 @@ function RootComponent() {
       <div className="flex min-h-screen flex-col bg-background text-foreground">
         <SiteHeader />
         <main className="flex-1">
-          <Outlet />
+          <PageTransition>
+            <Outlet />
+          </PageTransition>
         </main>
         <SiteFooter />
         <FloatingVideoCard />

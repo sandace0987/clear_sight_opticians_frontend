@@ -1,5 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
+import { TiltCard } from "@/components/motion/TiltCard";
+import { MagneticButton } from "@/components/motion/MagneticButton";
 
 export const Route = createFileRoute("/brands")({
   head: () => ({
@@ -43,24 +46,27 @@ function BrandsPage() {
 
         <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {HOUSES.map((h, i) => (
-            <Link
-              key={h.name}
-              to="/brands/$brand"
-              params={{ brand: h.slug }}
-              className="group bg-secondary/60 border border-border rounded-3xl p-8 hover:bg-ink hover:text-white transition-colors block"
-            >
-              <div className="flex items-start justify-between mb-12">
-                <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground group-hover:text-white/50">
-                  0{i + 1 < 10 ? i + 1 : i + 1}
-                </span>
-                <ArrowUpRight className="size-5 opacity-40 group-hover:opacity-100 group-hover:text-electric transition-all" />
-              </div>
-              <h3 className="text-3xl font-bold tracking-tight">{h.name}</h3>
-              <p className="text-xs uppercase tracking-[0.18em] text-electric mt-2 font-bold">{h.tag}</p>
-              <p className="mt-4 text-sm text-muted-foreground group-hover:text-white/70 font-serif italic">
-                {h.note}
-              </p>
-            </Link>
+            <Reveal key={h.name} delay={(i % 3) * 0.05}>
+              <TiltCard max={5}>
+                <Link
+                  to="/brands/$brand"
+                  params={{ brand: h.slug }}
+                  className="group bg-secondary/60 border border-border rounded-3xl p-8 hover:bg-ink hover:text-white transition-colors block h-full"
+                >
+                  <div className="flex items-start justify-between mb-12">
+                    <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground group-hover:text-white/50">
+                      0{i + 1 < 10 ? i + 1 : i + 1}
+                    </span>
+                    <ArrowUpRight className="size-5 opacity-40 group-hover:opacity-100 group-hover:text-electric transition-all" />
+                  </div>
+                  <h3 className="text-3xl font-bold tracking-tight">{h.name}</h3>
+                  <p className="text-xs uppercase tracking-[0.18em] text-electric mt-2 font-bold">{h.tag}</p>
+                  <p className="mt-4 text-sm text-muted-foreground group-hover:text-white/70 font-serif italic">
+                    {h.note}
+                  </p>
+                </Link>
+              </TiltCard>
+            </Reveal>
           ))}
         </div>
 
@@ -73,9 +79,11 @@ function BrandsPage() {
               We source on request — tell us what you're after.
             </p>
           </div>
-          <Link to="/contact" className="bg-electric text-white px-7 py-3.5 rounded-full text-sm font-semibold inline-flex items-center gap-2">
-            Get in touch <ArrowUpRight className="size-4" />
-          </Link>
+          <MagneticButton>
+            <Link to="/contact" className="bg-electric text-white px-7 py-3.5 rounded-full text-sm font-semibold inline-flex items-center gap-2">
+              Get in touch <ArrowUpRight className="size-4" />
+            </Link>
+          </MagneticButton>
         </div>
       </div>
     </div>

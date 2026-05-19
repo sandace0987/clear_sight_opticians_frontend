@@ -3,6 +3,8 @@ import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import { getBrand, BRANDS, type BrandData } from "@/lib/brand-catalog";
 import { GlassSilhouette } from "@/components/site/GlassSilhouette";
 import { EnquireDialog } from "@/components/site/EnquireDialog";
+import { Reveal } from "@/components/motion/Reveal";
+import { TiltCard } from "@/components/motion/TiltCard";
 
 export const Route = createFileRoute("/brands_/$brand")({
   head: ({ params }) => {
@@ -65,32 +67,36 @@ function BrandPage() {
 
         <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {brand.models.map((m, i) => (
-            <article key={m.model} className="group bg-secondary/60 border border-border rounded-3xl p-7 flex flex-col">
-              <div className="flex items-start justify-between">
-                <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground">
-                  0{i + 1}
-                </span>
-                <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-electric">{m.shape}</span>
-              </div>
+            <Reveal key={m.model} delay={(i % 3) * 0.05}>
+              <TiltCard max={5} className="h-full">
+                <article className="group bg-secondary/60 border border-border rounded-3xl p-7 flex flex-col h-full">
+                  <div className="flex items-start justify-between">
+                    <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground">
+                      0{i + 1}
+                    </span>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-electric">{m.shape}</span>
+                  </div>
 
-              <div className="my-8 flex items-center justify-center h-28 text-foreground/85 group-hover:text-electric transition-colors">
-                <GlassSilhouette shape={m.shape} className="w-full max-w-[220px] h-auto" />
-              </div>
+                  <div className="my-8 flex items-center justify-center h-28 text-foreground/85 group-hover:text-electric transition-colors">
+                    <GlassSilhouette shape={m.shape} className="w-full max-w-[220px] h-auto" />
+                  </div>
 
-              <h3 className="text-xl font-bold tracking-tight">{m.model}</h3>
-              <p className="text-xs text-muted-foreground mt-1 font-serif italic">{m.colour}</p>
-              <p className="text-sm font-semibold mt-3">From ₹{m.priceFrom.toLocaleString("en-IN")}</p>
+                  <h3 className="text-xl font-bold tracking-tight">{m.model}</h3>
+                  <p className="text-xs text-muted-foreground mt-1 font-serif italic">{m.colour}</p>
+                  <p className="text-sm font-semibold mt-3">From ₹{m.priceFrom.toLocaleString("en-IN")}</p>
 
-              <EnquireDialog
-                brand={brand.name}
-                model={m.model}
-                trigger={
-                  <button className="mt-5 w-full inline-flex items-center justify-center gap-2 bg-ink text-white py-3 rounded-full text-[11px] font-bold uppercase tracking-[0.18em] hover:bg-electric transition-colors">
-                    Enquire <ArrowUpRight className="size-3.5" />
-                  </button>
-                }
-              />
-            </article>
+                  <EnquireDialog
+                    brand={brand.name}
+                    model={m.model}
+                    trigger={
+                      <button className="mt-5 w-full inline-flex items-center justify-center gap-2 bg-ink text-white py-3 rounded-full text-[11px] font-bold uppercase tracking-[0.18em] hover:bg-electric transition-colors">
+                        Enquire <ArrowUpRight className="size-3.5" />
+                      </button>
+                    }
+                  />
+                </article>
+              </TiltCard>
+            </Reveal>
           ))}
         </div>
 
