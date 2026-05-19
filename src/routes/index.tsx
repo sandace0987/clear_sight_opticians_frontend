@@ -51,6 +51,9 @@ export const Route = createFileRoute("/")({
         content: "Premium prescription glasses, sunglasses, contact lenses and smart eyewear.",
       },
     ],
+    links: [
+      { rel: "preload", as: "image", href: heroPortrait, fetchpriority: "high" },
+    ],
   }),
   component: HomePage,
 });
