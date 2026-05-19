@@ -422,9 +422,9 @@ function HomePage() {
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8">
-            {PRODUCTS.map((p) => (
-              <article key={p.name} className="group cursor-pointer">
-                <div className="relative aspect-[3/4] bg-secondary rounded-2xl overflow-hidden mb-4">
+            {PRODUCTS.map((p, idx) => (
+              <Reveal key={p.name} as="article" delay={idx * 0.06} className="group cursor-pointer">
+                <TiltCard className="relative aspect-[3/4] bg-secondary rounded-2xl overflow-hidden mb-4">
                   <img
                     src={p.img}
                     alt={p.name}
@@ -445,11 +445,11 @@ function HomePage() {
                   >
                     <Heart className="size-4 text-ink" />
                   </button>
-                </div>
+                </TiltCard>
                 <h4 className="font-bold">{p.name}</h4>
                 <p className="text-muted-foreground text-sm font-serif italic">{p.category}</p>
                 <p className="mt-2 font-bold text-electric">{p.price}</p>
-              </article>
+              </Reveal>
             ))}
           </div>
         </div>
