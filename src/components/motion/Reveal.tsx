@@ -13,8 +13,7 @@ export function Reveal({ children, delay = 0, amount = 0.2, as = "div", ...rest 
   const MotionTag = motion[as] as typeof motion.div;
 
   if (reduced) {
-    const Tag = as as keyof JSX.IntrinsicElements;
-    return <Tag {...(rest as object)}>{children}</Tag>;
+    return <MotionTag {...rest}>{children}</MotionTag>;
   }
 
   return (
