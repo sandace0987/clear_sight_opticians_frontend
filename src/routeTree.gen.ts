@@ -16,7 +16,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BrandsRouteImport } from './routes/brands'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as BrandsBrandRouteImport } from './routes/brands.$brand'
+import { Route as BrandsBrandRouteImport } from './routes/brands_.$brand'
 
 const StoresRoute = StoresRouteImport.update({
   id: '/stores',
@@ -54,15 +54,15 @@ const IndexRoute = IndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const BrandsBrandRoute = BrandsBrandRouteImport.update({
-  id: '/$brand',
-  path: '/$brand',
-  getParentRoute: () => BrandsRoute,
+  id: '/brands_/$brand',
+  path: '/brands/$brand',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/brands': typeof BrandsRouteWithChildren
+  '/brands': typeof BrandsRoute
   '/contact': typeof ContactRoute
   '/offers': typeof OffersRoute
   '/smart-glasses': typeof SmartGlassesRoute
@@ -72,7 +72,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/brands': typeof BrandsRouteWithChildren
+  '/brands': typeof BrandsRoute
   '/contact': typeof ContactRoute
   '/offers': typeof OffersRoute
   '/smart-glasses': typeof SmartGlassesRoute
@@ -83,12 +83,12 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/brands': typeof BrandsRouteWithChildren
+  '/brands': typeof BrandsRoute
   '/contact': typeof ContactRoute
   '/offers': typeof OffersRoute
   '/smart-glasses': typeof SmartGlassesRoute
   '/stores': typeof StoresRoute
-  '/brands/$brand': typeof BrandsBrandRoute
+  '/brands_/$brand': typeof BrandsBrandRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -120,17 +120,18 @@ export interface FileRouteTypes {
     | '/offers'
     | '/smart-glasses'
     | '/stores'
-    | '/brands/$brand'
+    | '/brands_/$brand'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  BrandsRoute: typeof BrandsRouteWithChildren
+  BrandsRoute: typeof BrandsRoute
   ContactRoute: typeof ContactRoute
   OffersRoute: typeof OffersRoute
   SmartGlassesRoute: typeof SmartGlassesRoute
   StoresRoute: typeof StoresRoute
+  BrandsBrandRoute: typeof BrandsBrandRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -184,36 +185,36 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/brands/$brand': {
-      id: '/brands/$brand'
-      path: '/$brand'
+    '/brands_/$brand': {
+      id: '/brands_/$brand'
+      path: '/brands/$brand'
       fullPath: '/brands/$brand'
       preLoaderRoute: typeof BrandsBrandRouteImport
-      parentRoute: typeof BrandsRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
 
-interface BrandsRouteChildren {
-  BrandsBrandRoute: typeof BrandsBrandRoute
-}
-
-const BrandsRouteChildren: BrandsRouteChildren = {
-  BrandsBrandRoute: BrandsBrandRoute,
-}
-
-const BrandsRouteWithChildren =
-  BrandsRoute._addFileChildren(BrandsRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  BrandsRoute: BrandsRouteWithChildren,
+  BrandsRoute: BrandsRoute,
   ContactRoute: ContactRoute,
   OffersRoute: OffersRoute,
   SmartGlassesRoute: SmartGlassesRoute,
   StoresRoute: StoresRoute,
+  BrandsBrandRoute: BrandsBrandRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
