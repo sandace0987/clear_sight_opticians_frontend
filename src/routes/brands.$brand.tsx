@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
-import { getBrand, BRANDS } from "@/lib/brand-catalog";
+import { getBrand, BRANDS, type BrandData } from "@/lib/brand-catalog";
 import { GlassSilhouette } from "@/components/site/GlassSilhouette";
 import { EnquireDialog } from "@/components/site/EnquireDialog";
 
@@ -42,7 +42,7 @@ export const Route = createFileRoute("/brands/$brand")({
 });
 
 function BrandPage() {
-  const { brand } = Route.useLoaderData();
+  const { brand } = Route.useLoaderData() as { brand: BrandData };
   const otherBrands = BRANDS.filter((b) => b.slug !== brand.slug).slice(0, 6);
 
   return (
