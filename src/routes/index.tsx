@@ -295,6 +295,26 @@ function HomePage() {
         </div>
       </section>
 
+      {/* ============== STATS COUNTER ============== */}
+      <section className="px-6 lg:px-10 -mt-8 lg:-mt-12 mb-4">
+        <Reveal className="mx-auto max-w-7xl grid grid-cols-3 gap-4 sm:gap-8 rounded-3xl border border-border bg-background/60 backdrop-blur p-6 sm:p-10">
+          {[
+            { v: 15, suffix: "+", label: "Years in Hyderabad" },
+            { v: 12, suffix: "+", label: "Luxury houses stocked" },
+            { v: 3, suffix: "", label: "Boutique locations" },
+          ].map((s) => (
+            <div key={s.label} className="text-center sm:text-left">
+              <p className="text-4xl sm:text-6xl font-bold tracking-tighter text-electric">
+                <CountUp to={s.v} suffix={s.suffix} />
+              </p>
+              <p className="mt-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                {s.label}
+              </p>
+            </div>
+          ))}
+        </Reveal>
+      </section>
+
       {/* ============== BRAND MARQUEE ============== */}
       <section className="py-10 lg:py-14 border-y border-border overflow-hidden">
         <div className="flex w-max animate-[marquee_38s_linear_infinite] opacity-40">
