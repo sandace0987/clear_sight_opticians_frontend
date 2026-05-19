@@ -14,18 +14,18 @@ export const Route = createFileRoute("/brands")({
 });
 
 const HOUSES = [
-  { name: "Ray-Ban", tag: "American icon", note: "Wayfarer, Aviator & Meta editions" },
-  { name: "Oakley", tag: "Performance", note: "Sport, lifestyle & Meta HSTN" },
-  { name: "Prada", tag: "Italian luxury", note: "Linea Rossa & Symbole" },
-  { name: "Gucci", tag: "Italian luxury", note: "Optical & oversized sun" },
-  { name: "Burberry", tag: "British heritage", note: "Check & monogram series" },
-  { name: "Persol", tag: "Handmade Italy", note: "649 & 714 collection" },
-  { name: "Carrera", tag: "Motorsport DNA", note: "Aviator & retro sport" },
-  { name: "Tom Ford", tag: "Modern luxury", note: "Optical & oversize sun" },
-  { name: "Vogue Eyewear", tag: "Fashion forward", note: "Trend-led capsule" },
-  { name: "Police", tag: "Italian cool", note: "Sport & lifestyle" },
-  { name: "Fastrack", tag: "Everyday", note: "Affordable, all-day" },
-  { name: "Titan Eyeplus", tag: "Indian premium", note: "Optical favourites" },
+  { slug: "ray-ban", name: "Ray-Ban", tag: "American icon", note: "Wayfarer, Aviator & Meta editions" },
+  { slug: "oakley", name: "Oakley", tag: "Performance", note: "Sport, lifestyle & Meta HSTN" },
+  { slug: "prada", name: "Prada", tag: "Italian luxury", note: "Linea Rossa & Symbole" },
+  { slug: "gucci", name: "Gucci", tag: "Italian luxury", note: "Optical & oversized sun" },
+  { slug: "burberry", name: "Burberry", tag: "British heritage", note: "Check & monogram series" },
+  { slug: "persol", name: "Persol", tag: "Handmade Italy", note: "649 & 714 collection" },
+  { slug: "carrera", name: "Carrera", tag: "Motorsport DNA", note: "Aviator & retro sport" },
+  { slug: "tom-ford", name: "Tom Ford", tag: "Modern luxury", note: "Optical & oversize sun" },
+  { slug: "vogue-eyewear", name: "Vogue Eyewear", tag: "Fashion forward", note: "Trend-led capsule" },
+  { slug: "police", name: "Police", tag: "Italian cool", note: "Sport & lifestyle" },
+  { slug: "fastrack", name: "Fastrack", tag: "Everyday", note: "Affordable, all-day" },
+  { slug: "titan-eyeplus", name: "Titan Eyeplus", tag: "Indian premium", note: "Optical favourites" },
 ];
 
 function BrandsPage() {
@@ -43,7 +43,12 @@ function BrandsPage() {
 
         <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {HOUSES.map((h, i) => (
-            <article key={h.name} className="group bg-secondary/60 border border-border rounded-3xl p-8 hover:bg-ink hover:text-white transition-colors">
+            <Link
+              key={h.name}
+              to="/brands/$brand"
+              params={{ brand: h.slug }}
+              className="group bg-secondary/60 border border-border rounded-3xl p-8 hover:bg-ink hover:text-white transition-colors block"
+            >
               <div className="flex items-start justify-between mb-12">
                 <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground group-hover:text-white/50">
                   0{i + 1 < 10 ? i + 1 : i + 1}
@@ -55,7 +60,7 @@ function BrandsPage() {
               <p className="mt-4 text-sm text-muted-foreground group-hover:text-white/70 font-serif italic">
                 {h.note}
               </p>
-            </article>
+            </Link>
           ))}
         </div>
 

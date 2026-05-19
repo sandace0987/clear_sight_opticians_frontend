@@ -16,6 +16,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BrandsRouteImport } from './routes/brands'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BrandsBrandRouteImport } from './routes/brands.$brand'
 
 const StoresRoute = StoresRouteImport.update({
   id: '/stores',
@@ -52,34 +53,42 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BrandsBrandRoute = BrandsBrandRouteImport.update({
+  id: '/$brand',
+  path: '/$brand',
+  getParentRoute: () => BrandsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/brands': typeof BrandsRoute
+  '/brands': typeof BrandsRouteWithChildren
   '/contact': typeof ContactRoute
   '/offers': typeof OffersRoute
   '/smart-glasses': typeof SmartGlassesRoute
   '/stores': typeof StoresRoute
+  '/brands/$brand': typeof BrandsBrandRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/brands': typeof BrandsRoute
+  '/brands': typeof BrandsRouteWithChildren
   '/contact': typeof ContactRoute
   '/offers': typeof OffersRoute
   '/smart-glasses': typeof SmartGlassesRoute
   '/stores': typeof StoresRoute
+  '/brands/$brand': typeof BrandsBrandRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/brands': typeof BrandsRoute
+  '/brands': typeof BrandsRouteWithChildren
   '/contact': typeof ContactRoute
   '/offers': typeof OffersRoute
   '/smart-glasses': typeof SmartGlassesRoute
   '/stores': typeof StoresRoute
+  '/brands/$brand': typeof BrandsBrandRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,6 +100,7 @@ export interface FileRouteTypes {
     | '/offers'
     | '/smart-glasses'
     | '/stores'
+    | '/brands/$brand'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -100,6 +110,7 @@ export interface FileRouteTypes {
     | '/offers'
     | '/smart-glasses'
     | '/stores'
+    | '/brands/$brand'
   id:
     | '__root__'
     | '/'
@@ -109,12 +120,13 @@ export interface FileRouteTypes {
     | '/offers'
     | '/smart-glasses'
     | '/stores'
+    | '/brands/$brand'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  BrandsRoute: typeof BrandsRoute
+  BrandsRoute: typeof BrandsRouteWithChildren
   ContactRoute: typeof ContactRoute
   OffersRoute: typeof OffersRoute
   SmartGlassesRoute: typeof SmartGlassesRoute
@@ -172,13 +184,31 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/brands/$brand': {
+      id: '/brands/$brand'
+      path: '/$brand'
+      fullPath: '/brands/$brand'
+      preLoaderRoute: typeof BrandsBrandRouteImport
+      parentRoute: typeof BrandsRoute
+    }
   }
 }
+
+interface BrandsRouteChildren {
+  BrandsBrandRoute: typeof BrandsBrandRoute
+}
+
+const BrandsRouteChildren: BrandsRouteChildren = {
+  BrandsBrandRoute: BrandsBrandRoute,
+}
+
+const BrandsRouteWithChildren =
+  BrandsRoute._addFileChildren(BrandsRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  BrandsRoute: BrandsRoute,
+  BrandsRoute: BrandsRouteWithChildren,
   ContactRoute: ContactRoute,
   OffersRoute: OffersRoute,
   SmartGlassesRoute: SmartGlassesRoute,
