@@ -3,6 +3,8 @@ import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import { getBrand, BRANDS, type BrandData } from "@/lib/brand-catalog";
 import { GlassSilhouette } from "@/components/site/GlassSilhouette";
 import { EnquireDialog } from "@/components/site/EnquireDialog";
+import { Reveal } from "@/components/motion/Reveal";
+import { TiltCard } from "@/components/motion/TiltCard";
 
 export const Route = createFileRoute("/brands_/$brand")({
   head: ({ params }) => {
