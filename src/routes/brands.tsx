@@ -79,9 +79,11 @@ function BrandsPage() {
               We source on request — tell us what you're after.
             </p>
           </div>
-          <Link to="/contact" className="bg-electric text-white px-7 py-3.5 rounded-full text-sm font-semibold inline-flex items-center gap-2">
-            Get in touch <ArrowUpRight className="size-4" />
-          </Link>
+          <MagneticButton>
+            <Link to="/contact" className="bg-electric text-white px-7 py-3.5 rounded-full text-sm font-semibold inline-flex items-center gap-2">
+              Get in touch <ArrowUpRight className="size-4" />
+            </Link>
+          </MagneticButton>
         </div>
       </div>
     </div>
