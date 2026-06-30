@@ -196,6 +196,21 @@ export const BRANDS: BrandData[] = [
           },
         ],
       },
+      {
+        model: "Mekala",
+        shape: "rectangle",
+        colour: "Matte Silver",
+        priceFrom: 27590,
+        variants: [
+          {
+            id: "silver",
+            name: "Matte Silver",
+            lens: "Hawaii Seashine",
+            swatch: "linear-gradient(135deg, #b8bcc0 0%, #e3e6e8 50%, #9a9ea2 100%)",
+            images: { front: mekalaSilverFront.url, quarter: mekalaSilverQuarter.url, side: mekalaSilverSide.url },
+          },
+        ],
+      },
     ],
   },
   {
