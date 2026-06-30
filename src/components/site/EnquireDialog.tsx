@@ -19,6 +19,12 @@ export function EnquireDialog({ brand, model, colour: initialColour, trigger }: 
   const [prescription, setPrescription] = React.useState("No");
   const [notes, setNotes] = React.useState("");
 
+  React.useEffect(() => {
+    if (initialColour) setColour(initialColour);
+  }, [initialColour]);
+
+
+
   const buildMessage = (withDetails: boolean) => {
     if (!withDetails) {
       return `Hi Clear Sight Opticians, I'd like to enquire about the ${brand} — ${model}.`;
