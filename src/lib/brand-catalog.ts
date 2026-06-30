@@ -10,6 +10,12 @@ import castlesBlackSide from "@/assets/products/maui-jim-castles/728-2M_side.web
 import castlesChocFront from "@/assets/products/maui-jim-castles/H728-01M_front.webp.asset.json";
 import castlesChocQuarter from "@/assets/products/maui-jim-castles/H728-01M_quarter.webp.asset.json";
 import castlesChocSide from "@/assets/products/maui-jim-castles/H728-01M_side.webp.asset.json";
+import hookipaBlackFront from "@/assets/products/maui-jim-hookipa/407-02_front.webp.asset.json";
+import hookipaBlackQuarter from "@/assets/products/maui-jim-hookipa/407-02_quarter.webp.asset.json";
+import hookipaBlackSide from "@/assets/products/maui-jim-hookipa/407-02_side.webp.asset.json";
+import hookipaBlueFront from "@/assets/products/maui-jim-hookipa/B407-11_front.webp.asset.json";
+import hookipaBlueQuarter from "@/assets/products/maui-jim-hookipa/B407-11_quarter.webp.asset.json";
+import hookipaBlueSide from "@/assets/products/maui-jim-hookipa/B407-11_side.webp.asset.json";
 import mauiJimLogo from "@/assets/brands/maui-jim-logo.webp.asset.json";
 
 export type ColorVariant = {
@@ -86,6 +92,28 @@ export const BRANDS: BrandData[] = [
             lens: "HCL\u00ae Bronze",
             swatch: "linear-gradient(135deg, #3a261a 0%, #7a4f30 50%, #b5824c 100%)",
             images: { front: castlesChocFront.url, quarter: castlesChocQuarter.url, side: castlesChocSide.url },
+          },
+        ],
+      },
+      {
+        model: "Ho'okipa",
+        shape: "rimless",
+        colour: "Gloss Black / Smoke Grey",
+        priceFrom: 14690,
+        variants: [
+          {
+            id: "black",
+            name: "Gloss Black",
+            lens: "Neutral Grey",
+            swatch: "linear-gradient(135deg, #1a1a1c 0%, #3a3a3d 50%, #111113 100%)",
+            images: { front: hookipaBlackFront.url, quarter: hookipaBlackQuarter.url, side: hookipaBlackSide.url },
+          },
+          {
+            id: "smoke-blue",
+            name: "Smoke Grey",
+            lens: "Blue Hawaii",
+            swatch: "linear-gradient(135deg, #3a4654 0%, #5f6f80 50%, #1f7fc4 100%)",
+            images: { front: hookipaBlueFront.url, quarter: hookipaBlueQuarter.url, side: hookipaBlueSide.url },
           },
         ],
       },
