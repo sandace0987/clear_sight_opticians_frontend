@@ -333,57 +333,80 @@ function HomePage() {
       </section>
 
 
-      {/* ============== NEW ARRIVALS ============== */}
+      {/* ============== BRANDS ============== */}
       <section id="brands" className="scroll-mt-24 px-6 lg:px-10 py-20 lg:py-32">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col sm:flex-row justify-between sm:items-end gap-4 mb-12 lg:mb-16">
             <div>
-              <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">New Arrivals</span>
+              <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">The Houses</span>
               <h2 className="text-4xl sm:text-5xl font-bold tracking-tighter mt-3">
-                Hand-picked, this season.
+                The brands we carry.
               </h2>
               <p className="text-muted-foreground mt-3 max-w-lg">
-                A small, considered edit from the world's best houses — and our own studio.
+                A curated edit from the world's finest eyewear houses — stocked across our three Hyderabad studios.
               </p>
             </div>
             <Link to="/brands" className="text-sm font-bold border-b-2 border-electric pb-1 tracking-[0.2em] uppercase w-fit">
-              View all collection
+              View collection
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8">
-            {PRODUCTS.map((p, idx) => (
-              <Reveal key={p.name} as="article" delay={idx * 0.06} className="group cursor-pointer">
-                <TiltCard className="relative aspect-[3/4] bg-secondary rounded-2xl overflow-hidden mb-4">
-                  <img
-                    src={p.img}
-                    alt={p.name}
-                    width={800}
-                    height={1024}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  {p.badge && (
-                    <div className={`absolute top-3 left-3 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${p.badge === "Limited" ? "bg-electric text-white" : "bg-white/90 backdrop-blur text-ink"}`}>
-                      {p.badge}
-                    </div>
-                  )}
-                  <button
-                    type="button"
-                    aria-label="Save"
-                    className="absolute top-3 right-3 size-10 bg-white/95 rounded-full grid place-items-center opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all"
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {HOUSES.slice(0, 5).map((h, i) => (
+              <Reveal key={h.slug} delay={(i % 3) * 0.05}>
+                <TiltCard max={5}>
+                  <Link
+                    to="/brands/$brand"
+                    params={{ brand: h.slug }}
+                    className="group bg-secondary/60 border border-border rounded-3xl p-8 hover:bg-ink hover:text-white transition-colors block h-full"
                   >
-                    <Heart className="size-4 text-ink" />
-                  </button>
+                    <div className="flex items-start justify-between mb-12">
+                      <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground group-hover:text-white/50">
+                        0{i + 1}
+                      </span>
+                      <ArrowUpRight className="size-5 opacity-40 group-hover:opacity-100 group-hover:text-electric transition-all" />
+                    </div>
+                    {h.logo ? (
+                      <img
+                        src={h.logo}
+                        alt={`${h.name} logo`}
+                        width={160}
+                        height={80}
+                        loading="lazy"
+                        className="h-9 w-auto object-contain object-left dark:invert group-hover:invert"
+                      />
+                    ) : (
+                      <h3 className="text-3xl font-bold tracking-tight">{h.name}</h3>
+                    )}
+                    <p className="text-xs uppercase tracking-[0.18em] text-electric mt-2 font-bold">{h.tag}</p>
+                    <p className="mt-4 text-sm text-muted-foreground group-hover:text-white/70 font-serif italic">
+                      {h.note}
+                    </p>
+                  </Link>
                 </TiltCard>
-                <h4 className="font-bold">{p.name}</h4>
-                <p className="text-muted-foreground text-sm font-serif italic">{p.category}</p>
-                <p className="mt-2 font-bold text-electric">{p.price}</p>
               </Reveal>
             ))}
+
+            <Reveal delay={0.1}>
+              <Link
+                to="/brands"
+                className="group bg-ink text-white rounded-3xl p-8 flex flex-col justify-between h-full min-h-[220px] hover:bg-electric transition-colors"
+              >
+                <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-white/50">
+                  {HOUSES.length}+ houses
+                </span>
+                <div>
+                  <h3 className="text-2xl font-bold tracking-tight">View collection</h3>
+                  <p className="mt-2 text-sm text-white/70 inline-flex items-center gap-2">
+                    Explore every brand <ArrowUpRight className="size-4" />
+                  </p>
+                </div>
+              </Link>
+            </Reveal>
           </div>
         </div>
       </section>
+
 
       {/* ============== COLLECTIONS GRID ============== */}
       <section className="px-6 lg:px-10 pb-20 lg:pb-32">
