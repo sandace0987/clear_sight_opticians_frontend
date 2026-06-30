@@ -148,12 +148,9 @@ function ModelCard({ m, index, brandName }: { m: GlassItem; index: number; brand
           }
         />
       ) : (
-        <MagnifyLens
-          lensSize={150}
-          className="my-8 flex items-center justify-center h-28 cursor-zoom-in text-foreground/85 group-hover:text-electric transition-colors"
-        >
+        <div className="my-8 flex items-center justify-center h-28 text-foreground/85 group-hover:text-electric transition-colors">
           <GlassSilhouette shape={m.shape} className="w-full max-w-[220px] h-auto" />
-        </MagnifyLens>
+        </div>
       )}
 
       <h3 className="text-xl font-bold tracking-tight">{m.model}</h3>
