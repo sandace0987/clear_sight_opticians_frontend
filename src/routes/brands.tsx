@@ -61,7 +61,18 @@ function BrandsPage() {
                     </span>
                     <ArrowUpRight className="size-5 opacity-40 group-hover:opacity-100 group-hover:text-electric transition-all" />
                   </div>
-                  <h3 className="text-3xl font-bold tracking-tight">{h.name}</h3>
+                  {h.logo ? (
+                    <img
+                      src={h.logo}
+                      alt={`${h.name} logo`}
+                      width={160}
+                      height={80}
+                      loading="lazy"
+                      className="h-9 w-auto object-contain object-left dark:invert group-hover:invert"
+                    />
+                  ) : (
+                    <h3 className="text-3xl font-bold tracking-tight">{h.name}</h3>
+                  )}
                   <p className="text-xs uppercase tracking-[0.18em] text-electric mt-2 font-bold">{h.tag}</p>
                   <p className="mt-4 text-sm text-muted-foreground group-hover:text-white/70 font-serif italic">
                     {h.note}
