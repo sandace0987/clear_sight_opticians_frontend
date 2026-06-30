@@ -34,6 +34,9 @@ import liquidBlackSide from "@/assets/products/maui-jim-liquid-sunshine/601-02_s
 import liquidRoseFront from "@/assets/products/maui-jim-liquid-sunshine/R601-04_front.webp.asset.json";
 import liquidRoseQuarter from "@/assets/products/maui-jim-liquid-sunshine/R601-04_quarter.webp.asset.json";
 import liquidRoseSide from "@/assets/products/maui-jim-liquid-sunshine/R601-04_side.webp.asset.json";
+import mekalaSilverFront from "@/assets/products/maui-jim-mekala/690-16_front.webp.asset.json";
+import mekalaSilverQuarter from "@/assets/products/maui-jim-mekala/690-16_quarter.webp.asset.json";
+import mekalaSilverSide from "@/assets/products/maui-jim-mekala/690-16_side.webp.asset.json";
 import mauiJimLogo from "@/assets/brands/maui-jim-logo.webp.asset.json";
 
 export type ColorVariant = {
