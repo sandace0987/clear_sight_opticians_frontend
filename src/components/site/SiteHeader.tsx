@@ -17,11 +17,53 @@ const NAV = [
   { to: "/", hash: "contact", label: "Contact" },
 ] as const;
 
+const SECTION_IDS = NAV.filter((n) => n.hash).map((n) => n.hash as string);
+
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | undefined>(undefined);
   const { location } = useRouterState();
 
   useEffect(() => setOpen(false), [location.pathname]);
+
+  // Scrollspy — highlight the nav item for the section currently in view
+  useEffect(() => {
+    if (location.pathname !== "/") {
+      setActiveSection(undefined);
+      return;
+    }
+    const sections = SECTION_IDS
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => Boolean(el));
+    if (!sections.length) return;
+
+    const visible = new Map<string, number>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) visible.set(entry.target.id, entry.intersectionRatio);
+          else visible.delete(entry.target.id);
+        }
+        // Top of page → no section highlighted ("Home")
+        if (window.scrollY < 120) {
+          setActiveSection(undefined);
+          return;
+        }
+        let best: string | undefined;
+        let bestRatio = 0;
+        for (const [id, ratio] of visible) {
+          if (ratio >= bestRatio) {
+            bestRatio = ratio;
+            best = id;
+          }
+        }
+        if (best) setActiveSection(best);
+      },
+      { rootMargin: "-45% 0px -45% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] },
+    );
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
+  }, [location.pathname]);
 
   const handleHashClick = (hash: string | undefined) => (e: React.MouseEvent) => {
     if (location.pathname !== "/") return; // let router handle cross-route nav
@@ -107,19 +149,27 @@ export function SiteHeader() {
 
         {/* Secondary nav */}
         <nav className="hidden md:flex justify-center gap-8 lg:gap-10 pb-3 -mt-1 text-[12px] font-medium uppercase tracking-[0.18em]">
-          {NAV.map((item) => (
-            <Link
-              key={item.label}
-              to={item.to}
-              hash={item.hash}
-              onClick={handleHashClick(item.hash)}
-              activeOptions={{ exact: true, includeHash: true }}
-              className="text-muted-foreground hover:text-foreground transition-colors"
-              activeProps={{ className: "text-electric" }}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {NAV.map((item) => {
+            const isActive =
+              location.pathname === "/" &&
+              (item.hash ? item.hash === activeSection : activeSection === undefined);
+            return (
+              <Link
+                key={item.label}
+                to={item.to}
+                hash={item.hash}
+                onClick={handleHashClick(item.hash)}
+                className={cn(
+                  "transition-colors",
+                  isActive
+                    ? "text-electric font-bold"
+                    : "text-muted-foreground hover:text-foreground",
+                )}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
       </div>
 
@@ -131,19 +181,25 @@ export function SiteHeader() {
         )}
       >
         <nav className="px-6 py-5 flex flex-col gap-2">
-          {NAV.map((item) => (
-            <Link
-              key={item.label}
-              to={item.to}
-              hash={item.hash}
-              onClick={handleHashClick(item.hash)}
-              activeOptions={{ exact: true, includeHash: true }}
-              className="py-2 text-sm font-medium text-foreground/80"
-              activeProps={{ className: "text-electric" }}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {NAV.map((item) => {
+            const isActive =
+              location.pathname === "/" &&
+              (item.hash ? item.hash === activeSection : activeSection === undefined);
+            return (
+              <Link
+                key={item.label}
+                to={item.to}
+                hash={item.hash}
+                onClick={handleHashClick(item.hash)}
+                className={cn(
+                  "py-2 text-sm font-medium",
+                  isActive ? "text-electric font-bold" : "text-foreground/80",
+                )}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
           <Link
             to="/contact"
             className="mt-2 text-center bg-electric text-white px-5 py-3 rounded-full text-sm font-semibold"
