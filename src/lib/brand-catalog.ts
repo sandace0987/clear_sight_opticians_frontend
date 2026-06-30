@@ -95,6 +95,28 @@ export const BRANDS: BrandData[] = [
           },
         ],
       },
+      {
+        model: "Ho'okipa",
+        shape: "rimless",
+        colour: "Gloss Black / Smoke Grey",
+        priceFrom: 14690,
+        variants: [
+          {
+            id: "black",
+            name: "Gloss Black",
+            lens: "Neutral Grey",
+            swatch: "linear-gradient(135deg, #1a1a1c 0%, #3a3a3d 50%, #111113 100%)",
+            images: { front: hookipaBlackFront.url, quarter: hookipaBlackQuarter.url, side: hookipaBlackSide.url },
+          },
+          {
+            id: "smoke-blue",
+            name: "Smoke Grey",
+            lens: "Blue Hawaii",
+            swatch: "linear-gradient(135deg, #3a4654 0%, #5f6f80 50%, #1f7fc4 100%)",
+            images: { front: hookipaBlueFront.url, quarter: hookipaBlueQuarter.url, side: hookipaBlueSide.url },
+          },
+        ],
+      },
     ],
   },
   {
