@@ -98,6 +98,13 @@ export function SiteHeader() {
           </div>
         </div>
 
+        {/* Mobile wordmark strip */}
+        <div className="md:hidden flex justify-center border-t border-border/60 py-2">
+          <Link to="/" aria-label="Clear Sight Opticians home" className="inline-flex items-center">
+            <AnimatedWordmark />
+          </Link>
+        </div>
+
         {/* Secondary nav */}
         <nav className="hidden md:flex justify-center gap-8 lg:gap-10 pb-3 -mt-1 text-[12px] font-medium uppercase tracking-[0.18em]">
           {NAV.map((item) => (
