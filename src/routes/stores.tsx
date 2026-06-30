@@ -6,7 +6,7 @@ export const Route = createFileRoute("/stores")({
   head: () => ({
     meta: [
       { title: "Stores — Clear Sight Opticians, Hyderabad" },
-      { name: "description", content: "Visit Clear Sight Opticians in Kukatpally, Banjara Hills and Jubilee Hills." },
+      { name: "description", content: "Visit Clear Sight Opticians in Kukatpally (KPHB), Nizampet and Bowenpally, Hyderabad." },
       { property: "og:title", content: "Stores — Clear Sight Opticians, Hyderabad" },
       { property: "og:description", content: "Three Hyderabad studios. One standard of care." },
     ],
