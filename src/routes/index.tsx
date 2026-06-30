@@ -648,14 +648,14 @@ function HomePage() {
       </section>
 
       {/* ============== TESTIMONIALS ============== */}
-      <section className="px-6 lg:px-10 py-20 lg:py-28 bg-ink text-white">
+      <section className="px-6 lg:px-10 py-20 lg:py-28 bg-secondary/40 border-t border-border">
         <div className="mx-auto max-w-7xl">
           <div className="flex items-end justify-between mb-12">
             <h2 className="text-4xl sm:text-5xl font-bold tracking-tighter max-w-2xl">
               Loved by Hyderabad's{" "}
               <span className="font-serif italic font-medium text-electric">most particular wearers.</span>
             </h2>
-            <div className="hidden md:flex items-center gap-2 text-sm text-white/60">
+            <div className="hidden md:flex items-center gap-2 text-sm text-muted-foreground">
               <div className="flex">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} className="size-4 fill-electric text-electric" />
@@ -666,18 +666,19 @@ function HomePage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {TESTIMONIALS.map((t) => (
-              <figure key={t.name} className="bg-white/5 border border-white/10 rounded-3xl p-8 flex flex-col gap-6">
+              <figure key={t.name} className="bg-card border border-border rounded-3xl p-8 flex flex-col gap-6 shadow-sm">
                 <Quote className="size-6 text-electric" />
-                <blockquote className="text-lg leading-relaxed text-white/90 flex-1">"{t.quote}"</blockquote>
+                <blockquote className="text-lg leading-relaxed text-foreground/90 flex-1">"{t.quote}"</blockquote>
                 <figcaption>
                   <p className="font-bold">{t.name}</p>
-                  <p className="text-xs text-white/50 font-serif italic mt-1">{t.context}</p>
+                  <p className="text-xs text-muted-foreground font-serif italic mt-1">{t.context}</p>
                 </figcaption>
               </figure>
             ))}
           </div>
         </div>
       </section>
+
 
       {/* ============== BOOKING / CONTACT ============== */}
       <section id="contact" className="scroll-mt-24 px-6 lg:px-10 pb-20 lg:pb-32">
