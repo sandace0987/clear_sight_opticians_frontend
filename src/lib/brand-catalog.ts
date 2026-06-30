@@ -33,6 +33,37 @@ export type BrandData = {
 
 export const BRANDS: BrandData[] = [
   {
+    slug: "maui-jim",
+    name: "Maui Jim",
+    tag: "Hawaii-born",
+    blurb: "Born on Wailea Beach in 1980. PolarizedPlus2® lenses cut glare and pump colour — sunglasses engineered for island light.",
+    logo: mauiJimLogo.url,
+    models: [
+      {
+        model: "Alika",
+        shape: "geometric",
+        colour: "Crystal with Silver / Tortoise with Gold",
+        priceFrom: 36590,
+        variants: [
+          {
+            id: "crystal",
+            name: "Crystal with Silver",
+            lens: "Blue Hawaii",
+            swatch: "linear-gradient(135deg, #e8edf2 0%, #c4ccd4 50%, #f4f6f8 100%)",
+            images: { front: crystalFront.url, quarter: crystalQuarter.url, side: crystalSide.url },
+          },
+          {
+            id: "tortoise",
+            name: "Tortoise with Gold",
+            lens: "HCL\u00ae Bronze",
+            swatch: "linear-gradient(135deg, #5a3320 0%, #8a5230 50%, #c08a4a 100%)",
+            images: { front: tortoiseFront.url, quarter: tortoiseQuarter.url, side: tortoiseSide.url },
+          },
+        ],
+      },
+    ],
+  },
+  {
     slug: "ray-ban",
     name: "Ray-Ban",
     tag: "American icon",
