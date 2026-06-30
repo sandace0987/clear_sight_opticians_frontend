@@ -30,10 +30,6 @@ function BrandsPage() {
           From Italian ateliers to American icons — each brand we carry is hand-selected
           and stocked across our three Hyderabad studios.
         </p>
-        <div className="mt-5 inline-flex items-center gap-2 bg-electric/10 border border-electric/30 text-electric rounded-full px-4 py-2 text-sm font-semibold">
-          <span className="size-2 rounded-full bg-electric animate-pulse" />
-          Leading supplier in Hyderabad &amp; nearby areas
-        </div>
 
         <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {HOUSES.map((h, i) => (
@@ -66,6 +62,12 @@ function BrandsPage() {
                   <p className="mt-4 text-sm text-muted-foreground group-hover:text-white/70 font-serif italic">
                     {h.note}
                   </p>
+                  {h.slug === "maui-jim" && (
+                    <div className="mt-4 inline-flex items-center gap-2 bg-electric/10 border border-electric/30 text-electric rounded-full px-3 py-1.5 text-xs font-semibold">
+                      <span className="size-1.5 rounded-full bg-electric animate-pulse" />
+                      Leading supplier in Hyderabad &amp; nearby areas
+                    </div>
+                  )}
                 </Link>
               </TiltCard>
             </Reveal>
