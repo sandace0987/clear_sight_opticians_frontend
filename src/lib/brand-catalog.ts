@@ -1,8 +1,25 @@
+import crystalFront from "@/assets/products/maui-jim-alika/crystal-front.webp.asset.json";
+import crystalQuarter from "@/assets/products/maui-jim-alika/crystal-quarter.webp.asset.json";
+import crystalSide from "@/assets/products/maui-jim-alika/crystal-side.webp.asset.json";
+import tortoiseFront from "@/assets/products/maui-jim-alika/tortoise-front.webp.asset.json";
+import tortoiseQuarter from "@/assets/products/maui-jim-alika/tortoise-quarter.webp.asset.json";
+import tortoiseSide from "@/assets/products/maui-jim-alika/tortoise-side.webp.asset.json";
+import mauiJimLogo from "@/assets/brands/maui-jim-logo.webp.asset.json";
+
+export type ColorVariant = {
+  id: string;
+  name: string;
+  lens: string;
+  swatch: string;
+  images: { front: string; quarter: string; side: string };
+};
+
 export type GlassItem = {
   model: string;
   shape: string;
   colour: string;
   priceFrom: number;
+  variants?: ColorVariant[];
 };
 
 export type BrandData = {
@@ -10,6 +27,7 @@ export type BrandData = {
   name: string;
   tag: string;
   blurb: string;
+  logo?: string;
   models: GlassItem[];
 };
 
