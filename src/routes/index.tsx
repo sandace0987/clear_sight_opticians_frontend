@@ -39,13 +39,13 @@ import { motion } from "framer-motion";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Clear Sight Opticians — Luxury Eyewear & Smart Glasses in Hyderabad" },
+      { title: "Clear Sight Opticians | Luxury Eyewear & Smart Glasses in Hyderabad" },
       {
         name: "description",
         content:
           "Curated luxury frames, smart eyewear and clinical eye care across Hyderabad. Ray-Ban Meta & Oakley Meta now with launch pricing.",
       },
-      { property: "og:title", content: "Clear Sight Opticians — Luxury Eyewear in Hyderabad" },
+      { property: "og:title", content: "Clear Sight Opticians | Luxury Eyewear in Hyderabad" },
       {
         property: "og:description",
         content: "Premium prescription glasses, sunglasses, contact lenses and smart eyewear.",
