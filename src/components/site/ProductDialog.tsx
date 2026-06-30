@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { ZoomViewer } from "@/components/motion/ZoomViewer";
+import { HoverLens } from "@/components/motion/HoverLens";
 import { EnquireDialog } from "@/components/site/EnquireDialog";
 import { ArrowUpRight } from "lucide-react";
 import type { ColorVariant } from "@/lib/brand-catalog";
