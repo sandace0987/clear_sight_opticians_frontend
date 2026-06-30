@@ -87,25 +87,25 @@ const WHY = [
 
 const STORES = [
   {
-    name: "Kukatpally Flagship",
-    tag: "Main Branch",
-    address: "Shop No 4, HIG 455 & 456, JNTU Rd, KPHB Phase 6, Kukatpally, Hyderabad, Telangana 500085",
+    name: "Kukatpally (KPHB)",
+    tag: "Flagship",
+    address: "Shop #4, Padmaja Complex, 6th Phase, JNTU Road, KPHB, Kukatpally, Hyderabad, Telangana",
+    phone: "+91 99999 99999",
+    hours: "10:00 AM – 9:30 PM",
+  },
+  {
+    name: "Nizampet",
+    tag: "Studio",
+    address: "Beside Vazra Nirman Pushpak, Nizampet Colony, Hyderabad, Telangana",
+    phone: "+91 99999 99999",
+    hours: "10:00 AM – 9:30 PM",
+  },
+  {
+    name: "Bowenpally",
+    tag: "Studio",
+    address: "Near Delhi Public School, Sikh Village Road, Bowenpally, Hyderabad, Telangana",
     phone: "+91 99999 99999",
     hours: "10:00 AM – 9:00 PM",
-  },
-  {
-    name: "Banjara Hills Studio",
-    tag: "Boutique",
-    address: "Road No. 12, Banjara Hills, Hyderabad, Telangana 500034",
-    phone: "+91 99999 88888",
-    hours: "11:00 AM – 9:30 PM",
-  },
-  {
-    name: "Jubilee Hills Lounge",
-    tag: "Smart Glasses Hub",
-    address: "Road No. 36, Jubilee Hills, Hyderabad, Telangana 500033",
-    phone: "+91 99999 77777",
-    hours: "11:00 AM – 9:00 PM",
   },
 ];
 
@@ -666,7 +666,7 @@ function HomePage() {
             <div className="mt-10 space-y-4 text-sm text-white/80">
               <p className="inline-flex items-center gap-3"><Phone className="size-4 shrink-0 text-electric" /><span>+91 99999 99999</span></p>
               <p className="inline-flex items-center gap-3"><Mail className="size-4 shrink-0 text-electric" /><span>hello@clearsight.in</span></p>
-              <p className="inline-flex items-start gap-3"><MapPin className="size-4 shrink-0 text-electric mt-0.5" /><span>Kukatpally, Banjara Hills, Jubilee Hills</span></p>
+              <p className="inline-flex items-start gap-3"><MapPin className="size-4 shrink-0 text-electric mt-0.5" /><span>Kukatpally (KPHB), Nizampet, Bowenpally</span></p>
             </div>
           </div>
           <form className="lg:col-span-7 bg-white/5 border border-white/10 rounded-3xl p-8 lg:p-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -681,9 +681,9 @@ function HomePage() {
             <label className="flex flex-col gap-2 sm:col-span-2">
               <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/50">Preferred store</span>
               <select className="bg-transparent border-b border-white/20 py-3 focus:outline-none focus:border-electric transition-colors">
-                <option className="bg-ink">Kukatpally Flagship</option>
-                <option className="bg-ink">Banjara Hills Studio</option>
-                <option className="bg-ink">Jubilee Hills Lounge</option>
+                <option className="bg-ink">Kukatpally (KPHB)</option>
+                <option className="bg-ink">Nizampet</option>
+                <option className="bg-ink">Bowenpally</option>
               </select>
             </label>
             <label className="flex flex-col gap-2 sm:col-span-2">
