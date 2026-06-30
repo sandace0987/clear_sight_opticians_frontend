@@ -41,11 +41,14 @@ export function SiteFooter() {
         </div>
 
         <div className="md:col-span-4">
-          <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-5">Kukatpally Flagship</h4>
+          <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-5">Kukatpally (KPHB) Flagship</h4>
           <p className="text-sm text-white/70 leading-relaxed">
-            Shop No 4, HIG 455 &amp; 456, JNTU Rd,<br />
-            KPHB Phase 6, Kukatpally,<br />
-            Hyderabad, Telangana 500085
+            Shop #4, Padmaja Complex,<br />
+            6th Phase, JNTU Road, KPHB,<br />
+            Kukatpally, Hyderabad, Telangana
+          </p>
+          <p className="mt-3 text-sm text-white/70">
+            Also at Nizampet &amp; Bowenpally · Open daily 10:00 AM – 9:30 PM
           </p>
           <a href="tel:+919999999999" className="mt-4 inline-block text-sm font-semibold text-white hover:text-electric">
             +91 99999 99999
