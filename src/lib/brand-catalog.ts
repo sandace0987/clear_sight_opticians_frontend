@@ -25,6 +25,9 @@ import kokuaTealSide from "@/assets/products/maui-jim-kokua/B638-03_side.webp.as
 import kokuaTortoiseFront from "@/assets/products/maui-jim-kokua/H638-10_front.webp.asset.json";
 import kokuaTortoiseQuarter from "@/assets/products/maui-jim-kokua/H638-10_quarter.webp.asset.json";
 import kokuaTortoiseSide from "@/assets/products/maui-jim-kokua/H638-10_side.webp.asset.json";
+import kokuaGreenFront from "@/assets/products/maui-jim-kokua/GM638-02_front.webp.asset.json";
+import kokuaGreenQuarter from "@/assets/products/maui-jim-kokua/GM638-02_quarter.webp.asset.json";
+import kokuaGreenSide from "@/assets/products/maui-jim-kokua/GM638-02_side.webp.asset.json";
 import mauiJimLogo from "@/assets/brands/maui-jim-logo.webp.asset.json";
 
 export type ColorVariant = {
@@ -129,7 +132,7 @@ export const BRANDS: BrandData[] = [
       {
         model: "Kokua",
         shape: "rectangle",
-        colour: "Matte Black / Teal / Tortoise",
+        colour: "Matte Black / Teal / Tortoise / Black Green",
         priceFrom: 13190,
         variants: [
           {
@@ -152,6 +155,13 @@ export const BRANDS: BrandData[] = [
             lens: "HCL\u00ae Bronze",
             swatch: "linear-gradient(135deg, #3a2113 0%, #7a4420 50%, #c0772f 100%)",
             images: { front: kokuaTortoiseFront.url, quarter: kokuaTortoiseQuarter.url, side: kokuaTortoiseSide.url },
+          },
+          {
+            id: "black-green",
+            name: "Matte Black",
+            lens: "MAUIGreen\u00ae",
+            swatch: "linear-gradient(135deg, #0c1f12 0%, #1f6b2e 50%, #2fd25a 100%)",
+            images: { front: kokuaGreenFront.url, quarter: kokuaGreenQuarter.url, side: kokuaGreenSide.url },
           },
         ],
       },
