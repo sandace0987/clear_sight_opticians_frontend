@@ -48,7 +48,7 @@ function ContactPage() {
               <h3 className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground mb-3">Main Address</h3>
               <p className="text-sm text-muted-foreground leading-relaxed inline-flex items-start gap-3">
                 <MapPin className="size-5 text-electric mt-0.5" />
-                Shop #4, Padmaja Complex, 6th Phase, JNTU Road, KPHB, Kukatpally, Hyderabad, Telangana
+                Shop #4, Padmaja Complex, JNTU Road, 6th Phase, KPHB, Hyderabad - 500085
               </p>
               <p className="mt-3 text-sm text-muted-foreground">
                 Also at Nizampet &amp; Bowenpally · Open daily 10:00 AM – 9:30 PM

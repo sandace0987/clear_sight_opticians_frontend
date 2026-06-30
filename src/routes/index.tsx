@@ -89,7 +89,7 @@ const STORES = [
   {
     name: "Kukatpally (KPHB)",
     tag: "Flagship",
-    address: "Shop #4, Padmaja Complex, 6th Phase, JNTU Road, KPHB, Kukatpally, Hyderabad, Telangana",
+    address: "Shop #4, Padmaja Complex, JNTU Road, 6th Phase, KPHB, Hyderabad - 500085",
     phone: "+91 94405 25789",
     hours: "10:00 AM – 9:30 PM",
   },
