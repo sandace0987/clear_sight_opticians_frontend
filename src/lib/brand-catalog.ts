@@ -10,6 +10,12 @@ import castlesBlackSide from "@/assets/products/maui-jim-castles/728-2M_side.web
 import castlesChocFront from "@/assets/products/maui-jim-castles/H728-01M_front.webp.asset.json";
 import castlesChocQuarter from "@/assets/products/maui-jim-castles/H728-01M_quarter.webp.asset.json";
 import castlesChocSide from "@/assets/products/maui-jim-castles/H728-01M_side.webp.asset.json";
+import hookipaBlackFront from "@/assets/products/maui-jim-hookipa/407-02_front.webp.asset.json";
+import hookipaBlackQuarter from "@/assets/products/maui-jim-hookipa/407-02_quarter.webp.asset.json";
+import hookipaBlackSide from "@/assets/products/maui-jim-hookipa/407-02_side.webp.asset.json";
+import hookipaBlueFront from "@/assets/products/maui-jim-hookipa/B407-11_front.webp.asset.json";
+import hookipaBlueQuarter from "@/assets/products/maui-jim-hookipa/B407-11_quarter.webp.asset.json";
+import hookipaBlueSide from "@/assets/products/maui-jim-hookipa/B407-11_side.webp.asset.json";
 import mauiJimLogo from "@/assets/brands/maui-jim-logo.webp.asset.json";
 
 export type ColorVariant = {
