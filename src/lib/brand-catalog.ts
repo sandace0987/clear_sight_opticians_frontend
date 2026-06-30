@@ -132,7 +132,7 @@ export const BRANDS: BrandData[] = [
       {
         model: "Kokua",
         shape: "rectangle",
-        colour: "Matte Black / Teal / Tortoise",
+        colour: "Matte Black / Teal / Tortoise / Black Green",
         priceFrom: 13190,
         variants: [
           {
