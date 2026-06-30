@@ -16,6 +16,15 @@ import hookipaBlackSide from "@/assets/products/maui-jim-hookipa/407-02_side.web
 import hookipaBlueFront from "@/assets/products/maui-jim-hookipa/B407-11_front.webp.asset.json";
 import hookipaBlueQuarter from "@/assets/products/maui-jim-hookipa/B407-11_quarter.webp.asset.json";
 import hookipaBlueSide from "@/assets/products/maui-jim-hookipa/B407-11_side.webp.asset.json";
+import kokuaBlackFront from "@/assets/products/maui-jim-kokua/638-02_front.webp.asset.json";
+import kokuaBlackQuarter from "@/assets/products/maui-jim-kokua/638-02_quarter.webp.asset.json";
+import kokuaBlackSide from "@/assets/products/maui-jim-kokua/638-02_side.webp.asset.json";
+import kokuaTealFront from "@/assets/products/maui-jim-kokua/B638-03_front.webp.asset.json";
+import kokuaTealQuarter from "@/assets/products/maui-jim-kokua/B638-03_quarter.webp.asset.json";
+import kokuaTealSide from "@/assets/products/maui-jim-kokua/B638-03_side.webp.asset.json";
+import kokuaTortoiseFront from "@/assets/products/maui-jim-kokua/H638-10_front.webp.asset.json";
+import kokuaTortoiseQuarter from "@/assets/products/maui-jim-kokua/H638-10_quarter.webp.asset.json";
+import kokuaTortoiseSide from "@/assets/products/maui-jim-kokua/H638-10_side.webp.asset.json";
 import mauiJimLogo from "@/assets/brands/maui-jim-logo.webp.asset.json";
 
 export type ColorVariant = {
