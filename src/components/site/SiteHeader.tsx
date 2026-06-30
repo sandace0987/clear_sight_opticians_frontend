@@ -181,19 +181,25 @@ export function SiteHeader() {
         )}
       >
         <nav className="px-6 py-5 flex flex-col gap-2">
-          {NAV.map((item) => (
-            <Link
-              key={item.label}
-              to={item.to}
-              hash={item.hash}
-              onClick={handleHashClick(item.hash)}
-              activeOptions={{ exact: true, includeHash: true }}
-              className="py-2 text-sm font-medium text-foreground/80"
-              activeProps={{ className: "text-electric" }}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {NAV.map((item) => {
+            const isActive =
+              location.pathname === "/" &&
+              (item.hash ? item.hash === activeSection : activeSection === undefined);
+            return (
+              <Link
+                key={item.label}
+                to={item.to}
+                hash={item.hash}
+                onClick={handleHashClick(item.hash)}
+                className={cn(
+                  "py-2 text-sm font-medium",
+                  isActive ? "text-electric font-bold" : "text-foreground/80",
+                )}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
           <Link
             to="/contact"
             className="mt-2 text-center bg-electric text-white px-5 py-3 rounded-full text-sm font-semibold"
