@@ -413,9 +413,8 @@ function HomePage() {
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
             {COLLECTIONS.map((c, i) => (
-              <Link
+              <div
                 key={c.title}
-                to="/brands"
                 className="group relative aspect-[5/4] rounded-2xl bg-secondary p-6 sm:p-8 flex flex-col justify-between overflow-hidden hover:bg-ink hover:text-white transition-colors"
               >
                 <CategoryGlasses
@@ -429,8 +428,7 @@ function HomePage() {
                   <h3 className="text-2xl sm:text-3xl font-bold tracking-tight">{c.title}</h3>
                   <p className="text-sm text-muted-foreground group-hover:text-white/70 mt-1">{c.count}</p>
                 </div>
-                <ArrowUpRight className="absolute top-6 right-6 size-5 opacity-40 group-hover:opacity-100 group-hover:text-electric transition-all" />
-              </Link>
+              </div>
             ))}
           </div>
         </div>
