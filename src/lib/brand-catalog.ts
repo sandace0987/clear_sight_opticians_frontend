@@ -217,6 +217,28 @@ export const BRANDS: BrandData[] = [
           },
         ],
       },
+      {
+        model: "Sugar Beach",
+        shape: "aviator",
+        colour: "Gloss Black / Khaki Green",
+        priceFrom: 13190,
+        variants: [
+          {
+            id: "black",
+            name: "Gloss Black",
+            lens: "Neutral Grey",
+            swatch: "linear-gradient(135deg, #1a1a1c 0%, #3a3a3d 50%, #111113 100%)",
+            images: { front: sugarBlackFront.url, quarter: sugarBlackQuarter.url, side: sugarBlackSide.url },
+          },
+          {
+            id: "khaki-green",
+            name: "Shiny Transparent Khaki Green",
+            lens: "Maui HT\u2122",
+            swatch: "linear-gradient(135deg, #3d4226 0%, #6f7a3e 50%, #9fae5c 100%)",
+            images: { front: sugarKhakiFront.url, quarter: sugarKhakiQuarter.url, side: sugarKhakiSide.url },
+          },
+        ],
+      },
     ],
   },
   {
