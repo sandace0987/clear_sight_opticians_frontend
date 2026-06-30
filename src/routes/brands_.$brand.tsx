@@ -1,8 +1,10 @@
+import * as React from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
-import { getBrand, BRANDS, type BrandData } from "@/lib/brand-catalog";
+import { getBrand, BRANDS, type BrandData, type GlassItem } from "@/lib/brand-catalog";
 import { GlassSilhouette } from "@/components/site/GlassSilhouette";
 import { EnquireDialog } from "@/components/site/EnquireDialog";
+import { ProductDialog } from "@/components/site/ProductDialog";
 import { Reveal } from "@/components/motion/Reveal";
 import { TiltCard } from "@/components/motion/TiltCard";
 import { MagnifyLens } from "@/components/motion/MagnifyLens";
