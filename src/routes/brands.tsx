@@ -9,7 +9,7 @@ export const Route = createFileRoute("/brands")({
   head: () => ({
     meta: [
       { title: "Brands — Clear Sight Opticians" },
-      { name: "description", content: "Ray-Ban, Oakley, Prada, Gucci, Burberry, Persol, Carrera and more — curated luxury eyewear in Hyderabad." },
+      { name: "description", content: "Maui Jim, Ray-Ban, Oakley, Prada, Gucci, Persol and more — curated luxury eyewear in Hyderabad." },
       { property: "og:title", content: "Brands — Clear Sight Opticians" },
       { property: "og:description", content: "Curated luxury eyewear houses, in one place." },
     ],
