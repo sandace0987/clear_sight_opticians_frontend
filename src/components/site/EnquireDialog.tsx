@@ -7,14 +7,15 @@ const SHOP_WHATSAPP = "919440525789"; // shop number, digits only, country code 
 type Props = {
   brand: string;
   model: string;
+  colour?: string;
   trigger: React.ReactNode;
 };
 
-export function EnquireDialog({ brand, model, trigger }: Props) {
+export function EnquireDialog({ brand, model, colour: initialColour, trigger }: Props) {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [size, setSize] = React.useState("Medium");
-  const [colour, setColour] = React.useState("");
+  const [colour, setColour] = React.useState(initialColour ?? "");
   const [prescription, setPrescription] = React.useState("No");
   const [notes, setNotes] = React.useState("");
 
