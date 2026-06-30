@@ -7,7 +7,7 @@ import { EnquireDialog } from "@/components/site/EnquireDialog";
 import { ProductDialog } from "@/components/site/ProductDialog";
 import { Reveal } from "@/components/motion/Reveal";
 import { TiltCard } from "@/components/motion/TiltCard";
-import { MagnifyLens } from "@/components/motion/MagnifyLens";
+
 
 export const Route = createFileRoute("/brands_/$brand")({
   head: ({ params }) => {
