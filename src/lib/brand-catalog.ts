@@ -28,6 +28,12 @@ import kokuaTortoiseSide from "@/assets/products/maui-jim-kokua/H638-10_side.web
 import kokuaGreenFront from "@/assets/products/maui-jim-kokua/GM638-02_front.webp.asset.json";
 import kokuaGreenQuarter from "@/assets/products/maui-jim-kokua/GM638-02_quarter.webp.asset.json";
 import kokuaGreenSide from "@/assets/products/maui-jim-kokua/GM638-02_side.webp.asset.json";
+import liquidBlackFront from "@/assets/products/maui-jim-liquid-sunshine/601-02_front.webp.asset.json";
+import liquidBlackQuarter from "@/assets/products/maui-jim-liquid-sunshine/601-02_quarter.webp.asset.json";
+import liquidBlackSide from "@/assets/products/maui-jim-liquid-sunshine/601-02_side.webp.asset.json";
+import liquidRoseFront from "@/assets/products/maui-jim-liquid-sunshine/R601-04_front.webp.asset.json";
+import liquidRoseQuarter from "@/assets/products/maui-jim-liquid-sunshine/R601-04_quarter.webp.asset.json";
+import liquidRoseSide from "@/assets/products/maui-jim-liquid-sunshine/R601-04_side.webp.asset.json";
 import mauiJimLogo from "@/assets/brands/maui-jim-logo.webp.asset.json";
 
 export type ColorVariant = {
