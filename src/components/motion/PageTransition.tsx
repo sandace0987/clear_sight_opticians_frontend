@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRouterState } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { useReducedMotion } from "@/hooks/use-motion-prefs";
@@ -10,17 +10,12 @@ export function PageTransition({ children }: { children: ReactNode }) {
 
   if (reduced) return <>{children}</>;
 
+  // Enter-only transition: each route animates in fresh on commit. We deliberately
+  // avoid AnimatePresence "wait" mode here — holding the exiting <Outlet/> caused the
+  // previous page (e.g. home) to flash briefly before the new page mounted.
   return (
-    <AnimatePresence mode="wait" initial={false}>
-      <motion.div
-        key={pathname}
-        initial="hidden"
-        animate="show"
-        exit="exit"
-        variants={pageTransition}
-      >
-        {children}
-      </motion.div>
-    </AnimatePresence>
+    <motion.div key={pathname} initial="hidden" animate="show" variants={pageTransition}>
+      {children}
+    </motion.div>
   );
 }
