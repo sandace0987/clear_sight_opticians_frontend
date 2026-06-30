@@ -126,6 +126,35 @@ export const BRANDS: BrandData[] = [
           },
         ],
       },
+      {
+        model: "Kokua",
+        shape: "rectangle",
+        colour: "Matte Black / Teal / Tortoise",
+        priceFrom: 13190,
+        variants: [
+          {
+            id: "black",
+            name: "Matte Black",
+            lens: "Neutral Grey",
+            swatch: "linear-gradient(135deg, #1a1a1c 0%, #3a3a3d 50%, #111113 100%)",
+            images: { front: kokuaBlackFront.url, quarter: kokuaBlackQuarter.url, side: kokuaBlackSide.url },
+          },
+          {
+            id: "teal",
+            name: "Teal",
+            lens: "Blue Hawaii",
+            swatch: "linear-gradient(135deg, #155e63 0%, #1f8a8f 50%, #2bb3d6 100%)",
+            images: { front: kokuaTealFront.url, quarter: kokuaTealQuarter.url, side: kokuaTealSide.url },
+          },
+          {
+            id: "tortoise",
+            name: "Tortoise",
+            lens: "HCL\u00ae Bronze",
+            swatch: "linear-gradient(135deg, #3a2113 0%, #7a4420 50%, #c0772f 100%)",
+            images: { front: kokuaTortoiseFront.url, quarter: kokuaTortoiseQuarter.url, side: kokuaTortoiseSide.url },
+          },
+        ],
+      },
     ],
   },
   {
