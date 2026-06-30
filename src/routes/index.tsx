@@ -121,6 +121,15 @@ const TESTIMONIALS = [
   },
 ];
 
+const OFFERS = [
+  { tag: "Smart Glasses", title: "Up to 25% off Ray-Ban Meta", desc: "All silhouettes, all colourways. In-store only.", accent: true },
+  { tag: "Smart Glasses", title: "15% off Oakley Meta HSTN", desc: "Including prescription fitting in our lab." },
+  { tag: "Luxury", title: "Save ₹5,000 on Prada & Gucci", desc: "On any full-price optical frame above ₹20,000." },
+  { tag: "Bundle", title: "Frame + lenses, ₹6,499", desc: "Complete starter package with anti-glare coating." },
+  { tag: "Sunglasses", title: "Buy 1, get 1 at 50%", desc: "Across Ray-Ban, Carrera, Vogue & Police." },
+  { tag: "Contact Lenses", title: "3 months free", desc: "On any annual contact lens subscription." },
+];
+
 function HomePage() {
   const hash = useRouterState({ select: (s) => s.location.hash });
   useEffect(() => {

@@ -11,7 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as StoresRouteImport } from './routes/stores'
 import { Route as SmartGlassesRouteImport } from './routes/smart-glasses'
-import { Route as OffersRouteImport } from './routes/offers'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BrandsRouteImport } from './routes/brands'
 import { Route as AboutRouteImport } from './routes/about'
@@ -26,11 +25,6 @@ const StoresRoute = StoresRouteImport.update({
 const SmartGlassesRoute = SmartGlassesRouteImport.update({
   id: '/smart-glasses',
   path: '/smart-glasses',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const OffersRoute = OffersRouteImport.update({
-  id: '/offers',
-  path: '/offers',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -64,7 +58,6 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/brands': typeof BrandsRoute
   '/contact': typeof ContactRoute
-  '/offers': typeof OffersRoute
   '/smart-glasses': typeof SmartGlassesRoute
   '/stores': typeof StoresRoute
   '/brands/$brand': typeof BrandsBrandRoute
@@ -74,7 +67,6 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/brands': typeof BrandsRoute
   '/contact': typeof ContactRoute
-  '/offers': typeof OffersRoute
   '/smart-glasses': typeof SmartGlassesRoute
   '/stores': typeof StoresRoute
   '/brands/$brand': typeof BrandsBrandRoute
@@ -85,7 +77,6 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/brands': typeof BrandsRoute
   '/contact': typeof ContactRoute
-  '/offers': typeof OffersRoute
   '/smart-glasses': typeof SmartGlassesRoute
   '/stores': typeof StoresRoute
   '/brands_/$brand': typeof BrandsBrandRoute
@@ -97,7 +88,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/brands'
     | '/contact'
-    | '/offers'
     | '/smart-glasses'
     | '/stores'
     | '/brands/$brand'
@@ -107,7 +97,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/brands'
     | '/contact'
-    | '/offers'
     | '/smart-glasses'
     | '/stores'
     | '/brands/$brand'
@@ -117,7 +106,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/brands'
     | '/contact'
-    | '/offers'
     | '/smart-glasses'
     | '/stores'
     | '/brands_/$brand'
@@ -128,7 +116,6 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   BrandsRoute: typeof BrandsRoute
   ContactRoute: typeof ContactRoute
-  OffersRoute: typeof OffersRoute
   SmartGlassesRoute: typeof SmartGlassesRoute
   StoresRoute: typeof StoresRoute
   BrandsBrandRoute: typeof BrandsBrandRoute
@@ -148,13 +135,6 @@ declare module '@tanstack/react-router' {
       path: '/smart-glasses'
       fullPath: '/smart-glasses'
       preLoaderRoute: typeof SmartGlassesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/offers': {
-      id: '/offers'
-      path: '/offers'
-      fullPath: '/offers'
-      preLoaderRoute: typeof OffersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -200,7 +180,6 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   BrandsRoute: BrandsRoute,
   ContactRoute: ContactRoute,
-  OffersRoute: OffersRoute,
   SmartGlassesRoute: SmartGlassesRoute,
   StoresRoute: StoresRoute,
   BrandsBrandRoute: BrandsBrandRoute,
