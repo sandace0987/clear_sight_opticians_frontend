@@ -196,7 +196,7 @@ function ModelCard({ m, index, brandName }: { m: GlassItem; index: number; brand
           0{index + 1}
         </span>
         {m.is_hot ? (
-          <span className="inline-flex items-center gap-1 rounded-full bg-red-600 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white shadow-sm">
+          <span className="inline-flex items-center gap-1 rounded-full bg-red-700/90 px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.16em] text-white/95">
             Selling fast
           </span>
         ) : (
