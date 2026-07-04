@@ -22,7 +22,7 @@ export const FRAMES: Frame[] = [
   { id: "prada-cateye",      name: "Cat-Eye",   brand: "Prada",     genre: "Cat-Eye",   src: prada,       widthRatio: 0.98, yOffsetRatio: 0.02 },
   { id: "burberry-square",   name: "Square",    brand: "Burberry",  genre: "Square",    src: burberry,    widthRatio: 1.00, yOffsetRatio: 0.04 },
   { id: "mauijim-aviator",   name: "Aviator",   brand: "Maui Jim",  genre: "Aviator",   src: mauiAviator, widthRatio: 1.04, yOffsetRatio: 0.10 },
-  { id: "prada-rectangle",   name: "Rectangle", brand: "Prada",     genre: "Rectangle", src: pradaRect,   widthRatio: 0.98, yOffsetRatio: 0.04 },
+  { id: "prada-rectangle",   name: "Rectangle", brand: "Prada",     genre: "Rectangle", src: pradaRect,   widthRatio: 0.98, yOffsetRatio: 0.13 },
   { id: "burberry-wayfarer", name: "Wayfarer",  brand: "Burberry",  genre: "Wayfarer",  src: burberryWay, widthRatio: 1.02, yOffsetRatio: 0.04 },
   { id: "mauijim-sport",     name: "Sport",     brand: "Maui Jim",  genre: "Sport",     src: mauiSport,   widthRatio: 1.04, yOffsetRatio: 0.06 },
 ];
