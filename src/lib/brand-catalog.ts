@@ -354,20 +354,6 @@ export const BRANDS: BrandData[] = [
     ],
   },
   {
-    slug: "vogue-eyewear",
-    name: "Vogue Eyewear",
-    tag: "Fashion forward",
-    blurb: "Trend-led capsules co-designed with style icons — accessible fashion eyewear.",
-    models: [
-      { model: "Gigi Cat-Eye", shape: "cateye", colour: "Tortoise", priceFrom: 5990 },
-      { model: "Hailey Square", shape: "rectangle", colour: "Black", priceFrom: 5490 },
-      { model: "Oversized Acetate", shape: "oversized", colour: "Honey", priceFrom: 6290 },
-      { model: "Round Metal", shape: "round", colour: "Rose Gold", priceFrom: 5790 },
-      { model: "Pilot Mini", shape: "aviator", colour: "Gold", priceFrom: 5990 },
-      { model: "Geometric Pop", shape: "geometric", colour: "Crystal Pink", priceFrom: 5490 },
-    ],
-  },
-  {
     slug: "police",
     name: "Police",
     tag: "Italian cool",
