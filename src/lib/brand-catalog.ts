@@ -92,6 +92,9 @@ import burberryB2379uSide from "@/assets/products/burberry-b2379u/side.webp.asse
 import burberryB2389Front from "@/assets/products/burberry-b2389/front.webp.asset.json";
 import burberryB2389Quarter from "@/assets/products/burberry-b2389/quarter.webp.asset.json";
 import burberryB2389Side from "@/assets/products/burberry-b2389/side.webp.asset.json";
+import burberryB2403Front from "@/assets/products/burberry-b2403/front.avif.asset.json";
+import burberryB2403Quarter from "@/assets/products/burberry-b2403/quarter.avif.asset.json";
+import burberryB2403Side from "@/assets/products/burberry-b2403/side.avif.asset.json";
 
 export type ColorVariant = {
   id: string;
@@ -629,6 +632,25 @@ export const BRANDS: BrandData[] = [
               front: burberryB2389Front.url,
               quarter: burberryB2389Quarter.url,
               side: burberryB2389Side.url,
+            },
+          },
+        ],
+      },
+      {
+        model: "B2403",
+        shape: "rectangle",
+        colour: "Black",
+        priceFrom: 20490,
+        variants: [
+          {
+            id: "black",
+            name: "Black",
+            lens: "Optical / Clear",
+            swatch: "linear-gradient(135deg, #2b2b2b 0%, #4a4a4a 50%, #1a1a1a 100%)",
+            images: {
+              front: burberryB2403Front.url,
+              quarter: burberryB2403Quarter.url,
+              side: burberryB2403Side.url,
             },
           },
         ],
