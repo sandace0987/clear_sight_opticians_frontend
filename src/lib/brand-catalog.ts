@@ -95,6 +95,9 @@ import burberryB2389Side from "@/assets/products/burberry-b2389/side.webp.asset.
 import burberryB2403Front from "@/assets/products/burberry-b2403/front.avif.asset.json";
 import burberryB2403Quarter from "@/assets/products/burberry-b2403/quarter.avif.asset.json";
 import burberryB2403Side from "@/assets/products/burberry-b2403/side.avif.asset.json";
+import burberryB2413dFront from "@/assets/products/burberry-b2413d/front.png.asset.json";
+import burberryB2413dQuarter from "@/assets/products/burberry-b2413d/quarter.png.asset.json";
+import burberryB2413dSide from "@/assets/products/burberry-b2413d/side.png.asset.json";
 
 export type ColorVariant = {
   id: string;
@@ -651,6 +654,25 @@ export const BRANDS: BrandData[] = [
               front: burberryB2403Front.url,
               quarter: burberryB2403Quarter.url,
               side: burberryB2403Side.url,
+            },
+          },
+        ],
+      },
+      {
+        model: "B2413D",
+        shape: "round",
+        colour: "Black / Gold",
+        priceFrom: 28430,
+        variants: [
+          {
+            id: "black-gold",
+            name: "Black / Gold",
+            lens: "Optical / Clear",
+            swatch: "linear-gradient(135deg, #1a1a1a 0%, #caa24a 50%, #2b2b2b 100%)",
+            images: {
+              front: burberryB2413dFront.url,
+              quarter: burberryB2413dQuarter.url,
+              side: burberryB2413dSide.url,
             },
           },
         ],
