@@ -90,7 +90,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 bg-background/85 backdrop-blur-xl border-b border-border/60">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-        <div className="relative flex h-16 lg:h-20 items-center justify-between gap-2 sm:gap-4">
+        <div className="relative flex h-20 lg:h-24 items-center justify-between gap-2 sm:gap-4">
           {/* Logo mark — left */}
           <Link to="/" aria-label="Clear Sight Opticians" className="inline-flex items-center justify-start shrink-0">
             <img
