@@ -91,6 +91,40 @@ const BRANDS: MarqueeBrand[] = [
 const logoUrl = (domain: string) =>
   `https://img.logo.dev/${domain}?token=${LOGO_TOKEN}&format=png&size=200&retina=true`;
 
+/** Marquee logo — colourises on hover (desktop) and on tap/click (touch devices). */
+function MarqueeItem({ b }: { b: MarqueeBrand }) {
+  const [on, setOn] = useState(false);
+  return (
+    <button
+      type="button"
+      onClick={() => setOn((v) => !v)}
+      className="flex flex-col items-center justify-center gap-2 px-10 shrink-0 focus:outline-none"
+    >
+      <div className="relative flex items-center justify-center">
+        <img
+          src={logoUrl(b.domain)}
+          alt={`${b.name} logo`}
+          loading="lazy"
+          className={cn(
+            "h-10 lg:h-14 w-auto max-w-[180px] object-contain transition duration-300 hover:opacity-100 hover:grayscale-0",
+            on ? "opacity-100 grayscale-0" : "opacity-70 grayscale",
+          )}
+        />
+        {b.ai && (
+          <span className="absolute -top-2 -right-1 rounded-full bg-primary px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide text-primary-foreground shadow-sm">
+            +AI
+          </span>
+        )}
+      </div>
+      <span className="text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground whitespace-nowrap">
+        {b.name}
+      </span>
+    </button>
+  );
+}
+
+
+
 
 const COLLECTIONS = [
   { title: "Eyeglasses", count: "320+ frames" },
