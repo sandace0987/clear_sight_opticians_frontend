@@ -77,11 +77,13 @@ export function ChatBot() {
       { type: "user", content: "I have another question" },
       { type: "bot", content: FALLBACK_MESSAGE, isHtml: true },
     ]);
+    setShowContact(true);
     setShowQuestions(true);
   };
 
   const reset = () => {
     setMessages([{ type: "bot", content: WELCOME }]);
+    setShowContact(false);
     setShowQuestions(true);
   };
 
