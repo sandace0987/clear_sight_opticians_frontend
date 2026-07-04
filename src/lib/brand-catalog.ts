@@ -831,6 +831,7 @@ export type House = {
   note: string;
   logo?: string;
   domain?: string;
+  category?: Category;
 };
 
 export const HOUSES: House[] = [
