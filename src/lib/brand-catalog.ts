@@ -608,12 +608,12 @@ export type House = {
 };
 
 export const HOUSES: House[] = [
-  { slug: "maui-jim", name: "Maui Jim", tag: "Hawaii-born", note: "Alika & PolarizedPlus2®", logo: mauiJimLogo.url },
   { slug: "ray-ban", name: "Ray-Ban", tag: "American icon", note: "Wayfarer, Aviator & Meta editions" },
   { slug: "oakley", name: "Oakley", tag: "Performance", note: "Sport, lifestyle & Meta HSTN" },
   { slug: "prada", name: "Prada", tag: "Italian luxury", note: "Linea Rossa & Symbole" },
-  { slug: "burberry", name: "Burberry", tag: "British heritage", note: "Check & monogram series" },
-  { slug: "carrera", name: "Carrera", tag: "Motorsport DNA", note: "Aviator & retro sport" },
   { slug: "tom-ford", name: "Tom Ford", tag: "Modern luxury", note: "Optical & oversize sun" },
+  { slug: "burberry", name: "Burberry", tag: "British heritage", note: "Check & monogram series" },
   { slug: "police", name: "Police", tag: "Italian cool", note: "Sport & lifestyle" },
+  { slug: "carrera", name: "Carrera", tag: "Motorsport DNA", note: "Aviator & retro sport" },
+  { slug: "maui-jim", name: "Maui Jim", tag: "Hawaii-born", note: "Alika & PolarizedPlus2®", logo: mauiJimLogo.url },
 ];
