@@ -526,6 +526,25 @@ export const BRANDS: BrandData[] = [
     tag: "British heritage",
     blurb: "Check, monogram and trench-coat tailoring translated into eyewear from London.",
     models: [
+      {
+        model: "B2378",
+        shape: "rectangle",
+        colour: "Crystal",
+        priceFrom: 22290,
+        variants: [
+          {
+            id: "crystal",
+            name: "Crystal",
+            lens: "Optical / Clear",
+            swatch: "linear-gradient(135deg, #e6e8ea 0%, #f6f7f8 50%, #d3d6d9 100%)",
+            images: {
+              front: burberryB2378Front.url,
+              quarter: burberryB2378Quarter.url,
+              side: burberryB2378Side.url,
+            },
+          },
+        ],
+      },
       { model: "Check Cat-Eye", shape: "cateye", colour: "Vintage Check", priceFrom: 18990 },
       { model: "Heritage Round", shape: "round", colour: "Havana", priceFrom: 17490 },
       { model: "Monogram Square", shape: "rectangle", colour: "Black / Beige", priceFrom: 18490 },
