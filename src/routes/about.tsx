@@ -82,8 +82,8 @@ function AboutPage() {
       <section className="px-6 lg:px-10 pb-20 lg:pb-28">
         <div className="mx-auto max-w-7xl bg-ink text-white rounded-3xl p-8 lg:p-14 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-4">
-            <div className="aspect-square rounded-3xl bg-white/5 border border-white/10 grid place-items-center">
-              <span className="text-6xl font-bold tracking-tighter text-electric">MA</span>
+            <div className="aspect-square rounded-3xl overflow-hidden border border-white/10">
+              <img src={madhuPhoto} alt="Madhu A — Founder & Chief Optometrist" className="w-full h-full object-cover" />
             </div>
           </div>
           <div className="lg:col-span-8">
