@@ -13,6 +13,7 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { FloatingVideoCard } from "@/components/site/FloatingVideoCard";
 import { ScrollToTop } from "@/components/site/ScrollToTop";
+import { ChatBot } from "@/components/site/ChatBot";
 import { PageTransition } from "@/components/motion/PageTransition";
 import appCss from "../styles.css?url";
 
