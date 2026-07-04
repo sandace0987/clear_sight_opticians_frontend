@@ -98,6 +98,9 @@ import burberryB2403Side from "@/assets/products/burberry-b2403/side.avif.asset.
 import burberryB2413dFront from "@/assets/products/burberry-b2413d/front.png.asset.json";
 import burberryB2413dQuarter from "@/assets/products/burberry-b2413d/quarter.png.asset.json";
 import burberryB2413dSide from "@/assets/products/burberry-b2413d/side.png.asset.json";
+import burberryB4335Front from "@/assets/products/burberry-b4335/front.webp.asset.json";
+import burberryB4335Quarter from "@/assets/products/burberry-b4335/quarter.webp.asset.json";
+import burberryB4335Side from "@/assets/products/burberry-b4335/side.webp.asset.json";
 
 export type ColorVariant = {
   id: string;
@@ -673,6 +676,25 @@ export const BRANDS: BrandData[] = [
               front: burberryB2413dFront.url,
               quarter: burberryB2413dQuarter.url,
               side: burberryB2413dSide.url,
+            },
+          },
+        ],
+      },
+      {
+        model: "BE4335 Maple",
+        shape: "rectangle",
+        colour: "Black",
+        priceFrom: 18690,
+        variants: [
+          {
+            id: "black-grey",
+            name: "Black / Grey Gradient",
+            lens: "Sunglasses / Grey Gradient",
+            swatch: "linear-gradient(135deg, #2b2b2b 0%, #6b6b6b 50%, #1a1a1a 100%)",
+            images: {
+              front: burberryB4335Front.url,
+              quarter: burberryB4335Quarter.url,
+              side: burberryB4335Side.url,
             },
           },
         ],
