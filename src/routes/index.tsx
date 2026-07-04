@@ -20,7 +20,7 @@ import {
 
 import { HOUSES } from "@/lib/brand-catalog";
 import heroPortrait from "@/assets/hero-portrait.jpg";
-import pradaModelFemale from "@/assets/brands/prada-model-female.jpg";
+import pradaModelFemale from "@/assets/brands/prada-model-female.png";
 
 import raybanMetaHero from "@/assets/rayban-meta-hero.jpg";
 import oakleyMeta from "@/assets/oakley-meta.jpg";
