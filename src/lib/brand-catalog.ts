@@ -312,20 +312,6 @@ export const BRANDS: BrandData[] = [
     ],
   },
   {
-    slug: "persol",
-    name: "Persol",
-    tag: "Handmade Italy",
-    blurb: "Turin's craft house — Meflecto temples, crystal lenses and the unmistakable arrow.",
-    models: [
-      { model: "649 Original", shape: "rectangle", colour: "Havana / Crystal Green", priceFrom: 21990 },
-      { model: "714 Folding", shape: "wayfarer", colour: "Black / Polar", priceFrom: 26990 },
-      { model: "Steve McQueen Edition", shape: "wayfarer", colour: "Tortoise", priceFrom: 27990 },
-      { model: "Round Acetate", shape: "round", colour: "Terra di Siena", priceFrom: 19990 },
-      { model: "Aviator Crystal", shape: "aviator", colour: "Gold", priceFrom: 22490 },
-      { model: "Cellor Cat-Eye", shape: "cateye", colour: "Black", priceFrom: 20990 },
-    ],
-  },
-  {
     slug: "carrera",
     name: "Carrera",
     tag: "Motorsport DNA",
