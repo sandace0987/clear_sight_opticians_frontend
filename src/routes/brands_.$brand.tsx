@@ -168,6 +168,8 @@ function ModelCard({ m, index, brandName }: { m: GlassItem; index: number; brand
   const [variantId, setVariantId] = React.useState(m.variants?.[0].id ?? "");
   const [open, setOpen] = React.useState(false);
   const variant = m.variants?.find((v) => v.id === variantId) ?? m.variants?.[0];
+  const collection =
+    brandName === "Prada" ? (m.model.includes("Linea Rossa") ? "Linea Rossa" : "Milano") : null;
 
   return (
     <article
