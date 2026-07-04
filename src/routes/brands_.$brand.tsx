@@ -117,10 +117,29 @@ function BrandPage() {
 function ModelCard({ m, index, brandName }: { m: GlassItem; index: number; brandName: string }) {
   const hasVariants = !!m.variants && m.variants.length > 0;
   const [variantId, setVariantId] = React.useState(m.variants?.[0].id ?? "");
+  const [open, setOpen] = React.useState(false);
   const variant = m.variants?.find((v) => v.id === variantId) ?? m.variants?.[0];
 
   return (
-    <article className="group bg-secondary/60 border border-border rounded-3xl p-7 flex flex-col h-full">
+    <article
+      className={`group bg-secondary/60 border border-border rounded-3xl p-7 flex flex-col h-full ${
+        hasVariants ? "cursor-pointer" : ""
+      }`}
+      onClick={hasVariants ? () => setOpen(true) : undefined}
+      role={hasVariants ? "button" : undefined}
+      tabIndex={hasVariants ? 0 : undefined}
+      onKeyDown={
+        hasVariants
+          ? (e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                setOpen(true);
+              }
+            }
+          : undefined
+      }
+      aria-label={hasVariants ? `View ${m.model} details` : undefined}
+    >
       <div className="flex items-start justify-between">
         <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground">
           0{index + 1}
@@ -129,30 +148,28 @@ function ModelCard({ m, index, brandName }: { m: GlassItem; index: number; brand
       </div>
 
       {hasVariants && variant ? (
-        <ProductDialog
-          brand={brandName}
-          model={m.model}
-          priceFrom={m.priceFrom}
-          variants={m.variants!}
-          trigger={
-            <button
-              type="button"
-              className="my-7 block rounded-2xl bg-white p-4 cursor-pointer"
-              aria-label={`View ${m.model} details`}
-            >
-              <div className="flex items-center justify-center h-28">
-                <img
-                  src={variant.images.front}
-                  alt={`${brandName} ${m.model} — ${variant.name}`}
-                  width={900}
-                  height={320}
-                  loading="lazy"
-                  className="w-full max-w-[260px] h-auto object-contain"
-                />
-              </div>
-            </button>
-          }
-        />
+        <>
+          <div className="my-7 block rounded-2xl bg-white p-4">
+            <div className="flex items-center justify-center h-28">
+              <img
+                src={variant.images.front}
+                alt={`${brandName} ${m.model} — ${variant.name}`}
+                width={900}
+                height={320}
+                loading="lazy"
+                className="w-full max-w-[260px] h-auto object-contain"
+              />
+            </div>
+          </div>
+          <ProductDialog
+            brand={brandName}
+            model={m.model}
+            priceFrom={m.priceFrom}
+            variants={m.variants!}
+            open={open}
+            onOpenChange={setOpen}
+          />
+        </>
       ) : (
         <div className="my-8 flex items-center justify-center h-28 text-foreground/85 group-hover:text-electric transition-colors">
           <GlassSilhouette shape={m.shape} className="w-full max-w-[220px] h-auto" />
@@ -171,7 +188,10 @@ function ModelCard({ m, index, brandName }: { m: GlassItem; index: number; brand
             <button
               key={v.id}
               type="button"
-              onClick={() => setVariantId(v.id)}
+              onClick={(e) => {
+                e.stopPropagation();
+                setVariantId(v.id);
+              }}
               aria-label={v.name}
               title={v.name}
               className={`size-6 rounded-full border transition-all ${
@@ -183,16 +203,18 @@ function ModelCard({ m, index, brandName }: { m: GlassItem; index: number; brand
         </div>
       )}
 
-      <EnquireDialog
-        brand={brandName}
-        model={m.model}
-        colour={hasVariants && variant ? variant.name : undefined}
-        trigger={
-          <button className="mt-5 w-full inline-flex items-center justify-center gap-2 bg-ink text-white py-3 rounded-full text-[11px] font-bold uppercase tracking-[0.18em] hover:bg-electric transition-colors">
-            Enquire <ArrowUpRight className="size-3.5" />
-          </button>
-        }
-      />
+      <div onClick={(e) => e.stopPropagation()}>
+        <EnquireDialog
+          brand={brandName}
+          model={m.model}
+          colour={hasVariants && variant ? variant.name : undefined}
+          trigger={
+            <button className="mt-5 w-full inline-flex items-center justify-center gap-2 bg-ink text-white py-3 rounded-full text-[11px] font-bold uppercase tracking-[0.18em] hover:bg-electric transition-colors">
+              Enquire <ArrowUpRight className="size-3.5" />
+            </button>
+          }
+        />
+      </div>
     </article>
   );
 }

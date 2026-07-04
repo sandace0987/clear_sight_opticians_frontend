@@ -11,7 +11,9 @@ type Props = {
   model: string;
   priceFrom: number;
   variants: ColorVariant[];
-  trigger: React.ReactNode;
+  trigger?: React.ReactNode;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
 };
 
 const ORIENTATIONS: Array<{ key: keyof ColorVariant["images"]; label: string }> = [
@@ -20,15 +22,15 @@ const ORIENTATIONS: Array<{ key: keyof ColorVariant["images"]; label: string }> 
   { key: "side", label: "Side" },
 ];
 
-export function ProductDialog({ brand, model, priceFrom, variants, trigger }: Props) {
+export function ProductDialog({ brand, model, priceFrom, variants, trigger, open, onOpenChange }: Props) {
   const [variantId, setVariantId] = React.useState(variants[0].id);
   const [view, setView] = React.useState<keyof ColorVariant["images"]>("front");
 
   const variant = variants.find((v) => v.id === variantId) ?? variants[0];
 
   return (
-    <Dialog>
-      <DialogTrigger asChild>{trigger}</DialogTrigger>
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      {trigger ? <DialogTrigger asChild>{trigger}</DialogTrigger> : null}
       <DialogContent className="max-w-3xl sm:rounded-2xl p-0 overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2">
           {/* Gallery */}
