@@ -68,6 +68,9 @@ import pradaVprB54Side from "@/assets/products/prada-vpr-b54/side.png.asset.json
 import pradaVprA16vFront from "@/assets/products/prada-vpr-a16v/front.png.asset.json";
 import pradaVprA16vQuarter from "@/assets/products/prada-vpr-a16v/quarter.png.asset.json";
 import pradaVprA16vSide from "@/assets/products/prada-vpr-a16v/side.png.asset.json";
+import pradaVpr18wFront from "@/assets/products/prada-vpr-18w/front.png.asset.json";
+import pradaVpr18wQuarter from "@/assets/products/prada-vpr-18w/quarter.png.asset.json";
+import pradaVpr18wSide from "@/assets/products/prada-vpr-18w/side.png.asset.json";
 
 export type ColorVariant = {
   id: string;
@@ -439,6 +442,25 @@ export const BRANDS: BrandData[] = [
               front: pradaVprA16vFront.url,
               quarter: pradaVprA16vQuarter.url,
               side: pradaVprA16vSide.url,
+            },
+          },
+        ],
+      },
+      {
+        model: "VPR 18W",
+        shape: "cateye",
+        colour: "Blue",
+        priceFrom: 28800,
+        variants: [
+          {
+            id: "blue",
+            name: "Blue",
+            lens: "Optical / Clear",
+            swatch: "linear-gradient(135deg, #16303f 0%, #1f4a63 50%, #0d2331 100%)",
+            images: {
+              front: pradaVpr18wFront.url,
+              quarter: pradaVpr18wQuarter.url,
+              side: pradaVpr18wSide.url,
             },
           },
         ],
