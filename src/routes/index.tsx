@@ -342,7 +342,7 @@ function HomePage() {
                 The brands we carry.
               </h2>
               <p className="text-muted-foreground mt-3 max-w-lg">
-                A curated edit from the world's finest eyewear houses — stocked across our three Hyderabad studios.
+                A curated edit from the world's finest eyewear houses, stocked across our three Hyderabad studios.
               </p>
             </div>
             <Link to="/brands" className="text-sm font-bold border-b-2 border-electric pb-1 tracking-[0.2em] uppercase w-fit">
