@@ -70,32 +70,65 @@ function BrandPage() {
           <ArrowLeft className="size-4" /> All brands
         </Link>
 
-        <div className="mt-6 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-          <div>
-            <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">{brand.tag}</span>
-            {brand.logo ? (
+        <div className="relative mt-6 overflow-hidden rounded-3xl">
+          {isPrada && (
+            <>
               <img
-                src={brand.logo}
-                alt={`${brand.name} logo`}
-                width={420}
-                height={210}
-                className="mt-4 h-16 lg:h-24 w-auto object-contain object-left dark:invert"
+                src={pradaModelMale}
+                alt=""
+                aria-hidden
+                className="pointer-events-none absolute inset-0 h-full w-full object-cover object-right opacity-25 dark:opacity-30 mix-blend-luminosity"
               />
-            ) : (
-              <h1 className="mt-3 text-5xl lg:text-7xl font-bold tracking-tighter">{brand.name}</h1>
-            )}
-            {brand.slug === "maui-jim" && (
-              <div className="mt-4 inline-flex items-center gap-2 bg-electric/10 border border-electric/30 text-electric rounded-full px-3 py-1.5 text-xs font-semibold">
-                <span className="size-1.5 rounded-full bg-electric animate-pulse" />
-                Leading supplier in Hyderabad &amp; nearby areas
-              </div>
-            )}
-            <p className="mt-5 text-muted-foreground max-w-2xl text-lg">{brand.blurb}</p>
-          </div>
-          <div className="text-xs font-bold uppercase tracking-[0.22em] text-muted-foreground">
-            {brand.models.length} models in stock
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
+            </>
+          )}
+          <div className="relative flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 p-6 lg:p-10">
+            <div>
+              <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">{brand.tag}</span>
+              {brand.logo ? (
+                <img
+                  src={brand.logo}
+                  alt={`${brand.name} logo`}
+                  width={420}
+                  height={210}
+                  className="mt-4 h-16 lg:h-24 w-auto object-contain object-left dark:invert"
+                />
+              ) : (
+                <h1 className="mt-3 text-5xl lg:text-7xl font-bold tracking-tighter">{brand.name}</h1>
+              )}
+              {brand.slug === "maui-jim" && (
+                <div className="mt-4 inline-flex items-center gap-2 bg-electric/10 border border-electric/30 text-electric rounded-full px-3 py-1.5 text-xs font-semibold">
+                  <span className="size-1.5 rounded-full bg-electric animate-pulse" />
+                  Leading supplier in Hyderabad &amp; nearby areas
+                </div>
+              )}
+              {brand.certified && (
+                <div className="mt-4 inline-flex items-center gap-2 bg-electric/10 border border-electric/30 text-electric rounded-full px-3 py-1.5 text-xs font-semibold">
+                  <span className="size-1.5 rounded-full bg-electric animate-pulse" />
+                  {brand.certified}
+                </div>
+              )}
+              <p className="mt-5 text-muted-foreground max-w-2xl text-lg">{brand.blurb}</p>
+            </div>
+            <div className="text-xs font-bold uppercase tracking-[0.22em] text-muted-foreground">
+              {brand.models.length} {brand.category === "lenses" ? "lens ranges" : "models in stock"}
+            </div>
           </div>
         </div>
+
+        {brand.features && brand.features.length > 0 && (
+          <div className="mt-16">
+            <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">Coatings &amp; special features</span>
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {brand.features.map((f) => (
+                <div key={f.title} className="bg-secondary/60 border border-border rounded-2xl p-6">
+                  <h3 className="font-bold tracking-tight">{f.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {brand.models.map((m, i) => (
