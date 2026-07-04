@@ -59,6 +59,9 @@ import pradaSpr17wSide from "@/assets/products/prada-spr-17w/side.png.asset.json
 import pradaSpr27zFront from "@/assets/products/prada-spr-27z/front.png.asset.json";
 import pradaSpr27zQuarter from "@/assets/products/prada-spr-27z/quarter.png.asset.json";
 import pradaSpr27zSide from "@/assets/products/prada-spr-27z/side.png.asset.json";
+import pradaSprA17Front from "@/assets/products/prada-spr-a17/front.png.asset.json";
+import pradaSprA17Quarter from "@/assets/products/prada-spr-a17/quarter.png.asset.json";
+import pradaSprA17Side from "@/assets/products/prada-spr-a17/side.png.asset.json";
 
 export type ColorVariant = {
   id: string;
@@ -373,6 +376,25 @@ export const BRANDS: BrandData[] = [
               front: pradaSpr27zFront.url,
               quarter: pradaSpr27zQuarter.url,
               side: pradaSpr27zSide.url,
+            },
+          },
+        ],
+      },
+      {
+        model: "SPR A17",
+        shape: "rectangle",
+        colour: "Black",
+        priceFrom: 43190,
+        variants: [
+          {
+            id: "black",
+            name: "Black",
+            lens: "Green Polarized",
+            swatch: "linear-gradient(135deg, #1a1a1c 0%, #3a3a3d 50%, #0d0d0e 100%)",
+            images: {
+              front: pradaSprA17Front.url,
+              quarter: pradaSprA17Quarter.url,
+              side: pradaSprA17Side.url,
             },
           },
         ],
