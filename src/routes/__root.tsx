@@ -137,6 +137,7 @@ function RootComponent() {
         <SiteFooter />
         {isHome && <FloatingVideoCard />}
         <ScrollToTop />
+        <ChatBot />
       </div>
     </QueryClientProvider>
   );
