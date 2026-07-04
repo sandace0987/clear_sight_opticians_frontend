@@ -233,15 +233,23 @@ function HomePage() {
       {/* ============== HERO ============== */}
       <section className="px-4 sm:px-6 lg:px-10 pt-6 pb-16 lg:pb-24">
         <div className="relative w-full h-[560px] sm:h-[640px] lg:h-[780px] overflow-hidden rounded-[28px] lg:rounded-[40px] bg-secondary">
-          <img
-            src={heroPortrait}
-            alt="Person wearing clear-frame luxury eyewear in cinematic blue light"
-            width={1920}
-            height={1080}
-            fetchPriority="high"
-            decoding="async"
-            className="absolute inset-0 w-full h-full object-cover scale-105 animate-[reveal_1.2s_cubic-bezier(0.16,1,0.3,1)_both]"
-          />
+          <AnimatePresence initial={false}>
+            <motion.img
+              key={heroSlide}
+              src={HERO_SLIDES[heroSlide].src}
+              alt={HERO_SLIDES[heroSlide].alt}
+              width={1920}
+              height={1080}
+              fetchPriority="high"
+              decoding="async"
+              initial={{ opacity: 0, scale: 1.08 }}
+              animate={{ opacity: 1, scale: 1.05 }}
+              exit={{ opacity: 0 }}
+              transition={{ opacity: { duration: 1 }, scale: { duration: 5, ease: "linear" } }}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </AnimatePresence>
+
           {/* gradients */}
           <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-ink/30 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
