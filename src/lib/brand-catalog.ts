@@ -44,6 +44,12 @@ import sugarKhakiFront from "@/assets/products/maui-jim-sugar-beach/HT421-15_fro
 import sugarKhakiQuarter from "@/assets/products/maui-jim-sugar-beach/HT421-15_quarter.webp.asset.json";
 import sugarKhakiSide from "@/assets/products/maui-jim-sugar-beach/HT421-15_side.webp.asset.json";
 import mauiJimLogo from "@/assets/brands/maui-jim-logo.webp.asset.json";
+import pradaPs03qv2azFront from "@/assets/products/prada-ps03qv/2az-front.jpg.asset.json";
+import pradaPs03qv2azQuarter from "@/assets/products/prada-ps03qv/2az-quarter.jpg.asset.json";
+import pradaPs03qv2azSide from "@/assets/products/prada-ps03qv/2az-side.png.asset.json";
+import pradaPs03qvDgFront from "@/assets/products/prada-ps03qv/dg-front.png.asset.json";
+import pradaPs03qvDgQuarter from "@/assets/products/prada-ps03qv/dg-quarter.png.asset.json";
+import pradaPs03qvDgSide from "@/assets/products/prada-ps03qv/dg-side.png.asset.json";
 
 export type ColorVariant = {
   id: string;
@@ -275,6 +281,36 @@ export const BRANDS: BrandData[] = [
     tag: "Italian luxury",
     blurb: "Linea Rossa, Symbole and the iconic triangle plaque — refined, sculptural Milanese eyewear.",
     models: [
+      {
+        model: "Linea Rossa PS 03QV",
+        shape: "rectangle",
+        colour: "Transparent / Black",
+        priceFrom: 18312,
+        variants: [
+          {
+            id: "transparent",
+            name: "Transparent",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #e8edf2 0%, #c4ccd4 50%, #f4f6f8 100%)",
+            images: {
+              front: pradaPs03qv2azFront.url,
+              quarter: pradaPs03qv2azQuarter.url,
+              side: pradaPs03qv2azSide.url,
+            },
+          },
+          {
+            id: "black",
+            name: "Black",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #1a1a1c 0%, #3a3a3d 50%, #c0182f 100%)",
+            images: {
+              front: pradaPs03qvDgFront.url,
+              quarter: pradaPs03qvDgQuarter.url,
+              side: pradaPs03qvDgSide.url,
+            },
+          },
+        ],
+      },
       { model: "Symbole Oval", shape: "oversized", colour: "Black / Smoke", priceFrom: 28990 },
       { model: "Linea Rossa Sport", shape: "shield", colour: "Rubber Black", priceFrom: 22990 },
       { model: "Cinéma Cat-Eye", shape: "cateye", colour: "Havana", priceFrom: 26490 },
