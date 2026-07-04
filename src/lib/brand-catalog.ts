@@ -355,6 +355,7 @@ export const BRANDS: BrandData[] = [
           },
         ],
       },
+      { model: "Symbole Oval", shape: "oversized", colour: "Black / Smoke", priceFrom: 28990 },
       { model: "Linea Rossa Sport", shape: "shield", colour: "Rubber Black", priceFrom: 22990 },
       { model: "Cinéma Cat-Eye", shape: "cateye", colour: "Havana", priceFrom: 26490 },
       { model: "Heritage Round", shape: "round", colour: "Tortoise", priceFrom: 24990 },
