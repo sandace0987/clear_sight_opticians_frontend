@@ -31,7 +31,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { TiltCard } from "@/components/motion/TiltCard";
 import { CountUp } from "@/components/motion/CountUp";
 import { MagneticButton } from "@/components/motion/MagneticButton";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 
 
