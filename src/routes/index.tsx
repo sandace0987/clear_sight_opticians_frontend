@@ -17,7 +17,7 @@ import {
   Clock,
   Quote,
 } from "lucide-react";
-import { CategoryGlasses } from "@/components/site/CategoryGlasses";
+
 import { HOUSES } from "@/lib/brand-catalog";
 import heroPortrait from "@/assets/hero-portrait.jpg";
 import pradaModelFemale from "@/assets/brands/prada-model-female.jpg";
@@ -127,14 +127,6 @@ function MarqueeItem({ b }: { b: MarqueeBrand }) {
 
 
 
-const COLLECTIONS = [
-  { title: "Eyeglasses", count: "320+ frames" },
-  { title: "Sunglasses", count: "280+ frames" },
-  { title: "Smart Glasses", count: "Meta editions" },
-  { title: "Contact Lenses", count: "Premium daily & monthly" },
-  { title: "Kids Eyewear", count: "Durable & cute" },
-  { title: "Luxury Frames", count: "Prada · Gucci · Tom Ford" },
-];
 
 const WHY = [
   { icon: Eye, title: "Expert optical guidance", desc: "Certified optometrists with 15+ years on the floor." },
@@ -578,31 +570,6 @@ function HomePage() {
       </section>
 
 
-      {/* ============== COLLECTIONS GRID ============== */}
-      <section className="px-6 lg:px-10 pb-20 lg:pb-32">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-            {COLLECTIONS.map((c, i) => (
-              <div
-                key={c.title}
-                className="group relative aspect-[5/4] rounded-2xl bg-secondary p-6 sm:p-8 flex flex-col justify-between overflow-hidden hover:bg-ink hover:text-white transition-colors"
-              >
-                <CategoryGlasses
-                  variant={c.title}
-                  className="absolute -right-6 -bottom-6 w-56 sm:w-64 h-auto text-foreground/15 group-hover:text-white/25 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6 pointer-events-none"
-                />
-                <span className="relative text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground group-hover:text-white/50">
-                  0{i + 1}
-                </span>
-                <div className="relative">
-                  <h3 className="text-2xl sm:text-3xl font-bold tracking-tight">{c.title}</h3>
-                  <p className="text-sm text-muted-foreground group-hover:text-white/70 mt-1">{c.count}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
 
       {/* ============== OAKLEY COMPANION + OFFER ============== */}
