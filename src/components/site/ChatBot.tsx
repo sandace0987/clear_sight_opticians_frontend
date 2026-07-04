@@ -13,6 +13,34 @@ interface Message {
 const WELCOME =
   "Hi there! 👋 I'm the Clear Sight assistant. How can I help you see better today?";
 
+function playChime(type: "open" | "close") {
+  try {
+    const AudioCtx =
+      window.AudioContext ||
+      (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+    if (!AudioCtx) return;
+    const ctx = new AudioCtx();
+    const notes = type === "open" ? [523.25, 783.99] : [783.99, 523.25];
+    const now = ctx.currentTime;
+    notes.forEach((freq, i) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = "sine";
+      osc.frequency.value = freq;
+      const start = now + i * 0.11;
+      gain.gain.setValueAtTime(0.0001, start);
+      gain.gain.exponentialRampToValueAtTime(0.18, start + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.22);
+      osc.connect(gain).connect(ctx.destination);
+      osc.start(start);
+      osc.stop(start + 0.24);
+    });
+    setTimeout(() => ctx.close(), 700);
+  } catch {
+    /* audio not available */
+  }
+}
+
 export function ChatBot() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([{ type: "bot", content: WELCOME }]);
@@ -23,7 +51,15 @@ export function ChatBot() {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, showQuestions]);
 
-  const toggle = useCallback(() => setOpen((prev) => !prev), []);
+  const toggle = useCallback(
+    () =>
+      setOpen((prev) => {
+        playChime(prev ? "close" : "open");
+        return !prev;
+      }),
+    [],
+  );
+
 
   const handleQuestion = (index: number) => {
     const qa = chatbotQA[index];
