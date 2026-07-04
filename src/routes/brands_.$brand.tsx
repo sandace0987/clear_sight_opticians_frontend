@@ -47,9 +47,21 @@ export const Route = createFileRoute("/brands_/$brand")({
   component: BrandPage,
 });
 
+const LOGO_TOKEN = import.meta.env.VITE_LOVABLE_CONNECTOR_LOGO_DEV_API_KEY as string | undefined;
+const houseLogo = (name: string) => {
+  const h = HOUSES.find((x) => x.name === name);
+  if (h?.logo) return h.logo;
+  if (h?.domain && LOGO_TOKEN)
+    return `https://img.logo.dev/${h.domain}?token=${LOGO_TOKEN}&size=200&format=png&retina=true`;
+  return null;
+};
+
 function BrandPage() {
   const { brand } = Route.useLoaderData() as { brand: BrandData };
-  const otherBrands = BRANDS.filter((b) => b.slug !== brand.slug).slice(0, 6);
+  const otherBrands = BRANDS.filter((b) => b.slug !== brand.slug)
+    .sort((a, b) => priorityIndex(a.name) - priorityIndex(b.name))
+    .slice(0, 6);
+  const isPrada = brand.slug === "prada";
 
   return (
     <div className="px-6 lg:px-10 py-16 lg:py-24">
