@@ -199,8 +199,24 @@ const OFFERS = [
   { tag: "Contact Lenses", title: "3 months free", desc: "On any annual contact lens subscription." },
 ];
 
+const HERO_SLIDES: { src: string; alt: string }[] = [
+  { src: heroPortrait, alt: "Person wearing clear-frame luxury eyewear in cinematic blue light" },
+  { src: pradaModelFemale, alt: "Model wearing Prada luxury eyewear" },
+  { src: storeInterior, alt: "Interior of Clear Sight Opticians studio" },
+  { src: raybanMetaHero, alt: "Ray-Ban Meta smart glasses" },
+];
+
 function HomePage() {
   const hash = useRouterState({ select: (s) => s.location.hash });
+  const [heroSlide, setHeroSlide] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setHeroSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, 4500);
+    return () => clearInterval(id);
+  }, []);
+
   useEffect(() => {
     if (!hash) return;
     const el = document.getElementById(hash);
@@ -210,6 +226,7 @@ function HomePage() {
       window.scrollTo({ top, behavior: "smooth" });
     });
   }, [hash]);
+
 
   return (
     <div className="bg-background">
