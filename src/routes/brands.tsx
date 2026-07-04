@@ -3,7 +3,13 @@ import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
 import { TiltCard } from "@/components/motion/TiltCard";
 import { MagneticButton } from "@/components/motion/MagneticButton";
-import { HOUSES, type House } from "@/lib/brand-catalog";
+import { housesByCategory, type House } from "@/lib/brand-catalog";
+
+const SECTIONS = [
+  { id: "glasses", label: "Glasses", heading: "Eyeglasses & Sunglasses" },
+  { id: "lenses", label: "Lenses & Contact Lenses", heading: "Lenses & Contact Lenses" },
+  { id: "kids", label: "For Kids", heading: "For Kids" },
+] as const;
 
 export const Route = createFileRoute("/brands")({
   head: () => ({
