@@ -184,7 +184,7 @@ function ModelCard({ m, index, brandName }: { m: GlassItem; index: number; brand
 
   return (
     <article
-      className={`group bg-secondary/60 border border-border rounded-3xl p-7 flex flex-col h-full ${
+      className={`group relative bg-secondary/60 border border-border rounded-3xl p-7 flex flex-col h-full ${
         hasVariants ? "cursor-pointer" : ""
       }`}
       onClick={hasVariants ? () => setOpen(true) : undefined}
