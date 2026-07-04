@@ -443,9 +443,21 @@ function HomePage() {
                     <Link
                       to="/brands/$brand"
                       params={{ brand: h.slug! }}
-                      className="group bg-secondary/60 border border-border rounded-3xl p-8 hover:bg-ink hover:text-white transition-colors block h-full"
+                      className="group relative overflow-hidden bg-secondary/60 border border-border rounded-3xl p-8 hover:bg-ink hover:text-white transition-colors block h-full"
                     >
-                      <div className="flex items-start justify-between gap-4 mb-10">
+                      {h.slug === "prada" && (
+                        <>
+                          <img
+                            src={pradaModelFemale}
+                            alt=""
+                            aria-hidden
+                            loading="lazy"
+                            className="pointer-events-none absolute inset-0 h-full w-full object-cover object-top opacity-30 mix-blend-luminosity transition-opacity duration-500 group-hover:opacity-40"
+                          />
+                          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-secondary/95 via-secondary/70 to-secondary/20 group-hover:from-ink/95 group-hover:via-ink/70 group-hover:to-ink/20 transition-colors" />
+                        </>
+                      )}
+                      <div className="relative flex items-start justify-between gap-4 mb-10">
                         <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground group-hover:text-white/50">
                           0{i + 1}
                         </span>
@@ -460,11 +472,12 @@ function HomePage() {
                           />
                         </div>
                       </div>
-                      <h3 className="text-2xl font-bold tracking-tight">{h.name}</h3>
-                      <p className="mt-3 text-sm text-muted-foreground group-hover:text-white/70 font-serif italic">
+                      <h3 className="relative text-2xl font-bold tracking-tight">{h.name}</h3>
+                      <p className="relative mt-3 text-sm text-muted-foreground group-hover:text-white/70 font-serif italic">
                         {h.note}
                       </p>
                     </Link>
+
                   </TiltCard>
                 </Reveal>
               ))}
