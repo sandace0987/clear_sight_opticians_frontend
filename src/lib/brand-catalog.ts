@@ -358,6 +358,25 @@ export const BRANDS: BrandData[] = [
           },
         ],
       },
+      {
+        model: "SPR 27Z",
+        shape: "geometric",
+        colour: "Black",
+        priceFrom: 36290,
+        variants: [
+          {
+            id: "black",
+            name: "Black",
+            lens: "Yellow",
+            swatch: "linear-gradient(135deg, #1a1a1c 0%, #3a3a3d 50%, #0d0d0e 100%)",
+            images: {
+              front: pradaSpr27zFront.url,
+              quarter: pradaSpr27zQuarter.url,
+              side: pradaSpr27zSide.url,
+            },
+          },
+        ],
+      },
       { model: "Symbole Oval", shape: "oversized", colour: "Black / Smoke", priceFrom: 28990 },
       { model: "Linea Rossa Sport", shape: "shield", colour: "Rubber Black", priceFrom: 22990 },
       { model: "Cinéma Cat-Eye", shape: "cateye", colour: "Havana", priceFrom: 26490 },
