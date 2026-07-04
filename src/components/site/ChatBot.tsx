@@ -45,6 +45,7 @@ export function ChatBot() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([{ type: "bot", content: WELCOME }]);
   const [showQuestions, setShowQuestions] = useState(true);
+  const [showContact, setShowContact] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
