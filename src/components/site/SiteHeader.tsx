@@ -190,15 +190,16 @@ export function SiteHeader() {
       >
         <nav className="px-6 py-5 flex flex-col gap-2">
           {NAV.map((item) => {
-            const isActive =
-              location.pathname === "/" &&
-              (item.hash ? item.hash === activeSection : activeSection === undefined);
+            const isActive = item.route
+              ? location.pathname === item.to
+              : location.pathname === "/" &&
+                (item.hash ? item.hash === activeSection : activeSection === undefined);
             return (
               <Link
                 key={item.label}
                 to={item.to}
                 hash={item.hash}
-                onClick={handleHashClick(item.hash)}
+                onClick={handleNavClick(item)}
                 className={cn(
                   "py-2 text-sm font-medium",
                   isActive ? "text-electric font-bold" : "text-foreground/80",
