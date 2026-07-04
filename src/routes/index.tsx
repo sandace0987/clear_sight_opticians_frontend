@@ -508,7 +508,7 @@ function HomePage() {
                     <Link
                       to="/brands/$brand"
                       params={{ brand: h.slug! }}
-                      className="group relative overflow-hidden bg-secondary/60 border border-border rounded-3xl p-8 hover:bg-ink hover:text-white transition-colors block h-full"
+                      className={`group relative bg-secondary/60 border border-border rounded-3xl p-8 hover:bg-ink hover:text-white transition-colors block h-full ${h.slug === "prada" ? "" : "overflow-hidden"}`}
                     >
                       {h.slug === "prada" && (
                         <img
