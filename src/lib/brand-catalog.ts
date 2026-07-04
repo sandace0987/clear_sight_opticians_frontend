@@ -50,6 +50,9 @@ import pradaPs03qv2azSide from "@/assets/products/prada-ps03qv/2az-side.png.asse
 import pradaPs03qvDgFront from "@/assets/products/prada-ps03qv/dg-front.png.asset.json";
 import pradaPs03qvDgQuarter from "@/assets/products/prada-ps03qv/dg-quarter.png.asset.json";
 import pradaPs03qvDgSide from "@/assets/products/prada-ps03qv/dg-side.png.asset.json";
+import pradaSprA16Front from "@/assets/products/prada-spr-a16/havana-front.webp.asset.json";
+import pradaSprA16Quarter from "@/assets/products/prada-spr-a16/havana-quarter.webp.asset.json";
+import pradaSprA16Side from "@/assets/products/prada-spr-a16/havana-side.webp.asset.json";
 
 export type ColorVariant = {
   id: string;
@@ -307,6 +310,25 @@ export const BRANDS: BrandData[] = [
               front: pradaPs03qvDgFront.url,
               quarter: pradaPs03qvDgQuarter.url,
               side: pradaPs03qvDgSide.url,
+            },
+          },
+        ],
+      },
+      {
+        model: "SPR A16",
+        shape: "geometric",
+        colour: "Havana",
+        priceFrom: 43190,
+        variants: [
+          {
+            id: "havana",
+            name: "Havana",
+            lens: "Green Polarized",
+            swatch: "linear-gradient(135deg, #3a2113 0%, #7a4420 50%, #c0772f 100%)",
+            images: {
+              front: pradaSprA16Front.url,
+              quarter: pradaSprA16Quarter.url,
+              side: pradaSprA16Side.url,
             },
           },
         ],
