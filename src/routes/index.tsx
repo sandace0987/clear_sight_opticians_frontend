@@ -386,9 +386,23 @@ function HomePage() {
             </div>
           </div>
 
-
+          {/* Carousel dots */}
+          <div className="absolute bottom-6 right-6 sm:bottom-8 sm:right-8 z-10 flex items-center gap-2">
+            {HERO_SLIDES.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => setHeroSlide(i)}
+                aria-label={`Show slide ${i + 1}`}
+                className={`h-2 rounded-full transition-all ${
+                  i === heroSlide ? "w-6 bg-white" : "w-2 bg-white/50 hover:bg-white/80"
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </section>
+
 
       {/* ============== STATS COUNTER ============== */}
       <section className="px-6 lg:px-10 -mt-8 lg:-mt-12 mb-4">
