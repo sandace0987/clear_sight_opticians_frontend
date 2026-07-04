@@ -20,7 +20,7 @@ import {
 
 import { HOUSES } from "@/lib/brand-catalog";
 import heroPortrait from "@/assets/hero-portrait.jpg";
-import pradaModelFemale from "@/assets/brands/prada-model-female.jpg";
+import pradaModelFemale from "@/assets/brands/prada-model-female.png";
 
 import raybanMetaHero from "@/assets/rayban-meta-hero.jpg";
 import oakleyMeta from "@/assets/oakley-meta.jpg";
@@ -193,7 +193,6 @@ const OFFERS = [
 
 const HERO_SLIDES: { src: string; alt: string }[] = [
   { src: heroPortrait, alt: "Person wearing clear-frame luxury eyewear in cinematic blue light" },
-  { src: pradaModelFemale, alt: "Model wearing Prada luxury eyewear" },
   { src: storeInterior, alt: "Interior of Clear Sight Opticians studio" },
   { src: raybanMetaHero, alt: "Ray-Ban Meta smart glasses" },
 ];
@@ -509,19 +508,15 @@ function HomePage() {
                     <Link
                       to="/brands/$brand"
                       params={{ brand: h.slug! }}
-                      className="group relative overflow-hidden bg-secondary/60 border border-border rounded-3xl p-8 hover:bg-ink hover:text-white transition-colors block h-full"
+                      className={`group relative bg-secondary/60 border border-border rounded-3xl p-8 hover:bg-ink hover:text-white transition-colors block h-full ${h.slug === "prada" ? "" : "overflow-hidden"}`}
                     >
                       {h.slug === "prada" && (
-                        <>
-                          <img
-                            src={pradaModelFemale}
-                            alt=""
-                            aria-hidden
-                            loading="lazy"
-                            className="pointer-events-none absolute inset-0 h-full w-full object-cover object-top opacity-30 mix-blend-luminosity transition-opacity duration-500 group-hover:opacity-40"
-                          />
-                          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-secondary/95 via-secondary/70 to-secondary/20 group-hover:from-ink/95 group-hover:via-ink/70 group-hover:to-ink/20 transition-colors" />
-                        </>
+                        <img
+                          src={pradaModelFemale}
+                          alt="Female model wearing Prada eyewear"
+                          loading="lazy"
+                          className="pointer-events-none absolute -bottom-4 -right-4 w-[200px] h-auto object-contain z-10"
+                        />
                       )}
                       <div className="relative flex items-start justify-between gap-4 mb-10">
                         <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground group-hover:text-white/50">
