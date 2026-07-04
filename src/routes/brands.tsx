@@ -3,7 +3,13 @@ import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
 import { TiltCard } from "@/components/motion/TiltCard";
 import { MagneticButton } from "@/components/motion/MagneticButton";
-import { HOUSES, type House } from "@/lib/brand-catalog";
+import { housesByCategory, type House } from "@/lib/brand-catalog";
+
+const SECTIONS = [
+  { id: "glasses", label: "Glasses", heading: "Eyeglasses & Sunglasses" },
+  { id: "lenses", label: "Lenses & Contact Lenses", heading: "Lenses & Contact Lenses" },
+  { id: "kids", label: "For Kids", heading: "For Kids" },
+] as const;
 
 export const Route = createFileRoute("/brands")({
   head: () => ({
@@ -31,16 +37,44 @@ function BrandsPage() {
           and stocked across our three Hyderabad studios.
         </p>
 
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {HOUSES.map((h, i) => (
-            <Reveal key={h.name} delay={(i % 3) * 0.05}>
-              <TiltCard max={5}>
-                <BrandCard h={h} index={i} />
-              </TiltCard>
-            </Reveal>
+        {/* Section tabs */}
+        <div className="mt-10 sticky top-20 lg:top-24 z-30 -mx-4 px-4 py-3 bg-background/85 backdrop-blur-xl border-b border-border/60 flex flex-wrap gap-2">
+          {SECTIONS.map((s) => (
+            <a
+              key={s.id}
+              href={`#${s.id}`}
+              className="rounded-full border border-border px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-muted-foreground hover:border-electric hover:text-electric transition-colors"
+            >
+              {s.label}
+            </a>
           ))}
         </div>
 
+        {SECTIONS.map((section) => {
+          const houses = housesByCategory(section.id);
+          return (
+            <section key={section.id} id={section.id} className="scroll-mt-40 mt-16">
+              <h2 className="text-3xl lg:text-4xl font-bold tracking-tighter">
+                {section.heading}
+              </h2>
+              {section.id === "kids" && (
+                <p className="mt-3 text-muted-foreground max-w-2xl">
+                  Myopia-control lenses like ZEISS MyoCare and Hoya MiYOSMART, plus durable kids frames.
+                  Full range coming soon — enquire in store.
+                </p>
+              )}
+              <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                {houses.map((h, i) => (
+                  <Reveal key={h.name} delay={(i % 3) * 0.05}>
+                    <TiltCard max={5}>
+                      <BrandCard h={h} index={i} />
+                    </TiltCard>
+                  </Reveal>
+                ))}
+              </div>
+            </section>
+          );
+        })}
 
         <div className="mt-20 bg-ink text-white rounded-3xl p-10 lg:p-14 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
           <div>

@@ -6,16 +6,18 @@ import { AnimatedWordmark } from "./AnimatedWordmark";
 import { ThemeToggle } from "./ThemeToggle";
 import logoUrl from "@/assets/clear-sight-logo.avif";
 
-const NAV = [
+type NavItem = { to: string; hash?: string; label: string; route?: boolean };
+
+const NAV: NavItem[] = [
   { to: "/", hash: undefined, label: "Home" },
+  { to: "/smart-glasses", label: "Smart Glasses", route: true },
   { to: "/", hash: "brands", label: "Brands" },
-  { to: "/", hash: "smart-glasses", label: "Smart Glasses" },
   { to: "/", hash: "try-on", label: "Try On" },
   { to: "/", hash: "offers", label: "Offers" },
   { to: "/", hash: "stores", label: "Stores" },
-  { to: "/", hash: "about", label: "About" },
-  { to: "/", hash: "contact", label: "Contact" },
-] as const;
+  { to: "/about", label: "About", route: true },
+  { to: "/contact", label: "Contact", route: true },
+];
 
 const SECTION_IDS = NAV.filter((n) => n.hash).map((n) => n.hash as string);
 
@@ -65,9 +67,14 @@ export function SiteHeader() {
     return () => observer.disconnect();
   }, [location.pathname]);
 
-  const handleHashClick = (hash: string | undefined) => (e: React.MouseEvent) => {
-    if (location.pathname !== "/") return; // let router handle cross-route nav
-    if (!hash) {
+  const handleNavClick = (item: NavItem) => (e: React.MouseEvent) => {
+    if (item.route) {
+      // Separate page route — let the router navigate.
+      setOpen(false);
+      return;
+    }
+    if (location.pathname !== "/") return; // let router handle cross-route nav to homepage
+    if (!item.hash) {
       // "Home" — scroll to top
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -75,7 +82,7 @@ export function SiteHeader() {
       return;
     }
     e.preventDefault();
-    const el = document.getElementById(hash);
+    const el = document.getElementById(item.hash);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
     setOpen(false);
   };
@@ -83,13 +90,13 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 bg-background/85 backdrop-blur-xl border-b border-border/60">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-        <div className="relative flex h-16 lg:h-20 items-center justify-between gap-2 sm:gap-4">
+        <div className="relative flex h-20 lg:h-24 items-center justify-between gap-2 sm:gap-4">
           {/* Logo mark — left */}
           <Link to="/" aria-label="Clear Sight Opticians" className="inline-flex items-center justify-start shrink-0">
             <img
               src={logoUrl}
               alt="Clear Sight Opticians"
-              className="h-8 lg:h-10 w-auto object-contain shrink-0"
+              className="h-11 lg:h-14 w-auto object-contain shrink-0"
             />
           </Link>
 
@@ -150,15 +157,16 @@ export function SiteHeader() {
         {/* Secondary nav */}
         <nav className="hidden md:flex justify-center gap-8 lg:gap-10 pb-3 -mt-1 text-[12px] font-medium uppercase tracking-[0.18em]">
           {NAV.map((item) => {
-            const isActive =
-              location.pathname === "/" &&
-              (item.hash ? item.hash === activeSection : activeSection === undefined);
+            const isActive = item.route
+              ? location.pathname === item.to
+              : location.pathname === "/" &&
+                (item.hash ? item.hash === activeSection : activeSection === undefined);
             return (
               <Link
                 key={item.label}
                 to={item.to}
                 hash={item.hash}
-                onClick={handleHashClick(item.hash)}
+                onClick={handleNavClick(item)}
                 className={cn(
                   "transition-colors",
                   isActive
@@ -182,15 +190,16 @@ export function SiteHeader() {
       >
         <nav className="px-6 py-5 flex flex-col gap-2">
           {NAV.map((item) => {
-            const isActive =
-              location.pathname === "/" &&
-              (item.hash ? item.hash === activeSection : activeSection === undefined);
+            const isActive = item.route
+              ? location.pathname === item.to
+              : location.pathname === "/" &&
+                (item.hash ? item.hash === activeSection : activeSection === undefined);
             return (
               <Link
                 key={item.label}
                 to={item.to}
                 hash={item.hash}
-                onClick={handleHashClick(item.hash)}
+                onClick={handleNavClick(item)}
                 className={cn(
                   "py-2 text-sm font-medium",
                   isActive ? "text-electric font-bold" : "text-foreground/80",

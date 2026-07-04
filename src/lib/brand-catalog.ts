@@ -125,12 +125,19 @@ export type GlassItem = {
   variants?: ColorVariant[];
 };
 
+export type Category = "glasses" | "lenses" | "kids";
+
 export type BrandData = {
   slug: string;
   name: string;
   tag: string;
   blurb: string;
   logo?: string;
+  category?: Category;
+  /** short highlight banner text, mirrors the Maui Jim "biggest supplier" badge */
+  certified?: string;
+  /** coating / special-feature cards shown on the brand page */
+  features?: { title: string; desc: string }[];
   models: GlassItem[];
 };
 
@@ -782,6 +789,37 @@ export const BRANDS: BrandData[] = [
       { model: "Sport Wrap", shape: "sport", colour: "Matte Grey", priceFrom: 8290 },
     ],
   },
+  {
+    slug: "zeiss",
+    name: "ZEISS",
+    tag: "Lens & vision expert",
+    category: "lenses",
+    certified: "ZEISS Certified Vision Experts — Hyderabad",
+    blurb:
+      "Over 175 years of precision optics. As certified ZEISS Vision Experts, we craft individualised prescription lenses with market-leading clarity, coatings and blue-light protection.",
+    features: [
+      { title: "DuraVision® Coatings", desc: "Anti-reflective, anti-scratch and easy-clean layers for lasting clarity." },
+      { title: "BlueGuard", desc: "Blocks up to 40% of potentially harmful blue light while staying near-clear." },
+      { title: "PhotoFusion X", desc: "Self-tinting lenses that darken outdoors and clear up fast indoors." },
+      { title: "UVProtect", desc: "Full UV protection up to 400nm across the entire lens — even clear lenses." },
+      { title: "DriveSafe", desc: "Optimised for low-light and night driving with reduced glare from headlights." },
+      { title: "Individual Fit", desc: "Lenses personalised to your frame, prescription and lifestyle." },
+    ],
+    models: [
+      {
+        model: "ClearMind Lenses",
+        shape: "single vision",
+        colour: "Clear · BlueGuard · DuraVision",
+        priceFrom: 6990,
+      },
+      {
+        model: "SmartLife Lenses",
+        shape: "progressive",
+        colour: "Age-adaptive · DriveSafe · UVProtect",
+        priceFrom: 14990,
+      },
+    ],
+  },
 ];
 
 export const getBrand = (slug: string) => BRANDS.find((b) => b.slug === slug);
@@ -793,33 +831,74 @@ export type House = {
   note: string;
   logo?: string;
   domain?: string;
+  category?: Category;
 };
 
 export const HOUSES: House[] = [
-  { slug: "ray-ban", name: "Ray-Ban", tag: "American icon", note: "Wayfarer, Aviator & Meta editions", domain: "ray-ban.com" },
-  { slug: "oakley", name: "Oakley", tag: "Performance", note: "Sport, lifestyle & Meta HSTN", domain: "oakley.com" },
-  { slug: "prada", name: "Prada", tag: "Italian luxury", note: "Linea Rossa & Symbole", domain: "prada.com" },
-  { name: "Montblanc", tag: "German maison", note: "Refined optical & sun", domain: "montblanc.com" },
-  { name: "Puma", tag: "Sport", note: "Active & everyday eyewear", domain: "puma.com" },
-  { name: "Silhouette", tag: "Austrian craft", note: "Rimless lightweight titanium", logo: silhouetteLogo, domain: "silhouette.com" },
-  { slug: "tom-ford", name: "Tom Ford", tag: "Modern luxury", note: "Optical & oversize sun", domain: "tomford.com" },
-  { slug: "burberry", name: "Burberry", tag: "British heritage", note: "Check & monogram series", domain: "burberry.com" },
-  { name: "Philipp Plein", tag: "Statement", note: "Bold, embellished frames", domain: "plein.com" },
-  { name: "Versace", tag: "Italian luxury", note: "Baroque icon eyewear", domain: "versace.com" },
-  { name: "Porsche Design", tag: "Engineered", note: "Precision minimalism", domain: "porsche-design.com" },
-  { name: "Guess", tag: "Fashion", note: "Fashion-forward everyday", domain: "guess.com" },
-  { slug: "police", name: "Police", tag: "Italian cool", note: "Sport & lifestyle", domain: "policelifestyle.com" },
-  { slug: "carrera", name: "Carrera", tag: "Motorsport DNA", note: "Aviator & retro sport", domain: "carreraworld.com" },
-  { name: "Modo", tag: "Urban design", note: "Ultra-light city frames", domain: "modo.com" },
-  { slug: "maui-jim", name: "Maui Jim", tag: "Hawaii-born", note: "Alika & PolarizedPlus2®", logo: mauiJimLogo, domain: "mauijim.com" },
-  { name: "Stepper", tag: "Skin-friendly", note: "SI-line comfort frames", domain: "steppereyewear.com" },
-  { name: "CooperVision", tag: "Contact lenses", note: "Daily & monthly soft lenses", domain: "coopervision.com" },
-  { name: "Johnson & Johnson", tag: "Contact lenses", note: "Acuvue daily & bi-weekly", domain: "jnj.com" },
-  { name: "Bausch & Lomb", tag: "Contact lenses", note: "Ultra & Biotrue lenses", domain: "bausch.com.au" },
-  { name: "Alcon", tag: "Contact lenses", note: "Dailies & Air Optix", domain: "alcon.com" },
-  { name: "ZEISS", tag: "Lens expert", note: "Precision prescription lenses", domain: "zeiss.com" },
-  { name: "Hoya", tag: "Lens expert", note: "High-index & progressive lenses", domain: "hoyavision.com" },
-  { name: "Essilor", tag: "Lens expert", note: "Varilux & Crizal coatings", domain: "essilor.com" },
+  // ---- Glasses ----
+  { slug: "ray-ban", name: "Ray-Ban", tag: "American icon", note: "Wayfarer, Aviator & Meta editions", domain: "ray-ban.com", category: "glasses" },
+  { slug: "oakley", name: "Oakley", tag: "Performance", note: "Sport, lifestyle & Meta HSTN", domain: "oakley.com", category: "glasses" },
+  { slug: "prada", name: "Prada", tag: "Italian luxury", note: "Linea Rossa & Symbole", domain: "prada.com", category: "glasses" },
+  { name: "Montblanc", tag: "German maison", note: "Refined optical & sun", domain: "montblanc.com", category: "glasses" },
+  { name: "Puma", tag: "Sport", note: "Active & everyday eyewear", domain: "puma.com", category: "glasses" },
+  { name: "Silhouette", tag: "Austrian craft", note: "Rimless lightweight titanium", logo: silhouetteLogo, domain: "silhouette.com", category: "glasses" },
+  { slug: "tom-ford", name: "Tom Ford", tag: "Modern luxury", note: "Optical & oversize sun", domain: "tomford.com", category: "glasses" },
+  { slug: "burberry", name: "Burberry", tag: "British heritage", note: "Check & monogram series", domain: "burberry.com", category: "glasses" },
+  { name: "Philipp Plein", tag: "Statement", note: "Bold, embellished frames", domain: "plein.com", category: "glasses" },
+  { name: "Versace", tag: "Italian luxury", note: "Baroque icon eyewear", domain: "versace.com", category: "glasses" },
+  { name: "Porsche Design", tag: "Engineered", note: "Precision minimalism", domain: "porsche-design.com", category: "glasses" },
+  { name: "Guess", tag: "Fashion", note: "Fashion-forward everyday", domain: "guess.com", category: "glasses" },
+  { slug: "police", name: "Police", tag: "Italian cool", note: "Sport & lifestyle", domain: "policelifestyle.com", category: "glasses" },
+  { slug: "carrera", name: "Carrera", tag: "Motorsport DNA", note: "Aviator & retro sport", domain: "carreraworld.com", category: "glasses" },
+  { name: "Modo", tag: "Urban design", note: "Ultra-light city frames", domain: "modo.com", category: "glasses" },
+  { slug: "maui-jim", name: "Maui Jim", tag: "Hawaii-born", note: "Alika & PolarizedPlus2®", logo: mauiJimLogo, domain: "mauijim.com", category: "glasses" },
+  { name: "Stepper", tag: "Skin-friendly", note: "SI-line comfort frames", domain: "steppereyewear.com", category: "glasses" },
+  // ---- Lenses & Contact Lenses (ZEISS promoted to top) ----
+  { slug: "zeiss", name: "ZEISS", tag: "Certified Vision Expert", note: "Precision prescription lenses & coatings", domain: "zeiss.com", category: "lenses" },
+  { name: "Hoya", tag: "Lens expert", note: "High-index & progressive lenses", domain: "hoyavision.com", category: "lenses" },
+  { name: "Essilor", tag: "Lens expert", note: "Varilux & Crizal coatings", domain: "essilor.com", category: "lenses" },
+  { name: "CooperVision", tag: "Contact lenses", note: "Daily & monthly soft lenses", domain: "coopervision.com", category: "lenses" },
+  { name: "Johnson & Johnson", tag: "Contact lenses", note: "Acuvue daily & bi-weekly", domain: "jnj.com", category: "lenses" },
+  { name: "Bausch & Lomb", tag: "Contact lenses", note: "Ultra & Biotrue lenses", domain: "bausch.com.au", category: "lenses" },
+  { name: "Alcon", tag: "Contact lenses", note: "Dailies & Air Optix", domain: "alcon.com", category: "lenses" },
+  // ---- For Kids (placeholders) ----
+  { name: "MyoCare", tag: "Myopia control", note: "ZEISS MyoCare lenses to slow myopia progression", domain: "zeiss.com", category: "kids" },
+  { name: "MiYOSMART", tag: "Myopia control", note: "Hoya MiYOSMART D.I.M.S. spectacle lenses", domain: "hoyavision.com", category: "kids" },
+  { name: "Kids Frames", tag: "Durable & cute", note: "Flexible, impact-resistant frames for little ones", category: "kids" },
 ];
+
+/** Priority order (mirrors the homepage marquee) used to sort brand grids & "other houses". */
+export const BRAND_PRIORITY = [
+  "Ray-Ban",
+  "Oakley",
+  "Prada",
+  "Montblanc",
+  "Silhouette",
+  "Tom Ford",
+  "Burberry",
+  "Versace",
+  "Porsche Design",
+  "Guess",
+  "Police",
+  "Carrera",
+  "Maui Jim",
+  "Stepper",
+  "Puma",
+  "Philipp Plein",
+  "Modo",
+  "ZEISS",
+  "Hoya",
+  "Essilor",
+];
+
+export const priorityIndex = (name: string) => {
+  const i = BRAND_PRIORITY.indexOf(name);
+  return i === -1 ? BRAND_PRIORITY.length : i;
+};
+
+export const housesByCategory = (category: Category) =>
+  HOUSES.filter((h) => (h.category ?? "glasses") === category).sort(
+    (a, b) => priorityIndex(a.name) - priorityIndex(b.name),
+  );
 
 

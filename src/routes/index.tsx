@@ -1,5 +1,6 @@
 import { createFileRoute, Link, useRouterState } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 import {
   ArrowUpRight,
   
@@ -19,6 +20,7 @@ import {
 import { CategoryGlasses } from "@/components/site/CategoryGlasses";
 import { HOUSES } from "@/lib/brand-catalog";
 import heroPortrait from "@/assets/hero-portrait.jpg";
+import pradaModelFemale from "@/assets/brands/prada-model-female.jpg";
 
 import raybanMetaHero from "@/assets/rayban-meta-hero.jpg";
 import oakleyMeta from "@/assets/oakley-meta.jpg";
@@ -89,6 +91,40 @@ const BRANDS: MarqueeBrand[] = [
 
 const logoUrl = (domain: string) =>
   `https://img.logo.dev/${domain}?token=${LOGO_TOKEN}&format=png&size=200&retina=true`;
+
+/** Marquee logo — colourises on hover (desktop) and on tap/click (touch devices). */
+function MarqueeItem({ b }: { b: MarqueeBrand }) {
+  const [on, setOn] = useState(false);
+  return (
+    <button
+      type="button"
+      onClick={() => setOn((v) => !v)}
+      className="flex flex-col items-center justify-center gap-2 px-10 shrink-0 focus:outline-none"
+    >
+      <div className="relative flex items-center justify-center">
+        <img
+          src={logoUrl(b.domain)}
+          alt={`${b.name} logo`}
+          loading="lazy"
+          className={cn(
+            "h-10 lg:h-14 w-auto max-w-[180px] object-contain transition duration-300 hover:opacity-100 hover:grayscale-0",
+            on ? "opacity-100 grayscale-0" : "opacity-70 grayscale",
+          )}
+        />
+        {b.ai && (
+          <span className="absolute -top-2 -right-1 rounded-full bg-primary px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide text-primary-foreground shadow-sm">
+            +AI
+          </span>
+        )}
+      </div>
+      <span className="text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground whitespace-nowrap">
+        {b.name}
+      </span>
+    </button>
+  );
+}
+
+
 
 
 const COLLECTIONS = [
@@ -197,7 +233,7 @@ function HomePage() {
           {/* Top badge */}
           <div className="absolute top-6 left-6 sm:top-8 sm:left-8 flex items-center gap-2 text-white/85 text-[11px] font-semibold uppercase tracking-[0.22em]">
             <span className="size-1.5 rounded-full bg-electric" />
-            Hyderabad · Est. 2012
+            Hyderabad · Est. 2009
           </div>
 
           {/* Content */}
@@ -336,49 +372,87 @@ function HomePage() {
       {/* ============== STATS COUNTER ============== */}
       <section className="px-6 lg:px-10 -mt-8 lg:-mt-12 mb-4">
         <Reveal className="mx-auto max-w-7xl grid grid-cols-3 gap-4 sm:gap-8 rounded-3xl border border-border bg-background/60 backdrop-blur p-6 sm:p-10">
-          {[
-            { v: 15, suffix: "+", label: "Years in Hyderabad" },
-            { v: 12, suffix: "+", label: "Luxury houses stocked" },
-            { v: 3, suffix: "", label: "Boutique locations" },
-          ].map((s) => (
-            <div key={s.label} className="text-center sm:text-left">
-              <p className="text-4xl sm:text-6xl font-bold tracking-tighter text-electric">
-                <CountUp to={s.v} suffix={s.suffix} />
-              </p>
-              <p className="mt-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                {s.label}
-              </p>
-            </div>
-          ))}
+          <div className="text-center sm:text-left">
+            <p className="text-4xl sm:text-6xl font-bold tracking-tighter text-electric">
+              <CountUp to={15} suffix="+" />
+            </p>
+            <p className="mt-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+              Years in Hyderabad
+            </p>
+          </div>
+          <div className="flex flex-col items-center justify-center gap-2 text-center border-x border-border">
+            <img
+              src={logoUrl("zeiss.com")}
+              alt="ZEISS"
+              loading="lazy"
+              className="h-8 sm:h-12 w-auto object-contain"
+            />
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+              ZEISS Vision Experts
+            </p>
+          </div>
+          <div className="text-center sm:text-right">
+            <p className="text-4xl sm:text-6xl font-bold tracking-tighter text-electric">
+              <CountUp to={3} suffix="" />
+            </p>
+            <p className="mt-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+              Boutique locations
+            </p>
+          </div>
         </Reveal>
       </section>
 
+
       {/* ============== BRAND MARQUEE ============== */}
       <section className="py-10 lg:py-14 border-y border-border overflow-hidden">
-        <div className="flex w-max animate-[marquee_60s_linear_infinite] items-center">
+        <div className="flex w-max animate-[marquee_69s_linear_infinite] items-center">
           {[...BRANDS, ...BRANDS].map((b, i) => (
-            <div key={i} className="flex flex-col items-center justify-center gap-2 px-10 shrink-0">
-              <div className="relative flex items-center justify-center">
-                <img
-                  src={logoUrl(b.domain)}
-                  alt={`${b.name} logo`}
-                  loading="lazy"
-                  className="h-8 lg:h-10 w-auto max-w-[140px] object-contain opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0"
-                />
-                {b.ai && (
-                  <span className="absolute -top-2 -right-1 rounded-full bg-primary px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide text-primary-foreground shadow-sm">
-                    +AI
-                  </span>
-                )}
-              </div>
-              <span className="text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground whitespace-nowrap">
-                {b.name}
-              </span>
-            </div>
+            <MarqueeItem key={i} b={b} />
           ))}
         </div>
       </section>
 
+
+
+
+      {/* ============== SMART GLASSES — HERO SHOWCASE ============== */}
+      <section id="smart-glasses" className="relative scroll-mt-24 px-6 lg:px-10 py-20 lg:py-32 bg-ink overflow-hidden">
+        <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div className="lg:col-span-5 text-white">
+            <div className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-electric/90">
+              <span className="size-1.5 rounded-full bg-electric" />
+              Ray-Ban Meta
+            </div>
+            <h2 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-bold leading-[0.95] tracking-tighter">
+              Iconic frames.
+              <br />
+              <span className="font-serif italic font-medium text-white/80">Now intelligent.</span>
+            </h2>
+            <p className="mt-6 text-white/70 text-base sm:text-lg max-w-md leading-relaxed">
+              Capture, call, and ask Meta AI — without ever reaching for your phone. The Wayfarer you know, reimagined.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link to="/smart-glasses" className="bg-electric text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-white hover:text-ink transition-colors">
+                Explore Smart Glasses
+              </Link>
+              <Link to="/contact" className="border border-white/25 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-white/10 transition-colors">
+                Try in store
+              </Link>
+            </div>
+          </div>
+          <div className="lg:col-span-7 relative">
+            <div className="absolute -inset-10 bg-electric/20 blur-3xl rounded-full pointer-events-none" />
+            <img
+              src={raybanMetaHero}
+              alt="Ray-Ban Meta smart glasses on an obsidian pedestal with electric-blue rim lighting"
+              width={1600}
+              height={1024}
+              loading="lazy"
+              className="relative w-full h-auto rounded-3xl shadow-2xl"
+            />
+          </div>
+        </div>
+      </section>
 
       {/* ============== BRANDS ============== */}
       <section id="brands" className="scroll-mt-24 px-6 lg:px-10 py-20 lg:py-32">
@@ -408,9 +482,21 @@ function HomePage() {
                     <Link
                       to="/brands/$brand"
                       params={{ brand: h.slug! }}
-                      className="group bg-secondary/60 border border-border rounded-3xl p-8 hover:bg-ink hover:text-white transition-colors block h-full"
+                      className="group relative overflow-hidden bg-secondary/60 border border-border rounded-3xl p-8 hover:bg-ink hover:text-white transition-colors block h-full"
                     >
-                      <div className="flex items-start justify-between gap-4 mb-10">
+                      {h.slug === "prada" && (
+                        <>
+                          <img
+                            src={pradaModelFemale}
+                            alt=""
+                            aria-hidden
+                            loading="lazy"
+                            className="pointer-events-none absolute inset-0 h-full w-full object-cover object-top opacity-30 mix-blend-luminosity transition-opacity duration-500 group-hover:opacity-40"
+                          />
+                          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-secondary/95 via-secondary/70 to-secondary/20 group-hover:from-ink/95 group-hover:via-ink/70 group-hover:to-ink/20 transition-colors" />
+                        </>
+                      )}
+                      <div className="relative flex items-start justify-between gap-4 mb-10">
                         <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground group-hover:text-white/50">
                           0{i + 1}
                         </span>
@@ -425,11 +511,12 @@ function HomePage() {
                           />
                         </div>
                       </div>
-                      <h3 className="text-2xl font-bold tracking-tight">{h.name}</h3>
-                      <p className="mt-3 text-sm text-muted-foreground group-hover:text-white/70 font-serif italic">
+                      <h3 className="relative text-2xl font-bold tracking-tight">{h.name}</h3>
+                      <p className="relative mt-3 text-sm text-muted-foreground group-hover:text-white/70 font-serif italic">
                         {h.note}
                       </p>
                     </Link>
+
                   </TiltCard>
                 </Reveal>
               ))}
@@ -482,44 +569,6 @@ function HomePage() {
         </div>
       </section>
 
-      {/* ============== RAY-BAN META — HERO SHOWCASE ============== */}
-      <section id="smart-glasses" className="relative scroll-mt-24 px-6 lg:px-10 py-20 lg:py-32 bg-ink overflow-hidden">
-        <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-5 text-white">
-            <div className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-electric/90">
-              <span className="size-1.5 rounded-full bg-electric" />
-              Ray-Ban Meta
-            </div>
-            <h2 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-bold leading-[0.95] tracking-tighter">
-              Iconic frames.
-              <br />
-              <span className="font-serif italic font-medium text-white/80">Now intelligent.</span>
-            </h2>
-            <p className="mt-6 text-white/70 text-base sm:text-lg max-w-md leading-relaxed">
-              Capture, call, and ask Meta AI — without ever reaching for your phone. The Wayfarer you know, reimagined.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/contact" className="bg-electric text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-white hover:text-ink transition-colors">
-                Try in store
-              </Link>
-              <Link to="/services" className="border border-white/25 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-white/10 transition-colors">
-                Learn more
-              </Link>
-            </div>
-          </div>
-          <div className="lg:col-span-7 relative">
-            <div className="absolute -inset-10 bg-electric/20 blur-3xl rounded-full pointer-events-none" />
-            <img
-              src={raybanMetaHero}
-              alt="Ray-Ban Meta smart glasses on an obsidian pedestal with electric-blue rim lighting"
-              width={1600}
-              height={1024}
-              loading="lazy"
-              className="relative w-full h-auto rounded-3xl shadow-2xl"
-            />
-          </div>
-        </div>
-      </section>
 
       {/* ============== OAKLEY COMPANION + OFFER ============== */}
       <section className="px-6 lg:px-10 py-16 lg:py-24 bg-secondary/60">

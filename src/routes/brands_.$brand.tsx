@@ -1,7 +1,8 @@
 import * as React from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
-import { getBrand, BRANDS, type BrandData, type GlassItem } from "@/lib/brand-catalog";
+import { getBrand, BRANDS, HOUSES, priorityIndex, type BrandData, type GlassItem } from "@/lib/brand-catalog";
+import pradaModelMale from "@/assets/brands/prada-model-male.jpg";
 import { GlassSilhouette } from "@/components/site/GlassSilhouette";
 import { EnquireDialog } from "@/components/site/EnquireDialog";
 import { ProductDialog } from "@/components/site/ProductDialog";
@@ -46,9 +47,21 @@ export const Route = createFileRoute("/brands_/$brand")({
   component: BrandPage,
 });
 
+const LOGO_TOKEN = import.meta.env.VITE_LOVABLE_CONNECTOR_LOGO_DEV_API_KEY as string | undefined;
+const houseLogo = (name: string) => {
+  const h = HOUSES.find((x) => x.name === name);
+  if (h?.logo) return h.logo;
+  if (h?.domain && LOGO_TOKEN)
+    return `https://img.logo.dev/${h.domain}?token=${LOGO_TOKEN}&size=200&format=png&retina=true`;
+  return null;
+};
+
 function BrandPage() {
   const { brand } = Route.useLoaderData() as { brand: BrandData };
-  const otherBrands = BRANDS.filter((b) => b.slug !== brand.slug).slice(0, 6);
+  const otherBrands = BRANDS.filter((b) => b.slug !== brand.slug)
+    .sort((a, b) => priorityIndex(a.name) - priorityIndex(b.name))
+    .slice(0, 6);
+  const isPrada = brand.slug === "prada";
 
   return (
     <div className="px-6 lg:px-10 py-16 lg:py-24">
@@ -57,32 +70,65 @@ function BrandPage() {
           <ArrowLeft className="size-4" /> All brands
         </Link>
 
-        <div className="mt-6 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-          <div>
-            <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">{brand.tag}</span>
-            {brand.logo ? (
+        <div className="relative mt-6 overflow-hidden rounded-3xl">
+          {isPrada && (
+            <>
               <img
-                src={brand.logo}
-                alt={`${brand.name} logo`}
-                width={420}
-                height={210}
-                className="mt-4 h-16 lg:h-24 w-auto object-contain object-left dark:invert"
+                src={pradaModelMale}
+                alt=""
+                aria-hidden
+                className="pointer-events-none absolute inset-0 h-full w-full object-cover object-right opacity-25 dark:opacity-30 mix-blend-luminosity"
               />
-            ) : (
-              <h1 className="mt-3 text-5xl lg:text-7xl font-bold tracking-tighter">{brand.name}</h1>
-            )}
-            {brand.slug === "maui-jim" && (
-              <div className="mt-4 inline-flex items-center gap-2 bg-electric/10 border border-electric/30 text-electric rounded-full px-3 py-1.5 text-xs font-semibold">
-                <span className="size-1.5 rounded-full bg-electric animate-pulse" />
-                Leading supplier in Hyderabad &amp; nearby areas
-              </div>
-            )}
-            <p className="mt-5 text-muted-foreground max-w-2xl text-lg">{brand.blurb}</p>
-          </div>
-          <div className="text-xs font-bold uppercase tracking-[0.22em] text-muted-foreground">
-            {brand.models.length} models in stock
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
+            </>
+          )}
+          <div className="relative flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 p-6 lg:p-10">
+            <div>
+              <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">{brand.tag}</span>
+              {brand.logo ? (
+                <img
+                  src={brand.logo}
+                  alt={`${brand.name} logo`}
+                  width={420}
+                  height={210}
+                  className="mt-4 h-16 lg:h-24 w-auto object-contain object-left dark:invert"
+                />
+              ) : (
+                <h1 className="mt-3 text-5xl lg:text-7xl font-bold tracking-tighter">{brand.name}</h1>
+              )}
+              {brand.slug === "maui-jim" && (
+                <div className="mt-4 inline-flex items-center gap-2 bg-electric/10 border border-electric/30 text-electric rounded-full px-3 py-1.5 text-xs font-semibold">
+                  <span className="size-1.5 rounded-full bg-electric animate-pulse" />
+                  Leading supplier in Hyderabad &amp; nearby areas
+                </div>
+              )}
+              {brand.certified && (
+                <div className="mt-4 inline-flex items-center gap-2 bg-electric/10 border border-electric/30 text-electric rounded-full px-3 py-1.5 text-xs font-semibold">
+                  <span className="size-1.5 rounded-full bg-electric animate-pulse" />
+                  {brand.certified}
+                </div>
+              )}
+              <p className="mt-5 text-muted-foreground max-w-2xl text-lg">{brand.blurb}</p>
+            </div>
+            <div className="text-xs font-bold uppercase tracking-[0.22em] text-muted-foreground">
+              {brand.models.length} {brand.category === "lenses" ? "lens ranges" : "models in stock"}
+            </div>
           </div>
         </div>
+
+        {brand.features && brand.features.length > 0 && (
+          <div className="mt-16">
+            <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">Coatings &amp; special features</span>
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {brand.features.map((f) => (
+                <div key={f.title} className="bg-secondary/60 border border-border rounded-2xl p-6">
+                  <h3 className="font-bold tracking-tight">{f.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {brand.models.map((m, i) => (
@@ -97,17 +143,33 @@ function BrandPage() {
         <div className="mt-20">
           <h2 className="text-2xl font-bold tracking-tight mb-6">Other houses</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-            {otherBrands.map((b) => (
-              <Link
-                key={b.slug}
-                to="/brands/$brand"
-                params={{ brand: b.slug }}
-                className="bg-secondary/60 border border-border rounded-2xl p-5 text-sm font-bold tracking-tight hover:bg-ink hover:text-white transition-colors"
-              >
-                {b.name}
-              </Link>
-            ))}
+            {otherBrands.map((b) => {
+              const logo = houseLogo(b.name);
+              return (
+                <Link
+                  key={b.slug}
+                  to="/brands/$brand"
+                  params={{ brand: b.slug }}
+                  className="group bg-secondary/60 border border-border rounded-2xl p-5 flex flex-col items-center justify-center gap-3 text-center hover:bg-ink hover:text-white transition-colors"
+                >
+                  <div className="flex items-center justify-center h-12 w-full rounded-lg bg-white p-2 ring-1 ring-black/5">
+                    {logo ? (
+                      <img
+                        src={logo}
+                        alt={`${b.name} logo`}
+                        loading="lazy"
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    ) : (
+                      <span className="text-xs font-bold tracking-tight text-ink">{b.name}</span>
+                    )}
+                  </div>
+                  <span className="text-xs font-bold tracking-tight">{b.name}</span>
+                </Link>
+              );
+            })}
           </div>
+
         </div>
       </div>
     </div>
