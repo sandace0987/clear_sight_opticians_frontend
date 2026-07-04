@@ -62,6 +62,9 @@ import pradaSpr27zSide from "@/assets/products/prada-spr-27z/side.png.asset.json
 import pradaSprA17Front from "@/assets/products/prada-spr-a17/front.png.asset.json";
 import pradaSprA17Quarter from "@/assets/products/prada-spr-a17/quarter.png.asset.json";
 import pradaSprA17Side from "@/assets/products/prada-spr-a17/side.png.asset.json";
+import pradaVprB54Front from "@/assets/products/prada-vpr-b54/front.png.asset.json";
+import pradaVprB54Quarter from "@/assets/products/prada-vpr-b54/quarter.png.asset.json";
+import pradaVprB54Side from "@/assets/products/prada-vpr-b54/side.png.asset.json";
 
 export type ColorVariant = {
   id: string;
@@ -395,6 +398,25 @@ export const BRANDS: BrandData[] = [
               front: pradaSprA17Front.url,
               quarter: pradaSprA17Quarter.url,
               side: pradaSprA17Side.url,
+            },
+          },
+        ],
+      },
+      {
+        model: "VPR B54",
+        shape: "rectangle",
+        colour: "Pale Gold",
+        priceFrom: 21420,
+        variants: [
+          {
+            id: "pale-gold",
+            name: "Pale Gold",
+            lens: "Optical / Clear",
+            swatch: "linear-gradient(135deg, #e8d9a8 0%, #f0c9b0 50%, #d9b877 100%)",
+            images: {
+              front: pradaVprB54Front.url,
+              quarter: pradaVprB54Quarter.url,
+              side: pradaVprB54Side.url,
             },
           },
         ],
