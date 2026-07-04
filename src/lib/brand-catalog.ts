@@ -614,6 +614,25 @@ export const BRANDS: BrandData[] = [
           },
         ],
       },
+      {
+        model: "B2389",
+        shape: "cateye",
+        colour: "Black",
+        priceFrom: 16890,
+        variants: [
+          {
+            id: "black",
+            name: "Black",
+            lens: "Optical / Clear",
+            swatch: "linear-gradient(135deg, #2b2b2b 0%, #4a4a4a 50%, #1a1a1a 100%)",
+            images: {
+              front: burberryB2389Front.url,
+              quarter: burberryB2389Quarter.url,
+              side: burberryB2389Side.url,
+            },
+          },
+        ],
+      },
       { model: "Check Cat-Eye", shape: "cateye", colour: "Vintage Check", priceFrom: 18990 },
       { model: "Heritage Round", shape: "round", colour: "Havana", priceFrom: 17490 },
       { model: "Monogram Square", shape: "rectangle", colour: "Black / Beige", priceFrom: 18490 },
