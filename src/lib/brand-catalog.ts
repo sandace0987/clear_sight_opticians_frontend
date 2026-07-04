@@ -56,6 +56,9 @@ import pradaSprA16Side from "@/assets/products/prada-spr-a16/havana-side.webp.as
 import pradaSpr17wFront from "@/assets/products/prada-spr-17w/front.png.asset.json";
 import pradaSpr17wQuarter from "@/assets/products/prada-spr-17w/quarter.png.asset.json";
 import pradaSpr17wSide from "@/assets/products/prada-spr-17w/side.png.asset.json";
+import pradaSpr27zFront from "@/assets/products/prada-spr-27z/front.png.asset.json";
+import pradaSpr27zQuarter from "@/assets/products/prada-spr-27z/quarter.png.asset.json";
+import pradaSpr27zSide from "@/assets/products/prada-spr-27z/side.png.asset.json";
 
 export type ColorVariant = {
   id: string;
@@ -351,6 +354,25 @@ export const BRANDS: BrandData[] = [
               front: pradaSpr17wFront.url,
               quarter: pradaSpr17wQuarter.url,
               side: pradaSpr17wSide.url,
+            },
+          },
+        ],
+      },
+      {
+        model: "SPR 27Z",
+        shape: "geometric",
+        colour: "Black",
+        priceFrom: 36290,
+        variants: [
+          {
+            id: "black",
+            name: "Black",
+            lens: "Yellow",
+            swatch: "linear-gradient(135deg, #1a1a1c 0%, #3a3a3d 50%, #0d0d0e 100%)",
+            images: {
+              front: pradaSpr27zFront.url,
+              quarter: pradaSpr27zQuarter.url,
+              side: pradaSpr27zSide.url,
             },
           },
         ],
