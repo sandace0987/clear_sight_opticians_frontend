@@ -236,6 +236,20 @@ function HomePage() {
             Hyderabad · Est. 2009
           </div>
 
+          {/* Top-right CTA */}
+          <div className="absolute top-5 right-5 sm:top-7 sm:right-7 z-10">
+            <MagneticButton>
+              <Link
+                to="/brands"
+                className="inline-flex items-center gap-2 bg-white text-ink px-5 py-2.5 sm:px-7 sm:py-3.5 rounded-full text-sm font-semibold hover:bg-electric hover:text-white transition-colors shadow-lg"
+              >
+                Explore Brands
+                <ArrowUpRight className="size-4" />
+              </Link>
+            </MagneticButton>
+          </div>
+
+
           {/* Content */}
           <div className="absolute inset-0 flex flex-col justify-end px-6 sm:px-10 lg:px-16 pb-12 sm:pb-16 lg:pb-20">
             <div className="max-w-3xl">
@@ -337,34 +351,16 @@ function HomePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.75, ease: [0.16, 1, 0.3, 1] }}
-                className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:items-end gap-6 sm:gap-12"
+                className="mt-8 sm:mt-10"
               >
                 <p className="text-white/85 text-base sm:text-lg max-w-md leading-relaxed">
                   Premium eyewear curated for the visionary. Discover Ray-Ban Meta,
                   Oakley Meta and the world's finest luxury frames — fitted by experts.
                 </p>
-                <div className="flex flex-wrap gap-3">
-                  <MagneticButton>
-                    <Link
-                      to="/brands"
-                      className="inline-flex items-center gap-2 bg-white text-ink px-7 py-3.5 rounded-full text-sm font-semibold hover:bg-electric hover:text-white transition-colors"
-                    >
-                      Explore Brands
-                      <ArrowUpRight className="size-4" />
-                    </Link>
-                  </MagneticButton>
-                  <MagneticButton>
-                    <Link
-                      to="/contact"
-                      className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md text-white border border-white/30 px-7 py-3.5 rounded-full text-sm font-semibold hover:bg-white/20 transition-colors"
-                    >
-                      Book Eye Test
-                    </Link>
-                  </MagneticButton>
-                </div>
               </motion.div>
             </div>
           </div>
+
 
         </div>
       </section>
