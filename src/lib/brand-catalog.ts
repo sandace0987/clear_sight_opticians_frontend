@@ -737,12 +737,6 @@ export const BRANDS: BrandData[] = [
           },
         ],
       },
-      { model: "Check Cat-Eye", shape: "cateye", colour: "Vintage Check", priceFrom: 18990 },
-      { model: "Heritage Round", shape: "round", colour: "Havana", priceFrom: 17490 },
-      { model: "Monogram Square", shape: "rectangle", colour: "Black / Beige", priceFrom: 18490 },
-      { model: "Classic Wayfarer", shape: "wayfarer", colour: "Tortoise", priceFrom: 16990 },
-      { model: "Pilot Trench", shape: "aviator", colour: "Gold / Brown", priceFrom: 17990 },
-      { model: "Geometric Check", shape: "geometric", colour: "Crystal", priceFrom: 18290 },
     ],
   },
   {
