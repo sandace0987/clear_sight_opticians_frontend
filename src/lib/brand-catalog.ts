@@ -658,6 +658,25 @@ export const BRANDS: BrandData[] = [
           },
         ],
       },
+      {
+        model: "B2413D",
+        shape: "round",
+        colour: "Black / Gold",
+        priceFrom: 28430,
+        variants: [
+          {
+            id: "black-gold",
+            name: "Black / Gold",
+            lens: "Optical / Clear",
+            swatch: "linear-gradient(135deg, #1a1a1a 0%, #caa24a 50%, #2b2b2b 100%)",
+            images: {
+              front: burberryB2413dFront.url,
+              quarter: burberryB2413dQuarter.url,
+              side: burberryB2413dSide.url,
+            },
+          },
+        ],
+      },
       { model: "Check Cat-Eye", shape: "cateye", colour: "Vintage Check", priceFrom: 18990 },
       { model: "Heritage Round", shape: "round", colour: "Havana", priceFrom: 17490 },
       { model: "Monogram Square", shape: "rectangle", colour: "Black / Beige", priceFrom: 18490 },
