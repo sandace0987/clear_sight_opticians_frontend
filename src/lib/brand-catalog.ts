@@ -77,6 +77,9 @@ import pradaVpr19wSide from "@/assets/products/prada-vpr-19w/side.png.asset.json
 import pradaPs03rvFront from "@/assets/products/prada-ps-03rv/front.jpg.asset.json";
 import pradaPs03rvQuarter from "@/assets/products/prada-ps-03rv/quarter.png.asset.json";
 import pradaPs03rvSide from "@/assets/products/prada-ps-03rv/side.jpg.asset.json";
+import burberryB2378Front from "@/assets/products/burberry-b2378/front.webp.asset.json";
+import burberryB2378Quarter from "@/assets/products/burberry-b2378/quarter.webp.asset.json";
+import burberryB2378Side from "@/assets/products/burberry-b2378/side.webp.asset.json";
 
 export type ColorVariant = {
   id: string;
@@ -523,6 +526,25 @@ export const BRANDS: BrandData[] = [
     tag: "British heritage",
     blurb: "Check, monogram and trench-coat tailoring translated into eyewear from London.",
     models: [
+      {
+        model: "B2378",
+        shape: "rectangle",
+        colour: "Crystal",
+        priceFrom: 22290,
+        variants: [
+          {
+            id: "crystal",
+            name: "Crystal",
+            lens: "Optical / Clear",
+            swatch: "linear-gradient(135deg, #e6e8ea 0%, #f6f7f8 50%, #d3d6d9 100%)",
+            images: {
+              front: burberryB2378Front.url,
+              quarter: burberryB2378Quarter.url,
+              side: burberryB2378Side.url,
+            },
+          },
+        ],
+      },
       { model: "Check Cat-Eye", shape: "cateye", colour: "Vintage Check", priceFrom: 18990 },
       { model: "Heritage Round", shape: "round", colour: "Havana", priceFrom: 17490 },
       { model: "Monogram Square", shape: "rectangle", colour: "Black / Beige", priceFrom: 18490 },
