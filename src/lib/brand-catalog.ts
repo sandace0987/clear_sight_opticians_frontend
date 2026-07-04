@@ -789,6 +789,37 @@ export const BRANDS: BrandData[] = [
       { model: "Sport Wrap", shape: "sport", colour: "Matte Grey", priceFrom: 8290 },
     ],
   },
+  {
+    slug: "zeiss",
+    name: "ZEISS",
+    tag: "Lens & vision expert",
+    category: "lenses",
+    certified: "ZEISS Certified Vision Experts — Hyderabad",
+    blurb:
+      "Over 175 years of precision optics. As certified ZEISS Vision Experts, we craft individualised prescription lenses with market-leading clarity, coatings and blue-light protection.",
+    features: [
+      { title: "DuraVision® Coatings", desc: "Anti-reflective, anti-scratch and easy-clean layers for lasting clarity." },
+      { title: "BlueGuard", desc: "Blocks up to 40% of potentially harmful blue light while staying near-clear." },
+      { title: "PhotoFusion X", desc: "Self-tinting lenses that darken outdoors and clear up fast indoors." },
+      { title: "UVProtect", desc: "Full UV protection up to 400nm across the entire lens — even clear lenses." },
+      { title: "DriveSafe", desc: "Optimised for low-light and night driving with reduced glare from headlights." },
+      { title: "Individual Fit", desc: "Lenses personalised to your frame, prescription and lifestyle." },
+    ],
+    models: [
+      {
+        model: "ClearMind Lenses",
+        shape: "single vision",
+        colour: "Clear · BlueGuard · DuraVision",
+        priceFrom: 6990,
+      },
+      {
+        model: "SmartLife Lenses",
+        shape: "progressive",
+        colour: "Age-adaptive · DriveSafe · UVProtect",
+        priceFrom: 14990,
+      },
+    ],
+  },
 ];
 
 export const getBrand = (slug: string) => BRANDS.find((b) => b.slug === slug);
