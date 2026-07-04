@@ -198,6 +198,9 @@ export default function TryOnLive({ onClose, initialFrameId }: Props) {
         ctx.restore();
       } else {
         smoothRef.current = null;
+      }
+
+
 
 
       rafRef.current = requestAnimationFrame(tick);
