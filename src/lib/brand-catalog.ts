@@ -381,34 +381,6 @@ export const BRANDS: BrandData[] = [
       { model: "Sport Wrap", shape: "sport", colour: "Matte Grey", priceFrom: 8290 },
     ],
   },
-  {
-    slug: "fastrack",
-    name: "Fastrack",
-    tag: "Everyday",
-    blurb: "Light, durable, affordable — designed for everyday Indian wear.",
-    models: [
-      { model: "Wayfarer Pop", shape: "wayfarer", colour: "Black", priceFrom: 1495 },
-      { model: "Round Metal", shape: "round", colour: "Gold", priceFrom: 1295 },
-      { model: "Sport Wrap", shape: "sport", colour: "Matte Black", priceFrom: 1795 },
-      { model: "Square Acetate", shape: "rectangle", colour: "Brown", priceFrom: 1395 },
-      { model: "Aviator Lite", shape: "aviator", colour: "Silver", priceFrom: 1595 },
-      { model: "Cat-Eye Trend", shape: "cateye", colour: "Pink", priceFrom: 1495 },
-    ],
-  },
-  {
-    slug: "titan-eyeplus",
-    name: "Titan Eyeplus",
-    tag: "Indian premium",
-    blurb: "Quietly premium optical favourites — clean Indian design, all-day comfort.",
-    models: [
-      { model: "Classic Rectangle", shape: "rectangle", colour: "Black", priceFrom: 2990 },
-      { model: "Round Heritage", shape: "round", colour: "Havana", priceFrom: 3290 },
-      { model: "Aviator Pro", shape: "aviator", colour: "Gold", priceFrom: 3490 },
-      { model: "Rimless Glide", shape: "rimless", colour: "Silver", priceFrom: 4290 },
-      { model: "Browline Office", shape: "browline", colour: "Tortoise / Black", priceFrom: 3390 },
-      { model: "Cat-Eye Soft", shape: "cateye", colour: "Burgundy", priceFrom: 3190 },
-    ],
-  },
 ];
 
 export const getBrand = (slug: string) => BRANDS.find((b) => b.slug === slug);
