@@ -61,3 +61,55 @@ function BrandsPage() {
     </div>
   );
 }
+
+function BrandCard({ h, index }: { h: House; index: number }) {
+  const logoDevKey = import.meta.env.VITE_LOVABLE_CONNECTOR_LOGO_DEV_API_KEY;
+  const logoSrc = h.logo
+    ? h.logo
+    : h.domain && logoDevKey
+      ? `https://img.logo.dev/${h.domain}?token=${logoDevKey}&size=200&format=png&retina=true`
+      : null;
+
+  const inner = (
+    <>
+      <div className="flex items-start justify-between gap-4 mb-10">
+        <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground group-hover:text-white/50">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        {logoSrc ? (
+          <div className="shrink-0 rounded-2xl bg-white p-3.5 shadow-sm ring-1 ring-black/5 flex items-center justify-center h-20 w-32">
+            <img
+              src={logoSrc}
+              alt={`${h.name} logo`}
+              width={200}
+              height={100}
+              loading="lazy"
+              className="max-h-full max-w-full object-contain"
+            />
+          </div>
+        ) : (
+          h.slug && (
+            <ArrowUpRight className="size-5 opacity-40 group-hover:opacity-100 group-hover:text-electric transition-all" />
+          )
+        )}
+      </div>
+      <h3 className="text-2xl font-bold tracking-tight">{h.name}</h3>
+      <p className="mt-3 text-sm text-muted-foreground group-hover:text-white/70 font-serif italic">
+        {h.note}
+      </p>
+    </>
+  );
+
+  const className =
+    "group bg-secondary/60 border border-border rounded-3xl p-8 hover:bg-ink hover:text-white transition-colors block h-full";
+
+  if (h.slug) {
+    return (
+      <Link to="/brands/$brand" params={{ brand: h.slug }} className={className}>
+        {inner}
+      </Link>
+    );
+  }
+  return <div className={className}>{inner}</div>;
+}
+
