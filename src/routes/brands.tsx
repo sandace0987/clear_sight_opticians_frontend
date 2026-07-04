@@ -4,6 +4,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { TiltCard } from "@/components/motion/TiltCard";
 import { MagneticButton } from "@/components/motion/MagneticButton";
 import { housesByCategory, type House } from "@/lib/brand-catalog";
+import pradaModelMale from "@/assets/brands/prada-model-male.png";
 
 const SECTIONS = [
   { id: "glasses", label: "Glasses", heading: "Eyeglasses & Sunglasses" },
