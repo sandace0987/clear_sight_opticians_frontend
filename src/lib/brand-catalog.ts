@@ -44,6 +44,12 @@ import sugarKhakiFront from "@/assets/products/maui-jim-sugar-beach/HT421-15_fro
 import sugarKhakiQuarter from "@/assets/products/maui-jim-sugar-beach/HT421-15_quarter.webp.asset.json";
 import sugarKhakiSide from "@/assets/products/maui-jim-sugar-beach/HT421-15_side.webp.asset.json";
 import mauiJimLogo from "@/assets/brands/maui-jim-logo.webp.asset.json";
+import pradaPs03qv2azFront from "@/assets/products/prada-ps03qv/2az-front.jpg.asset.json";
+import pradaPs03qv2azQuarter from "@/assets/products/prada-ps03qv/2az-quarter.jpg.asset.json";
+import pradaPs03qv2azSide from "@/assets/products/prada-ps03qv/2az-side.png.asset.json";
+import pradaPs03qvDgFront from "@/assets/products/prada-ps03qv/dg-front.png.asset.json";
+import pradaPs03qvDgQuarter from "@/assets/products/prada-ps03qv/dg-quarter.png.asset.json";
+import pradaPs03qvDgSide from "@/assets/products/prada-ps03qv/dg-side.png.asset.json";
 
 export type ColorVariant = {
   id: string;
