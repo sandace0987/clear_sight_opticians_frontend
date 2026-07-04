@@ -281,6 +281,36 @@ export const BRANDS: BrandData[] = [
     tag: "Italian luxury",
     blurb: "Linea Rossa, Symbole and the iconic triangle plaque — refined, sculptural Milanese eyewear.",
     models: [
+      {
+        model: "Linea Rossa PS 03QV",
+        shape: "rectangle",
+        colour: "Transparent / Black",
+        priceFrom: 18312,
+        variants: [
+          {
+            id: "transparent",
+            name: "Transparent",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #e8edf2 0%, #c4ccd4 50%, #f4f6f8 100%)",
+            images: {
+              front: pradaPs03qv2azFront.url,
+              quarter: pradaPs03qv2azQuarter.url,
+              side: pradaPs03qv2azSide.url,
+            },
+          },
+          {
+            id: "black",
+            name: "Black",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #1a1a1c 0%, #3a3a3d 50%, #c0182f 100%)",
+            images: {
+              front: pradaPs03qvDgFront.url,
+              quarter: pradaPs03qvDgQuarter.url,
+              side: pradaPs03qvDgSide.url,
+            },
+          },
+        ],
+      },
       { model: "Symbole Oval", shape: "oversized", colour: "Black / Smoke", priceFrom: 28990 },
       { model: "Linea Rossa Sport", shape: "shield", colour: "Rubber Black", priceFrom: 22990 },
       { model: "Cinéma Cat-Eye", shape: "cateye", colour: "Havana", priceFrom: 26490 },
