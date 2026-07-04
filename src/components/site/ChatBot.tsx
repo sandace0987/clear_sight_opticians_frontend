@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import { MessageCircle, X, RotateCcw, Glasses } from "lucide-react";
+import { MessageCircle, X, RotateCcw, Glasses, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { chatbotQA, FALLBACK_MESSAGE } from "@/lib/chatbot-data";
