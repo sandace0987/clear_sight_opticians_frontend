@@ -490,6 +490,25 @@ export const BRANDS: BrandData[] = [
           },
         ],
       },
+      {
+        model: "Linea Rossa PS 03RV",
+        shape: "rectangle",
+        colour: "Grey",
+        priceFrom: 38890,
+        variants: [
+          {
+            id: "grey",
+            name: "Grey",
+            lens: "Optical / Clear",
+            swatch: "linear-gradient(135deg, #9a9ea1 0%, #c2c6c9 50%, #7d8184 100%)",
+            images: {
+              front: pradaPs03rvFront.url,
+              quarter: pradaPs03rvQuarter.url,
+              side: pradaPs03rvSide.url,
+            },
+          },
+        ],
+      },
       { model: "Symbole Oval", shape: "oversized", colour: "Black / Smoke", priceFrom: 28990 },
       { model: "Linea Rossa Sport", shape: "shield", colour: "Rubber Black", priceFrom: 22990 },
       { model: "Cinéma Cat-Eye", shape: "cateye", colour: "Havana", priceFrom: 26490 },
