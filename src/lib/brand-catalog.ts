@@ -89,6 +89,9 @@ import burberryB2255qfSide from "@/assets/products/burberry-b2255qf/side.avif.as
 import burberryB2379uFront from "@/assets/products/burberry-b2379u/front.webp.asset.json";
 import burberryB2379uQuarter from "@/assets/products/burberry-b2379u/quarter.webp.asset.json";
 import burberryB2379uSide from "@/assets/products/burberry-b2379u/side.webp.asset.json";
+import burberryB2389Front from "@/assets/products/burberry-b2389/front.webp.asset.json";
+import burberryB2389Quarter from "@/assets/products/burberry-b2389/quarter.webp.asset.json";
+import burberryB2389Side from "@/assets/products/burberry-b2389/side.webp.asset.json";
 
 export type ColorVariant = {
   id: string;
@@ -607,6 +610,25 @@ export const BRANDS: BrandData[] = [
               front: burberryB2379uFront.url,
               quarter: burberryB2379uQuarter.url,
               side: burberryB2379uSide.url,
+            },
+          },
+        ],
+      },
+      {
+        model: "B2389",
+        shape: "cateye",
+        colour: "Black",
+        priceFrom: 16890,
+        variants: [
+          {
+            id: "black",
+            name: "Black",
+            lens: "Optical / Clear",
+            swatch: "linear-gradient(135deg, #2b2b2b 0%, #4a4a4a 50%, #1a1a1a 100%)",
+            images: {
+              front: burberryB2389Front.url,
+              quarter: burberryB2389Quarter.url,
+              side: burberryB2389Side.url,
             },
           },
         ],
