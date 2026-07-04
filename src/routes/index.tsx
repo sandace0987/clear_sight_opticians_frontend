@@ -127,14 +127,6 @@ function MarqueeItem({ b }: { b: MarqueeBrand }) {
 
 
 
-const COLLECTIONS = [
-  { title: "Eyeglasses", count: "320+ frames" },
-  { title: "Sunglasses", count: "280+ frames" },
-  { title: "Smart Glasses", count: "Meta editions" },
-  { title: "Contact Lenses", count: "Premium daily & monthly" },
-  { title: "Kids Eyewear", count: "Durable & cute" },
-  { title: "Luxury Frames", count: "Prada · Gucci · Tom Ford" },
-];
 
 const WHY = [
   { icon: Eye, title: "Expert optical guidance", desc: "Certified optometrists with 15+ years on the floor." },
