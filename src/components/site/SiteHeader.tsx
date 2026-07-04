@@ -6,16 +6,18 @@ import { AnimatedWordmark } from "./AnimatedWordmark";
 import { ThemeToggle } from "./ThemeToggle";
 import logoUrl from "@/assets/clear-sight-logo.avif";
 
-const NAV = [
+type NavItem = { to: string; hash?: string; label: string; route?: boolean };
+
+const NAV: NavItem[] = [
   { to: "/", hash: undefined, label: "Home" },
+  { to: "/smart-glasses", label: "Smart Glasses", route: true },
   { to: "/", hash: "brands", label: "Brands" },
-  { to: "/", hash: "smart-glasses", label: "Smart Glasses" },
   { to: "/", hash: "try-on", label: "Try On" },
   { to: "/", hash: "offers", label: "Offers" },
   { to: "/", hash: "stores", label: "Stores" },
-  { to: "/", hash: "about", label: "About" },
-  { to: "/", hash: "contact", label: "Contact" },
-] as const;
+  { to: "/about", label: "About", route: true },
+  { to: "/contact", label: "Contact", route: true },
+];
 
 const SECTION_IDS = NAV.filter((n) => n.hash).map((n) => n.hash as string);
 
