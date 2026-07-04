@@ -314,6 +314,25 @@ export const BRANDS: BrandData[] = [
           },
         ],
       },
+      {
+        model: "SPR A16",
+        shape: "geometric",
+        colour: "Havana",
+        priceFrom: 43190,
+        variants: [
+          {
+            id: "havana",
+            name: "Havana",
+            lens: "Green Polarized",
+            swatch: "linear-gradient(135deg, #3a2113 0%, #7a4420 50%, #c0772f 100%)",
+            images: {
+              front: pradaSprA16Front.url,
+              quarter: pradaSprA16Quarter.url,
+              side: pradaSprA16Side.url,
+            },
+          },
+        ],
+      },
       { model: "Symbole Oval", shape: "oversized", colour: "Black / Smoke", priceFrom: 28990 },
       { model: "Linea Rossa Sport", shape: "shield", colour: "Rubber Black", priceFrom: 22990 },
       { model: "Cinéma Cat-Eye", shape: "cateye", colour: "Havana", priceFrom: 26490 },
