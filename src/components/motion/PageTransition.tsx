@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useRouterState } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useLayoutEffect, useRef, type ReactNode } from "react";
 import { useReducedMotion } from "@/hooks/use-motion-prefs";
 import { pageTransition } from "@/lib/motion-variants";
 
