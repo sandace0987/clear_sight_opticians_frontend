@@ -125,12 +125,19 @@ export type GlassItem = {
   variants?: ColorVariant[];
 };
 
+export type Category = "glasses" | "lenses" | "kids";
+
 export type BrandData = {
   slug: string;
   name: string;
   tag: string;
   blurb: string;
   logo?: string;
+  category?: Category;
+  /** short highlight banner text, mirrors the Maui Jim "biggest supplier" badge */
+  certified?: string;
+  /** coating / special-feature cards shown on the brand page */
+  features?: { title: string; desc: string }[];
   models: GlassItem[];
 };
 
