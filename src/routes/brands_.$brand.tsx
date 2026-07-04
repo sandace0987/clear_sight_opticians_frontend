@@ -60,7 +60,6 @@ function BrandPage() {
   const otherBrands = BRANDS.filter((b) => b.slug !== brand.slug)
     .sort((a, b) => priorityIndex(a.name) - priorityIndex(b.name))
     .slice(0, 6);
-  const isPrada = brand.slug === "prada";
 
   return (
     <div className="px-6 lg:px-10 py-16 lg:py-24">
@@ -70,17 +69,6 @@ function BrandPage() {
         </Link>
 
         <div className="relative mt-6 overflow-hidden rounded-3xl">
-          {isPrada && (
-            <>
-              <img
-                src={pradaModelMale}
-                alt=""
-                aria-hidden
-                className="pointer-events-none absolute inset-0 h-full w-full object-cover object-right opacity-25 dark:opacity-30 mix-blend-luminosity"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
-            </>
-          )}
           <div className="relative flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 p-6 lg:p-10">
             <div>
               <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">{brand.tag}</span>
