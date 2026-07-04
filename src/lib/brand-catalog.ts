@@ -65,6 +65,9 @@ import pradaSprA17Side from "@/assets/products/prada-spr-a17/side.png.asset.json
 import pradaVprB54Front from "@/assets/products/prada-vpr-b54/front.png.asset.json";
 import pradaVprB54Quarter from "@/assets/products/prada-vpr-b54/quarter.png.asset.json";
 import pradaVprB54Side from "@/assets/products/prada-vpr-b54/side.png.asset.json";
+import pradaVprA16vFront from "@/assets/products/prada-vpr-a16v/front.png.asset.json";
+import pradaVprA16vQuarter from "@/assets/products/prada-vpr-a16v/quarter.png.asset.json";
+import pradaVprA16vSide from "@/assets/products/prada-vpr-a16v/side.png.asset.json";
 
 export type ColorVariant = {
   id: string;
@@ -417,6 +420,25 @@ export const BRANDS: BrandData[] = [
               front: pradaVprB54Front.url,
               quarter: pradaVprB54Quarter.url,
               side: pradaVprB54Side.url,
+            },
+          },
+        ],
+      },
+      {
+        model: "VPR A16V",
+        shape: "cateye",
+        colour: "Black",
+        priceFrom: 30290,
+        variants: [
+          {
+            id: "black",
+            name: "Black",
+            lens: "Optical / Clear",
+            swatch: "linear-gradient(135deg, #1a1a1c 0%, #3a3a3d 50%, #0d0d0e 100%)",
+            images: {
+              front: pradaVprA16vFront.url,
+              quarter: pradaVprA16vQuarter.url,
+              side: pradaVprA16vSide.url,
             },
           },
         ],
