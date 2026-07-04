@@ -65,6 +65,9 @@ import pradaSprA17Side from "@/assets/products/prada-spr-a17/side.png.asset.json
 import pradaVprB54Front from "@/assets/products/prada-vpr-b54/front.png.asset.json";
 import pradaVprB54Quarter from "@/assets/products/prada-vpr-b54/quarter.png.asset.json";
 import pradaVprB54Side from "@/assets/products/prada-vpr-b54/side.png.asset.json";
+import pradaVprA16vFront from "@/assets/products/prada-vpr-a16v/front.png.asset.json";
+import pradaVprA16vQuarter from "@/assets/products/prada-vpr-a16v/quarter.png.asset.json";
+import pradaVprA16vSide from "@/assets/products/prada-vpr-a16v/side.png.asset.json";
 
 export type ColorVariant = {
   id: string;
