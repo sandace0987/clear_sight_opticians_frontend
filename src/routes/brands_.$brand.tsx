@@ -143,17 +143,33 @@ function BrandPage() {
         <div className="mt-20">
           <h2 className="text-2xl font-bold tracking-tight mb-6">Other houses</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-            {otherBrands.map((b) => (
-              <Link
-                key={b.slug}
-                to="/brands/$brand"
-                params={{ brand: b.slug }}
-                className="bg-secondary/60 border border-border rounded-2xl p-5 text-sm font-bold tracking-tight hover:bg-ink hover:text-white transition-colors"
-              >
-                {b.name}
-              </Link>
-            ))}
+            {otherBrands.map((b) => {
+              const logo = houseLogo(b.name);
+              return (
+                <Link
+                  key={b.slug}
+                  to="/brands/$brand"
+                  params={{ brand: b.slug }}
+                  className="group bg-secondary/60 border border-border rounded-2xl p-5 flex flex-col items-center justify-center gap-3 text-center hover:bg-ink hover:text-white transition-colors"
+                >
+                  <div className="flex items-center justify-center h-12 w-full rounded-lg bg-white p-2 ring-1 ring-black/5">
+                    {logo ? (
+                      <img
+                        src={logo}
+                        alt={`${b.name} logo`}
+                        loading="lazy"
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    ) : (
+                      <span className="text-xs font-bold tracking-tight text-ink">{b.name}</span>
+                    )}
+                  </div>
+                  <span className="text-xs font-bold tracking-tight">{b.name}</span>
+                </Link>
+              );
+            })}
           </div>
+
         </div>
       </div>
     </div>
