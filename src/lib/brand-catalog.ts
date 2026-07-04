@@ -402,6 +402,25 @@ export const BRANDS: BrandData[] = [
           },
         ],
       },
+      {
+        model: "VPR B54",
+        shape: "rectangle",
+        colour: "Pale Gold",
+        priceFrom: 21420,
+        variants: [
+          {
+            id: "pale-gold",
+            name: "Pale Gold",
+            lens: "Optical / Clear",
+            swatch: "linear-gradient(135deg, #e8d9a8 0%, #f0c9b0 50%, #d9b877 100%)",
+            images: {
+              front: pradaVprB54Front.url,
+              quarter: pradaVprB54Quarter.url,
+              side: pradaVprB54Side.url,
+            },
+          },
+        ],
+      },
       { model: "Symbole Oval", shape: "oversized", colour: "Black / Smoke", priceFrom: 28990 },
       { model: "Linea Rossa Sport", shape: "shield", colour: "Rubber Black", priceFrom: 22990 },
       { model: "Cinéma Cat-Eye", shape: "cateye", colour: "Havana", priceFrom: 26490 },
