@@ -824,7 +824,31 @@ export const BRANDS: BrandData[] = [
   },
 ];
 
+// Deterministically flag 2-3 "hot" (selling fast) models per brand.
+// Seeded by brand slug so the selection is stable across renders/reloads.
+function seededHot() {
+  for (const brand of BRANDS) {
+    if (!brand.models.length) continue;
+    let seed = 0;
+    for (const ch of brand.slug) seed = (seed * 31 + ch.charCodeAt(0)) >>> 0;
+    const rand = () => {
+      seed = (seed * 1103515245 + 12345) >>> 0;
+      return seed / 0xffffffff;
+    };
+    const count = Math.min(brand.models.length, 2 + Math.floor(rand() * 2)); // 2-3
+    const indices = brand.models.map((_, i) => i);
+    // shuffle
+    for (let i = indices.length - 1; i > 0; i--) {
+      const j = Math.floor(rand() * (i + 1));
+      [indices[i], indices[j]] = [indices[j], indices[i]];
+    }
+    for (const i of indices.slice(0, count)) brand.models[i].is_hot = true;
+  }
+}
+seededHot();
+
 export const getBrand = (slug: string) => BRANDS.find((b) => b.slug === slug);
+
 
 export type House = {
   slug?: string;
