@@ -358,7 +358,7 @@ function HomePage() {
                 className="h-8 lg:h-10 w-auto max-w-[140px] object-contain opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0"
               />
               {b.ai && (
-                <span className="absolute -top-2 -right-1 rounded-full bg-accent px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide text-accent-foreground shadow-sm">
+                <span className="absolute -top-2 -right-1 rounded-full bg-primary px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide text-primary-foreground shadow-sm">
                   +AI
                 </span>
               )}
