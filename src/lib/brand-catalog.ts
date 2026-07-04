@@ -74,6 +74,9 @@ import pradaVpr18wSide from "@/assets/products/prada-vpr-18w/side.png.asset.json
 import pradaVpr19wFront from "@/assets/products/prada-vpr-19w/front.png.asset.json";
 import pradaVpr19wQuarter from "@/assets/products/prada-vpr-19w/quarter.png.asset.json";
 import pradaVpr19wSide from "@/assets/products/prada-vpr-19w/side.png.asset.json";
+import pradaPs03rvFront from "@/assets/products/prada-ps-03rv/front.jpg.asset.json";
+import pradaPs03rvQuarter from "@/assets/products/prada-ps-03rv/quarter.png.asset.json";
+import pradaPs03rvSide from "@/assets/products/prada-ps-03rv/side.jpg.asset.json";
 
 export type ColorVariant = {
   id: string;
@@ -483,6 +486,25 @@ export const BRANDS: BrandData[] = [
               front: pradaVpr19wFront.url,
               quarter: pradaVpr19wQuarter.url,
               side: pradaVpr19wSide.url,
+            },
+          },
+        ],
+      },
+      {
+        model: "Linea Rossa PS 03RV",
+        shape: "rectangle",
+        colour: "Grey",
+        priceFrom: 38890,
+        variants: [
+          {
+            id: "grey",
+            name: "Grey",
+            lens: "Optical / Clear",
+            swatch: "linear-gradient(135deg, #9a9ea1 0%, #c2c6c9 50%, #7d8184 100%)",
+            images: {
+              front: pradaPs03rvFront.url,
+              quarter: pradaPs03rvQuarter.url,
+              side: pradaPs03rvSide.url,
             },
           },
         ],
