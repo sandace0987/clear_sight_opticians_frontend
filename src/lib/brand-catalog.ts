@@ -45,6 +45,7 @@ import sugarKhakiQuarter from "@/assets/products/maui-jim-sugar-beach/HT421-15_q
 import sugarKhakiSide from "@/assets/products/maui-jim-sugar-beach/HT421-15_side.webp";
 import mauiJimLogo from "@/assets/brands/maui-jim-logo.webp";
 import silhouetteLogo from "@/assets/brands/silhouette-logo.png";
+import pradaMilanoLogo from "@/assets/brands/prada-milano-logo.png";
 import pradaPs03qv2azFront from "@/assets/products/prada-ps03qv/2az-front.jpg";
 import pradaPs03qv2azQuarter from "@/assets/products/prada-ps03qv/2az-quarter.jpg";
 import pradaPs03qv2azSide from "@/assets/products/prada-ps03qv/2az-side.png";
@@ -864,7 +865,7 @@ export const HOUSES: House[] = [
   // ---- Glasses ----
   { slug: "ray-ban", name: "Ray-Ban", tag: "American icon", note: "Wayfarer, Aviator & Meta editions", domain: "ray-ban.com", category: "glasses" },
   { slug: "oakley", name: "Oakley", tag: "Performance", note: "Sport, lifestyle & Meta HSTN", domain: "oakley.com", category: "glasses" },
-  { slug: "prada", name: "Prada", tag: "Italian luxury", note: "Linea Rossa & Symbole", domain: "prada.com", category: "glasses" },
+  { slug: "prada", name: "Prada", tag: "Italian luxury", note: "Linea Rossa & Symbole", logo: pradaMilanoLogo, domain: "prada.com", category: "glasses" },
   { name: "Montblanc", tag: "German maison", note: "Refined optical & sun", domain: "montblanc.com", category: "glasses" },
   { name: "Puma", tag: "Sport", note: "Active & everyday eyewear", domain: "puma.com", category: "glasses" },
   { name: "Silhouette", tag: "Austrian craft", note: "Rimless lightweight titanium", logo: silhouetteLogo, domain: "silhouette.com", category: "glasses" },

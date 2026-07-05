@@ -21,6 +21,7 @@ import {
 import { HOUSES } from "@/lib/brand-catalog";
 import heroPortrait from "@/assets/hero-portrait.jpg";
 import pradaModelFemale from "@/assets/brands/prada-model-female.png";
+import pradaMilanoLogo from "@/assets/brands/prada-milano-logo.png";
 
 import raybanMetaHero from "@/assets/rayban-meta-hero.jpg";
 import oakleyMeta from "@/assets/oakley-meta.jpg";
@@ -59,14 +60,14 @@ export const Route = createFileRoute("/")({
 
 const LOGO_TOKEN = import.meta.env.VITE_LOVABLE_CONNECTOR_LOGO_DEV_API_KEY as string | undefined;
 
-type MarqueeBrand = { name: string; domain: string; ai?: boolean };
+type MarqueeBrand = { name: string; domain: string; ai?: boolean; logo?: string };
 
 const BRANDS: MarqueeBrand[] = [
   { name: "Ray-Ban", domain: "ray-ban.com", ai: true },
   { name: "Oakley", domain: "oakley.com", ai: true },
-  { name: "Prada Milano", domain: "prada.com" },
+  { name: "Prada Milano", domain: "prada.com", logo: pradaMilanoLogo },
   { name: "Montblanc", domain: "montblanc.com" },
-  { name: "Prada Linea Rossa", domain: "prada.com" },
+  { name: "Prada Linea Rossa", domain: "prada.com", logo: pradaMilanoLogo },
   { name: "Puma", domain: "puma.com" },
   { name: "Silhouette", domain: "silhouette.com" },
   { name: "Tom Ford", domain: "tomford.com" },
@@ -103,7 +104,7 @@ function MarqueeItem({ b }: { b: MarqueeBrand }) {
     >
       <div className="relative flex items-center justify-center">
         <img
-          src={logoUrl(b.domain)}
+          src={b.logo ?? logoUrl(b.domain)}
           alt={`${b.name} logo`}
           loading="lazy"
           className={cn(
