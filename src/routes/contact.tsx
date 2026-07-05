@@ -16,6 +16,23 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    const msg = [
+      "Hi Clear Sight Opticians, I'd like to book an appointment.",
+      fd.get("name") && `Name: ${fd.get("name")}`,
+      fd.get("mobile") && `Mobile: ${fd.get("mobile")}`,
+      fd.get("email") && `Email: ${fd.get("email")}`,
+      fd.get("store") && `Preferred store: ${fd.get("store")}`,
+      fd.get("reason") && `Reason: ${fd.get("reason")}`,
+      fd.get("notes") && `Notes: ${fd.get("notes")}`,
+    ]
+      .filter(Boolean)
+      .join("\n");
+    window.open(`https://wa.me/${SHOP_WHATSAPP}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <div className="px-6 lg:px-10 py-16 lg:py-24">
       <div className="mx-auto max-w-7xl">
