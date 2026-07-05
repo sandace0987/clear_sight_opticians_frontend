@@ -52,7 +52,7 @@ function ContactPage() {
             </div>
             <div>
               <h3 className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground mb-3">WhatsApp</h3>
-              <a href="https://wa.me/919440525789" className="text-2xl font-bold tracking-tight inline-flex items-center gap-3">
+              <a href={`https://wa.me/${SHOP_WHATSAPP}`} target="_blank" rel="noopener noreferrer" className="text-2xl font-bold tracking-tight inline-flex items-center gap-3">
                 <MessageCircle className="size-5 text-electric" /> Chat with us
               </a>
             </div>
@@ -62,6 +62,12 @@ function ContactPage() {
                 <Mail className="size-5 text-electric" />
                 <span>hello@clearsight.in</span>
               </a>
+            </div>
+            <div>
+              <h3 className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground mb-3">Opening Hours</h3>
+              <p className="text-lg font-bold tracking-tight inline-flex items-center gap-3">
+                <Clock className="size-5 text-electric" /> Mon–Sun: 9:00 AM – 9:30 PM
+              </p>
             </div>
             <div>
               <h3 className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground mb-3">Main Address</h3>
