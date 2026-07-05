@@ -38,12 +38,6 @@ function BrandsPage() {
             From Italian ateliers to American icons — each brand we carry is hand-selected
             and stocked across our three Hyderabad studios.
           </p>
-          <img
-            src={pradaModelMale}
-            alt="Male model wearing Prada sunglasses"
-            loading="lazy"
-            className="hidden lg:block absolute -top-8 -right-4 w-[320px] h-auto object-contain pointer-events-none z-10"
-          />
         </div>
 
         {/* Section tabs */}
