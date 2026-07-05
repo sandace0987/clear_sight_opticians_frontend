@@ -104,7 +104,7 @@ function MarqueeItem({ b }: { b: MarqueeBrand }) {
     >
       <div className="relative flex items-center justify-center">
         <img
-          src={logoUrl(b.domain)}
+          src={b.logo ?? logoUrl(b.domain)}
           alt={`${b.name} logo`}
           loading="lazy"
           className={cn(
