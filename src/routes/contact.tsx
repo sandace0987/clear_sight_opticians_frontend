@@ -81,22 +81,22 @@ function ContactPage() {
             </div>
           </aside>
 
-          <form className="lg:col-span-8 bg-secondary/60 border border-border rounded-3xl p-8 lg:p-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <form onSubmit={handleSubmit} className="lg:col-span-8 bg-secondary/60 border border-border rounded-3xl p-8 lg:p-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
             <label className="flex flex-col gap-2">
               <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">Full name</span>
-              <input type="text" placeholder="Aarav Reddy" className="bg-transparent border-b border-border py-3 focus:outline-none focus:border-electric transition-colors" />
+              <input name="name" type="text" placeholder="Aarav Reddy" className="bg-transparent border-b border-border py-3 focus:outline-none focus:border-electric transition-colors" />
             </label>
             <label className="flex flex-col gap-2">
               <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">Mobile</span>
-              <input type="tel" placeholder="+91 …" className="bg-transparent border-b border-border py-3 focus:outline-none focus:border-electric transition-colors" />
+              <input name="mobile" type="tel" placeholder="+91 …" className="bg-transparent border-b border-border py-3 focus:outline-none focus:border-electric transition-colors" />
             </label>
             <label className="flex flex-col gap-2 sm:col-span-2">
               <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">Email</span>
-              <input type="email" placeholder="you@example.com" className="bg-transparent border-b border-border py-3 focus:outline-none focus:border-electric transition-colors" />
+              <input name="email" type="email" placeholder="you@example.com" className="bg-transparent border-b border-border py-3 focus:outline-none focus:border-electric transition-colors" />
             </label>
             <label className="flex flex-col gap-2">
               <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">Preferred store</span>
-              <select className="bg-transparent border-b border-border py-3 focus:outline-none focus:border-electric transition-colors">
+              <select name="store" className="bg-transparent border-b border-border py-3 focus:outline-none focus:border-electric transition-colors">
                 <option>Kukatpally (KPHB)</option>
                 <option>Nizampet</option>
                 <option>Bowenpally</option>
@@ -104,7 +104,7 @@ function ContactPage() {
             </label>
             <label className="flex flex-col gap-2">
               <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">Reason</span>
-              <select className="bg-transparent border-b border-border py-3 focus:outline-none focus:border-electric transition-colors">
+              <select name="reason" className="bg-transparent border-b border-border py-3 focus:outline-none focus:border-electric transition-colors">
                 <option>Eye test</option>
                 <option>Smart glasses demo</option>
                 <option>Frame styling</option>
@@ -114,13 +114,13 @@ function ContactPage() {
             </label>
             <label className="flex flex-col gap-2 sm:col-span-2">
               <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">Notes</span>
-              <textarea rows={4} placeholder="Tell us anything that would help us prepare." className="bg-transparent border-b border-border py-3 focus:outline-none focus:border-electric transition-colors resize-none" />
+              <textarea name="notes" rows={4} placeholder="Tell us anything that would help us prepare." className="bg-transparent border-b border-border py-3 focus:outline-none focus:border-electric transition-colors resize-none" />
             </label>
             <button
-              type="button"
-              className="sm:col-span-2 mt-4 bg-electric text-white py-4 rounded-full font-bold tracking-[0.18em] uppercase text-xs hover:bg-ink transition-colors"
+              type="submit"
+              className="sm:col-span-2 mt-4 inline-flex items-center justify-center gap-2 bg-electric text-white py-4 rounded-full font-bold tracking-[0.18em] uppercase text-xs hover:bg-ink transition-colors"
             >
-              Request appointment
+              <MessageCircle className="size-4" /> Send via WhatsApp
             </button>
           </form>
         </div>
