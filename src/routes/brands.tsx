@@ -108,7 +108,15 @@ function BrandCard({ h, index }: { h: House; index: number }) {
 
   const inner = (
     <>
-      <div className="flex items-start justify-between gap-4 mb-10">
+      {h.slug === "prada" && (
+        <img
+          src={pradaModelMale}
+          alt="Male model wearing Prada sunglasses"
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover opacity-20 group-hover:opacity-30 transition-opacity pointer-events-none z-0"
+        />
+      )}
+      <div className="relative z-10 flex items-start justify-between gap-4 mb-10">
         <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground group-hover:text-white/50">
           {String(index + 1).padStart(2, "0")}
         </span>
@@ -129,18 +137,10 @@ function BrandCard({ h, index }: { h: House; index: number }) {
           )
         )}
       </div>
-      <h3 className="text-2xl font-bold tracking-tight">{h.name}</h3>
-      <p className="mt-3 text-sm text-muted-foreground group-hover:text-white/70 font-serif italic">
+      <h3 className="relative z-10 text-2xl font-bold tracking-tight">{h.name}</h3>
+      <p className="relative z-10 mt-3 text-sm text-muted-foreground group-hover:text-white/70 font-serif italic">
         {h.note}
       </p>
-      {h.slug === "prada" && (
-        <img
-          src={pradaModelMale}
-          alt="Male model wearing Prada sunglasses"
-          loading="lazy"
-          className="absolute bottom-0 right-0 w-[180px] h-auto object-contain pointer-events-none z-10"
-        />
-      )}
     </>
   );
 
