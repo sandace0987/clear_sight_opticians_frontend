@@ -46,6 +46,8 @@ import sugarKhakiSide from "@/assets/products/maui-jim-sugar-beach/HT421-15_side
 import mauiJimLogo from "@/assets/brands/maui-jim-logo.webp";
 import silhouetteLogo from "@/assets/brands/silhouette-logo.webp";
 import pradaMilanoLogo from "@/assets/brands/prada-milano-logo.webp";
+import rayBanLogo from "@/assets/brands/ray-ban-logo.svg";
+import guessLogo from "@/assets/brands/guess-logo.webp";
 import pradaPs03qv2azFront from "@/assets/products/prada-ps03qv/2az-front.webp";
 import pradaPs03qv2azQuarter from "@/assets/products/prada-ps03qv/2az-quarter.webp";
 import pradaPs03qv2azSide from "@/assets/products/prada-ps03qv/2az-side.webp";
