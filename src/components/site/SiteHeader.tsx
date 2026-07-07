@@ -96,7 +96,7 @@ export function SiteHeader() {
             <img
               src={logoUrl}
               alt="Clear Sight Opticians"
-              className="h-13 lg:h-16 w-auto object-contain shrink-0"
+              className="h-14 lg:h-16 w-auto object-contain shrink-0"
             />
           </Link>
 
