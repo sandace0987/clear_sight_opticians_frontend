@@ -435,6 +435,21 @@ export const BRANDS: BrandData[] = [
           },
         ],
       },
+      {
+        model: "RX7249I",
+        shape: "rectangle",
+        colour: "Green",
+        priceFrom: 5990,
+        variants: [
+          {
+            id: "6751",
+            name: "Transparent Green (6751)",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #3a4a3e 0%, #566b5a 50%, #7a8f7f 100%)",
+            images: { front: rx7249GreenFront, quarter: rx7249GreenQuarter, side: rx7249GreenSide },
+          },
+        ],
+      },
     ],
   },
   {
