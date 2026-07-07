@@ -330,6 +330,36 @@ export const BRANDS: BrandData[] = [
     tag: "American icon",
     blurb: "Since 1937. The original Aviator and Wayfarer — engineered in Italy, worn worldwide.",
     models: [
+      {
+        model: "RB4252",
+        shape: "round",
+        colour: "Transparent / Black",
+        priceFrom: 7290,
+        is_hot: true,
+        variants: [
+          {
+            id: "crystal",
+            name: "Transparent",
+            lens: "Grey Gradient",
+            swatch: "linear-gradient(135deg, #e8edf2 0%, #c4ccd4 50%, #f4f6f8 100%)",
+            images: { front: rb4252CrystalFront, quarter: rb4252CrystalQuarter, side: rb4252CrystalSide },
+          },
+          {
+            id: "black",
+            name: "Black",
+            lens: "Grey Gradient",
+            swatch: "linear-gradient(135deg, #1a1a1c 0%, #3a3a3d 50%, #6a6a6d 100%)",
+            images: { front: rb4252BlackFront, quarter: rb4252BlackQuarter, side: rb4252BlackSide },
+          },
+          {
+            id: "matte-black",
+            name: "Matte Black",
+            lens: "Grey Gradient",
+            swatch: "linear-gradient(135deg, #101012 0%, #2a2a2c 50%, #454547 100%)",
+            images: { front: rb4252MatteFront, quarter: rb4252MatteQuarter, side: rb4252MatteSide },
+          },
+        ],
+      },
       { model: "Wayfarer Classic", shape: "wayfarer", colour: "Black", priceFrom: 8490 },
       { model: "Aviator Gold", shape: "aviator", colour: "Gold / Green G-15", priceFrom: 9990 },
       { model: "Round Metal", shape: "round", colour: "Gunmetal", priceFrom: 8990 },
