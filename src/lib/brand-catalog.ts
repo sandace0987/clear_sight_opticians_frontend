@@ -116,6 +116,9 @@ import rb4252BlackSide from "@/assets/products/ray-ban-rb4252/black-side.avif";
 import rb4252MatteFront from "@/assets/products/ray-ban-rb4252/matte-front.webp";
 import rb4252MatteQuarter from "@/assets/products/ray-ban-rb4252/matte-quarter.webp";
 import rb4252MatteSide from "@/assets/products/ray-ban-rb4252/matte-side.webp";
+import rx3681v2509Front from "@/assets/products/ray-ban-rx3681v/2509-front.avif";
+import rx3681v2509Quarter from "@/assets/products/ray-ban-rx3681v/2509-quarter.avif";
+import rx3681v2509Side from "@/assets/products/ray-ban-rx3681v/2509-side.avif";
 import burberryBe2387Quarter from "@/assets/products/burberry-be2387/quarter.webp";
 import burberryBe2387Side from "@/assets/products/burberry-be2387/side.webp";
 
