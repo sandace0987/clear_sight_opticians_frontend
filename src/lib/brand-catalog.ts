@@ -131,6 +131,12 @@ import rx7239BlueSide from "@/assets/products/ray-ban-rx7239/blue-side.webp";
 import rx7249GreenFront from "@/assets/products/ray-ban-rx7249/green-front.webp";
 import rx7249GreenQuarter from "@/assets/products/ray-ban-rx7249/green-quarter.webp";
 import rx7249GreenSide from "@/assets/products/ray-ban-rx7249/green-side.webp";
+import rx7264HavanaFront from "@/assets/products/ray-ban-rx7264/havana-front.webp";
+import rx7264HavanaQuarter from "@/assets/products/ray-ban-rx7264/havana-quarter.webp";
+import rx7264HavanaSide from "@/assets/products/ray-ban-rx7264/havana-side.webp";
+import rx7264BlackFront from "@/assets/products/ray-ban-rx7264/black-front.webp";
+import rx7264BlackQuarter from "@/assets/products/ray-ban-rx7264/black-quarter.webp";
+import rx7264BlackSide from "@/assets/products/ray-ban-rx7264/black-side.webp";
 import burberryBe2387Quarter from "@/assets/products/burberry-be2387/quarter.webp";
 import burberryBe2387Side from "@/assets/products/burberry-be2387/side.webp";
 
