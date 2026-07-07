@@ -399,6 +399,21 @@ export const BRANDS: BrandData[] = [
           },
         ],
       },
+      {
+        model: "RX7190",
+        shape: "round",
+        colour: "Black",
+        priceFrom: 7190,
+        variants: [
+          {
+            id: "2000",
+            name: "Black (2000)",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #101012 0%, #2a2a2c 50%, #454547 100%)",
+            images: { front: rx7190BlackFront, quarter: rx7190BlackQuarter, side: rx7190BlackSide },
+          },
+        ],
+      },
     ],
   },
   {
