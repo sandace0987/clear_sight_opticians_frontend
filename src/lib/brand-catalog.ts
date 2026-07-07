@@ -131,6 +131,12 @@ import rx7239BlueSide from "@/assets/products/ray-ban-rx7239/blue-side.webp";
 import rx7249GreenFront from "@/assets/products/ray-ban-rx7249/green-front.webp";
 import rx7249GreenQuarter from "@/assets/products/ray-ban-rx7249/green-quarter.webp";
 import rx7249GreenSide from "@/assets/products/ray-ban-rx7249/green-side.webp";
+import rx7264HavanaFront from "@/assets/products/ray-ban-rx7264/havana-front.webp";
+import rx7264HavanaQuarter from "@/assets/products/ray-ban-rx7264/havana-quarter.webp";
+import rx7264HavanaSide from "@/assets/products/ray-ban-rx7264/havana-side.webp";
+import rx7264BlackFront from "@/assets/products/ray-ban-rx7264/black-front.webp";
+import rx7264BlackQuarter from "@/assets/products/ray-ban-rx7264/black-quarter.webp";
+import rx7264BlackSide from "@/assets/products/ray-ban-rx7264/black-side.webp";
 import burberryBe2387Quarter from "@/assets/products/burberry-be2387/quarter.webp";
 import burberryBe2387Side from "@/assets/products/burberry-be2387/side.webp";
 
@@ -447,6 +453,28 @@ export const BRANDS: BrandData[] = [
             lens: "Clear Demo",
             swatch: "linear-gradient(135deg, #3a4a3e 0%, #566b5a 50%, #7a8f7f 100%)",
             images: { front: rx7249GreenFront, quarter: rx7249GreenQuarter, side: rx7249GreenSide },
+          },
+        ],
+      },
+      {
+        model: "RX7264I",
+        shape: "browline",
+        colour: "Havana / Black",
+        priceFrom: 6290,
+        variants: [
+          {
+            id: "havana",
+            name: "Havana (2012)",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #3a2113 0%, #7a4420 50%, #c0772f 100%)",
+            images: { front: rx7264HavanaFront, quarter: rx7264HavanaQuarter, side: rx7264HavanaSide },
+          },
+          {
+            id: "black",
+            name: "Black (2000)",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #101012 0%, #2a2a2c 50%, #454547 100%)",
+            images: { front: rx7264BlackFront, quarter: rx7264BlackQuarter, side: rx7264BlackSide },
           },
         ],
       },
