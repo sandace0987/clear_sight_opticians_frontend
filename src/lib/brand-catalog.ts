@@ -1016,7 +1016,7 @@ export type House = {
 
 export const HOUSES: House[] = [
   // ---- Glasses ----
-  { slug: "ray-ban", name: "Ray-Ban", tag: "American icon", note: "Wayfarer, Aviator & Meta editions", domain: "ray-ban.com", category: "glasses" },
+  { slug: "ray-ban", name: "Ray-Ban", tag: "American icon", note: "Wayfarer, Aviator & Meta editions", logo: rayBanLogo, domain: "ray-ban.com", category: "glasses" },
   { slug: "oakley", name: "Oakley", tag: "Performance", note: "Sport, lifestyle & Meta HSTN", domain: "oakley.com", category: "glasses" },
   { slug: "prada", name: "Prada", tag: "Italian luxury", note: "Linea Rossa & Symbole", logo: pradaMilanoLogo, domain: "prada.com", category: "glasses" },
   { name: "Montblanc", tag: "German maison", note: "Refined optical & sun", domain: "montblanc.com", category: "glasses" },
