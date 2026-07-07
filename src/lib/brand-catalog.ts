@@ -128,6 +128,9 @@ import rx7190BlackSide from "@/assets/products/ray-ban-rx7190/black-side.webp";
 import rx7239BlueFront from "@/assets/products/ray-ban-rx7239/blue-front.webp";
 import rx7239BlueQuarter from "@/assets/products/ray-ban-rx7239/blue-quarter.webp";
 import rx7239BlueSide from "@/assets/products/ray-ban-rx7239/blue-side.webp";
+import rx7249GreenFront from "@/assets/products/ray-ban-rx7249/green-front.webp";
+import rx7249GreenQuarter from "@/assets/products/ray-ban-rx7249/green-quarter.webp";
+import rx7249GreenSide from "@/assets/products/ray-ban-rx7249/green-side.webp";
 import burberryBe2387Quarter from "@/assets/products/burberry-be2387/quarter.webp";
 import burberryBe2387Side from "@/assets/products/burberry-be2387/side.webp";
 
@@ -429,6 +432,21 @@ export const BRANDS: BrandData[] = [
             lens: "Clear Demo",
             swatch: "linear-gradient(135deg, #1e2a3d 0%, #2f4a6b 50%, #4a6f9c 100%)",
             images: { front: rx7239BlueFront, quarter: rx7239BlueQuarter, side: rx7239BlueSide },
+          },
+        ],
+      },
+      {
+        model: "RX7249I",
+        shape: "rectangle",
+        colour: "Green",
+        priceFrom: 5990,
+        variants: [
+          {
+            id: "6751",
+            name: "Transparent Green (6751)",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #3a4a3e 0%, #566b5a 50%, #7a8f7f 100%)",
+            images: { front: rx7249GreenFront, quarter: rx7249GreenQuarter, side: rx7249GreenSide },
           },
         ],
       },
