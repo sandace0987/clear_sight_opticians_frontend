@@ -456,6 +456,28 @@ export const BRANDS: BrandData[] = [
           },
         ],
       },
+      {
+        model: "RX7264I",
+        shape: "browline",
+        colour: "Havana / Black",
+        priceFrom: 6290,
+        variants: [
+          {
+            id: "havana",
+            name: "Havana (2012)",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #3a2113 0%, #7a4420 50%, #c0772f 100%)",
+            images: { front: rx7264HavanaFront, quarter: rx7264HavanaQuarter, side: rx7264HavanaSide },
+          },
+          {
+            id: "black",
+            name: "Black (2000)",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #101012 0%, #2a2a2c 50%, #454547 100%)",
+            images: { front: rx7264BlackFront, quarter: rx7264BlackQuarter, side: rx7264BlackSide },
+          },
+        ],
+      },
     ],
   },
   {
