@@ -417,6 +417,21 @@ export const BRANDS: BrandData[] = [
           },
         ],
       },
+      {
+        model: "RX7239",
+        shape: "rectangle",
+        colour: "Blue",
+        priceFrom: 7790,
+        variants: [
+          {
+            id: "8223",
+            name: "Transparent Blue (8223)",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #1e2a3d 0%, #2f4a6b 50%, #4a6f9c 100%)",
+            images: { front: rx7239BlueFront, quarter: rx7239BlueQuarter, side: rx7239BlueSide },
+          },
+        ],
+      },
     ],
   },
   {
