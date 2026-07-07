@@ -25,6 +25,7 @@ import pradaModelFemale from "@/assets/brands/prada-model-female.webp";
 import pradaMilanoLogo from "@/assets/brands/prada-milano-logo.webp";
 import rayBanLogo from "@/assets/brands/ray-ban-logo.svg";
 import guessLogo from "@/assets/brands/guess-logo.webp";
+import silhouetteLogo from "@/assets/brands/silhouette-logo.webp";
 
 import raybanMetaHero from "@/assets/rayban-meta-hero.webp";
 import oakleyMeta from "@/assets/oakley-meta.webp";
