@@ -122,6 +122,9 @@ import rx3681v2509Side from "@/assets/products/ray-ban-rx3681v/2509-side.avif";
 import rx7027GreenFront from "@/assets/products/ray-ban-rx7027/green-front.webp";
 import rx7027GreenQuarter from "@/assets/products/ray-ban-rx7027/green-quarter.webp";
 import rx7027GreenSide from "@/assets/products/ray-ban-rx7027/green-side.webp";
+import rx7190BlackFront from "@/assets/products/ray-ban-rx7190/black-front.webp";
+import rx7190BlackQuarter from "@/assets/products/ray-ban-rx7190/black-quarter.webp";
+import rx7190BlackSide from "@/assets/products/ray-ban-rx7190/black-side.webp";
 import burberryBe2387Quarter from "@/assets/products/burberry-be2387/quarter.webp";
 import burberryBe2387Side from "@/assets/products/burberry-be2387/side.webp";
 
@@ -393,6 +396,21 @@ export const BRANDS: BrandData[] = [
             lens: "Clear Demo",
             swatch: "linear-gradient(135deg, #3a4a2e 0%, #566b3f 50%, #7a8f5a 100%)",
             images: { front: rx7027GreenFront, quarter: rx7027GreenQuarter, side: rx7027GreenSide },
+          },
+        ],
+      },
+      {
+        model: "RX7190",
+        shape: "round",
+        colour: "Black",
+        priceFrom: 7190,
+        variants: [
+          {
+            id: "2000",
+            name: "Black (2000)",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #101012 0%, #2a2a2c 50%, #454547 100%)",
+            images: { front: rx7190BlackFront, quarter: rx7190BlackQuarter, side: rx7190BlackSide },
           },
         ],
       },
