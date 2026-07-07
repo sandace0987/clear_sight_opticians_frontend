@@ -79,7 +79,7 @@ const BRANDS: MarqueeBrand[] = [
   { name: "Philipp Plein", domain: "plein.com" },
   { name: "Versace", domain: "versace.com" },
   { name: "Porsche Design", domain: "porsche-design.com" },
-  { name: "Guess", domain: "guess.com" },
+  { name: "Guess", domain: "guess.com", logo: guessLogo },
   { name: "Police", domain: "policelifestyle.com" },
   { name: "Carrera", domain: "carreraworld.com" },
   { name: "Modo", domain: "modo.com" },
