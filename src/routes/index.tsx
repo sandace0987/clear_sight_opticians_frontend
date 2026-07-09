@@ -37,6 +37,8 @@ import { TiltCard } from "@/components/motion/TiltCard";
 import { CountUp } from "@/components/motion/CountUp";
 import { MagneticButton } from "@/components/motion/MagneticButton";
 import { motion, AnimatePresence } from "framer-motion";
+import { CatchGame } from "@/components/site/CatchGame";
+import { Gamepad2 } from "lucide-react";
 
 
 
@@ -199,6 +201,7 @@ const OFFERS = [
 
 function HomePage() {
   const hash = useRouterState({ select: (s) => s.location.hash });
+  const [playing, setPlaying] = useState(false);
 
   const handleBookingSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -377,6 +380,23 @@ function HomePage() {
               </motion.div>
             </div>
           </div>
+
+          {/* Play mini-game button */}
+          {!playing && (
+            <button
+              type="button"
+              onClick={() => setPlaying(true)}
+              className="absolute bottom-6 right-6 sm:bottom-8 sm:right-8 z-10 inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/15 px-5 py-2.5 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:bg-electric hover:text-white"
+            >
+              <Gamepad2 className="size-4" />
+              Play: Catch the Frames
+            </button>
+          )}
+
+          {/* Mini-game overlay */}
+          <AnimatePresence>
+            {playing && <CatchGame key="catch-game" onExit={() => setPlaying(false)} />}
+          </AnimatePresence>
 
         </div>
       </section>
