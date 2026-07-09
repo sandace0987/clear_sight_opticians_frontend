@@ -37,6 +37,8 @@ import { TiltCard } from "@/components/motion/TiltCard";
 import { CountUp } from "@/components/motion/CountUp";
 import { MagneticButton } from "@/components/motion/MagneticButton";
 import { motion, AnimatePresence } from "framer-motion";
+import { CatchGame } from "@/components/site/CatchGame";
+import { Gamepad2 } from "lucide-react";
 
 
 
