@@ -428,10 +428,28 @@ export const BRANDS: BrandData[] = [
     blurb: "Since 1937. The original Aviator and Wayfarer — engineered in Italy, worn worldwide.",
     models: [
       {
+        model: "RB3794M",
+        shape: "geometric",
+        colour: "Silver / Green Classic",
+        priceFrom: 19290,
+        line: "Ray-Ban | Ferrari",
+        is_hot: true,
+        variants: [
+          {
+            id: "silver-green",
+            name: "Silver / Green (F03171)",
+            lens: "Green Classic G-15",
+            swatch: "linear-gradient(135deg, #c7ccd1 0%, #9aa0a6 45%, #3d5a3a 100%)",
+            images: { front: rb3794mSilverFront, quarter: rb3794mSilverQuarter, side: rb3794mSilverSide },
+          },
+        ],
+      },
+      {
         model: "RB4252",
         shape: "round",
         colour: "Transparent / Black",
         priceFrom: 7290,
+        line: "Sunglasses",
         is_hot: true,
         variants: [
           {
