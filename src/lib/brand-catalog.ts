@@ -171,6 +171,9 @@ import pleinSpp086nSide from "@/assets/products/philipp-plein-spp086n/side.webp"
 import pleinSpp194Front from "@/assets/products/philipp-plein-spp194/front.webp";
 import pleinSpp194Quarter from "@/assets/products/philipp-plein-spp194/quarter.webp";
 import pleinSpp194Side from "@/assets/products/philipp-plein-spp194/side.webp";
+import pleinPp116Front from "@/assets/products/philipp-plein-pp116/front.webp";
+import pleinPp116Quarter from "@/assets/products/philipp-plein-pp116/quarter.webp";
+import pleinPp116Side from "@/assets/products/philipp-plein-pp116/side.webp";
 import oakleyRafterBlackFront from "@/assets/products/oakley-rafter/black-front.webp";
 import oakleyRafterBlackQuarter from "@/assets/products/oakley-rafter/black-quarter.webp";
 import oakleyRafterGreyFront from "@/assets/products/oakley-rafter/grey-front.webp";
@@ -815,6 +818,25 @@ export const BRANDS: BrandData[] = [
               front: pleinSpp194Front,
               quarter: pleinSpp194Quarter,
               side: pleinSpp194Side,
+            },
+          },
+        ],
+      },
+      {
+        model: "VPP116 703 Optical",
+        shape: "aviator",
+        colour: "Matte Black",
+        priceFrom: 34900,
+        variants: [
+          {
+            id: "matte-black",
+            name: "Matte Black",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #2b2b2d 0%, #171718 55%, #45454a 100%)",
+            images: {
+              front: pleinPp116Front,
+              quarter: pleinPp116Quarter,
+              side: pleinPp116Side,
             },
           },
         ],
