@@ -9,7 +9,7 @@ import type { ColorVariant } from "@/lib/brand-catalog";
 type Props = {
   brand: string;
   model: string;
-  priceFrom: number;
+  priceFrom?: number;
   variants: ColorVariant[];
   trigger?: React.ReactNode;
   open?: boolean;
@@ -82,8 +82,12 @@ export function ProductDialog({ brand, model, priceFrom, variants, trigger, open
           <div className="p-7 flex flex-col">
             <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-electric">{brand}</span>
             <h2 className="mt-2 text-3xl font-bold tracking-tighter">{model}</h2>
-            <p className="mt-3 text-lg font-semibold">₹{priceFrom.toLocaleString("en-IN")}</p>
-            <p className="text-xs text-muted-foreground">GST included</p>
+            {priceFrom != null && (
+              <>
+                <p className="mt-3 text-lg font-semibold">₹{priceFrom.toLocaleString("en-IN")}</p>
+                <p className="text-xs text-muted-foreground">GST included</p>
+              </>
+            )}
 
             <div className="mt-6">
               <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground">Colour</span>
