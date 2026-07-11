@@ -22,6 +22,8 @@ import {
 import { HOUSES } from "@/lib/brand-catalog";
 import heroPortrait from "@/assets/hero-portrait.webp";
 import pradaModelFemale from "@/assets/brands/prada-model-female.webp";
+import raybanModel from "@/assets/brands/rayban-model.webp";
+import oakleyModel from "@/assets/brands/oakley-model.webp";
 import pradaMilanoLogo from "@/assets/brands/prada-milano-logo.webp";
 import rayBanLogo from "@/assets/brands/ray-ban-logo.svg";
 import guessLogo from "@/assets/brands/guess-logo.webp";
