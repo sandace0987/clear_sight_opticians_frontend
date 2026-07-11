@@ -4,6 +4,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { TiltCard } from "@/components/motion/TiltCard";
 import { MagneticButton } from "@/components/motion/MagneticButton";
 import { housesByCategory, type House } from "@/lib/brand-catalog";
+import { cn } from "@/lib/utils";
 import pradaModelMale from "@/assets/brands/prada-model-male.webp";
 import pleinModel from "@/assets/brands/plein-model.webp";
 import vogueModel from "@/assets/brands/vogue-model.webp";
