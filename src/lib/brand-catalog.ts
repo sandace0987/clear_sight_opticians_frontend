@@ -144,6 +144,12 @@ import burberryBe2387Side from "@/assets/products/burberry-be2387/side.webp";
 import oakleyBisphaeraFront from "@/assets/products/oakley-bisphaera/front.webp";
 import oakleyBisphaeraQuarter from "@/assets/products/oakley-bisphaera/quarter.webp";
 import oakleyBisphaeraSide from "@/assets/products/oakley-bisphaera/side.webp";
+import oakleyHolbrookSGreyFront from "@/assets/products/oakley-holbrook-s/prizm-grey-front.webp";
+import oakleyHolbrookSGreyQuarter from "@/assets/products/oakley-holbrook-s/prizm-grey-quarter.webp";
+import oakleyHolbrookSGreySide from "@/assets/products/oakley-holbrook-s/prizm-grey-side.webp";
+import oakleyHolbrookSRedFront from "@/assets/products/oakley-holbrook-s/red-iridium-front.webp";
+import oakleyHolbrookSRedQuarter from "@/assets/products/oakley-holbrook-s/red-iridium-quarter.webp";
+import oakleyHolbrookSRedSide from "@/assets/products/oakley-holbrook-s/red-iridium-side.webp";
 
 export type ColorVariant = {
   id: string;
@@ -507,6 +513,35 @@ export const BRANDS: BrandData[] = [
               front: oakleyBisphaeraFront,
               quarter: oakleyBisphaeraQuarter,
               side: oakleyBisphaeraSide,
+            },
+          },
+        ],
+      },
+      {
+        model: "Holbrook™ S",
+        shape: "wayfarer",
+        colour: "Matte Black / Prizm Grey",
+        variants: [
+          {
+            id: "matte-black-prizm-grey",
+            name: "Matte Black / Prizm Grey",
+            lens: "Prizm Grey",
+            swatch: "linear-gradient(135deg, #2b2b2d 0%, #1a1a1c 55%, #4a4a4d 100%)",
+            images: {
+              front: oakleyHolbrookSGreyFront,
+              quarter: oakleyHolbrookSGreyQuarter,
+              side: oakleyHolbrookSGreySide,
+            },
+          },
+          {
+            id: "matte-black-positive-red-iridium",
+            name: "Matte Black / Positive Red Iridium",
+            lens: "Positive Red Iridium",
+            swatch: "linear-gradient(135deg, #e02d5a 0%, #7a1fb0 55%, #2a2fc0 100%)",
+            images: {
+              front: oakleyHolbrookSRedFront,
+              quarter: oakleyHolbrookSRedQuarter,
+              side: oakleyHolbrookSRedSide,
             },
           },
         ],
