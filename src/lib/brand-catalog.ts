@@ -169,6 +169,15 @@ import rb3025GoldSide from "@/assets/products/ray-ban-rb3025/gold-side.webp";
 import rb2140Front from "@/assets/products/ray-ban-rb2140/front.webp";
 import rb2140Quarter from "@/assets/products/ray-ban-rb2140/quarter.webp";
 import rb2140Side from "@/assets/products/ray-ban-rb2140/side.webp";
+import vo5497BlackFront from "@/assets/products/vogue-vo5497/black-front.webp";
+import vo5497BlackQuarter from "@/assets/products/vogue-vo5497/black-quarter.webp";
+import vo5497BlackSide from "@/assets/products/vogue-vo5497/black-side.webp";
+import vo5497BlueFront from "@/assets/products/vogue-vo5497/blue-front.webp";
+import vo5497BlueQuarter from "@/assets/products/vogue-vo5497/blue-quarter.webp";
+import vo5497BlueSide from "@/assets/products/vogue-vo5497/blue-side.webp";
+import vo5497HavanaFront from "@/assets/products/vogue-vo5497/havana-front.webp";
+import vo5497HavanaQuarter from "@/assets/products/vogue-vo5497/havana-quarter.webp";
+import vo5497HavanaSide from "@/assets/products/vogue-vo5497/havana-side.webp";
 import burberryBe2387Quarter from "@/assets/products/burberry-be2387/quarter.webp";
 import burberryBe2387Side from "@/assets/products/burberry-be2387/side.webp";
 import oakleyBisphaeraFront from "@/assets/products/oakley-bisphaera/front.webp";
@@ -1605,6 +1614,44 @@ export const BRANDS: BrandData[] = [
       },
     ],
   },
+  {
+    slug: "vogue",
+    name: "Vogue Eyewear",
+    tag: "Fashion-forward",
+    blurb: "Playful, on-trend frames with feminine flair — designed to express personal style.",
+    models: [
+      {
+        model: "VOGUE FRAME VO5497",
+        shape: "cat-eye",
+        colour: "Black / Blue / Havana",
+        priceFrom: 4190,
+        line: "RX / Optical",
+        variants: [
+          {
+            id: "black",
+            name: "Black",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #101012 0%, #2a2a2c 50%, #454547 100%)",
+            images: { front: vo5497BlackFront, quarter: vo5497BlackQuarter, side: vo5497BlackSide },
+          },
+          {
+            id: "blue",
+            name: "Transparent Blue",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #1e3a5f 0%, #2f5a8c 50%, #4a7fb5 100%)",
+            images: { front: vo5497BlueFront, quarter: vo5497BlueQuarter, side: vo5497BlueSide },
+          },
+          {
+            id: "havana",
+            name: "Havana",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #3a1e0f 0%, #6b3f1e 50%, #9c6b3a 100%)",
+            images: { front: vo5497HavanaFront, quarter: vo5497HavanaQuarter, side: vo5497HavanaSide },
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 // Deterministically flag 2-3 "hot" (selling fast) models per brand.
@@ -1662,6 +1709,7 @@ export const HOUSES: House[] = [
   { name: "Modo", tag: "Urban design", note: "Ultra-light city frames", domain: "modo.com", category: "glasses" },
   { slug: "maui-jim", name: "Maui Jim", tag: "Hawaii-born", note: "Alika & PolarizedPlus2®", logo: mauiJimLogo, domain: "mauijim.com", category: "glasses" },
   { name: "Stepper", tag: "Skin-friendly", note: "SI-line comfort frames", domain: "steppereyewear.com", category: "glasses" },
+  { slug: "vogue", name: "Vogue Eyewear", tag: "Fashion-forward", note: "Playful, on-trend optical frames", domain: "vogue-eyewear.com", category: "glasses" },
   // ---- Lenses & Contact Lenses (ZEISS promoted to top) ----
   { slug: "zeiss", name: "ZEISS", tag: "Certified Vision Expert", note: "Precision prescription lenses & coatings", domain: "zeiss.com", category: "lenses" },
   { name: "Hoya", tag: "Lens expert", note: "High-index & progressive lenses", domain: "hoyavision.com", category: "lenses" },
