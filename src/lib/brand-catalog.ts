@@ -162,6 +162,9 @@ import oakleyHexJectorGreySide from "@/assets/products/oakley-hex-jector/smoke-g
 import oakleyValdostaFront from "@/assets/products/oakley-valdosta/front.webp";
 import oakleyValdostaQuarter from "@/assets/products/oakley-valdosta/quarter.webp";
 import oakleyValdostaSide from "@/assets/products/oakley-valdosta/side.webp";
+import pleinSpp086Front from "@/assets/products/philipp-plein-spp086/front.webp";
+import pleinSpp086Quarter from "@/assets/products/philipp-plein-spp086/quarter.webp";
+import pleinSpp086Side from "@/assets/products/philipp-plein-spp086/side.webp";
 
 export type ColorVariant = {
   id: string;
@@ -620,6 +623,33 @@ export const BRANDS: BrandData[] = [
               front: oakleyValdostaFront,
               quarter: oakleyValdostaQuarter,
               side: oakleyValdostaSide,
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "philipp-plein",
+    name: "Philipp Plein",
+    tag: "Statement",
+    blurb: "Bold, embellished eyewear with gold hardware and the signature hexagon plaque — luxury with an edge.",
+    models: [
+      {
+        model: "SPP 086M 400 49",
+        shape: "rectangle",
+        colour: "Gold / Blue Gradient",
+        priceFrom: 49900,
+        variants: [
+          {
+            id: "gold-blue-gradient",
+            name: "Gold / Blue Gradient",
+            lens: "Blue Gradient",
+            swatch: "linear-gradient(135deg, #d4af37 0%, #b8892b 45%, #6f92c9 100%)",
+            images: {
+              front: pleinSpp086Front,
+              quarter: pleinSpp086Quarter,
+              side: pleinSpp086Side,
             },
           },
         ],
@@ -1154,7 +1184,7 @@ export const HOUSES: House[] = [
   { name: "Silhouette", tag: "Austrian craft", note: "Rimless lightweight titanium", logo: silhouetteLogo, domain: "silhouette.com", category: "glasses" },
   { slug: "tom-ford", name: "Tom Ford", tag: "Modern luxury", note: "Optical & oversize sun", domain: "tomford.com", category: "glasses" },
   { slug: "burberry", name: "Burberry", tag: "British heritage", note: "Check & monogram series", domain: "burberry.com", category: "glasses" },
-  { name: "Philipp Plein", tag: "Statement", note: "Bold, embellished frames", domain: "plein.com", category: "glasses" },
+  { slug: "philipp-plein", name: "Philipp Plein", tag: "Statement", note: "Bold, embellished frames", domain: "plein.com", category: "glasses" },
   { name: "Versace", tag: "Italian luxury", note: "Baroque icon eyewear", domain: "versace.com", category: "glasses" },
   { name: "Porsche Design", tag: "Engineered", note: "Precision minimalism", domain: "porsche-design.com", category: "glasses" },
   { name: "Guess", tag: "Fashion", note: "Fashion-forward everyday", logo: guessLogo, domain: "guess.com", category: "glasses" },
