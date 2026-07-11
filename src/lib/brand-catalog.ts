@@ -1367,6 +1367,21 @@ export const BRANDS: BrandData[] = [
           },
         ],
       },
+      {
+        model: "SPLT36K 0568",
+        shape: "aviator",
+        colour: "Gunmetal / Green Gradient",
+        priceFrom: 9350,
+        variants: [
+          {
+            id: "gunmetal-green",
+            name: "Gunmetal / Green Gradient",
+            lens: "Green Gradient",
+            swatch: "linear-gradient(135deg, #4a4d47 0%, #6b6f66 45%, #3d5a3a 100%)",
+            images: { front: policeSplt36kFront, quarter: policeSplt36kQuarter, side: policeSplt36kSide },
+          },
+        ],
+      },
       { model: "Origins Aviator", shape: "aviator", colour: "Gunmetal", priceFrom: 7990 },
       { model: "Lewis Rectangle", shape: "rectangle", colour: "Matte Black", priceFrom: 6990 },
       { model: "Tailwind Shield", shape: "shield", colour: "Black", priceFrom: 8490 },
