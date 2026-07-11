@@ -668,6 +668,36 @@ export const BRANDS: BrandData[] = [
           },
         ],
       },
+      {
+        model: "Radar EV Path",
+        shape: "shield",
+        colour: "Matte Black / Polished Black",
+        priceFrom: 12690,
+        variants: [
+          {
+            id: "prizm-road",
+            name: "Matte Black / Prizm Road",
+            lens: "Prizm Road",
+            swatch: "linear-gradient(135deg, #e94057 0%, #8a2be2 55%, #f7b733 100%)",
+            images: {
+              front: oakleyRadarRoadFront,
+              quarter: oakleyRadarRoadQuarter,
+              side: oakleyRadarRoadSide,
+            },
+          },
+          {
+            id: "prizm-golf",
+            name: "Polished Black / Prizm Golf",
+            lens: "Prizm Golf",
+            swatch: "linear-gradient(135deg, #c084fc 0%, #4dd0e1 55%, #34d399 100%)",
+            images: {
+              front: oakleyRadarGolfFront,
+              quarter: oakleyRadarGolfQuarter,
+              side: oakleyRadarGolfSide,
+            },
+          },
+        ],
+      },
     ],
   },
   {
