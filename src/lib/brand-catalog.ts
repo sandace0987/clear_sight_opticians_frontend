@@ -1695,6 +1695,29 @@ export const BRANDS: BrandData[] = [
           },
         ],
       },
+      {
+        model: "VOGUE FRAME VO8056",
+        shape: "rectangle",
+        colour: "Grey / Beige",
+        priceFrom: 4490,
+        line: "RX / Optical",
+        variants: [
+          {
+            id: "purple",
+            name: "Transparent Grey",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #6a6b70 0%, #9a9ba0 50%, #d8d3cc 100%)",
+            images: { front: vo8056PurpleFront, quarter: vo8056PurpleQuarter, side: vo8056PurpleSide },
+          },
+          {
+            id: "pink",
+            name: "Transparent Beige / Burgundy",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #c9b39a 0%, #d8c4ab 45%, #6b2a3a 100%)",
+            images: { front: vo8056PinkFront, quarter: vo8056PinkQuarter, side: vo8056PinkSide },
+          },
+        ],
+      },
     ],
   },
 ];
