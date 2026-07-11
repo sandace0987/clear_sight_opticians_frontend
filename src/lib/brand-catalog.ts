@@ -489,12 +489,7 @@ export const BRANDS: BrandData[] = [
     tag: "Performance",
     blurb: "Sport-built optics with Prizm lens tech — for the road, the trail and the everyday.",
     models: [
-      { model: "Holbrook", shape: "wayfarer", colour: "Matte Black / Prizm", priceFrom: 11990 },
-      { model: "Radar EV Path", shape: "shield", colour: "Polished Black", priceFrom: 16990 },
-      { model: "Sutro", shape: "shield", colour: "Steel / Prizm Sapphire", priceFrom: 14490 },
-      { model: "Flak 2.0", shape: "sport", colour: "Matte Grey Smoke", priceFrom: 13490 },
-      { model: "Latch", shape: "round", colour: "Polished Clear", priceFrom: 10990 },
-      { model: "Frogskins", shape: "wayfarer", colour: "Crystal Black", priceFrom: 9990 },
+      // Oakley models added from user-provided screenshots
     ],
   },
   {
