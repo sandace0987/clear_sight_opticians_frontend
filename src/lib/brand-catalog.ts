@@ -181,6 +181,12 @@ import vo5497HavanaSide from "@/assets/products/vogue-vo5497/havana-side.webp";
 import vo5497PurpleFront from "@/assets/products/vogue-vo5497/purple-front.webp";
 import vo5497PurpleQuarter from "@/assets/products/vogue-vo5497/purple-quarter.webp";
 import vo5497PurpleSide from "@/assets/products/vogue-vo5497/purple-side.webp";
+import vo5676BlackFront from "@/assets/products/vogue-vo5676/black-front.webp";
+import vo5676BlackQuarter from "@/assets/products/vogue-vo5676/black-quarter.webp";
+import vo5676BlackSide from "@/assets/products/vogue-vo5676/black-side.webp";
+import vo5676GreyFront from "@/assets/products/vogue-vo5676/grey-front.webp";
+import vo5676GreyQuarter from "@/assets/products/vogue-vo5676/grey-quarter.webp";
+import vo5676GreySide from "@/assets/products/vogue-vo5676/grey-side.webp";
 import burberryBe2387Quarter from "@/assets/products/burberry-be2387/quarter.webp";
 import burberryBe2387Side from "@/assets/products/burberry-be2387/side.webp";
 import oakleyBisphaeraFront from "@/assets/products/oakley-bisphaera/front.webp";
@@ -1657,6 +1663,29 @@ export const BRANDS: BrandData[] = [
             lens: "Clear Demo",
             swatch: "linear-gradient(135deg, #6b3a7a 0%, #9c5fb5 50%, #c79ad8 100%)",
             images: { front: vo5497PurpleFront, quarter: vo5497PurpleQuarter, side: vo5497PurpleSide },
+          },
+        ],
+      },
+      {
+        model: "VOGUE FRAME VO5676",
+        shape: "cat-eye",
+        colour: "Black / Grey",
+        priceFrom: 4990,
+        line: "RX / Optical",
+        variants: [
+          {
+            id: "black",
+            name: "Black",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #101012 0%, #2a2a2c 50%, #454547 100%)",
+            images: { front: vo5676BlackFront, quarter: vo5676BlackQuarter, side: vo5676BlackSide },
+          },
+          {
+            id: "grey",
+            name: "Transparent Grey",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #8a8681 0%, #a8a39c 50%, #cfc8bf 100%)",
+            images: { front: vo5676GreyFront, quarter: vo5676GreyQuarter, side: vo5676GreySide },
           },
         ],
       },
