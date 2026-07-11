@@ -145,6 +145,9 @@ import rb3794mSilverSide from "@/assets/products/ray-ban-rb3794m/side.webp";
 import rb2217mBlackFront from "@/assets/products/ray-ban-rb2217m/front.webp";
 import rb2217mBlackQuarter from "@/assets/products/ray-ban-rb2217m/quarter.webp";
 import rb2217mBlackSide from "@/assets/products/ray-ban-rb2217m/side.webp";
+import rb4433mBlackFront from "@/assets/products/ray-ban-rb4433m/front.webp";
+import rb4433mBlackQuarter from "@/assets/products/ray-ban-rb4433m/quarter.webp";
+import rb4433mBlackSide from "@/assets/products/ray-ban-rb4433m/side.webp";
 import burberryBe2387Quarter from "@/assets/products/burberry-be2387/quarter.webp";
 import burberryBe2387Side from "@/assets/products/burberry-be2387/side.webp";
 import oakleyBisphaeraFront from "@/assets/products/oakley-bisphaera/front.webp";
@@ -460,6 +463,22 @@ export const BRANDS: BrandData[] = [
             lens: "Green UV Protection",
             swatch: "linear-gradient(135deg, #1a1a1c 0%, #171718 45%, #3d5a3a 100%)",
             images: { front: rb2217mBlackFront, quarter: rb2217mBlackQuarter, side: rb2217mBlackSide },
+          },
+        ],
+      },
+      {
+        model: "RB4433M Scuderia Ferrari",
+        shape: "rectangle",
+        colour: "Black / Green",
+        priceFrom: 16090,
+        line: "Ray-Ban | Ferrari",
+        variants: [
+          {
+            id: "black-green",
+            name: "Black / Green (F601-71)",
+            lens: "Green UV Protection",
+            swatch: "linear-gradient(135deg, #1a1a1c 0%, #171718 45%, #3d5a3a 100%)",
+            images: { front: rb4433mBlackFront, quarter: rb4433mBlackQuarter, side: rb4433mBlackSide },
           },
         ],
       },
