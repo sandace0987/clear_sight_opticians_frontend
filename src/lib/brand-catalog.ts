@@ -159,6 +159,9 @@ import oakleyHexJectorBlackSide from "@/assets/products/oakley-hex-jector/satin-
 import oakleyHexJectorGreyFront from "@/assets/products/oakley-hex-jector/smoke-grey-front.webp";
 import oakleyHexJectorGreyQuarter from "@/assets/products/oakley-hex-jector/smoke-grey-quarter.webp";
 import oakleyHexJectorGreySide from "@/assets/products/oakley-hex-jector/smoke-grey-side.webp";
+import oakleyValdostaFront from "@/assets/products/oakley-valdosta/front.webp";
+import oakleyValdostaQuarter from "@/assets/products/oakley-valdosta/quarter.webp";
+import oakleyValdostaSide from "@/assets/products/oakley-valdosta/side.webp";
 
 export type ColorVariant = {
   id: string;
