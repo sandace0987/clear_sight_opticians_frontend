@@ -778,7 +778,6 @@ export const BRANDS: BrandData[] = [
           },
         ],
       },
-      },
       {
         model: "SPP086N Stud Crystals",
         shape: "rectangle",
