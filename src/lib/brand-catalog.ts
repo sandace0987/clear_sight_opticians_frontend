@@ -632,6 +632,36 @@ export const BRANDS: BrandData[] = [
           },
         ],
       },
+      {
+        model: "OX8178 Rafter",
+        shape: "rectangle",
+        colour: "Satin Black / Satin Grey Smoke",
+        priceFrom: 7790,
+        variants: [
+          {
+            id: "satin-black",
+            name: "Satin Black",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #2b2b2d 0%, #171718 55%, #45454a 100%)",
+            images: {
+              front: oakleyRafterBlackFront,
+              quarter: oakleyRafterBlackQuarter,
+              side: oakleyRafterBlackQuarter,
+            },
+          },
+          {
+            id: "satin-grey-smoke",
+            name: "Satin Grey Smoke",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #8f9095 0%, #6a6b70 55%, #a9aab0 100%)",
+            images: {
+              front: oakleyRafterGreyFront,
+              quarter: oakleyRafterGreyQuarter,
+              side: oakleyRafterGreySide,
+            },
+          },
+        ],
+      },
     ],
   },
   {
