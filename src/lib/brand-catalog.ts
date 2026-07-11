@@ -165,6 +165,11 @@ import oakleyValdostaSide from "@/assets/products/oakley-valdosta/side.webp";
 import pleinSpp086Front from "@/assets/products/philipp-plein-spp086/front.webp";
 import pleinSpp086Quarter from "@/assets/products/philipp-plein-spp086/quarter.webp";
 import pleinSpp086Side from "@/assets/products/philipp-plein-spp086/side.webp";
+import oakleyRafterBlackFront from "@/assets/products/oakley-rafter/black-front.webp";
+import oakleyRafterBlackQuarter from "@/assets/products/oakley-rafter/black-quarter.webp";
+import oakleyRafterGreyFront from "@/assets/products/oakley-rafter/grey-front.webp";
+import oakleyRafterGreyQuarter from "@/assets/products/oakley-rafter/grey-quarter.webp";
+import oakleyRafterGreySide from "@/assets/products/oakley-rafter/grey-side.webp";
 
 export type ColorVariant = {
   id: string;
