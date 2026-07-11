@@ -583,6 +583,23 @@ export const BRANDS: BrandData[] = [
         ],
       },
       {
+        model: "RB2140 Original Wayfarer",
+        shape: "rectangle",
+        colour: "Black",
+        priceFrom: 14990,
+        line: "Sunglasses",
+        is_hot: true,
+        variants: [
+          {
+            id: "black-901",
+            name: "Black (901/58)",
+            lens: "Polarized Green Classic G-15",
+            swatch: "linear-gradient(135deg, #1a1a1c 0%, #171718 45%, #3d5a3a 100%)",
+            images: { front: rb2140Front, quarter: rb2140Quarter, side: rb2140Side },
+          },
+        ],
+      },
+      {
         model: "RB4252",
         shape: "round",
         colour: "Transparent / Black",
