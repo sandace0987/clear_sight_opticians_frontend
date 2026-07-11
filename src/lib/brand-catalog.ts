@@ -549,6 +549,24 @@ export const BRANDS: BrandData[] = [
           },
         ],
       },
+      {
+        model: "Crosslink® Zero",
+        shape: "rectangle",
+        colour: "Satin Black",
+        variants: [
+          {
+            id: "satin-black",
+            name: "Satin Black",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #2b2b2d 0%, #171718 55%, #45454a 100%)",
+            images: {
+              front: oakleyCrosslinkZeroFront,
+              quarter: oakleyCrosslinkZeroQuarter,
+              side: oakleyCrosslinkZeroSide,
+            },
+          },
+        ],
+      },
     ],
   },
   {
