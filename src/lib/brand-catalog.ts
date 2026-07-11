@@ -165,6 +165,9 @@ import oakleyValdostaSide from "@/assets/products/oakley-valdosta/side.webp";
 import pleinSpp086Front from "@/assets/products/philipp-plein-spp086/front.webp";
 import pleinSpp086Quarter from "@/assets/products/philipp-plein-spp086/quarter.webp";
 import pleinSpp086Side from "@/assets/products/philipp-plein-spp086/side.webp";
+import pleinSpp086nFront from "@/assets/products/philipp-plein-spp086n/front.webp";
+import pleinSpp086nQuarter from "@/assets/products/philipp-plein-spp086n/quarter.webp";
+import pleinSpp086nSide from "@/assets/products/philipp-plein-spp086n/side.webp";
 import oakleyRafterBlackFront from "@/assets/products/oakley-rafter/black-front.webp";
 import oakleyRafterBlackQuarter from "@/assets/products/oakley-rafter/black-quarter.webp";
 import oakleyRafterGreyFront from "@/assets/products/oakley-rafter/grey-front.webp";
@@ -771,6 +774,25 @@ export const BRANDS: BrandData[] = [
               front: pleinSpp086Front,
               quarter: pleinSpp086Quarter,
               side: pleinSpp086Side,
+            },
+          },
+        ],
+      },
+      {
+        model: "SPP086N Stud Crystals",
+        shape: "rectangle",
+        colour: "Black / Grey Gradient",
+        priceFrom: 37800,
+        variants: [
+          {
+            id: "black-grey-gradient",
+            name: "Black / Grey Gradient",
+            lens: "Grey Gradient",
+            swatch: "linear-gradient(135deg, #1c1c1e 0%, #3a3a3d 55%, #6b6b6f 100%)",
+            images: {
+              front: pleinSpp086nFront,
+              quarter: pleinSpp086nQuarter,
+              side: pleinSpp086nSide,
             },
           },
         ],
