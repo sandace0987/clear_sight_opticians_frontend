@@ -9,7 +9,7 @@ import type { ColorVariant } from "@/lib/brand-catalog";
 type Props = {
   brand: string;
   model: string;
-  priceFrom: number;
+  priceFrom?: number;
   variants: ColorVariant[];
   trigger?: React.ReactNode;
   open?: boolean;
