@@ -129,6 +129,43 @@ function BrandPage() {
           </div>
         </div>
 
+        {navSections.length > 0 && (
+          <div className="mt-10 sticky top-32 z-30 -mx-4 px-4 py-3 bg-background/85 backdrop-blur-xl border-b border-border/60 flex flex-wrap gap-2">
+            {navSections.map((s) => (
+              <a
+                key={s.id}
+                href={`#${s.id}`}
+                className="rounded-full border border-border px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-muted-foreground hover:border-electric hover:text-electric transition-colors"
+              >
+                {s.label}
+              </a>
+            ))}
+          </div>
+        )}
+
+        {metaModels && (
+          <section id="meta-glasses" className="scroll-mt-40 mt-16">
+            <div className="flex items-baseline justify-between gap-4 border-b border-border pb-4">
+              <div>
+                <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">AI Eyewear</span>
+                <h2 className="mt-2 text-2xl lg:text-3xl font-bold tracking-tight">Meta Glasses</h2>
+              </div>
+              <span className="text-xs font-bold uppercase tracking-[0.22em] text-muted-foreground">
+                {metaModels.length} {metaModels.length === 1 ? "model" : "models"}
+              </span>
+            </div>
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {metaModels.map((m, i) => (
+                <Reveal key={m.model} delay={(i % 3) * 0.05}>
+                  <TiltCard max={5} className="h-full">
+                    <MetaCard model={m.model} note={m.note} shape={m.shape} index={i} brandName={brand.name} />
+                  </TiltCard>
+                </Reveal>
+              ))}
+            </div>
+          </section>
+        )}
+
         {brand.features && brand.features.length > 0 && (
           <div className="mt-16">
             <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">Coatings &amp; special features</span>
