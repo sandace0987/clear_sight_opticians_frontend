@@ -260,6 +260,51 @@ function BrandPage() {
   );
 }
 
+function MetaCard({
+  model,
+  note,
+  shape,
+  index,
+  brandName,
+}: {
+  model: string;
+  note: string;
+  shape: string;
+  index: number;
+  brandName: string;
+}) {
+  return (
+    <article className="group relative bg-secondary/60 border border-border rounded-3xl p-7 flex flex-col h-full">
+      <div className="flex items-start justify-between gap-2">
+        <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground">
+          0{index + 1}
+        </span>
+        <span className="inline-flex items-center gap-1 rounded-full bg-electric/10 border border-electric/30 px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.16em] text-electric">
+          Coming soon
+        </span>
+      </div>
+
+      <div className="my-8 flex items-center justify-center h-28 text-foreground/85 group-hover:text-electric transition-colors">
+        <GlassSilhouette shape={shape} className="w-full max-w-[220px] h-auto" />
+      </div>
+
+      <h3 className="text-xl font-bold tracking-tight">{model}</h3>
+      <p className="text-xs text-muted-foreground mt-1 font-serif italic">{note}</p>
+
+      <EnquireDialog
+        brand={brandName}
+        model={model}
+        trigger={
+          <button className="mt-5 w-full inline-flex items-center justify-center gap-2 bg-ink text-white py-3 rounded-full text-[11px] font-bold uppercase tracking-[0.18em] hover:bg-electric transition-colors">
+            Notify me <ArrowUpRight className="size-3.5" />
+          </button>
+        }
+      />
+    </article>
+  );
+}
+
+
 function ModelCard({ m, index, brandName }: { m: GlassItem; index: number; brandName: string }) {
   const hasVariants = !!m.variants && m.variants.length > 0;
   const [variantId, setVariantId] = React.useState(m.variants?.[0].id ?? "");
