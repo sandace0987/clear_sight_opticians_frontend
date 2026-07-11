@@ -486,6 +486,22 @@ export const BRANDS: BrandData[] = [
         ],
       },
       {
+        model: "RB7240M Scuderia Ferrari",
+        shape: "rectangle",
+        colour: "Matte Black / Red",
+        priceFrom: 14990,
+        line: "Ray-Ban | Ferrari",
+        variants: [
+          {
+            id: "matte-black-red",
+            name: "Matte Black / Red (F602)",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #1a1a1c 0%, #171718 45%, #c2352f 100%)",
+            images: { front: rb7240mBlackFront, quarter: rb7240mBlackQuarter, side: rb7240mBlackSide },
+          },
+        ],
+      },
+      {
         model: "RB4252",
         shape: "round",
         colour: "Transparent / Black",
