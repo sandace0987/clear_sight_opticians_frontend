@@ -1614,6 +1614,44 @@ export const BRANDS: BrandData[] = [
       },
     ],
   },
+  {
+    slug: "vogue",
+    name: "Vogue Eyewear",
+    tag: "Fashion-forward",
+    blurb: "Playful, on-trend frames with feminine flair — designed to express personal style.",
+    models: [
+      {
+        model: "VOGUE FRAME VO5497",
+        shape: "cat-eye",
+        colour: "Black / Blue / Havana",
+        priceFrom: 4190,
+        line: "RX / Optical",
+        variants: [
+          {
+            id: "black",
+            name: "Black",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #101012 0%, #2a2a2c 50%, #454547 100%)",
+            images: { front: vo5497BlackFront, quarter: vo5497BlackQuarter, side: vo5497BlackSide },
+          },
+          {
+            id: "blue",
+            name: "Transparent Blue",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #1e3a5f 0%, #2f5a8c 50%, #4a7fb5 100%)",
+            images: { front: vo5497BlueFront, quarter: vo5497BlueQuarter, side: vo5497BlueSide },
+          },
+          {
+            id: "havana",
+            name: "Havana",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #3a1e0f 0%, #6b3f1e 50%, #9c6b3a 100%)",
+            images: { front: vo5497HavanaFront, quarter: vo5497HavanaQuarter, side: vo5497HavanaSide },
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 // Deterministically flag 2-3 "hot" (selling fast) models per brand.
