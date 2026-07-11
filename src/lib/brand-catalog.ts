@@ -141,6 +141,9 @@ import rx7264BlackQuarter from "@/assets/products/ray-ban-rx7264/black-quarter.w
 import rx7264BlackSide from "@/assets/products/ray-ban-rx7264/black-side.webp";
 import burberryBe2387Quarter from "@/assets/products/burberry-be2387/quarter.webp";
 import burberryBe2387Side from "@/assets/products/burberry-be2387/side.webp";
+import oakleyBisphaeraFront from "@/assets/products/oakley-bisphaera/front.webp";
+import oakleyBisphaeraQuarter from "@/assets/products/oakley-bisphaera/quarter.webp";
+import oakleyBisphaeraSide from "@/assets/products/oakley-bisphaera/side.webp";
 
 export type ColorVariant = {
   id: string;
