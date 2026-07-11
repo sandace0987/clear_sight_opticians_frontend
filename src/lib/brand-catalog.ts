@@ -177,6 +177,9 @@ import pleinPp116Side from "@/assets/products/philipp-plein-pp116/side.webp";
 import pleinPp195Front from "@/assets/products/philipp-plein-pp195/front.webp";
 import pleinPp195Quarter from "@/assets/products/philipp-plein-pp195/quarter.webp";
 import pleinPp195Side from "@/assets/products/philipp-plein-pp195/side.webp";
+import pleinPp223Front from "@/assets/products/philipp-plein-pp223/front.webp";
+import pleinPp223Quarter from "@/assets/products/philipp-plein-pp223/quarter.webp";
+import pleinPp223Side from "@/assets/products/philipp-plein-pp223/side.webp";
 import oakleyRafterBlackFront from "@/assets/products/oakley-rafter/black-front.webp";
 import oakleyRafterBlackQuarter from "@/assets/products/oakley-rafter/black-quarter.webp";
 import oakleyRafterGreyFront from "@/assets/products/oakley-rafter/grey-front.webp";
@@ -859,6 +862,25 @@ export const BRANDS: BrandData[] = [
               front: pleinPp195Front,
               quarter: pleinPp195Quarter,
               side: pleinPp195Side,
+            },
+          },
+        ],
+      },
+      {
+        model: "VPP223 0700 57 Optical",
+        shape: "rectangle",
+        colour: "Black / Gold",
+        priceFrom: 34900,
+        variants: [
+          {
+            id: "black-gold",
+            name: "Black / Gold",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #1c1c1e 0%, #171718 45%, #d4af37 100%)",
+            images: {
+              front: pleinPp223Front,
+              quarter: pleinPp223Quarter,
+              side: pleinPp223Side,
             },
           },
         ],
