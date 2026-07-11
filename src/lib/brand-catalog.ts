@@ -203,6 +203,9 @@ import oakleyWingfoldBlueSide from "@/assets/products/oakley-wingfold/blue-side.
 import policeSplp28Front from "@/assets/products/police-splp28/front.webp";
 import policeSplp28Quarter from "@/assets/products/police-splp28/quarter.webp";
 import policeSplp28Side from "@/assets/products/police-splp28/side.webp";
+import policeSplq88Front from "@/assets/products/police-splq88/front.webp";
+import policeSplq88Quarter from "@/assets/products/police-splq88/quarter.webp";
+import policeSplq88Side from "@/assets/products/police-splq88/side.webp";
 
 export type ColorVariant = {
   id: string;
