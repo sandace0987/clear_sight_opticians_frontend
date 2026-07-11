@@ -55,11 +55,37 @@ const houseLogo = (name: string) => {
   return null;
 };
 
+const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+
+/** Placeholder Meta smart-glasses line-up per brand. Real product data TBD. */
+const META_MODELS: Record<string, { model: string; note: string; shape: string }[]> = {
+  "ray-ban": [
+    { model: "Ray-Ban Meta Wayfarer", note: "Camera + open-ear audio · coming soon", shape: "wayfarer" },
+    { model: "Ray-Ban Meta Skyler", note: "Lightweight cat-eye · coming soon", shape: "cateye" },
+    { model: "Ray-Ban Meta Headliner", note: "Rounded classic · coming soon", shape: "round" },
+  ],
+  oakley: [
+    { model: "Oakley Meta HSTN", note: "Sport-lifestyle AI eyewear · coming soon", shape: "sport" },
+    { model: "Oakley Meta Vanguard", note: "Wraparound performance · coming soon", shape: "shield" },
+  ],
+};
+
 function BrandPage() {
   const { brand } = Route.useLoaderData() as { brand: BrandData };
   const otherBrands = BRANDS.filter((b) => b.slug !== brand.slug)
     .sort((a, b) => priorityIndex(a.name) - priorityIndex(b.name))
     .slice(0, 6);
+
+  const metaModels = META_MODELS[brand.slug];
+  const lineList: string[] = [];
+  for (const m of brand.models) {
+    const l = m.line ?? "Other";
+    if (m.line && !lineList.includes(l)) lineList.push(l);
+  }
+  const navSections: { id: string; label: string }[] = [
+    ...(metaModels ? [{ id: "meta-glasses", label: "Meta Glasses" }] : []),
+    ...lineList.map((l) => ({ id: slugify(l), label: l })),
+  ];
 
   return (
     <div className="px-6 lg:px-10 py-16 lg:py-24">
@@ -103,6 +129,43 @@ function BrandPage() {
           </div>
         </div>
 
+        {navSections.length > 0 && (
+          <div className="mt-10 sticky top-32 z-30 -mx-4 px-4 py-3 bg-background/85 backdrop-blur-xl border-b border-border/60 flex flex-wrap gap-2">
+            {navSections.map((s) => (
+              <a
+                key={s.id}
+                href={`#${s.id}`}
+                className="rounded-full border border-border px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-muted-foreground hover:border-electric hover:text-electric transition-colors"
+              >
+                {s.label}
+              </a>
+            ))}
+          </div>
+        )}
+
+        {metaModels && (
+          <section id="meta-glasses" className="scroll-mt-40 mt-16">
+            <div className="flex items-baseline justify-between gap-4 border-b border-border pb-4">
+              <div>
+                <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">AI Eyewear</span>
+                <h2 className="mt-2 text-2xl lg:text-3xl font-bold tracking-tight">Meta Glasses</h2>
+              </div>
+              <span className="text-xs font-bold uppercase tracking-[0.22em] text-muted-foreground">
+                {metaModels.length} {metaModels.length === 1 ? "model" : "models"}
+              </span>
+            </div>
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {metaModels.map((m, i) => (
+                <Reveal key={m.model} delay={(i % 3) * 0.05}>
+                  <TiltCard max={5} className="h-full">
+                    <MetaCard model={m.model} note={m.note} shape={m.shape} index={i} brandName={brand.name} />
+                  </TiltCard>
+                </Reveal>
+              ))}
+            </div>
+          </section>
+        )}
+
         {brand.features && brand.features.length > 0 && (
           <div className="mt-16">
             <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">Coatings &amp; special features</span>
@@ -140,7 +203,7 @@ function BrandPage() {
           return lines.map((line) => {
             const models = brand.models.filter((m) => (m.line ?? "Other") === line);
             return (
-              <section key={line} className="mt-16">
+              <section key={line} id={slugify(line)} className="scroll-mt-40 mt-16">
                 <div className="flex items-baseline justify-between gap-4 border-b border-border pb-4">
                   <h2 className="text-2xl lg:text-3xl font-bold tracking-tight">{line}</h2>
                   <span className="text-xs font-bold uppercase tracking-[0.22em] text-muted-foreground">
@@ -196,6 +259,51 @@ function BrandPage() {
     </div>
   );
 }
+
+function MetaCard({
+  model,
+  note,
+  shape,
+  index,
+  brandName,
+}: {
+  model: string;
+  note: string;
+  shape: string;
+  index: number;
+  brandName: string;
+}) {
+  return (
+    <article className="group relative bg-secondary/60 border border-border rounded-3xl p-7 flex flex-col h-full">
+      <div className="flex items-start justify-between gap-2">
+        <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground">
+          0{index + 1}
+        </span>
+        <span className="inline-flex items-center gap-1 rounded-full bg-electric/10 border border-electric/30 px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.16em] text-electric">
+          Coming soon
+        </span>
+      </div>
+
+      <div className="my-8 flex items-center justify-center h-28 text-foreground/85 group-hover:text-electric transition-colors">
+        <GlassSilhouette shape={shape} className="w-full max-w-[220px] h-auto" />
+      </div>
+
+      <h3 className="text-xl font-bold tracking-tight">{model}</h3>
+      <p className="text-xs text-muted-foreground mt-1 font-serif italic">{note}</p>
+
+      <EnquireDialog
+        brand={brandName}
+        model={model}
+        trigger={
+          <button className="mt-5 w-full inline-flex items-center justify-center gap-2 bg-ink text-white py-3 rounded-full text-[11px] font-bold uppercase tracking-[0.18em] hover:bg-electric transition-colors">
+            Notify me <ArrowUpRight className="size-3.5" />
+          </button>
+        }
+      />
+    </article>
+  );
+}
+
 
 function ModelCard({ m, index, brandName }: { m: GlassItem; index: number; brandName: string }) {
   const hasVariants = !!m.variants && m.variants.length > 0;
