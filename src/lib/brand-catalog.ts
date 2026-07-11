@@ -178,6 +178,9 @@ import vo5497BlueSide from "@/assets/products/vogue-vo5497/blue-side.webp";
 import vo5497HavanaFront from "@/assets/products/vogue-vo5497/havana-front.webp";
 import vo5497HavanaQuarter from "@/assets/products/vogue-vo5497/havana-quarter.webp";
 import vo5497HavanaSide from "@/assets/products/vogue-vo5497/havana-side.webp";
+import vo5497PurpleFront from "@/assets/products/vogue-vo5497/purple-front.webp";
+import vo5497PurpleQuarter from "@/assets/products/vogue-vo5497/purple-quarter.webp";
+import vo5497PurpleSide from "@/assets/products/vogue-vo5497/purple-side.webp";
 import burberryBe2387Quarter from "@/assets/products/burberry-be2387/quarter.webp";
 import burberryBe2387Side from "@/assets/products/burberry-be2387/side.webp";
 import oakleyBisphaeraFront from "@/assets/products/oakley-bisphaera/front.webp";
@@ -1647,6 +1650,13 @@ export const BRANDS: BrandData[] = [
             lens: "Clear Demo",
             swatch: "linear-gradient(135deg, #3a1e0f 0%, #6b3f1e 50%, #9c6b3a 100%)",
             images: { front: vo5497HavanaFront, quarter: vo5497HavanaQuarter, side: vo5497HavanaSide },
+          },
+          {
+            id: "purple",
+            name: "Transparent Purple",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #6b3a7a 0%, #9c5fb5 50%, #c79ad8 100%)",
+            images: { front: vo5497PurpleFront, quarter: vo5497PurpleQuarter, side: vo5497PurpleSide },
           },
         ],
       },
