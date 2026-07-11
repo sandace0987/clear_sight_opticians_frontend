@@ -139,6 +139,9 @@ import rx7264HavanaSide from "@/assets/products/ray-ban-rx7264/havana-side.webp"
 import rx7264BlackFront from "@/assets/products/ray-ban-rx7264/black-front.webp";
 import rx7264BlackQuarter from "@/assets/products/ray-ban-rx7264/black-quarter.webp";
 import rx7264BlackSide from "@/assets/products/ray-ban-rx7264/black-side.webp";
+import rb3794mSilverFront from "@/assets/products/ray-ban-rb3794m/front.webp";
+import rb3794mSilverQuarter from "@/assets/products/ray-ban-rb3794m/quarter.webp";
+import rb3794mSilverSide from "@/assets/products/ray-ban-rb3794m/side.webp";
 import burberryBe2387Quarter from "@/assets/products/burberry-be2387/quarter.webp";
 import burberryBe2387Side from "@/assets/products/burberry-be2387/side.webp";
 import oakleyBisphaeraFront from "@/assets/products/oakley-bisphaera/front.webp";
