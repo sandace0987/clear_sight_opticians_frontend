@@ -822,6 +822,25 @@ export const BRANDS: BrandData[] = [
           },
         ],
       },
+      {
+        model: "VPP116 703 Optical",
+        shape: "aviator",
+        colour: "Matte Black",
+        priceFrom: 34900,
+        variants: [
+          {
+            id: "matte-black",
+            name: "Matte Black",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #2b2b2d 0%, #171718 55%, #45454a 100%)",
+            images: {
+              front: pleinPp116Front,
+              quarter: pleinPp116Quarter,
+              side: pleinPp116Side,
+            },
+          },
+        ],
+      },
     ],
   },
   {
