@@ -170,6 +170,12 @@ import oakleyRafterBlackQuarter from "@/assets/products/oakley-rafter/black-quar
 import oakleyRafterGreyFront from "@/assets/products/oakley-rafter/grey-front.webp";
 import oakleyRafterGreyQuarter from "@/assets/products/oakley-rafter/grey-quarter.webp";
 import oakleyRafterGreySide from "@/assets/products/oakley-rafter/grey-side.webp";
+import oakleyRadarRoadFront from "@/assets/products/oakley-radar-ev-path/road-front.webp";
+import oakleyRadarRoadQuarter from "@/assets/products/oakley-radar-ev-path/road-quarter.webp";
+import oakleyRadarRoadSide from "@/assets/products/oakley-radar-ev-path/road-side.webp";
+import oakleyRadarGolfFront from "@/assets/products/oakley-radar-ev-path/golf-front.webp";
+import oakleyRadarGolfQuarter from "@/assets/products/oakley-radar-ev-path/golf-quarter.webp";
+import oakleyRadarGolfSide from "@/assets/products/oakley-radar-ev-path/golf-side.webp";
 
 export type ColorVariant = {
   id: string;
