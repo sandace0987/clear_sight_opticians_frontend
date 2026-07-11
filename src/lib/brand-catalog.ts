@@ -144,6 +144,12 @@ import burberryBe2387Side from "@/assets/products/burberry-be2387/side.webp";
 import oakleyBisphaeraFront from "@/assets/products/oakley-bisphaera/front.webp";
 import oakleyBisphaeraQuarter from "@/assets/products/oakley-bisphaera/quarter.webp";
 import oakleyBisphaeraSide from "@/assets/products/oakley-bisphaera/side.webp";
+import oakleyHolbrookSGreyFront from "@/assets/products/oakley-holbrook-s/prizm-grey-front.webp";
+import oakleyHolbrookSGreyQuarter from "@/assets/products/oakley-holbrook-s/prizm-grey-quarter.webp";
+import oakleyHolbrookSGreySide from "@/assets/products/oakley-holbrook-s/prizm-grey-side.webp";
+import oakleyHolbrookSRedFront from "@/assets/products/oakley-holbrook-s/red-iridium-front.webp";
+import oakleyHolbrookSRedQuarter from "@/assets/products/oakley-holbrook-s/red-iridium-quarter.webp";
+import oakleyHolbrookSRedSide from "@/assets/products/oakley-holbrook-s/red-iridium-side.webp";
 
 export type ColorVariant = {
   id: string;
