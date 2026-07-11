@@ -123,12 +123,19 @@ function BrandCard({ h, index }: { h: House; index: number }) {
   const inner = (
     <>
       {h.slug && BRAND_MODELS[h.slug] && (
-        <img
-          src={BRAND_MODELS[h.slug].src}
-          alt={BRAND_MODELS[h.slug].alt}
-          loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover opacity-20 group-hover:opacity-30 transition-opacity pointer-events-none z-0"
-        />
+        <>
+          <img
+            src={BRAND_MODELS[h.slug].src}
+            alt={BRAND_MODELS[h.slug].alt}
+            loading="lazy"
+            className={cn(
+              "absolute inset-0 h-full w-full object-cover opacity-15 group-hover:opacity-25 transition-opacity pointer-events-none z-0",
+              BRAND_MODELS[h.slug].position && `object-[${BRAND_MODELS[h.slug].position}]`
+            )}
+            style={BRAND_MODELS[h.slug].position ? { objectPosition: BRAND_MODELS[h.slug].position } : undefined}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-secondary/30 to-transparent group-hover:from-ink/80 group-hover:via-ink/30 transition-colors pointer-events-none z-[1]" />
+        </>
       )}
       <div className="relative z-10 flex items-start justify-between gap-4 mb-10">
         <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground group-hover:text-white/50">
