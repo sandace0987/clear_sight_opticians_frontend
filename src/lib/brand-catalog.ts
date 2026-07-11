@@ -844,6 +844,25 @@ export const BRANDS: BrandData[] = [
           },
         ],
       },
+      {
+        model: "VPP195 700 Optical",
+        shape: "aviator",
+        colour: "Black / Gold",
+        priceFrom: 36900,
+        variants: [
+          {
+            id: "black-gold",
+            name: "Black / Gold",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #1c1c1e 0%, #171718 45%, #d4af37 100%)",
+            images: {
+              front: pleinPp195Front,
+              quarter: pleinPp195Quarter,
+              side: pleinPp195Side,
+            },
+          },
+        ],
+      },
     ],
   },
   {
