@@ -150,6 +150,9 @@ import oakleyHolbrookSGreySide from "@/assets/products/oakley-holbrook-s/prizm-g
 import oakleyHolbrookSRedFront from "@/assets/products/oakley-holbrook-s/red-iridium-front.webp";
 import oakleyHolbrookSRedQuarter from "@/assets/products/oakley-holbrook-s/red-iridium-quarter.webp";
 import oakleyHolbrookSRedSide from "@/assets/products/oakley-holbrook-s/red-iridium-side.webp";
+import oakleyCrosslinkZeroFront from "@/assets/products/oakley-crosslink-zero/front.webp";
+import oakleyCrosslinkZeroQuarter from "@/assets/products/oakley-crosslink-zero/quarter.webp";
+import oakleyCrosslinkZeroSide from "@/assets/products/oakley-crosslink-zero/side.webp";
 
 export type ColorVariant = {
   id: string;
@@ -542,6 +545,24 @@ export const BRANDS: BrandData[] = [
               front: oakleyHolbrookSRedFront,
               quarter: oakleyHolbrookSRedQuarter,
               side: oakleyHolbrookSRedSide,
+            },
+          },
+        ],
+      },
+      {
+        model: "Crosslink® Zero",
+        shape: "rectangle",
+        colour: "Satin Black",
+        variants: [
+          {
+            id: "satin-black",
+            name: "Satin Black",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #2b2b2d 0%, #171718 55%, #45454a 100%)",
+            images: {
+              front: oakleyCrosslinkZeroFront,
+              quarter: oakleyCrosslinkZeroQuarter,
+              side: oakleyCrosslinkZeroSide,
             },
           },
         ],
