@@ -170,6 +170,12 @@ import oakleyRafterBlackQuarter from "@/assets/products/oakley-rafter/black-quar
 import oakleyRafterGreyFront from "@/assets/products/oakley-rafter/grey-front.webp";
 import oakleyRafterGreyQuarter from "@/assets/products/oakley-rafter/grey-quarter.webp";
 import oakleyRafterGreySide from "@/assets/products/oakley-rafter/grey-side.webp";
+import oakleyRadarRoadFront from "@/assets/products/oakley-radar-ev-path/road-front.webp";
+import oakleyRadarRoadQuarter from "@/assets/products/oakley-radar-ev-path/road-quarter.webp";
+import oakleyRadarRoadSide from "@/assets/products/oakley-radar-ev-path/road-side.webp";
+import oakleyRadarGolfFront from "@/assets/products/oakley-radar-ev-path/golf-front.webp";
+import oakleyRadarGolfQuarter from "@/assets/products/oakley-radar-ev-path/golf-quarter.webp";
+import oakleyRadarGolfSide from "@/assets/products/oakley-radar-ev-path/golf-side.webp";
 
 export type ColorVariant = {
   id: string;
@@ -658,6 +664,36 @@ export const BRANDS: BrandData[] = [
               front: oakleyRafterGreyFront,
               quarter: oakleyRafterGreyQuarter,
               side: oakleyRafterGreySide,
+            },
+          },
+        ],
+      },
+      {
+        model: "Radar EV Path",
+        shape: "shield",
+        colour: "Matte Black / Polished Black",
+        priceFrom: 12690,
+        variants: [
+          {
+            id: "prizm-road",
+            name: "Matte Black / Prizm Road",
+            lens: "Prizm Road",
+            swatch: "linear-gradient(135deg, #e94057 0%, #8a2be2 55%, #f7b733 100%)",
+            images: {
+              front: oakleyRadarRoadFront,
+              quarter: oakleyRadarRoadQuarter,
+              side: oakleyRadarRoadSide,
+            },
+          },
+          {
+            id: "prizm-golf",
+            name: "Polished Black / Prizm Golf",
+            lens: "Prizm Golf",
+            swatch: "linear-gradient(135deg, #c084fc 0%, #4dd0e1 55%, #34d399 100%)",
+            images: {
+              front: oakleyRadarGolfFront,
+              quarter: oakleyRadarGolfQuarter,
+              side: oakleyRadarGolfSide,
             },
           },
         ],
