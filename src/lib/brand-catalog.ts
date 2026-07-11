@@ -153,6 +153,12 @@ import oakleyHolbrookSRedSide from "@/assets/products/oakley-holbrook-s/red-irid
 import oakleyCrosslinkZeroFront from "@/assets/products/oakley-crosslink-zero/front.webp";
 import oakleyCrosslinkZeroQuarter from "@/assets/products/oakley-crosslink-zero/quarter.webp";
 import oakleyCrosslinkZeroSide from "@/assets/products/oakley-crosslink-zero/side.webp";
+import oakleyHexJectorBlackFront from "@/assets/products/oakley-hex-jector/satin-black-front.webp";
+import oakleyHexJectorBlackQuarter from "@/assets/products/oakley-hex-jector/satin-black-quarter.webp";
+import oakleyHexJectorBlackSide from "@/assets/products/oakley-hex-jector/satin-black-side.webp";
+import oakleyHexJectorGreyFront from "@/assets/products/oakley-hex-jector/smoke-grey-front.webp";
+import oakleyHexJectorGreyQuarter from "@/assets/products/oakley-hex-jector/smoke-grey-quarter.webp";
+import oakleyHexJectorGreySide from "@/assets/products/oakley-hex-jector/smoke-grey-side.webp";
 
 export type ColorVariant = {
   id: string;
