@@ -505,6 +505,22 @@ export const BRANDS: BrandData[] = [
         ],
       },
       {
+        model: "RB8416M Scuderia Ferrari",
+        shape: "rectangle",
+        colour: "Black / Red",
+        priceFrom: 12890,
+        line: "Ray-Ban | Ferrari",
+        variants: [
+          {
+            id: "black-red",
+            name: "Black / Red (F041)",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #1a1a1c 0%, #171718 45%, #c2352f 100%)",
+            images: { front: rb8416mBlackFront, quarter: rb8416mBlackQuarter, side: rb8416mBlackSide },
+          },
+        ],
+      },
+      {
         model: "RB4252",
         shape: "round",
         colour: "Transparent / Black",
