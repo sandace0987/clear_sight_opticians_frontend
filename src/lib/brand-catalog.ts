@@ -203,6 +203,9 @@ import oakleyWingfoldBlueSide from "@/assets/products/oakley-wingfold/blue-side.
 import policeSplp28Front from "@/assets/products/police-splp28/front.webp";
 import policeSplp28Quarter from "@/assets/products/police-splp28/quarter.webp";
 import policeSplp28Side from "@/assets/products/police-splp28/side.webp";
+import policeSplq88Front from "@/assets/products/police-splq88/front.webp";
+import policeSplq88Quarter from "@/assets/products/police-splq88/quarter.webp";
+import policeSplq88Side from "@/assets/products/police-splq88/side.webp";
 
 export type ColorVariant = {
   id: string;
@@ -1343,6 +1346,21 @@ export const BRANDS: BrandData[] = [
             lens: "Smoke Gradient",
             swatch: "linear-gradient(135deg, #1c1c1e 0%, #171718 45%, #d4af37 100%)",
             images: { front: policeSplp28Front, quarter: policeSplp28Quarter, side: policeSplp28Side },
+          },
+        ],
+      },
+      {
+        model: "SPLQ88 Supernova 2 0703",
+        shape: "rectangle",
+        colour: "Black / G-15 Green",
+        priceFrom: 13900,
+        variants: [
+          {
+            id: "black-green",
+            name: "Black / G-15 Green",
+            lens: "G-15 Green",
+            swatch: "linear-gradient(135deg, #1c1c1e 0%, #171718 45%, #3d5a3a 100%)",
+            images: { front: policeSplq88Front, quarter: policeSplq88Quarter, side: policeSplq88Side },
           },
         ],
       },
