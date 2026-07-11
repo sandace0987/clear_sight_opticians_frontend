@@ -187,6 +187,12 @@ import vo5676BlackSide from "@/assets/products/vogue-vo5676/black-side.webp";
 import vo5676GreyFront from "@/assets/products/vogue-vo5676/grey-front.webp";
 import vo5676GreyQuarter from "@/assets/products/vogue-vo5676/grey-quarter.webp";
 import vo5676GreySide from "@/assets/products/vogue-vo5676/grey-side.webp";
+import vo8056PurpleFront from "@/assets/products/vogue-vo8056/purple-front.webp";
+import vo8056PurpleQuarter from "@/assets/products/vogue-vo8056/purple-quarter.webp";
+import vo8056PurpleSide from "@/assets/products/vogue-vo8056/purple-side.webp";
+import vo8056PinkFront from "@/assets/products/vogue-vo8056/pink-front.webp";
+import vo8056PinkQuarter from "@/assets/products/vogue-vo8056/pink-quarter.webp";
+import vo8056PinkSide from "@/assets/products/vogue-vo8056/pink-side.webp";
 import burberryBe2387Quarter from "@/assets/products/burberry-be2387/quarter.webp";
 import burberryBe2387Side from "@/assets/products/burberry-be2387/side.webp";
 import oakleyBisphaeraFront from "@/assets/products/oakley-bisphaera/front.webp";
@@ -1686,6 +1692,29 @@ export const BRANDS: BrandData[] = [
             lens: "Clear Demo",
             swatch: "linear-gradient(135deg, #8a8681 0%, #a8a39c 50%, #cfc8bf 100%)",
             images: { front: vo5676GreyFront, quarter: vo5676GreyQuarter, side: vo5676GreySide },
+          },
+        ],
+      },
+      {
+        model: "VOGUE FRAME VO8056",
+        shape: "rectangle",
+        colour: "Grey / Beige",
+        priceFrom: 4490,
+        line: "RX / Optical",
+        variants: [
+          {
+            id: "purple",
+            name: "Transparent Grey",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #6a6b70 0%, #9a9ba0 50%, #d8d3cc 100%)",
+            images: { front: vo8056PurpleFront, quarter: vo8056PurpleQuarter, side: vo8056PurpleSide },
+          },
+          {
+            id: "pink",
+            name: "Transparent Beige / Burgundy",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #c9b39a 0%, #d8c4ab 45%, #6b2a3a 100%)",
+            images: { front: vo8056PinkFront, quarter: vo8056PinkQuarter, side: vo8056PinkSide },
           },
         ],
       },
