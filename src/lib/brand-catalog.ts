@@ -1651,6 +1651,13 @@ export const BRANDS: BrandData[] = [
             swatch: "linear-gradient(135deg, #3a1e0f 0%, #6b3f1e 50%, #9c6b3a 100%)",
             images: { front: vo5497HavanaFront, quarter: vo5497HavanaQuarter, side: vo5497HavanaSide },
           },
+          {
+            id: "purple",
+            name: "Transparent Purple",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #6b3a7a 0%, #9c5fb5 50%, #c79ad8 100%)",
+            images: { front: vo5497PurpleFront, quarter: vo5497PurpleQuarter, side: vo5497PurpleSide },
+          },
         ],
       },
     ],
