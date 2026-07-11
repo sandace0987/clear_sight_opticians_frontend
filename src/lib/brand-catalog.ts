@@ -176,6 +176,15 @@ import oakleyRadarRoadSide from "@/assets/products/oakley-radar-ev-path/road-sid
 import oakleyRadarGolfFront from "@/assets/products/oakley-radar-ev-path/golf-front.webp";
 import oakleyRadarGolfQuarter from "@/assets/products/oakley-radar-ev-path/golf-quarter.webp";
 import oakleyRadarGolfSide from "@/assets/products/oakley-radar-ev-path/golf-side.webp";
+import oakleyWingfoldBlackFront from "@/assets/products/oakley-wingfold/black-front.webp";
+import oakleyWingfoldBlackQuarter from "@/assets/products/oakley-wingfold/black-quarter.webp";
+import oakleyWingfoldBlackSide from "@/assets/products/oakley-wingfold/black-side.webp";
+import oakleyWingfoldCementFront from "@/assets/products/oakley-wingfold/cement-front.webp";
+import oakleyWingfoldCementQuarter from "@/assets/products/oakley-wingfold/cement-quarter.webp";
+import oakleyWingfoldCementSide from "@/assets/products/oakley-wingfold/cement-side.webp";
+import oakleyWingfoldBlueFront from "@/assets/products/oakley-wingfold/blue-front.webp";
+import oakleyWingfoldBlueQuarter from "@/assets/products/oakley-wingfold/blue-quarter.webp";
+import oakleyWingfoldBlueSide from "@/assets/products/oakley-wingfold/blue-side.webp";
 
 export type ColorVariant = {
   id: string;
