@@ -1709,6 +1709,7 @@ export const HOUSES: House[] = [
   { name: "Modo", tag: "Urban design", note: "Ultra-light city frames", domain: "modo.com", category: "glasses" },
   { slug: "maui-jim", name: "Maui Jim", tag: "Hawaii-born", note: "Alika & PolarizedPlus2®", logo: mauiJimLogo, domain: "mauijim.com", category: "glasses" },
   { name: "Stepper", tag: "Skin-friendly", note: "SI-line comfort frames", domain: "steppereyewear.com", category: "glasses" },
+  { slug: "vogue", name: "Vogue Eyewear", tag: "Fashion-forward", note: "Playful, on-trend optical frames", domain: "vogue-eyewear.com", category: "glasses" },
   // ---- Lenses & Contact Lenses (ZEISS promoted to top) ----
   { slug: "zeiss", name: "ZEISS", tag: "Certified Vision Expert", note: "Precision prescription lenses & coatings", domain: "zeiss.com", category: "lenses" },
   { name: "Hoya", tag: "Lens expert", note: "High-index & progressive lenses", domain: "hoyavision.com", category: "lenses" },
