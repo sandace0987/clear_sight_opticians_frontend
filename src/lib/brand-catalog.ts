@@ -517,6 +517,35 @@ export const BRANDS: BrandData[] = [
           },
         ],
       },
+      {
+        model: "Holbrook™ S",
+        shape: "wayfarer",
+        colour: "Matte Black / Prizm Grey",
+        variants: [
+          {
+            id: "matte-black-prizm-grey",
+            name: "Matte Black / Prizm Grey",
+            lens: "Prizm Grey",
+            swatch: "linear-gradient(135deg, #2b2b2d 0%, #1a1a1c 55%, #4a4a4d 100%)",
+            images: {
+              front: oakleyHolbrookSGreyFront,
+              quarter: oakleyHolbrookSGreyQuarter,
+              side: oakleyHolbrookSGreySide,
+            },
+          },
+          {
+            id: "matte-black-positive-red-iridium",
+            name: "Matte Black / Positive Red Iridium",
+            lens: "Positive Red Iridium",
+            swatch: "linear-gradient(135deg, #e02d5a 0%, #7a1fb0 55%, #2a2fc0 100%)",
+            images: {
+              front: oakleyHolbrookSRedFront,
+              quarter: oakleyHolbrookSRedQuarter,
+              side: oakleyHolbrookSRedSide,
+            },
+          },
+        ],
+      },
     ],
   },
   {
