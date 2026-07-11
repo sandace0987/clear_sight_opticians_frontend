@@ -206,6 +206,9 @@ import policeSplp28Side from "@/assets/products/police-splp28/side.webp";
 import policeSplq88Front from "@/assets/products/police-splq88/front.webp";
 import policeSplq88Quarter from "@/assets/products/police-splq88/quarter.webp";
 import policeSplq88Side from "@/assets/products/police-splq88/side.webp";
+import policeSplt36kFront from "@/assets/products/police-splt36k/front.webp";
+import policeSplt36kQuarter from "@/assets/products/police-splt36k/quarter.webp";
+import policeSplt36kSide from "@/assets/products/police-splt36k/side.webp";
 
 export type ColorVariant = {
   id: string;
