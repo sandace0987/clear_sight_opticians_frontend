@@ -527,7 +527,15 @@ function HomePage() {
                           className="pointer-events-none absolute bottom-0 right-0 w-[180px] h-auto object-contain z-10"
                         />
                       )}
-                      <div className="relative flex items-start justify-between gap-4 mb-10">
+                      {(h.slug === "ray-ban" || h.slug === "oakley") && (
+                        <img
+                          src={h.slug === "ray-ban" ? raybanModel : oakleyModel}
+                          alt={`${h.name} campaign`}
+                          loading="lazy"
+                          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-20 group-hover:opacity-30 transition-opacity z-0"
+                        />
+                      )}
+                      <div className="relative z-10 flex items-start justify-between gap-4 mb-10">
                         <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground group-hover:text-white/50">
                           0{i + 1}
                         </span>
