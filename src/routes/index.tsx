@@ -259,7 +259,7 @@ function HomePage() {
             height={1080}
             fetchPriority="high"
             decoding="async"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover object-[center_20%]"
           />
 
           {/* gradients */}
