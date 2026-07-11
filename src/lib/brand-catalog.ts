@@ -168,6 +168,9 @@ import pleinSpp086Side from "@/assets/products/philipp-plein-spp086/side.webp";
 import pleinSpp086nFront from "@/assets/products/philipp-plein-spp086n/front.webp";
 import pleinSpp086nQuarter from "@/assets/products/philipp-plein-spp086n/quarter.webp";
 import pleinSpp086nSide from "@/assets/products/philipp-plein-spp086n/side.webp";
+import pleinSpp194Front from "@/assets/products/philipp-plein-spp194/front.webp";
+import pleinSpp194Quarter from "@/assets/products/philipp-plein-spp194/quarter.webp";
+import pleinSpp194Side from "@/assets/products/philipp-plein-spp194/side.webp";
 import oakleyRafterBlackFront from "@/assets/products/oakley-rafter/black-front.webp";
 import oakleyRafterBlackQuarter from "@/assets/products/oakley-rafter/black-quarter.webp";
 import oakleyRafterGreyFront from "@/assets/products/oakley-rafter/grey-front.webp";
@@ -793,6 +796,25 @@ export const BRANDS: BrandData[] = [
               front: pleinSpp086nFront,
               quarter: pleinSpp086nQuarter,
               side: pleinSpp086nSide,
+            },
+          },
+        ],
+      },
+      {
+        model: "SPP 194M 700 53",
+        shape: "rectangle",
+        colour: "Black / Grey Gradient",
+        priceFrom: 40900,
+        variants: [
+          {
+            id: "black-grey-gradient",
+            name: "Black / Grey Gradient",
+            lens: "Grey Gradient",
+            swatch: "linear-gradient(135deg, #1c1c1e 0%, #3a3a3d 55%, #6b6b6f 100%)",
+            images: {
+              front: pleinSpp194Front,
+              quarter: pleinSpp194Quarter,
+              side: pleinSpp194Side,
             },
           },
         ],
