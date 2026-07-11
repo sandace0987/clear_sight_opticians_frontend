@@ -176,6 +176,15 @@ import oakleyRadarRoadSide from "@/assets/products/oakley-radar-ev-path/road-sid
 import oakleyRadarGolfFront from "@/assets/products/oakley-radar-ev-path/golf-front.webp";
 import oakleyRadarGolfQuarter from "@/assets/products/oakley-radar-ev-path/golf-quarter.webp";
 import oakleyRadarGolfSide from "@/assets/products/oakley-radar-ev-path/golf-side.webp";
+import oakleyWingfoldBlackFront from "@/assets/products/oakley-wingfold/black-front.webp";
+import oakleyWingfoldBlackQuarter from "@/assets/products/oakley-wingfold/black-quarter.webp";
+import oakleyWingfoldBlackSide from "@/assets/products/oakley-wingfold/black-side.webp";
+import oakleyWingfoldCementFront from "@/assets/products/oakley-wingfold/cement-front.webp";
+import oakleyWingfoldCementQuarter from "@/assets/products/oakley-wingfold/cement-quarter.webp";
+import oakleyWingfoldCementSide from "@/assets/products/oakley-wingfold/cement-side.webp";
+import oakleyWingfoldBlueFront from "@/assets/products/oakley-wingfold/blue-front.webp";
+import oakleyWingfoldBlueQuarter from "@/assets/products/oakley-wingfold/blue-quarter.webp";
+import oakleyWingfoldBlueSide from "@/assets/products/oakley-wingfold/blue-side.webp";
 
 export type ColorVariant = {
   id: string;
@@ -694,6 +703,47 @@ export const BRANDS: BrandData[] = [
               front: oakleyRadarGolfFront,
               quarter: oakleyRadarGolfQuarter,
               side: oakleyRadarGolfSide,
+            },
+          },
+        ],
+      },
+      {
+        model: "Wingfold OX5118",
+        shape: "rimless",
+        colour: "Satin Black / Polished Cement / Satin Midnight Blue",
+        priceFrom: 14390,
+        variants: [
+          {
+            id: "satin-black",
+            name: "Satin Black",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #2b2b2d 0%, #171718 55%, #45454a 100%)",
+            images: {
+              front: oakleyWingfoldBlackFront,
+              quarter: oakleyWingfoldBlackQuarter,
+              side: oakleyWingfoldBlackSide,
+            },
+          },
+          {
+            id: "polished-cement",
+            name: "Polished Cement",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #c7c8ca 0%, #9a9b9e 55%, #dedfe1 100%)",
+            images: {
+              front: oakleyWingfoldCementFront,
+              quarter: oakleyWingfoldCementQuarter,
+              side: oakleyWingfoldCementSide,
+            },
+          },
+          {
+            id: "satin-midnight-blue",
+            name: "Satin Midnight Blue",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #2b3a63 0%, #172445 55%, #3d5187 100%)",
+            images: {
+              front: oakleyWingfoldBlueFront,
+              quarter: oakleyWingfoldBlueQuarter,
+              side: oakleyWingfoldBlueSide,
             },
           },
         ],
