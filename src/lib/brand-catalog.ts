@@ -206,6 +206,9 @@ import policeSplp28Side from "@/assets/products/police-splp28/side.webp";
 import policeSplq88Front from "@/assets/products/police-splq88/front.webp";
 import policeSplq88Quarter from "@/assets/products/police-splq88/quarter.webp";
 import policeSplq88Side from "@/assets/products/police-splq88/side.webp";
+import policeSplt36kFront from "@/assets/products/police-splt36k/front.webp";
+import policeSplt36kQuarter from "@/assets/products/police-splt36k/quarter.webp";
+import policeSplt36kSide from "@/assets/products/police-splt36k/side.webp";
 
 export type ColorVariant = {
   id: string;
@@ -1361,6 +1364,21 @@ export const BRANDS: BrandData[] = [
             lens: "G-15 Green",
             swatch: "linear-gradient(135deg, #1c1c1e 0%, #171718 45%, #3d5a3a 100%)",
             images: { front: policeSplq88Front, quarter: policeSplq88Quarter, side: policeSplq88Side },
+          },
+        ],
+      },
+      {
+        model: "SPLT36K 0568",
+        shape: "aviator",
+        colour: "Gunmetal / Green Gradient",
+        priceFrom: 9350,
+        variants: [
+          {
+            id: "gunmetal-green",
+            name: "Gunmetal / Green Gradient",
+            lens: "Green Gradient",
+            swatch: "linear-gradient(135deg, #4a4d47 0%, #6b6f66 45%, #3d5a3a 100%)",
+            images: { front: policeSplt36kFront, quarter: policeSplt36kQuarter, side: policeSplt36kSide },
           },
         ],
       },
