@@ -550,8 +550,8 @@ function HomePage() {
                           />
                         </div>
                       </div>
-                      <h3 className="relative text-2xl font-bold tracking-tight">{h.name}</h3>
-                      <p className="relative mt-3 text-sm text-muted-foreground group-hover:text-white/70 font-serif italic">
+                      <h3 className="relative z-10 text-2xl font-bold tracking-tight">{h.name}</h3>
+                      <p className="relative z-10 mt-3 text-sm text-muted-foreground group-hover:text-white/70 font-serif italic">
                         {h.note}
                       </p>
                     </Link>
