@@ -154,6 +154,9 @@ import rb7240mBlackSide from "@/assets/products/ray-ban-rb7240m/side.webp";
 import rb8416mBlackFront from "@/assets/products/ray-ban-rb8416m/front.webp";
 import rb8416mBlackQuarter from "@/assets/products/ray-ban-rb8416m/quarter.webp";
 import rb8416mBlackSide from "@/assets/products/ray-ban-rb8416m/side.webp";
+import rb7144mBlackFront from "@/assets/products/ray-ban-rb7144m/front.webp";
+import rb7144mBlackQuarter from "@/assets/products/ray-ban-rb7144m/quarter.webp";
+import rb7144mBlackSide from "@/assets/products/ray-ban-rb7144m/side.webp";
 import burberryBe2387Quarter from "@/assets/products/burberry-be2387/quarter.webp";
 import burberryBe2387Side from "@/assets/products/burberry-be2387/side.webp";
 import oakleyBisphaeraFront from "@/assets/products/oakley-bisphaera/front.webp";
@@ -517,6 +520,22 @@ export const BRANDS: BrandData[] = [
             lens: "Clear Demo",
             swatch: "linear-gradient(135deg, #1a1a1c 0%, #171718 45%, #c2352f 100%)",
             images: { front: rb8416mBlackFront, quarter: rb8416mBlackQuarter, side: rb8416mBlackSide },
+          },
+        ],
+      },
+      {
+        model: "RB7144M Scuderia Ferrari",
+        shape: "rectangle",
+        colour: "Matte Black / Red",
+        priceFrom: 12990,
+        line: "Ray-Ban | Ferrari",
+        variants: [
+          {
+            id: "matte-black-red",
+            name: "Matte Black / Red (F602)",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #1a1a1c 0%, #171718 45%, #c2352f 100%)",
+            images: { front: rb7144mBlackFront, quarter: rb7144mBlackQuarter, side: rb7144mBlackSide },
           },
         ],
       },
