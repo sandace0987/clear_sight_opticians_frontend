@@ -11,12 +11,12 @@ import policeModel from "@/assets/brands/police-model.webp";
 import oakleyModel from "@/assets/brands/oakley-model.webp";
 import raybanModel from "@/assets/brands/rayban-model.webp";
 
-const BRAND_MODELS: Record<string, { src: string; alt: string }> = {
+const BRAND_MODELS: Record<string, { src: string; alt: string; position?: string }> = {
   prada: { src: pradaModelMale, alt: "Male model wearing Prada sunglasses" },
   "philipp-plein": { src: pleinModel, alt: "Model wearing Philipp Plein eyewear" },
   vogue: { src: vogueModel, alt: "Model wearing Vogue Eyewear" },
   police: { src: policeModel, alt: "Model wearing Police sunglasses" },
-  oakley: { src: oakleyModel, alt: "Athlete wearing Oakley sunglasses" },
+  oakley: { src: oakleyModel, alt: "Kylian Mbappé wearing Oakley sunglasses", position: "center right" },
   "ray-ban": { src: raybanModel, alt: "Models wearing Ray-Ban Scuderia Ferrari" },
 };
 
