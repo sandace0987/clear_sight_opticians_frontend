@@ -480,6 +480,7 @@ export const BRANDS: BrandData[] = [
         shape: "round",
         colour: "Black",
         priceFrom: 7190,
+        line: "RX / Optical",
         variants: [
           {
             id: "2509",
@@ -495,6 +496,7 @@ export const BRANDS: BrandData[] = [
         shape: "rectangle",
         colour: "Green",
         priceFrom: 6290,
+        line: "RX / Optical",
         variants: [
           {
             id: "green",
@@ -510,6 +512,7 @@ export const BRANDS: BrandData[] = [
         shape: "round",
         colour: "Black",
         priceFrom: 7190,
+        line: "RX / Optical",
         variants: [
           {
             id: "2000",
@@ -525,6 +528,7 @@ export const BRANDS: BrandData[] = [
         shape: "rectangle",
         colour: "Blue",
         priceFrom: 7790,
+        line: "RX / Optical",
         variants: [
           {
             id: "8223",
@@ -540,6 +544,7 @@ export const BRANDS: BrandData[] = [
         shape: "rectangle",
         colour: "Green",
         priceFrom: 5990,
+        line: "RX / Optical",
         variants: [
           {
             id: "6751",
@@ -555,6 +560,7 @@ export const BRANDS: BrandData[] = [
         shape: "browline",
         colour: "Havana / Black",
         priceFrom: 6290,
+        line: "RX / Optical",
         variants: [
           {
             id: "havana",
