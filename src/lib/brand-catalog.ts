@@ -139,6 +139,9 @@ import rx7264HavanaSide from "@/assets/products/ray-ban-rx7264/havana-side.webp"
 import rx7264BlackFront from "@/assets/products/ray-ban-rx7264/black-front.webp";
 import rx7264BlackQuarter from "@/assets/products/ray-ban-rx7264/black-quarter.webp";
 import rx7264BlackSide from "@/assets/products/ray-ban-rx7264/black-side.webp";
+import rb3794mSilverFront from "@/assets/products/ray-ban-rb3794m/front.webp";
+import rb3794mSilverQuarter from "@/assets/products/ray-ban-rb3794m/quarter.webp";
+import rb3794mSilverSide from "@/assets/products/ray-ban-rb3794m/side.webp";
 import burberryBe2387Quarter from "@/assets/products/burberry-be2387/quarter.webp";
 import burberryBe2387Side from "@/assets/products/burberry-be2387/side.webp";
 import oakleyBisphaeraFront from "@/assets/products/oakley-bisphaera/front.webp";
@@ -227,6 +230,8 @@ export type GlassItem = {
   variants?: ColorVariant[];
   /** flags a model as trending — shows a "Selling fast" pill on the card */
   is_hot?: boolean;
+  /** optional product line / collection used to group models into subsections on the brand page */
+  line?: string;
 };
 
 export type Category = "glasses" | "lenses" | "kids";
@@ -423,10 +428,28 @@ export const BRANDS: BrandData[] = [
     blurb: "Since 1937. The original Aviator and Wayfarer — engineered in Italy, worn worldwide.",
     models: [
       {
+        model: "RB3794M",
+        shape: "geometric",
+        colour: "Silver / Green Classic",
+        priceFrom: 19290,
+        line: "Ray-Ban | Ferrari",
+        is_hot: true,
+        variants: [
+          {
+            id: "silver-green",
+            name: "Silver / Green (F03171)",
+            lens: "Green Classic G-15",
+            swatch: "linear-gradient(135deg, #c7ccd1 0%, #9aa0a6 45%, #3d5a3a 100%)",
+            images: { front: rb3794mSilverFront, quarter: rb3794mSilverQuarter, side: rb3794mSilverSide },
+          },
+        ],
+      },
+      {
         model: "RB4252",
         shape: "round",
         colour: "Transparent / Black",
         priceFrom: 7290,
+        line: "Sunglasses",
         is_hot: true,
         variants: [
           {
@@ -457,6 +480,7 @@ export const BRANDS: BrandData[] = [
         shape: "round",
         colour: "Black",
         priceFrom: 7190,
+        line: "RX / Optical",
         variants: [
           {
             id: "2509",
@@ -472,6 +496,7 @@ export const BRANDS: BrandData[] = [
         shape: "rectangle",
         colour: "Green",
         priceFrom: 6290,
+        line: "RX / Optical",
         variants: [
           {
             id: "green",
@@ -487,6 +512,7 @@ export const BRANDS: BrandData[] = [
         shape: "round",
         colour: "Black",
         priceFrom: 7190,
+        line: "RX / Optical",
         variants: [
           {
             id: "2000",
@@ -502,6 +528,7 @@ export const BRANDS: BrandData[] = [
         shape: "rectangle",
         colour: "Blue",
         priceFrom: 7790,
+        line: "RX / Optical",
         variants: [
           {
             id: "8223",
@@ -517,6 +544,7 @@ export const BRANDS: BrandData[] = [
         shape: "rectangle",
         colour: "Green",
         priceFrom: 5990,
+        line: "RX / Optical",
         variants: [
           {
             id: "6751",
@@ -532,6 +560,7 @@ export const BRANDS: BrandData[] = [
         shape: "browline",
         colour: "Havana / Black",
         priceFrom: 6290,
+        line: "RX / Optical",
         variants: [
           {
             id: "havana",
