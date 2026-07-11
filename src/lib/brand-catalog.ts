@@ -200,6 +200,9 @@ import oakleyWingfoldCementSide from "@/assets/products/oakley-wingfold/cement-s
 import oakleyWingfoldBlueFront from "@/assets/products/oakley-wingfold/blue-front.webp";
 import oakleyWingfoldBlueQuarter from "@/assets/products/oakley-wingfold/blue-quarter.webp";
 import oakleyWingfoldBlueSide from "@/assets/products/oakley-wingfold/blue-side.webp";
+import policeSplp28Front from "@/assets/products/police-splp28/front.webp";
+import policeSplp28Quarter from "@/assets/products/police-splp28/quarter.webp";
+import policeSplp28Side from "@/assets/products/police-splp28/side.webp";
 
 export type ColorVariant = {
   id: string;
@@ -1328,6 +1331,21 @@ export const BRANDS: BrandData[] = [
     tag: "Italian cool",
     blurb: "Streetwise Italian style — sport meets lifestyle with attitude.",
     models: [
+      {
+        model: "SPLP28 Forty 1 0703",
+        shape: "aviator",
+        colour: "Matte Black / Gold",
+        priceFrom: 12690,
+        variants: [
+          {
+            id: "matte-black-gold",
+            name: "Matte Black / Gold",
+            lens: "Smoke Gradient",
+            swatch: "linear-gradient(135deg, #1c1c1e 0%, #171718 45%, #d4af37 100%)",
+            images: { front: policeSplp28Front, quarter: policeSplp28Quarter, side: policeSplp28Side },
+          },
+        ],
+      },
       { model: "Origins Aviator", shape: "aviator", colour: "Gunmetal", priceFrom: 7990 },
       { model: "Lewis Rectangle", shape: "rectangle", colour: "Matte Black", priceFrom: 6990 },
       { model: "Tailwind Shield", shape: "shield", colour: "Black", priceFrom: 8490 },
