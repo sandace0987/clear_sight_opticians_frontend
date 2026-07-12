@@ -108,12 +108,25 @@ export function SiteHeader() {
     setOpen(false);
   };
 
+  const handleLogoClick = (e: React.MouseEvent) => {
+    if (location.pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    setOpen(false);
+  };
+
   return (
     <header className="sticky top-0 z-50 bg-background/85 backdrop-blur-xl border-b border-border/60">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <div className="relative flex h-20 lg:h-24 items-center justify-between gap-2 sm:gap-4">
           {/* Logo mark — left */}
-          <Link to="/" aria-label="Clear Sight Opticians" className="inline-flex items-center justify-start shrink-0">
+          <Link
+            to="/"
+            onClick={handleLogoClick}
+            aria-label="Clear Sight Opticians"
+            className="inline-flex items-center justify-start shrink-0"
+          >
             <img
               src={logoUrl}
               alt="Clear Sight Opticians"
@@ -124,6 +137,7 @@ export function SiteHeader() {
           {/* Wordmark — absolutely centered on desktop only */}
           <Link
             to="/"
+            onClick={handleLogoClick}
             aria-label="Clear Sight Opticians home"
             className="hidden md:inline-flex absolute left-1/2 -translate-x-1/2 items-center"
           >
@@ -172,7 +186,12 @@ export function SiteHeader() {
 
         {/* Mobile wordmark strip */}
         <div className="md:hidden flex justify-center border-t border-border/60 py-2">
-          <Link to="/" aria-label="Clear Sight Opticians home" className="inline-flex items-center">
+          <Link
+            to="/"
+            onClick={handleLogoClick}
+            aria-label="Clear Sight Opticians home"
+            className="inline-flex items-center"
+          >
             <AnimatedWordmark />
           </Link>
         </div>

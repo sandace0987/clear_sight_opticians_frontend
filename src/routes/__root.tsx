@@ -264,14 +264,6 @@ function RootComponent() {
     }
   }, []);
 
-  useEffect(() => {
-    // Enforce scroll to top on route change or initial load
-    const timer = setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 0);
-    return () => clearTimeout(timer);
-  }, [pathname]);
-
   return (
     <QueryClientProvider client={queryClient}>
       <div className="flex min-h-screen flex-col bg-background text-foreground">
