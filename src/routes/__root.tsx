@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -101,11 +102,142 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
+const SCHEMA_DATA = {
+  "@context": "https://schema.org",
+  "@type": "OpticalBusiness",
+  "name": "Clear Sight Opticians",
+  "image": "https://www.clearsightopticians.in/clear-sight-logo.avif",
+  "@id": "https://www.clearsightopticians.in/#organization",
+  "url": "https://www.clearsightopticians.in/",
+  "telephone": "+919440525789",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Shop #4, Padmaja Complex, JNTU Road, 6th Phase, KPHB Colony, Kukatpally",
+    "addressLocality": "Hyderabad",
+    "addressRegion": "Telangana",
+    "postalCode": "500085",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 17.493921,
+    "longitude": 78.397634
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "09:00",
+    "closes": "21:30"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+919440525789",
+    "contactType": "customer service",
+    "areaServed": "IN",
+    "availableLanguage": ["English", "Telugu", "Hindi"]
+  },
+  "department": [
+    {
+      "@type": "Optician",
+      "name": "Clear Sight Opticians - Kukatpally (KPHB)",
+      "image": "https://www.clearsightopticians.in/clear-sight-logo.avif",
+      "telephone": "+919440525789",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Shop #4, Padmaja Complex, JNTU Road, 6th Phase, KPHB",
+        "addressLocality": "Hyderabad",
+        "addressRegion": "Telangana",
+        "postalCode": "500085",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 17.493921,
+        "longitude": 78.397634
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "09:00",
+        "closes": "21:30"
+      }
+    },
+    {
+      "@type": "Optician",
+      "name": "Clear Sight Opticians - Nizampet",
+      "image": "https://www.clearsightopticians.in/clear-sight-logo.avif",
+      "telephone": "+919440525789",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Beside Vazra Nirman Pushpak, Nizampet Colony",
+        "addressLocality": "Hyderabad",
+        "addressRegion": "Telangana",
+        "postalCode": "500090",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 17.5186,
+        "longitude": 78.3854
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "09:00",
+        "closes": "21:30"
+      }
+    },
+    {
+      "@type": "Optician",
+      "name": "Clear Sight Opticians - Bowenpally",
+      "image": "https://www.clearsightopticians.in/clear-sight-logo.avif",
+      "telephone": "+919440525789",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Near Delhi Public School, Sikh Village Road, Bowenpally",
+        "addressLocality": "Hyderabad",
+        "addressRegion": "Telangana",
+        "postalCode": "500009",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 17.4764,
+        "longitude": 78.4842
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "09:00",
+        "closes": "21:30"
+      }
+    }
+  ]
+};
+
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
         <HeadContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(SCHEMA_DATA),
+          }}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{if(localStorage.getItem('theme')==='dark')document.documentElement.classList.add('dark');}catch(e){}})();`,
@@ -124,6 +256,21 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isHome = pathname === "/";
+
+  useEffect(() => {
+    // Disable browser's auto scroll restoration on page reload
+    if (typeof window !== "undefined") {
+      window.history.scrollRestoration = "manual";
+    }
+  }, []);
+
+  useEffect(() => {
+    // Enforce scroll to top on route change or initial load
+    const timer = setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 0);
+    return () => clearTimeout(timer);
+  }, [pathname]);
 
   return (
     <QueryClientProvider client={queryClient}>

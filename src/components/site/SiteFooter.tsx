@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, Twitter, Linkedin } from "lucide-react";
+import { Instagram, Facebook } from "lucide-react";
 import logoUrl from "@/assets/clear-sight-logo.avif";
 
 export function SiteFooter() {
@@ -17,14 +17,23 @@ export function SiteFooter() {
             and clinical-grade eye care, fitted by experts.
           </p>
           <div className="mt-6 flex gap-4">
-            <a href="#" aria-label="Instagram" className="size-10 rounded-full border border-white/15 grid place-items-center hover:bg-electric hover:border-electric transition-colors">
+            <a
+              href="https://www.instagram.com/clearsight.official?igsh=MTg2OXFwZDJtZ3B6NA=="
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="size-10 rounded-full border border-white/15 grid place-items-center hover:bg-electric hover:border-electric transition-colors"
+            >
               <Instagram className="size-4" />
             </a>
-            <a href="#" aria-label="Twitter" className="size-10 rounded-full border border-white/15 grid place-items-center hover:bg-electric hover:border-electric transition-colors">
-              <Twitter className="size-4" />
-            </a>
-            <a href="#" aria-label="LinkedIn" className="size-10 rounded-full border border-white/15 grid place-items-center hover:bg-electric hover:border-electric transition-colors">
-              <Linkedin className="size-4" />
+            <a
+              href="https://www.facebook.com/clearsight.official/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="size-10 rounded-full border border-white/15 grid place-items-center hover:bg-electric hover:border-electric transition-colors"
+            >
+              <Facebook className="size-4" />
             </a>
           </div>
         </div>
@@ -34,7 +43,6 @@ export function SiteFooter() {
           <ul className="space-y-3 text-sm">
             <li><Link to="/brands" className="hover:text-electric">Brands</Link></li>
             <li><Link to="/smart-glasses" className="hover:text-electric">Smart Glasses</Link></li>
-            <li><Link to="/" hash="offers" className="hover:text-electric">Offers</Link></li>
             <li><Link to="/stores" className="hover:text-electric">Store Locator</Link></li>
             <li><Link to="/about" className="hover:text-electric">About</Link></li>
           </ul>

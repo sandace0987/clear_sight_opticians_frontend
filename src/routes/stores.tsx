@@ -1,15 +1,26 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Clock, MapPin, Phone } from "lucide-react";
 import storeInterior from "@/assets/store-interior.webp";
+import kphb1 from "@/assets/kphb-interior-1.jpg";
+import kphb2 from "@/assets/kphb-interior-2.jpg";
+import { StoreImageCarousel } from "@/components/site/StoreImageCarousel";
 
 export const Route = createFileRoute("/stores")({
   head: () => ({
     meta: [
-      { title: "Stores — Clear Sight Opticians, Hyderabad" },
-      { name: "description", content: "Visit Clear Sight Opticians in Kukatpally (KPHB), Nizampet and Bowenpally, Hyderabad." },
-      { property: "og:title", content: "Stores — Clear Sight Opticians, Hyderabad" },
-      { property: "og:description", content: "Three Hyderabad studios. One standard of care." },
+      { title: "Optical Stores in Hyderabad: KPHB, Nizampet & Bowenpally | Clear Sight" },
+      { name: "description", content: "Visit Clear Sight Opticians at KPHB Colony (Kukatpally), Nizampet, or Bowenpally in Hyderabad. Open daily 9:00 AM to 9:30 PM. Professional eye testing and prescription fittings." },
+      { name: "keywords", content: "optical stores Hyderabad, optician Kukatpally, eye clinic Nizampet, optical shop Bowenpally, best opticians in Hyderabad, computer glasses Hyderabad" },
+      { name: "robots", content: "index, follow" },
+      { property: "og:title", content: "Optical Stores in Hyderabad: KPHB, Nizampet & Bowenpally" },
+      { property: "og:description", content: "Visit Clear Sight Opticians at KPHB, Nizampet, or Bowenpally Colony in Hyderabad. Three locations, one standard of vision care." },
+      { property: "og:url", content: "https://www.clearsightopticians.in/stores" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [
+      { rel: "canonical", href: "https://www.clearsightopticians.in/stores" }
+    ]
   }),
   component: StoresPage,
 });
@@ -21,6 +32,7 @@ const STORES = [
     address: "Shop #4, Padmaja Complex, JNTU Road, 6th Phase, KPHB, Hyderabad - 500085",
     phone: "+91 94405 25789",
     hours: "Mon–Sun · 9:00 AM – 9:30 PM",
+    images: [kphb1, kphb2],
   },
   {
     name: "Nizampet",
@@ -28,6 +40,7 @@ const STORES = [
     address: "Beside Vazra Nirman Pushpak, Nizampet Colony, Hyderabad, Telangana",
     phone: "+91 94405 25789",
     hours: "Mon–Sun · 9:00 AM – 9:30 PM",
+    images: [storeInterior],
   },
   {
     name: "Bowenpally",
@@ -35,6 +48,7 @@ const STORES = [
     address: "Near Delhi Public School, Sikh Village Road, Bowenpally, Hyderabad, Telangana",
     phone: "+91 94405 25789",
     hours: "Mon–Sun · 9:00 AM – 9:30 PM",
+    images: [storeInterior],
   },
 ];
 
@@ -55,13 +69,10 @@ function StoresPage() {
           {STORES.map((s, i) => (
             <article key={s.name} className="grid grid-cols-1 lg:grid-cols-12 bg-secondary/60 border border-border rounded-3xl overflow-hidden">
               <div className="lg:col-span-5 aspect-[4/3] lg:aspect-auto overflow-hidden bg-secondary">
-                <img
-                  src={storeInterior}
-                  alt={`${s.name} interior`}
-                  width={1200}
-                  height={900}
-                  loading="lazy"
-                  className={`w-full h-full object-cover ${i === 1 ? "scale-110" : i === 2 ? "-scale-x-100" : ""}`}
+                <StoreImageCarousel
+                  images={s.images}
+                  alt={s.name}
+                  className={i === 1 ? "scale-110" : i === 2 ? "-scale-x-100" : ""}
                 />
               </div>
               <div className="lg:col-span-7 p-8 lg:p-12 flex flex-col gap-5">
@@ -86,7 +97,11 @@ function StoresPage() {
                   <a href={`tel:${s.phone.replace(/\s/g, "")}`} className="bg-background border border-border px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:border-electric hover:text-electric transition-colors">
                     Call now
                   </a>
-                  <Link to="/contact" className="bg-background border border-border px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:border-electric hover:text-electric transition-colors">
+                  <Link
+                    to="/"
+                    onClick={() => sessionStorage.setItem("scrollTargetSection", "contact")}
+                    className="bg-background border border-border px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:border-electric hover:text-electric transition-colors"
+                  >
                     Book at this store
                   </Link>
                 </div>

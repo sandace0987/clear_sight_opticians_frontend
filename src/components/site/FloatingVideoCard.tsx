@@ -19,7 +19,7 @@ export function FloatingVideoCard() {
   return (
     <>
       <div
-        className="hidden md:block fixed bottom-28 right-6 lg:bottom-28 lg:right-8 z-40 animate-[fade-up_0.9s_cubic-bezier(0.16,1,0.3,1)_0.6s_both]"
+        className="fixed bottom-[88px] right-6 z-40 animate-[fade-up_0.9s_cubic-bezier(0.16,1,0.3,1)_0.6s_both]"
         onMouseEnter={() => setExpanded(true)}
         onMouseLeave={() => setExpanded(false)}
       >
@@ -104,22 +104,19 @@ export function FloatingVideoCard() {
             </DialogDescription>
           </DialogHeader>
           <div className="px-6 pb-6">
-            <div className="aspect-video w-full rounded-xl bg-black/60 border border-white/10 grid place-items-center relative overflow-hidden">
-              <div
-                aria-hidden
-                className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_30%_30%,var(--electric),transparent_60%)]"
-              />
-              <div className="relative text-center">
-                <div className="mx-auto size-16 rounded-full bg-white/10 backdrop-blur grid place-items-center mb-4 border border-white/20">
-                  <Play className="size-6 text-white fill-white ml-1" />
-                </div>
-                <p className="text-sm font-semibold tracking-widest uppercase text-white/80">
-                  Video placeholder
-                </p>
-                <p className="text-xs text-white/50 mt-1">
-                  Your walkthrough video will appear here.
-                </p>
-              </div>
+            <div className="aspect-video w-full rounded-xl bg-black border border-white/10 overflow-hidden">
+              {open && (
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/N_hAs3p1F5g?autoplay=1&rel=0"
+                  title="See How It Works Video"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
+              )}
             </div>
           </div>
         </DialogContent>

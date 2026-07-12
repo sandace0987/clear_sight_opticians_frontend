@@ -1,268 +1,347 @@
-import crystalFront from "@/assets/products/maui-jim-alika/crystal-front.webp";
-import crystalQuarter from "@/assets/products/maui-jim-alika/crystal-quarter.webp";
-import crystalSide from "@/assets/products/maui-jim-alika/crystal-side.webp";
-import tortoiseFront from "@/assets/products/maui-jim-alika/tortoise-front.webp";
-import tortoiseQuarter from "@/assets/products/maui-jim-alika/tortoise-quarter.webp";
-import tortoiseSide from "@/assets/products/maui-jim-alika/tortoise-side.webp";
-import castlesBlackFront from "@/assets/products/maui-jim-castles/728-2M_front.webp";
-import castlesBlackQuarter from "@/assets/products/maui-jim-castles/728-2M_quarter.webp";
-import castlesBlackSide from "@/assets/products/maui-jim-castles/728-2M_side.webp";
-import castlesChocFront from "@/assets/products/maui-jim-castles/H728-01M_front.webp";
-import castlesChocQuarter from "@/assets/products/maui-jim-castles/H728-01M_quarter.webp";
-import castlesChocSide from "@/assets/products/maui-jim-castles/H728-01M_side.webp";
-import hookipaBlackFront from "@/assets/products/maui-jim-hookipa/407-02_front.webp";
-import hookipaBlackQuarter from "@/assets/products/maui-jim-hookipa/407-02_quarter.webp";
-import hookipaBlackSide from "@/assets/products/maui-jim-hookipa/407-02_side.webp";
-import hookipaBlueFront from "@/assets/products/maui-jim-hookipa/B407-11_front.webp";
-import hookipaBlueQuarter from "@/assets/products/maui-jim-hookipa/B407-11_quarter.webp";
-import hookipaBlueSide from "@/assets/products/maui-jim-hookipa/B407-11_side.webp";
-import kokuaBlackFront from "@/assets/products/maui-jim-kokua/638-02_front.webp";
-import kokuaBlackQuarter from "@/assets/products/maui-jim-kokua/638-02_quarter.webp";
-import kokuaBlackSide from "@/assets/products/maui-jim-kokua/638-02_side.webp";
-import kokuaTealFront from "@/assets/products/maui-jim-kokua/B638-03_front.webp";
-import kokuaTealQuarter from "@/assets/products/maui-jim-kokua/B638-03_quarter.webp";
-import kokuaTealSide from "@/assets/products/maui-jim-kokua/B638-03_side.webp";
-import kokuaTortoiseFront from "@/assets/products/maui-jim-kokua/H638-10_front.webp";
-import kokuaTortoiseQuarter from "@/assets/products/maui-jim-kokua/H638-10_quarter.webp";
-import kokuaTortoiseSide from "@/assets/products/maui-jim-kokua/H638-10_side.webp";
-import kokuaGreenFront from "@/assets/products/maui-jim-kokua/GM638-02_front.webp";
-import kokuaGreenQuarter from "@/assets/products/maui-jim-kokua/GM638-02_quarter.webp";
-import kokuaGreenSide from "@/assets/products/maui-jim-kokua/GM638-02_side.webp";
-import liquidBlackFront from "@/assets/products/maui-jim-liquid-sunshine/601-02_front.webp";
-import liquidBlackQuarter from "@/assets/products/maui-jim-liquid-sunshine/601-02_quarter.webp";
-import liquidBlackSide from "@/assets/products/maui-jim-liquid-sunshine/601-02_side.webp";
-import liquidRoseFront from "@/assets/products/maui-jim-liquid-sunshine/R601-04_front.webp";
-import liquidRoseQuarter from "@/assets/products/maui-jim-liquid-sunshine/R601-04_quarter.webp";
-import liquidRoseSide from "@/assets/products/maui-jim-liquid-sunshine/R601-04_side.webp";
-import mekalaSilverFront from "@/assets/products/maui-jim-mekala/690-16_front.webp";
-import mekalaSilverQuarter from "@/assets/products/maui-jim-mekala/690-16_quarter.webp";
-import mekalaSilverSide from "@/assets/products/maui-jim-mekala/690-16_side.webp";
-import sugarBlackFront from "@/assets/products/maui-jim-sugar-beach/421-02_front.webp";
-import sugarBlackQuarter from "@/assets/products/maui-jim-sugar-beach/421-02_quarter.webp";
-import sugarBlackSide from "@/assets/products/maui-jim-sugar-beach/421-02_side.webp";
-import sugarKhakiFront from "@/assets/products/maui-jim-sugar-beach/HT421-15_front.webp";
-import sugarKhakiQuarter from "@/assets/products/maui-jim-sugar-beach/HT421-15_quarter.webp";
-import sugarKhakiSide from "@/assets/products/maui-jim-sugar-beach/HT421-15_side.webp";
+import crystalFront from "@/assets/products/maui-jim/maui-jim-alika/crystal-front.webp";
+import crystalQuarter from "@/assets/products/maui-jim/maui-jim-alika/crystal-quarter.webp";
+import crystalSide from "@/assets/products/maui-jim/maui-jim-alika/crystal-side.webp";
+import tortoiseFront from "@/assets/products/maui-jim/maui-jim-alika/tortoise-front.webp";
+import tortoiseQuarter from "@/assets/products/maui-jim/maui-jim-alika/tortoise-quarter.webp";
+import tortoiseSide from "@/assets/products/maui-jim/maui-jim-alika/tortoise-side.webp";
+import castlesBlackFront from "@/assets/products/maui-jim/maui-jim-castles/728-2M_front.webp";
+import castlesBlackQuarter from "@/assets/products/maui-jim/maui-jim-castles/728-2M_quarter.webp";
+import castlesBlackSide from "@/assets/products/maui-jim/maui-jim-castles/728-2M_side.webp";
+import castlesChocFront from "@/assets/products/maui-jim/maui-jim-castles/H728-01M_front.webp";
+import castlesChocQuarter from "@/assets/products/maui-jim/maui-jim-castles/H728-01M_quarter.webp";
+import castlesChocSide from "@/assets/products/maui-jim/maui-jim-castles/H728-01M_side.webp";
+import hookipaBlackFront from "@/assets/products/maui-jim/maui-jim-hookipa/407-02_front.webp";
+import hookipaBlackQuarter from "@/assets/products/maui-jim/maui-jim-hookipa/407-02_quarter.webp";
+import hookipaBlackSide from "@/assets/products/maui-jim/maui-jim-hookipa/407-02_side.webp";
+import hookipaBlueFront from "@/assets/products/maui-jim/maui-jim-hookipa/B407-11_front.webp";
+import hookipaBlueQuarter from "@/assets/products/maui-jim/maui-jim-hookipa/B407-11_quarter.webp";
+import hookipaBlueSide from "@/assets/products/maui-jim/maui-jim-hookipa/B407-11_side.webp";
+import kokuaBlackFront from "@/assets/products/maui-jim/maui-jim-kokua/638-02_front.webp";
+import kokuaBlackQuarter from "@/assets/products/maui-jim/maui-jim-kokua/638-02_quarter.webp";
+import kokuaBlackSide from "@/assets/products/maui-jim/maui-jim-kokua/638-02_side.webp";
+import kokuaTealFront from "@/assets/products/maui-jim/maui-jim-kokua/B638-03_front.webp";
+import kokuaTealQuarter from "@/assets/products/maui-jim/maui-jim-kokua/B638-03_quarter.webp";
+import kokuaTealSide from "@/assets/products/maui-jim/maui-jim-kokua/B638-03_side.webp";
+import kokuaTortoiseFront from "@/assets/products/maui-jim/maui-jim-kokua/H638-10_front.webp";
+import kokuaTortoiseQuarter from "@/assets/products/maui-jim/maui-jim-kokua/H638-10_quarter.webp";
+import kokuaTortoiseSide from "@/assets/products/maui-jim/maui-jim-kokua/H638-10_side.webp";
+import kokuaGreenFront from "@/assets/products/maui-jim/maui-jim-kokua/GM638-02_front.webp";
+import kokuaGreenQuarter from "@/assets/products/maui-jim/maui-jim-kokua/GM638-02_quarter.webp";
+import kokuaGreenSide from "@/assets/products/maui-jim/maui-jim-kokua/GM638-02_side.webp";
+import liquidBlackFront from "@/assets/products/maui-jim/maui-jim-liquid-sunshine/601-02_front.webp";
+import liquidBlackQuarter from "@/assets/products/maui-jim/maui-jim-liquid-sunshine/601-02_quarter.webp";
+import liquidBlackSide from "@/assets/products/maui-jim/maui-jim-liquid-sunshine/601-02_side.webp";
+import liquidRoseFront from "@/assets/products/maui-jim/maui-jim-liquid-sunshine/R601-04_front.webp";
+import liquidRoseQuarter from "@/assets/products/maui-jim/maui-jim-liquid-sunshine/R601-04_quarter.webp";
+import liquidRoseSide from "@/assets/products/maui-jim/maui-jim-liquid-sunshine/R601-04_side.webp";
+import mekalaSilverFront from "@/assets/products/maui-jim/maui-jim-mekala/690-16_front.webp";
+import mekalaSilverQuarter from "@/assets/products/maui-jim/maui-jim-mekala/690-16_quarter.webp";
+import mekalaSilverSide from "@/assets/products/maui-jim/maui-jim-mekala/690-16_side.webp";
+import sugarBlackFront from "@/assets/products/maui-jim/maui-jim-sugar-beach/421-02_front.webp";
+import sugarBlackQuarter from "@/assets/products/maui-jim/maui-jim-sugar-beach/421-02_quarter.webp";
+import sugarBlackSide from "@/assets/products/maui-jim/maui-jim-sugar-beach/421-02_side.webp";
+import sugarKhakiFront from "@/assets/products/maui-jim/maui-jim-sugar-beach/HT421-15_front.webp";
+import sugarKhakiQuarter from "@/assets/products/maui-jim/maui-jim-sugar-beach/HT421-15_quarter.webp";
+import sugarKhakiSide from "@/assets/products/maui-jim/maui-jim-sugar-beach/HT421-15_side.webp";
 import mauiJimLogo from "@/assets/brands/maui-jim-logo.webp";
 import silhouetteLogo from "@/assets/brands/silhouette-logo.webp";
 import pradaMilanoLogo from "@/assets/brands/prada-milano-logo.webp";
 import rayBanLogo from "@/assets/brands/ray-ban-logo.svg";
 import guessLogo from "@/assets/brands/guess-logo.webp";
-import pradaPs03qv2azFront from "@/assets/products/prada-ps03qv/2az-front.webp";
-import pradaPs03qv2azQuarter from "@/assets/products/prada-ps03qv/2az-quarter.webp";
-import pradaPs03qv2azSide from "@/assets/products/prada-ps03qv/2az-side.webp";
-import pradaPs03qvDgFront from "@/assets/products/prada-ps03qv/dg-front.webp";
-import pradaPs03qvDgQuarter from "@/assets/products/prada-ps03qv/dg-quarter.webp";
-import pradaPs03qvDgSide from "@/assets/products/prada-ps03qv/dg-side.webp";
-import pradaSprA16Front from "@/assets/products/prada-spr-a16/havana-front.webp";
-import pradaSprA16Quarter from "@/assets/products/prada-spr-a16/havana-quarter.webp";
-import pradaSprA16Side from "@/assets/products/prada-spr-a16/havana-side.webp";
-import pradaSpr17wFront from "@/assets/products/prada-spr-17w/front.webp";
-import pradaSpr17wQuarter from "@/assets/products/prada-spr-17w/quarter.webp";
-import pradaSpr17wSide from "@/assets/products/prada-spr-17w/side.webp";
-import pradaSpr27zFront from "@/assets/products/prada-spr-27z/front.webp";
-import pradaSpr27zQuarter from "@/assets/products/prada-spr-27z/quarter.webp";
-import pradaSpr27zSide from "@/assets/products/prada-spr-27z/side.webp";
-import pradaSprA17Front from "@/assets/products/prada-spr-a17/front.webp";
-import pradaSprA17Quarter from "@/assets/products/prada-spr-a17/quarter.webp";
-import pradaSprA17Side from "@/assets/products/prada-spr-a17/side.webp";
-import pradaVprB54Front from "@/assets/products/prada-vpr-b54/front.webp";
-import pradaVprB54Quarter from "@/assets/products/prada-vpr-b54/quarter.webp";
-import pradaVprB54Side from "@/assets/products/prada-vpr-b54/side.webp";
-import pradaVprA16vFront from "@/assets/products/prada-vpr-a16v/front.webp";
-import pradaVprA16vQuarter from "@/assets/products/prada-vpr-a16v/quarter.webp";
-import pradaVprA16vSide from "@/assets/products/prada-vpr-a16v/side.webp";
-import pradaVpr18wFront from "@/assets/products/prada-vpr-18w/front.webp";
-import pradaVpr18wQuarter from "@/assets/products/prada-vpr-18w/quarter.webp";
-import pradaVpr18wSide from "@/assets/products/prada-vpr-18w/side.webp";
-import pradaVpr19wFront from "@/assets/products/prada-vpr-19w/front.webp";
-import pradaVpr19wQuarter from "@/assets/products/prada-vpr-19w/quarter.webp";
-import pradaVpr19wSide from "@/assets/products/prada-vpr-19w/side.webp";
-import pradaPs03rvFront from "@/assets/products/prada-ps-03rv/front.webp";
-import pradaPs03rvQuarter from "@/assets/products/prada-ps-03rv/quarter.webp";
-import pradaPs03rvSide from "@/assets/products/prada-ps-03rv/side.webp";
-import burberryB2378Front from "@/assets/products/burberry-b2378/front.webp";
-import burberryB2378Quarter from "@/assets/products/burberry-b2378/quarter.webp";
-import burberryB2378Side from "@/assets/products/burberry-b2378/side.webp";
-import burberryB2409Front from "@/assets/products/burberry-b2409/front.avif";
-import burberryB2409Quarter from "@/assets/products/burberry-b2409/quarter.webp";
-import burberryB2409Side from "@/assets/products/burberry-b2409/side.avif";
-import burberryB2255qfFront from "@/assets/products/burberry-b2255qf/front.avif";
-import burberryB2255qfQuarter from "@/assets/products/burberry-b2255qf/quarter.avif";
-import burberryB2255qfSide from "@/assets/products/burberry-b2255qf/side.avif";
-import burberryB2379uFront from "@/assets/products/burberry-b2379u/front.webp";
-import burberryB2379uQuarter from "@/assets/products/burberry-b2379u/quarter.webp";
-import burberryB2379uSide from "@/assets/products/burberry-b2379u/side.webp";
-import burberryB2389Front from "@/assets/products/burberry-b2389/front.webp";
-import burberryB2389Quarter from "@/assets/products/burberry-b2389/quarter.webp";
-import burberryB2389Side from "@/assets/products/burberry-b2389/side.webp";
-import burberryB2403Front from "@/assets/products/burberry-b2403/front.avif";
-import burberryB2403Quarter from "@/assets/products/burberry-b2403/quarter.avif";
-import burberryB2403Side from "@/assets/products/burberry-b2403/side.avif";
-import burberryB2413dFront from "@/assets/products/burberry-b2413d/front.webp";
-import burberryB2413dQuarter from "@/assets/products/burberry-b2413d/quarter.webp";
-import burberryB2413dSide from "@/assets/products/burberry-b2413d/side.webp";
-import burberryB4335Front from "@/assets/products/burberry-b4335/front.webp";
-import burberryB4335Quarter from "@/assets/products/burberry-b4335/quarter.webp";
-import burberryB4335Side from "@/assets/products/burberry-b4335/side.webp";
-import burberryB4403Front from "@/assets/products/burberry-b4403/front.webp";
-import burberryB4403Quarter from "@/assets/products/burberry-b4403/quarter.webp";
-import burberryB4403Side from "@/assets/products/burberry-b4403/side.webp";
-import burberryBe2387Front from "@/assets/products/burberry-be2387/front.webp";
-import rb4252CrystalFront from "@/assets/products/ray-ban-rb4252/crystal-front.webp";
-import rb4252CrystalQuarter from "@/assets/products/ray-ban-rb4252/crystal-quarter.webp";
-import rb4252CrystalSide from "@/assets/products/ray-ban-rb4252/crystal-side.webp";
-import rb4252BlackFront from "@/assets/products/ray-ban-rb4252/black-front.avif";
-import rb4252BlackQuarter from "@/assets/products/ray-ban-rb4252/black-quarter.avif";
-import rb4252BlackSide from "@/assets/products/ray-ban-rb4252/black-side.avif";
-import rb4252MatteFront from "@/assets/products/ray-ban-rb4252/matte-front.webp";
-import rb4252MatteQuarter from "@/assets/products/ray-ban-rb4252/matte-quarter.webp";
-import rb4252MatteSide from "@/assets/products/ray-ban-rb4252/matte-side.webp";
-import rx3681v2509Front from "@/assets/products/ray-ban-rx3681v/2509-front.avif";
-import rx3681v2509Quarter from "@/assets/products/ray-ban-rx3681v/2509-quarter.avif";
-import rx3681v2509Side from "@/assets/products/ray-ban-rx3681v/2509-side.avif";
-import rx7027GreenFront from "@/assets/products/ray-ban-rx7027/green-front.webp";
-import rx7027GreenQuarter from "@/assets/products/ray-ban-rx7027/green-quarter.webp";
-import rx7027GreenSide from "@/assets/products/ray-ban-rx7027/green-side.webp";
-import rx7190BlackFront from "@/assets/products/ray-ban-rx7190/black-front.webp";
-import rx7190BlackQuarter from "@/assets/products/ray-ban-rx7190/black-quarter.webp";
-import rx7190BlackSide from "@/assets/products/ray-ban-rx7190/black-side.webp";
-import rx7239BlueFront from "@/assets/products/ray-ban-rx7239/blue-front.webp";
-import rx7239BlueQuarter from "@/assets/products/ray-ban-rx7239/blue-quarter.webp";
-import rx7239BlueSide from "@/assets/products/ray-ban-rx7239/blue-side.webp";
-import rx7249GreenFront from "@/assets/products/ray-ban-rx7249/green-front.webp";
-import rx7249GreenQuarter from "@/assets/products/ray-ban-rx7249/green-quarter.webp";
-import rx7249GreenSide from "@/assets/products/ray-ban-rx7249/green-side.webp";
-import rx7264HavanaFront from "@/assets/products/ray-ban-rx7264/havana-front.webp";
-import rx7264HavanaQuarter from "@/assets/products/ray-ban-rx7264/havana-quarter.webp";
-import rx7264HavanaSide from "@/assets/products/ray-ban-rx7264/havana-side.webp";
-import rx7264BlackFront from "@/assets/products/ray-ban-rx7264/black-front.webp";
-import rx7264BlackQuarter from "@/assets/products/ray-ban-rx7264/black-quarter.webp";
-import rx7264BlackSide from "@/assets/products/ray-ban-rx7264/black-side.webp";
-import rb3794mSilverFront from "@/assets/products/ray-ban-rb3794m/front.webp";
-import rb3794mSilverQuarter from "@/assets/products/ray-ban-rb3794m/quarter.webp";
-import rb3794mSilverSide from "@/assets/products/ray-ban-rb3794m/side.webp";
-import rb2217mBlackFront from "@/assets/products/ray-ban-rb2217m/front.webp";
-import rb2217mBlackQuarter from "@/assets/products/ray-ban-rb2217m/quarter.webp";
-import rb2217mBlackSide from "@/assets/products/ray-ban-rb2217m/side.webp";
-import rb4433mBlackFront from "@/assets/products/ray-ban-rb4433m/front.webp";
-import rb4433mBlackQuarter from "@/assets/products/ray-ban-rb4433m/quarter.webp";
-import rb4433mBlackSide from "@/assets/products/ray-ban-rb4433m/side.webp";
-import rb7240mBlackFront from "@/assets/products/ray-ban-rb7240m/front.webp";
-import rb7240mBlackQuarter from "@/assets/products/ray-ban-rb7240m/quarter.webp";
-import rb7240mBlackSide from "@/assets/products/ray-ban-rb7240m/side.webp";
-import rb8416mBlackFront from "@/assets/products/ray-ban-rb8416m/front.webp";
-import rb8416mBlackQuarter from "@/assets/products/ray-ban-rb8416m/quarter.webp";
-import rb8416mBlackSide from "@/assets/products/ray-ban-rb8416m/side.webp";
-import rb7144mBlackFront from "@/assets/products/ray-ban-rb7144m/front.webp";
-import rb7144mBlackQuarter from "@/assets/products/ray-ban-rb7144m/quarter.webp";
-import rb7144mBlackSide from "@/assets/products/ray-ban-rb7144m/side.webp";
-import rb3025BlackFront from "@/assets/products/ray-ban-rb3025/black-front.webp";
-import rb3025BlackQuarter from "@/assets/products/ray-ban-rb3025/black-quarter.webp";
-import rb3025BlackSide from "@/assets/products/ray-ban-rb3025/black-side.webp";
-import rb3025SilverFront from "@/assets/products/ray-ban-rb3025/silver-front.webp";
-import rb3025SilverQuarter from "@/assets/products/ray-ban-rb3025/silver-quarter.webp";
-import rb3025SilverSide from "@/assets/products/ray-ban-rb3025/silver-side.webp";
-import rb3025GoldFront from "@/assets/products/ray-ban-rb3025/gold-front.webp";
-import rb3025GoldQuarter from "@/assets/products/ray-ban-rb3025/gold-quarter.webp";
-import rb3025GoldSide from "@/assets/products/ray-ban-rb3025/gold-side.webp";
-import rb2140Front from "@/assets/products/ray-ban-rb2140/front.webp";
-import rb2140Quarter from "@/assets/products/ray-ban-rb2140/quarter.webp";
-import rb2140Side from "@/assets/products/ray-ban-rb2140/side.webp";
-import vo5497BlackFront from "@/assets/products/vogue-vo5497/black-front.webp";
-import vo5497BlackQuarter from "@/assets/products/vogue-vo5497/black-quarter.webp";
-import vo5497BlackSide from "@/assets/products/vogue-vo5497/black-side.webp";
-import vo5497BlueFront from "@/assets/products/vogue-vo5497/blue-front.webp";
-import vo5497BlueQuarter from "@/assets/products/vogue-vo5497/blue-quarter.webp";
-import vo5497BlueSide from "@/assets/products/vogue-vo5497/blue-side.webp";
-import vo5497HavanaFront from "@/assets/products/vogue-vo5497/havana-front.webp";
-import vo5497HavanaQuarter from "@/assets/products/vogue-vo5497/havana-quarter.webp";
-import vo5497HavanaSide from "@/assets/products/vogue-vo5497/havana-side.webp";
-import vo5497PurpleFront from "@/assets/products/vogue-vo5497/purple-front.webp";
-import vo5497PurpleQuarter from "@/assets/products/vogue-vo5497/purple-quarter.webp";
-import vo5497PurpleSide from "@/assets/products/vogue-vo5497/purple-side.webp";
-import vo5676BlackFront from "@/assets/products/vogue-vo5676/black-front.webp";
-import vo5676BlackQuarter from "@/assets/products/vogue-vo5676/black-quarter.webp";
-import vo5676BlackSide from "@/assets/products/vogue-vo5676/black-side.webp";
-import vo5676GreyFront from "@/assets/products/vogue-vo5676/grey-front.webp";
-import vo5676GreyQuarter from "@/assets/products/vogue-vo5676/grey-quarter.webp";
-import vo5676GreySide from "@/assets/products/vogue-vo5676/grey-side.webp";
-import vo8056PurpleFront from "@/assets/products/vogue-vo8056/purple-front.webp";
-import vo8056PurpleQuarter from "@/assets/products/vogue-vo8056/purple-quarter.webp";
-import vo8056PurpleSide from "@/assets/products/vogue-vo8056/purple-side.webp";
-import vo8056PinkFront from "@/assets/products/vogue-vo8056/pink-front.webp";
-import vo8056PinkQuarter from "@/assets/products/vogue-vo8056/pink-quarter.webp";
-import vo8056PinkSide from "@/assets/products/vogue-vo8056/pink-side.webp";
-import burberryBe2387Quarter from "@/assets/products/burberry-be2387/quarter.webp";
-import burberryBe2387Side from "@/assets/products/burberry-be2387/side.webp";
-import oakleyBisphaeraFront from "@/assets/products/oakley-bisphaera/front.webp";
-import oakleyBisphaeraQuarter from "@/assets/products/oakley-bisphaera/quarter.webp";
-import oakleyBisphaeraSide from "@/assets/products/oakley-bisphaera/side.webp";
-import oakleyHolbrookSGreyFront from "@/assets/products/oakley-holbrook-s/prizm-grey-front.webp";
-import oakleyHolbrookSGreyQuarter from "@/assets/products/oakley-holbrook-s/prizm-grey-quarter.webp";
-import oakleyHolbrookSGreySide from "@/assets/products/oakley-holbrook-s/prizm-grey-side.webp";
-import oakleyHolbrookSRedFront from "@/assets/products/oakley-holbrook-s/red-iridium-front.webp";
-import oakleyHolbrookSRedQuarter from "@/assets/products/oakley-holbrook-s/red-iridium-quarter.webp";
-import oakleyHolbrookSRedSide from "@/assets/products/oakley-holbrook-s/red-iridium-side.webp";
-import oakleyCrosslinkZeroFront from "@/assets/products/oakley-crosslink-zero/front.webp";
-import oakleyCrosslinkZeroQuarter from "@/assets/products/oakley-crosslink-zero/quarter.webp";
-import oakleyCrosslinkZeroSide from "@/assets/products/oakley-crosslink-zero/side.webp";
-import oakleyHexJectorBlackFront from "@/assets/products/oakley-hex-jector/satin-black-front.webp";
-import oakleyHexJectorBlackQuarter from "@/assets/products/oakley-hex-jector/satin-black-quarter.webp";
-import oakleyHexJectorBlackSide from "@/assets/products/oakley-hex-jector/satin-black-side.webp";
-import oakleyHexJectorGreyFront from "@/assets/products/oakley-hex-jector/smoke-grey-front.webp";
-import oakleyHexJectorGreyQuarter from "@/assets/products/oakley-hex-jector/smoke-grey-quarter.webp";
-import oakleyHexJectorGreySide from "@/assets/products/oakley-hex-jector/smoke-grey-side.webp";
-import oakleyValdostaFront from "@/assets/products/oakley-valdosta/front.webp";
-import oakleyValdostaQuarter from "@/assets/products/oakley-valdosta/quarter.webp";
-import oakleyValdostaSide from "@/assets/products/oakley-valdosta/side.webp";
-import pleinSpp086Front from "@/assets/products/philipp-plein-spp086/front.webp";
-import pleinSpp086Quarter from "@/assets/products/philipp-plein-spp086/quarter.webp";
-import pleinSpp086Side from "@/assets/products/philipp-plein-spp086/side.webp";
-import pleinSpp086nFront from "@/assets/products/philipp-plein-spp086n/front.webp";
-import pleinSpp086nQuarter from "@/assets/products/philipp-plein-spp086n/quarter.webp";
-import pleinSpp086nSide from "@/assets/products/philipp-plein-spp086n/side.webp";
-import pleinSpp194Front from "@/assets/products/philipp-plein-spp194/front.webp";
-import pleinSpp194Quarter from "@/assets/products/philipp-plein-spp194/quarter.webp";
-import pleinSpp194Side from "@/assets/products/philipp-plein-spp194/side.webp";
-import pleinPp116Front from "@/assets/products/philipp-plein-pp116/front.webp";
-import pleinPp116Quarter from "@/assets/products/philipp-plein-pp116/quarter.webp";
-import pleinPp116Side from "@/assets/products/philipp-plein-pp116/side.webp";
-import pleinPp195Front from "@/assets/products/philipp-plein-pp195/front.webp";
-import pleinPp195Quarter from "@/assets/products/philipp-plein-pp195/quarter.webp";
-import pleinPp195Side from "@/assets/products/philipp-plein-pp195/side.webp";
-import pleinPp223Front from "@/assets/products/philipp-plein-pp223/front.webp";
-import pleinPp223Quarter from "@/assets/products/philipp-plein-pp223/quarter.webp";
-import pleinPp223Side from "@/assets/products/philipp-plein-pp223/side.webp";
-import oakleyRafterBlackFront from "@/assets/products/oakley-rafter/black-front.webp";
-import oakleyRafterBlackQuarter from "@/assets/products/oakley-rafter/black-quarter.webp";
-import oakleyRafterGreyFront from "@/assets/products/oakley-rafter/grey-front.webp";
-import oakleyRafterGreyQuarter from "@/assets/products/oakley-rafter/grey-quarter.webp";
-import oakleyRafterGreySide from "@/assets/products/oakley-rafter/grey-side.webp";
-import oakleyRadarRoadFront from "@/assets/products/oakley-radar-ev-path/road-front.webp";
-import oakleyRadarRoadQuarter from "@/assets/products/oakley-radar-ev-path/road-quarter.webp";
-import oakleyRadarRoadSide from "@/assets/products/oakley-radar-ev-path/road-side.webp";
-import oakleyRadarGolfFront from "@/assets/products/oakley-radar-ev-path/golf-front.webp";
-import oakleyRadarGolfQuarter from "@/assets/products/oakley-radar-ev-path/golf-quarter.webp";
-import oakleyRadarGolfSide from "@/assets/products/oakley-radar-ev-path/golf-side.webp";
-import oakleyWingfoldBlackFront from "@/assets/products/oakley-wingfold/black-front.webp";
-import oakleyWingfoldBlackQuarter from "@/assets/products/oakley-wingfold/black-quarter.webp";
-import oakleyWingfoldBlackSide from "@/assets/products/oakley-wingfold/black-side.webp";
-import oakleyWingfoldCementFront from "@/assets/products/oakley-wingfold/cement-front.webp";
-import oakleyWingfoldCementQuarter from "@/assets/products/oakley-wingfold/cement-quarter.webp";
-import oakleyWingfoldCementSide from "@/assets/products/oakley-wingfold/cement-side.webp";
-import oakleyWingfoldBlueFront from "@/assets/products/oakley-wingfold/blue-front.webp";
-import oakleyWingfoldBlueQuarter from "@/assets/products/oakley-wingfold/blue-quarter.webp";
-import oakleyWingfoldBlueSide from "@/assets/products/oakley-wingfold/blue-side.webp";
-import policeSplp28Front from "@/assets/products/police-splp28/front.webp";
-import policeSplp28Quarter from "@/assets/products/police-splp28/quarter.webp";
-import policeSplp28Side from "@/assets/products/police-splp28/side.webp";
-import policeSplq88Front from "@/assets/products/police-splq88/front.webp";
-import policeSplq88Quarter from "@/assets/products/police-splq88/quarter.webp";
-import policeSplq88Side from "@/assets/products/police-splq88/side.webp";
-import policeSplt36kFront from "@/assets/products/police-splt36k/front.webp";
-import policeSplt36kQuarter from "@/assets/products/police-splt36k/quarter.webp";
-import policeSplt36kSide from "@/assets/products/police-splt36k/side.webp";
+import pradaPs03qv2azFront from "@/assets/products/prada/prada-ps03qv/2az-front.webp";
+import pradaPs03qv2azQuarter from "@/assets/products/prada/prada-ps03qv/2az-quarter.webp";
+import pradaPs03qv2azSide from "@/assets/products/prada/prada-ps03qv/2az-side.webp";
+import pradaPs03qvDgFront from "@/assets/products/prada/prada-ps03qv/dg-front.webp";
+import pradaPs03qvDgQuarter from "@/assets/products/prada/prada-ps03qv/dg-quarter.webp";
+import pradaPs03qvDgSide from "@/assets/products/prada/prada-ps03qv/dg-side.webp";
+import pradaSprA16Front from "@/assets/products/prada/prada-spr-a16/havana-front.webp";
+import pradaSprA16Quarter from "@/assets/products/prada/prada-spr-a16/havana-quarter.webp";
+import pradaSprA16Side from "@/assets/products/prada/prada-spr-a16/havana-side.webp";
+import pradaSpr17wFront from "@/assets/products/prada/prada-spr-17w/front.webp";
+import pradaSpr17wQuarter from "@/assets/products/prada/prada-spr-17w/quarter.webp";
+import pradaSpr17wSide from "@/assets/products/prada/prada-spr-17w/side.webp";
+import pradaSpr27zFront from "@/assets/products/prada/prada-spr-27z/front.webp";
+import pradaSpr27zQuarter from "@/assets/products/prada/prada-spr-27z/quarter.webp";
+import pradaSpr27zSide from "@/assets/products/prada/prada-spr-27z/side.webp";
+import pradaSprA17Front from "@/assets/products/prada/prada-spr-a17/front.webp";
+import pradaSprA17Quarter from "@/assets/products/prada/prada-spr-a17/quarter.webp";
+import pradaSprA17Side from "@/assets/products/prada/prada-spr-a17/side.webp";
+import pradaVprB54Front from "@/assets/products/prada/prada-vpr-b54/front.webp";
+import pradaVprB54Quarter from "@/assets/products/prada/prada-vpr-b54/quarter.webp";
+import pradaVprB54Side from "@/assets/products/prada/prada-vpr-b54/side.webp";
+import pradaVprA16vFront from "@/assets/products/prada/prada-vpr-a16v/front.webp";
+import pradaVprA16vQuarter from "@/assets/products/prada/prada-vpr-a16v/quarter.webp";
+import pradaVprA16vSide from "@/assets/products/prada/prada-vpr-a16v/side.webp";
+import pradaVpr18wFront from "@/assets/products/prada/prada-vpr-18w/front.webp";
+import pradaVpr18wQuarter from "@/assets/products/prada/prada-vpr-18w/quarter.webp";
+import pradaVpr18wSide from "@/assets/products/prada/prada-vpr-18w/side.webp";
+import pradaVpr19wFront from "@/assets/products/prada/prada-vpr-19w/front.webp";
+import pradaVpr19wQuarter from "@/assets/products/prada/prada-vpr-19w/quarter.webp";
+import pradaVpr19wSide from "@/assets/products/prada/prada-vpr-19w/side.webp";
+import pradaPs03rvFront from "@/assets/products/prada/prada-ps-03rv/front.webp";
+import pradaPs03rvQuarter from "@/assets/products/prada/prada-ps-03rv/quarter.webp";
+import pradaPs03rvSide from "@/assets/products/prada/prada-ps-03rv/side.webp";
+import burberryB2378Front from "@/assets/products/burberry/burberry-b2378/front.webp";
+import burberryB2378Quarter from "@/assets/products/burberry/burberry-b2378/quarter.webp";
+import burberryB2378Side from "@/assets/products/burberry/burberry-b2378/side.webp";
+import burberryB2409Front from "@/assets/products/burberry/burberry-b2409/front.avif";
+import burberryB2409Quarter from "@/assets/products/burberry/burberry-b2409/quarter.webp";
+import burberryB2409Side from "@/assets/products/burberry/burberry-b2409/side.avif";
+import burberryB2255qfFront from "@/assets/products/burberry/burberry-b2255qf/front.avif";
+import burberryB2255qfQuarter from "@/assets/products/burberry/burberry-b2255qf/quarter.avif";
+import burberryB2255qfSide from "@/assets/products/burberry/burberry-b2255qf/side.avif";
+import burberryB2379uFront from "@/assets/products/burberry/burberry-b2379u/front.webp";
+import burberryB2379uQuarter from "@/assets/products/burberry/burberry-b2379u/quarter.webp";
+import burberryB2379uSide from "@/assets/products/burberry/burberry-b2379u/side.webp";
+import burberryB2389Front from "@/assets/products/burberry/burberry-b2389/front.webp";
+import burberryB2389Quarter from "@/assets/products/burberry/burberry-b2389/quarter.webp";
+import burberryB2389Side from "@/assets/products/burberry/burberry-b2389/side.webp";
+import burberryB2403Front from "@/assets/products/burberry/burberry-b2403/front.avif";
+import burberryB2403Quarter from "@/assets/products/burberry/burberry-b2403/quarter.avif";
+import burberryB2403Side from "@/assets/products/burberry/burberry-b2403/side.avif";
+import burberryB2413dFront from "@/assets/products/burberry/burberry-b2413d/front.webp";
+import burberryB2413dQuarter from "@/assets/products/burberry/burberry-b2413d/quarter.webp";
+import burberryB2413dSide from "@/assets/products/burberry/burberry-b2413d/side.webp";
+import burberryB4335Front from "@/assets/products/burberry/burberry-b4335/front.webp";
+import burberryB4335Quarter from "@/assets/products/burberry/burberry-b4335/quarter.webp";
+import burberryB4335Side from "@/assets/products/burberry/burberry-b4335/side.webp";
+import burberryB4403Front from "@/assets/products/burberry/burberry-b4403/front.webp";
+import burberryB4403Quarter from "@/assets/products/burberry/burberry-b4403/quarter.webp";
+import burberryB4403Side from "@/assets/products/burberry/burberry-b4403/side.webp";
+import burberryBe2387Front from "@/assets/products/burberry/burberry-be2387/front.webp";
+import rb4252CrystalFront from "@/assets/products/ray-ban/ray-ban-rb4252/crystal-front.webp";
+import rb4252CrystalQuarter from "@/assets/products/ray-ban/ray-ban-rb4252/crystal-quarter.webp";
+import rb4252CrystalSide from "@/assets/products/ray-ban/ray-ban-rb4252/crystal-side.webp";
+import rb4252BlackFront from "@/assets/products/ray-ban/ray-ban-rb4252/black-front.avif";
+import rb4252BlackQuarter from "@/assets/products/ray-ban/ray-ban-rb4252/black-quarter.avif";
+import rb4252BlackSide from "@/assets/products/ray-ban/ray-ban-rb4252/black-side.avif";
+import rb4252MatteFront from "@/assets/products/ray-ban/ray-ban-rb4252/matte-front.webp";
+import rb4252MatteQuarter from "@/assets/products/ray-ban/ray-ban-rb4252/matte-quarter.webp";
+import rb4252MatteSide from "@/assets/products/ray-ban/ray-ban-rb4252/matte-side.webp";
+import rx3681v2509Front from "@/assets/products/ray-ban/ray-ban-rx3681v/2509-front.avif";
+import rx3681v2509Quarter from "@/assets/products/ray-ban/ray-ban-rx3681v/2509-quarter.avif";
+import rx3681v2509Side from "@/assets/products/ray-ban/ray-ban-rx3681v/2509-side.avif";
+import rx7027GreenFront from "@/assets/products/ray-ban/ray-ban-rx7027/green-front.webp";
+import rx7027GreenQuarter from "@/assets/products/ray-ban/ray-ban-rx7027/green-quarter.webp";
+import rx7027GreenSide from "@/assets/products/ray-ban/ray-ban-rx7027/green-side.webp";
+import rx7190BlackFront from "@/assets/products/ray-ban/ray-ban-rx7190/black-front.webp";
+import rx7190BlackQuarter from "@/assets/products/ray-ban/ray-ban-rx7190/black-quarter.webp";
+import rx7190BlackSide from "@/assets/products/ray-ban/ray-ban-rx7190/black-side.webp";
+import rx7239BlueFront from "@/assets/products/ray-ban/ray-ban-rx7239/blue-front.webp";
+import rx7239BlueQuarter from "@/assets/products/ray-ban/ray-ban-rx7239/blue-quarter.webp";
+import rx7239BlueSide from "@/assets/products/ray-ban/ray-ban-rx7239/blue-side.webp";
+import rx7249GreenFront from "@/assets/products/ray-ban/ray-ban-rx7249/green-front.webp";
+import rx7249GreenQuarter from "@/assets/products/ray-ban/ray-ban-rx7249/green-quarter.webp";
+import rx7249GreenSide from "@/assets/products/ray-ban/ray-ban-rx7249/green-side.webp";
+import rx7264HavanaFront from "@/assets/products/ray-ban/ray-ban-rx7264/havana-front.webp";
+import rx7264HavanaQuarter from "@/assets/products/ray-ban/ray-ban-rx7264/havana-quarter.webp";
+import rx7264HavanaSide from "@/assets/products/ray-ban/ray-ban-rx7264/havana-side.webp";
+import rx7264BlackFront from "@/assets/products/ray-ban/ray-ban-rx7264/black-front.webp";
+import rx7264BlackQuarter from "@/assets/products/ray-ban/ray-ban-rx7264/black-quarter.webp";
+import rx7264BlackSide from "@/assets/products/ray-ban/ray-ban-rx7264/black-side.webp";
+import rb3794mSilverFront from "@/assets/products/ray-ban/ray-ban-rb3794m/front.webp";
+import rb3794mSilverQuarter from "@/assets/products/ray-ban/ray-ban-rb3794m/quarter.webp";
+import rb3794mSilverSide from "@/assets/products/ray-ban/ray-ban-rb3794m/side.webp";
+import rb2217mBlackFront from "@/assets/products/ray-ban/ray-ban-rb2217m/front.webp";
+import rb2217mBlackQuarter from "@/assets/products/ray-ban/ray-ban-rb2217m/quarter.webp";
+import rb2217mBlackSide from "@/assets/products/ray-ban/ray-ban-rb2217m/side.webp";
+import rb4433mBlackFront from "@/assets/products/ray-ban/ray-ban-rb4433m/front.webp";
+import rb4433mBlackQuarter from "@/assets/products/ray-ban/ray-ban-rb4433m/quarter.webp";
+import rb4433mBlackSide from "@/assets/products/ray-ban/ray-ban-rb4433m/side.webp";
+import rb7240mBlackFront from "@/assets/products/ray-ban/ray-ban-rb7240m/front.webp";
+import rb7240mBlackQuarter from "@/assets/products/ray-ban/ray-ban-rb7240m/quarter.webp";
+import rb7240mBlackSide from "@/assets/products/ray-ban/ray-ban-rb7240m/side.webp";
+import rb8416mBlackFront from "@/assets/products/ray-ban/ray-ban-rb8416m/front.webp";
+import rb8416mBlackQuarter from "@/assets/products/ray-ban/ray-ban-rb8416m/quarter.webp";
+import rb8416mBlackSide from "@/assets/products/ray-ban/ray-ban-rb8416m/side.webp";
+import rb7144mBlackFront from "@/assets/products/ray-ban/ray-ban-rb7144m/front.webp";
+import rb7144mBlackQuarter from "@/assets/products/ray-ban/ray-ban-rb7144m/quarter.webp";
+import rb7144mBlackSide from "@/assets/products/ray-ban/ray-ban-rb7144m/side.webp";
+import rb3025BlackFront from "@/assets/products/ray-ban/ray-ban-rb3025/black-front.webp";
+import rb3025BlackQuarter from "@/assets/products/ray-ban/ray-ban-rb3025/black-quarter.webp";
+import rb3025BlackSide from "@/assets/products/ray-ban/ray-ban-rb3025/black-side.webp";
+import rb3025SilverFront from "@/assets/products/ray-ban/ray-ban-rb3025/silver-front.webp";
+import rb3025SilverQuarter from "@/assets/products/ray-ban/ray-ban-rb3025/silver-quarter.webp";
+import rb3025SilverSide from "@/assets/products/ray-ban/ray-ban-rb3025/silver-side.webp";
+import rb3025GoldFront from "@/assets/products/ray-ban/ray-ban-rb3025/gold-front.webp";
+import rb3025GoldQuarter from "@/assets/products/ray-ban/ray-ban-rb3025/gold-quarter.webp";
+import rb3025GoldSide from "@/assets/products/ray-ban/ray-ban-rb3025/gold-side.webp";
+import rb2140Front from "@/assets/products/ray-ban/ray-ban-rb2140/front.webp";
+import rb2140Quarter from "@/assets/products/ray-ban/ray-ban-rb2140/quarter.webp";
+import rb2140Side from "@/assets/products/ray-ban/ray-ban-rb2140/side.webp";
+import vo5497BlackFront from "@/assets/products/vogue/vogue-vo5497/black-front.webp";
+import vo5497BlackQuarter from "@/assets/products/vogue/vogue-vo5497/black-quarter.webp";
+import vo5497BlackSide from "@/assets/products/vogue/vogue-vo5497/black-side.webp";
+import vo5497BlueFront from "@/assets/products/vogue/vogue-vo5497/blue-front.webp";
+import vo5497BlueQuarter from "@/assets/products/vogue/vogue-vo5497/blue-quarter.webp";
+import vo5497BlueSide from "@/assets/products/vogue/vogue-vo5497/blue-side.webp";
+import vo5497HavanaFront from "@/assets/products/vogue/vogue-vo5497/havana-front.webp";
+import vo5497HavanaQuarter from "@/assets/products/vogue/vogue-vo5497/havana-quarter.webp";
+import vo5497HavanaSide from "@/assets/products/vogue/vogue-vo5497/havana-side.webp";
+import vo5497PurpleFront from "@/assets/products/vogue/vogue-vo5497/purple-front.webp";
+import vo5497PurpleQuarter from "@/assets/products/vogue/vogue-vo5497/purple-quarter.webp";
+import vo5497PurpleSide from "@/assets/products/vogue/vogue-vo5497/purple-side.webp";
+import vo5676BlackFront from "@/assets/products/vogue/vogue-vo5676/black-front.webp";
+import vo5676BlackQuarter from "@/assets/products/vogue/vogue-vo5676/black-quarter.webp";
+import vo5676BlackSide from "@/assets/products/vogue/vogue-vo5676/black-side.webp";
+import vo5676GreyFront from "@/assets/products/vogue/vogue-vo5676/grey-front.webp";
+import vo5676GreyQuarter from "@/assets/products/vogue/vogue-vo5676/grey-quarter.webp";
+import vo5676GreySide from "@/assets/products/vogue/vogue-vo5676/grey-side.webp";
+import vo8056PurpleFront from "@/assets/products/vogue/vogue-vo8056/purple-front.webp";
+import vo8056PurpleQuarter from "@/assets/products/vogue/vogue-vo8056/purple-quarter.webp";
+import vo8056PurpleSide from "@/assets/products/vogue/vogue-vo8056/purple-side.webp";
+import vo8056PinkFront from "@/assets/products/vogue/vogue-vo8056/pink-front.webp";
+import vo8056PinkQuarter from "@/assets/products/vogue/vogue-vo8056/pink-quarter.webp";
+import vo8056PinkSide from "@/assets/products/vogue/vogue-vo8056/pink-side.webp";
+import burberryBe2387Quarter from "@/assets/products/burberry/burberry-be2387/quarter.webp";
+import burberryBe2387Side from "@/assets/products/burberry/burberry-be2387/side.webp";
+import oakleyBisphaeraFront from "@/assets/products/oakley/oakley-bisphaera/front.webp";
+import oakleyBisphaeraQuarter from "@/assets/products/oakley/oakley-bisphaera/quarter.webp";
+import oakleyBisphaeraSide from "@/assets/products/oakley/oakley-bisphaera/side.webp";
+import oakleyHolbrookSGreyFront from "@/assets/products/oakley/oakley-holbrook-s/prizm-grey-front.webp";
+import oakleyHolbrookSGreyQuarter from "@/assets/products/oakley/oakley-holbrook-s/prizm-grey-quarter.webp";
+import oakleyHolbrookSGreySide from "@/assets/products/oakley/oakley-holbrook-s/prizm-grey-side.webp";
+import oakleyHolbrookSRedFront from "@/assets/products/oakley/oakley-holbrook-s/red-iridium-front.webp";
+import oakleyHolbrookSRedQuarter from "@/assets/products/oakley/oakley-holbrook-s/red-iridium-quarter.webp";
+import oakleyHolbrookSRedSide from "@/assets/products/oakley/oakley-holbrook-s/red-iridium-side.webp";
+import oakleyCrosslinkZeroFront from "@/assets/products/oakley/oakley-crosslink-zero/front.webp";
+import oakleyCrosslinkZeroQuarter from "@/assets/products/oakley/oakley-crosslink-zero/quarter.webp";
+import oakleyCrosslinkZeroSide from "@/assets/products/oakley/oakley-crosslink-zero/side.webp";
+import oakleyHexJectorBlackFront from "@/assets/products/oakley/oakley-hex-jector/satin-black-front.webp";
+import oakleyHexJectorBlackQuarter from "@/assets/products/oakley/oakley-hex-jector/satin-black-quarter.webp";
+import oakleyHexJectorBlackSide from "@/assets/products/oakley/oakley-hex-jector/satin-black-side.webp";
+import oakleyHexJectorGreyFront from "@/assets/products/oakley/oakley-hex-jector/smoke-grey-front.webp";
+import oakleyHexJectorGreyQuarter from "@/assets/products/oakley/oakley-hex-jector/smoke-grey-quarter.webp";
+import oakleyHexJectorGreySide from "@/assets/products/oakley/oakley-hex-jector/smoke-grey-side.webp";
+import oakleyValdostaFront from "@/assets/products/oakley/oakley-valdosta/front.webp";
+import oakleyValdostaQuarter from "@/assets/products/oakley/oakley-valdosta/quarter.webp";
+import oakleyValdostaSide from "@/assets/products/oakley/oakley-valdosta/side.webp";
+import pleinSpp086Front from "@/assets/products/philipp-plein/philipp-plein-spp086/front.webp";
+import pleinSpp086Quarter from "@/assets/products/philipp-plein/philipp-plein-spp086/quarter.webp";
+import pleinSpp086Side from "@/assets/products/philipp-plein/philipp-plein-spp086/side.webp";
+import pleinSpp086nFront from "@/assets/products/philipp-plein/philipp-plein-spp086n/front.webp";
+import pleinSpp086nQuarter from "@/assets/products/philipp-plein/philipp-plein-spp086n/quarter.webp";
+import pleinSpp086nSide from "@/assets/products/philipp-plein/philipp-plein-spp086n/side.webp";
+import pleinSpp194Front from "@/assets/products/philipp-plein/philipp-plein-spp194/front.webp";
+import pleinSpp194Quarter from "@/assets/products/philipp-plein/philipp-plein-spp194/quarter.webp";
+import pleinSpp194Side from "@/assets/products/philipp-plein/philipp-plein-spp194/side.webp";
+import pleinPp116Front from "@/assets/products/philipp-plein/philipp-plein-pp116/front.webp";
+import pleinPp116Quarter from "@/assets/products/philipp-plein/philipp-plein-pp116/quarter.webp";
+import pleinPp116Side from "@/assets/products/philipp-plein/philipp-plein-pp116/side.webp";
+import pleinPp195Front from "@/assets/products/philipp-plein/philipp-plein-pp195/front.webp";
+import pleinPp195Quarter from "@/assets/products/philipp-plein/philipp-plein-pp195/quarter.webp";
+import pleinPp195Side from "@/assets/products/philipp-plein/philipp-plein-pp195/side.webp";
+import pleinPp223Front from "@/assets/products/philipp-plein/philipp-plein-pp223/front.webp";
+import pleinPp223Quarter from "@/assets/products/philipp-plein/philipp-plein-pp223/quarter.webp";
+import pleinPp223Side from "@/assets/products/philipp-plein/philipp-plein-pp223/side.webp";
+import oakleyRafterBlackFront from "@/assets/products/oakley/oakley-rafter/black-front.webp";
+import oakleyRafterBlackQuarter from "@/assets/products/oakley/oakley-rafter/black-quarter.webp";
+import oakleyRafterGreyFront from "@/assets/products/oakley/oakley-rafter/grey-front.webp";
+import oakleyRafterGreyQuarter from "@/assets/products/oakley/oakley-rafter/grey-quarter.webp";
+import oakleyRafterGreySide from "@/assets/products/oakley/oakley-rafter/grey-side.webp";
+import oakleyRadarRoadFront from "@/assets/products/oakley/oakley-radar-ev-path/road-front.webp";
+import oakleyRadarRoadQuarter from "@/assets/products/oakley/oakley-radar-ev-path/road-quarter.webp";
+import oakleyRadarRoadSide from "@/assets/products/oakley/oakley-radar-ev-path/road-side.webp";
+import oakleyRadarGolfFront from "@/assets/products/oakley/oakley-radar-ev-path/golf-front.webp";
+import oakleyRadarGolfQuarter from "@/assets/products/oakley/oakley-radar-ev-path/golf-quarter.webp";
+import oakleyRadarGolfSide from "@/assets/products/oakley/oakley-radar-ev-path/golf-side.webp";
+import oakleyWingfoldBlackFront from "@/assets/products/oakley/oakley-wingfold/black-front.webp";
+import oakleyWingfoldBlackQuarter from "@/assets/products/oakley/oakley-wingfold/black-quarter.webp";
+import oakleyWingfoldBlackSide from "@/assets/products/oakley/oakley-wingfold/black-side.webp";
+import oakleyWingfoldCementFront from "@/assets/products/oakley/oakley-wingfold/cement-front.webp";
+import oakleyWingfoldCementQuarter from "@/assets/products/oakley/oakley-wingfold/cement-quarter.webp";
+import oakleyWingfoldCementSide from "@/assets/products/oakley/oakley-wingfold/cement-side.webp";
+import oakleyWingfoldBlueFront from "@/assets/products/oakley/oakley-wingfold/blue-front.webp";
+import oakleyWingfoldBlueQuarter from "@/assets/products/oakley/oakley-wingfold/blue-quarter.webp";
+import oakleyWingfoldBlueSide from "@/assets/products/oakley/oakley-wingfold/blue-side.webp";
+import policeSplp28Front from "@/assets/products/police/police-splp28/front.webp";
+import policeSplp28Quarter from "@/assets/products/police/police-splp28/quarter.webp";
+import policeSplp28Side from "@/assets/products/police/police-splp28/side.webp";
+import policeSplq88Front from "@/assets/products/police/police-splq88/front.webp";
+import policeSplq88Quarter from "@/assets/products/police/police-splq88/quarter.webp";
+import policeSplq88Side from "@/assets/products/police/police-splq88/side.webp";
+import policeSplt36kFront from "@/assets/products/police/police-splt36k/front.webp";
+import policeSplt36kQuarter from "@/assets/products/police/police-splt36k/quarter.webp";
+import policeSplt36kSide from "@/assets/products/police/police-splt36k/side.webp";
+// Meta Smart Glasses — Ray-Ban Wayfarer PNG Binaries
+import rbmClearFront from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-matte-black-clear-front.png";
+import rbmClearQuarter from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-matte-black-clear-quarter.png";
+import rbmClearBox from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-matte-black-clear-box.png";
+import rbmGraphiteFront from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-matte-black-graphite-front.png";
+import rbmGraphiteQuarter from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-matte-black-graphite-quarter.png";
+import rbmGraphiteBox from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-matte-black-graphite-box.png";
+import rbmGreyTransFront from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-matte-black-grey-transitions-front.png";
+import rbmGreyTransQuarter from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-matte-black-grey-transitions-quarter.png";
+import rbmGreyTransBox from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-matte-black-grey-transitions-box.png";
+import rbmGreenFront from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-black-green-front.png";
+import rbmGreenQuarter from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-black-green-quarter.png";
+import rbmGreenBox from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-black-green-box.png";
+import rbmBlueSapphireFront from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-cosmic-blue-sapphire-front.png";
+import rbmBlueSapphireQuarter from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-cosmic-blue-sapphire-quarter.png";
+import rbmBlueSapphireBox from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-cosmic-blue-sapphire-box.png";
+import rbmGreySapphireFront from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-transparent-grey-sapphire-front.png";
+import rbmGreySapphireQuarter from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-transparent-grey-sapphire-quarter.png";
+import rbmGreySapphireBox from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-transparent-grey-sapphire-box.png";
+
+// Oakley Meta HSTN WebP Binaries
+import hstnClearGrey from "@/assets/products/oakley/oakley-hstn/clear-grey.webp";
+import hstnClearBlack from "@/assets/products/oakley/oakley-hstn/clear-black.webp";
+import hstnAmethystBlack from "@/assets/products/oakley/oakley-hstn/amethyst-black.webp";
+import hstnBrownCurry from "@/assets/products/oakley/oakley-hstn/brown-curry.webp";
+import hstnDeepwaterBrown from "@/assets/products/oakley/oakley-hstn/deepwater-brown.webp";
+import hstnPrizmBlack from "@/assets/products/oakley/oakley-hstn/prizm-black.webp";
+import hstnRubyGrey from "@/assets/products/oakley/oakley-hstn/ruby-grey.webp";
+import hstnDarkGolfBlack from "@/assets/products/oakley/oakley-hstn/darkgolf-black.webp";
+
+// Oakley Meta HSTN PNG orientation screenshots
+import hstnClearGreyQuarter from "@/assets/products/oakley/oakley-hstn/hstn-clear-grey-quarter.png";
+import hstnClearGreyBox from "@/assets/products/oakley/oakley-hstn/hstn-clear-grey-box.png";
+import hstnClearBlackQuarter from "@/assets/products/oakley/oakley-hstn/hstn-clear-black-quarter.png";
+import hstnClearBlackBox from "@/assets/products/oakley/oakley-hstn/hstn-clear-black-box.png";
+import hstnAmethystBlackQuarter from "@/assets/products/oakley/oakley-hstn/hstn-amethyst-black-quarter.png";
+import hstnAmethystBlackBox from "@/assets/products/oakley/oakley-hstn/hstn-amethyst-black-box.png";
+import hstnBrownCurryQuarter from "@/assets/products/oakley/oakley-hstn/hstn-brown-curry-quarter.png";
+import hstnBrownCurryBox from "@/assets/products/oakley/oakley-hstn/hstn-brown-curry-box.png";
+import hstnDeepwaterBrownQuarter from "@/assets/products/oakley/oakley-hstn/hstn-deepwater-brown-quarter.png";
+import hstnDeepwaterBrownBox from "@/assets/products/oakley/oakley-hstn/hstn-deepwater-brown-box.png";
+import hstnRubyGreyQuarter from "@/assets/products/oakley/oakley-hstn/hstn-ruby-grey-quarter.png";
+import hstnRubyGreyBox from "@/assets/products/oakley/oakley-hstn/hstn-ruby-grey-box.png";
+import hstnDarkGolfBlackQuarter from "@/assets/products/oakley/oakley-hstn/hstn-darkgolf-black-quarter.png";
+import hstnDarkGolfBlackBox from "@/assets/products/oakley/oakley-hstn/hstn-darkgolf-black-box.png";
+
+// Oakley Meta Vanguard WebP Binaries
+import vgGoldBlackFront from "@/assets/products/oakley/oakley-vanguard/gold-black-front.webp";
+import vgGoldBlackQuarter from "@/assets/products/oakley/oakley-vanguard/gold-black-quarter.webp";
+import vgPrizmBlackWhiteFront from "@/assets/products/oakley/oakley-vanguard/prizmblack-white-front.webp";
+import vgPrizmBlackWhiteQuarter from "@/assets/products/oakley/oakley-vanguard/prizmblack-white-quarter.webp";
+import vgPrizmBlackBlackFront from "@/assets/products/oakley/oakley-vanguard/prizmblack-black-front.webp";
+import vgPrizmBlackBlackQuarter from "@/assets/products/oakley/oakley-vanguard/prizmblack-black-quarter.webp";
+import vgEmberBlackFront from "@/assets/products/oakley/oakley-vanguard/ember-black-front.webp";
+import vgEmberBlackQuarter from "@/assets/products/oakley/oakley-vanguard/ember-black-quarter.webp";
+import vgRoseGoldWhiteFront from "@/assets/products/oakley/oakley-vanguard/rosegold-white-front.webp";
+import vgRoseGoldWhiteQuarter from "@/assets/products/oakley/oakley-vanguard/rosegold-white-quarter.webp";
+import vgRoadBlackFront from "@/assets/products/oakley/oakley-vanguard/road-black-front.webp";
+import vgRoadBlackQuarter from "@/assets/products/oakley/oakley-vanguard/road-black-quarter.webp";
+import vgSapphireWhiteFront from "@/assets/products/oakley/oakley-vanguard/sapphire-white-front.webp";
+import vgSapphireWhiteQuarter from "@/assets/products/oakley/oakley-vanguard/sapphire-white-quarter.webp";
+import vgBox from "@/assets/products/oakley/oakley-vanguard/box.webp";
+
+// Silhouette Eyewear Binaries
+import sil5599_4540Front from "@/assets/products/silhouette/5599-4540-front.webp";
+import sil5599_4540Quarter from "@/assets/products/silhouette/5599-4540-quarter.webp";
+import sil5599_4540Side from "@/assets/products/silhouette/5599-4540-side.webp";
+
+import sil5599_nq6965Front from "@/assets/products/silhouette/5599-nq6965-front.webp";
+import sil5599_nq6965Quarter from "@/assets/products/silhouette/5599-nq6965-quarter.webp";
+import sil5599_nq6965Side from "@/assets/products/silhouette/5599-nq6965-side.webp";
+
+import silIllusion1617Front from "@/assets/products/silhouette/illusion-1617-front.webp";
+import silIllusion1617Quarter from "@/assets/products/silhouette/illusion-1617-quarter.webp";
+import silIllusion1617Side from "@/assets/products/silhouette/illusion-1617-side.webp";
+
+import silTimeless5603Front from "@/assets/products/silhouette/timeless-visionary-5603-front.png";
+import silTimeless5603Quarter from "@/assets/products/silhouette/timeless-visionary-5603-quarter.png";
+import silTimeless5603Side from "@/assets/products/silhouette/timeless-visionary-5603-side.png";
 
 export type ColorVariant = {
   id: string;
@@ -757,6 +836,57 @@ export const BRANDS: BrandData[] = [
           },
         ],
       },
+      {
+        model: "Ray-Ban Meta Wayfarer (Gen 2)",
+        shape: "wayfarer",
+        colour: "6 colourways",
+        priceFrom: 33915,
+        line: "Meta Glasses",
+        variants: [
+          {
+            id: "matte-black-clear",
+            name: "Matte Black",
+            lens: "Clear",
+            swatch: "linear-gradient(135deg, #101012 0%, #2b2b2d 50%, #454547 100%)",
+            images: { front: rbmClearFront, quarter: rbmClearQuarter, side: rbmClearBox },
+          },
+          {
+            id: "shiny-black-green",
+            name: "Shiny Black",
+            lens: "Green Classic G-15",
+            swatch: "linear-gradient(135deg, #09090b 0%, #1f1f21 50%, #153c15 100%)",
+            images: { front: rbmGreenFront, quarter: rbmGreenQuarter, side: rbmGreenBox },
+          },
+          {
+            id: "matte-black-graphite",
+            name: "Matte Black",
+            lens: "Polarised Gradient Graphite",
+            swatch: "linear-gradient(135deg, #1f1f21 0%, #3f3f46 50%, #71717a 100%)",
+            images: { front: rbmGraphiteFront, quarter: rbmGraphiteQuarter, side: rbmGraphiteBox },
+          },
+          {
+            id: "cosmic-blue-sapphire",
+            name: "Cosmic Blue",
+            lens: "Transitions® Sapphire",
+            swatch: "linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 50%, #3b82f6 100%)",
+            images: { front: rbmBlueSapphireFront, quarter: rbmBlueSapphireQuarter, side: rbmBlueSapphireBox },
+          },
+          {
+            id: "matte-black-grey-transitions",
+            name: "Matte Black",
+            lens: "Transitions® Grey",
+            swatch: "linear-gradient(135deg, #27272a 0%, #18181b 50%, #a1a1aa 100%)",
+            images: { front: rbmGreyTransFront, quarter: rbmGreyTransQuarter, side: rbmGreyTransBox },
+          },
+          {
+            id: "transparent-grey-sapphire",
+            name: "Transparent Grey",
+            lens: "Transitions® Sapphire",
+            swatch: "linear-gradient(135deg, #71717a 0%, #52525b 50%, #60a5fa 100%)",
+            images: { front: rbmGreySapphireFront, quarter: rbmGreySapphireQuarter, side: rbmGreySapphireBox },
+          },
+        ],
+      },
     ],
   },
   {
@@ -766,9 +896,135 @@ export const BRANDS: BrandData[] = [
     blurb: "Sport-built optics with Prizm lens tech — for the road, the trail and the everyday.",
     models: [
       {
+        model: "Meta HSTN",
+        shape: "round",
+        colour: "8 colourways",
+        priceFrom: 33915,
+        line: "Meta Glasses",
+        is_hot: true,
+        variants: [
+          {
+            id: "clear-grey",
+            name: "Clear frame",
+            lens: "Clear to Grey Transitions®",
+            swatch: "linear-gradient(135deg, #e6e8ea 0%, #b9bdc2 55%, #f4f5f6 100%)",
+            images: { front: hstnClearGrey, quarter: hstnClearGreyQuarter, side: hstnClearGreyBox },
+          },
+          {
+            id: "clear-black",
+            name: "Black frame",
+            lens: "Clear",
+            swatch: "linear-gradient(135deg, #2b2b2d 0%, #141416 55%, #45464a 100%)",
+            images: { front: hstnClearBlack, quarter: hstnClearBlackQuarter, side: hstnClearBlackBox },
+          },
+          {
+            id: "amethyst-black",
+            name: "Black frame",
+            lens: "Clear to Amethyst Transitions®",
+            swatch: "linear-gradient(135deg, #4a2f6b 0%, #2a1c3f 55%, #6d4c9c 100%)",
+            images: { front: hstnAmethystBlack, quarter: hstnAmethystBlackQuarter, side: hstnAmethystBlackBox },
+          },
+          {
+            id: "brown-curry",
+            name: "Light Curry frame",
+            lens: "Clear to Brown Transitions®",
+            swatch: "linear-gradient(135deg, #c79a4a 0%, #8a6a2f 55%, #d8b877 100%)",
+            images: { front: hstnBrownCurry, quarter: hstnBrownCurryQuarter, side: hstnBrownCurryBox },
+          },
+          {
+            id: "deepwater-brown",
+            name: "Brown Smoke frame",
+            lens: "Prizm™ Deep Water Polarised",
+            swatch: "linear-gradient(135deg, #9fc4d6 0%, #6a5b52 55%, #cfe2ec 100%)",
+            images: { front: hstnDeepwaterBrown, quarter: hstnDeepwaterBrownQuarter, side: hstnDeepwaterBrownBox },
+          },
+          {
+            id: "prizm-black",
+            name: "Black frame",
+            lens: "Prizm™ Black",
+            swatch: "linear-gradient(135deg, #3a3a3d 0%, #161618 55%, #55565a 100%)",
+            images: { front: hstnPrizmBlack, quarter: hstnPrizmBlack, side: vgBox },
+          },
+          {
+            id: "ruby-grey",
+            name: "Warm Grey frame",
+            lens: "Prizm™ Ruby",
+            swatch: "linear-gradient(135deg, #f2a63a 0%, #e0402a 55%, #f0d9c4 100%)",
+            images: { front: hstnRubyGrey, quarter: hstnRubyGreyQuarter, side: hstnRubyGreyBox },
+          },
+          {
+            id: "darkgolf-black",
+            name: "Black frame",
+            lens: "Prizm™ Dark Golf",
+            swatch: "linear-gradient(135deg, #a34a5e 0%, #5e2733 55%, #c67d8d 100%)",
+            images: { front: hstnDarkGolfBlack, quarter: hstnDarkGolfBlackQuarter, side: hstnDarkGolfBlackBox },
+          },
+        ],
+      },
+      {
+        model: "Meta Vanguard",
+        shape: "sport",
+        colour: "7 colourways",
+        priceFrom: 52300,
+        line: "Meta Glasses",
+        is_hot: true,
+        variants: [
+          {
+            id: "gold-black",
+            name: "Black frame",
+            lens: "Prizm™ 24K",
+            swatch: "linear-gradient(135deg, #e8b84a 0%, #a9832b 55%, #1c1c1e 100%)",
+            images: { front: vgGoldBlackFront, quarter: vgGoldBlackQuarter, side: vgBox },
+          },
+          {
+            id: "prizmblack-white",
+            name: "White frame",
+            lens: "Prizm™ Black",
+            swatch: "linear-gradient(135deg, #f4f5f6 0%, #c7cacd 55%, #2b2b2d 100%)",
+            images: { front: vgPrizmBlackWhiteFront, quarter: vgPrizmBlackWhiteQuarter, side: vgBox },
+          },
+          {
+            id: "prizmblack-black",
+            name: "Black frame",
+            lens: "Prizm™ Black",
+            swatch: "linear-gradient(135deg, #3a3a3d 0%, #161618 55%, #55565a 100%)",
+            images: { front: vgPrizmBlackBlackFront, quarter: vgPrizmBlackBlackQuarter, side: vgBox },
+          },
+          {
+            id: "road-black",
+            name: "Black frame",
+            lens: "Prizm™ Road",
+            swatch: "linear-gradient(135deg, #e0402a 0%, #b02a8a 55%, #1c1c1e 100%)",
+            images: { front: vgRoadBlackFront, quarter: vgRoadBlackQuarter, side: vgBox },
+          },
+          {
+            id: "sapphire-white",
+            name: "White frame",
+            lens: "Prizm™ Sapphire",
+            swatch: "linear-gradient(135deg, #3aa0e0 0%, #2a5bd1 55%, #f4f5f6 100%)",
+            images: { front: vgSapphireWhiteFront, quarter: vgSapphireWhiteQuarter, side: vgBox },
+          },
+          {
+            id: "ember-black",
+            name: "Black frame",
+            lens: "Prizm™ Transitions® Ember",
+            swatch: "linear-gradient(135deg, #f2a63a 0%, #d13a2a 55%, #1c1c1e 100%)",
+            images: { front: vgEmberBlackFront, quarter: vgEmberBlackQuarter, side: vgBox },
+          },
+          {
+            id: "rosegold-white",
+            name: "White frame",
+            lens: "Prizm™ Rose Gold",
+            swatch: "linear-gradient(135deg, #f6d8c4 0%, #e0a98f 55%, #f4f5f6 100%)",
+            images: { front: vgRoseGoldWhiteFront, quarter: vgRoseGoldWhiteQuarter, side: vgBox },
+          },
+        ],
+      },
+      {
         model: "BiSphaera™",
         shape: "sport",
         colour: "Steel / Prizm Black",
+        line: "Sunglasses",
         priceFrom: 12590,
         variants: [
           {
@@ -788,6 +1044,7 @@ export const BRANDS: BrandData[] = [
         model: "Holbrook™ S",
         shape: "wayfarer",
         colour: "Matte Black / Prizm Grey",
+        line: "Sunglasses",
         variants: [
           {
             id: "matte-black-prizm-grey",
@@ -817,6 +1074,7 @@ export const BRANDS: BrandData[] = [
         model: "Crosslink® Zero",
         shape: "rectangle",
         colour: "Satin Black",
+        line: "RX",
         variants: [
           {
             id: "satin-black",
@@ -835,6 +1093,7 @@ export const BRANDS: BrandData[] = [
         model: "Hex Jector",
         shape: "rectangle",
         colour: "Satin Black / Satin Smoke Grey",
+        line: "RX",
         variants: [
           {
             id: "satin-black",
@@ -864,6 +1123,7 @@ export const BRANDS: BrandData[] = [
         model: "Valdosta",
         shape: "rectangle",
         colour: "Polished Black",
+        line: "RX",
         priceFrom: 22780,
         variants: [
           {
@@ -883,6 +1143,7 @@ export const BRANDS: BrandData[] = [
         model: "OX8178 Rafter",
         shape: "rectangle",
         colour: "Satin Black / Satin Grey Smoke",
+        line: "RX",
         priceFrom: 7790,
         variants: [
           {
@@ -913,6 +1174,7 @@ export const BRANDS: BrandData[] = [
         model: "Radar EV Path",
         shape: "shield",
         colour: "Matte Black / Polished Black",
+        line: "Sunglasses",
         priceFrom: 12690,
         variants: [
           {
@@ -943,6 +1205,7 @@ export const BRANDS: BrandData[] = [
         model: "Wingfold OX5118",
         shape: "rimless",
         colour: "Satin Black / Polished Cement / Satin Midnight Blue",
+        line: "RX",
         priceFrom: 14390,
         variants: [
           {
@@ -1720,6 +1983,78 @@ export const BRANDS: BrandData[] = [
       },
     ],
   },
+  {
+    slug: "silhouette",
+    name: "Silhouette",
+    tag: "Austrian craft",
+    blurb: "Ultralight, rimless, and premium eyewear crafted in Austria with titan precision.",
+    models: [
+      {
+        model: "Titan Minimal Art 5599",
+        shape: "rimless",
+        colour: "Chassis 4540",
+        priceFrom: 37100,
+        line: "RX / Optical",
+        variants: [
+          {
+            id: "4540",
+            name: "Silver frame",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #b0b3b5 0%, #d5d7d9 50%, #909294 100%)",
+            images: { front: sil5599_4540Front, quarter: sil5599_4540Quarter, side: sil5599_4540Side },
+          },
+        ],
+      },
+      {
+        model: "Titan Minimal Art 5599 NQ",
+        shape: "rimless",
+        colour: "Chassis 6965",
+        priceFrom: 37100,
+        line: "RX / Optical",
+        variants: [
+          {
+            id: "6965",
+            name: "Gold & Dark frame",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #c5a059 0%, #ffd700 50%, #443c2c 100%)",
+            images: { front: sil5599_nq6965Front, quarter: sil5599_nq6965Quarter, side: sil5599_nq6965Side },
+          },
+        ],
+      },
+      {
+        model: "SPX Illusion 1617",
+        shape: "rectangle",
+        colour: "Chassis 4110",
+        priceFrom: 26700,
+        line: "RX / Optical",
+        variants: [
+          {
+            id: "4110",
+            name: "Grey frame",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #606266 0%, #8c8f94 50%, #444547 100%)",
+            images: { front: silIllusion1617Front, quarter: silIllusion1617Quarter, side: silIllusion1617Side },
+          },
+        ],
+      },
+      {
+        model: "The Timeless Visionary 5603",
+        shape: "rimless",
+        colour: "Chassis 6660",
+        priceFrom: 41800,
+        line: "RX / Optical",
+        variants: [
+          {
+            id: "6660",
+            name: "Grey-Green frame",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #4f5d52 0%, #768a7b 50%, #303b32 100%)",
+            images: { front: silTimeless5603Front, quarter: silTimeless5603Quarter, side: silTimeless5603Side },
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 // Deterministically flag 2-3 "hot" (selling fast) models per brand.
@@ -1765,7 +2100,7 @@ export const HOUSES: House[] = [
   { slug: "prada", name: "Prada", tag: "Italian luxury", note: "Linea Rossa & Symbole", logo: pradaMilanoLogo, domain: "prada.com", category: "glasses" },
   { name: "Montblanc", tag: "German maison", note: "Refined optical & sun", domain: "montblanc.com", category: "glasses" },
   { name: "Puma", tag: "Sport", note: "Active & everyday eyewear", domain: "puma.com", category: "glasses" },
-  { name: "Silhouette", tag: "Austrian craft", note: "Rimless lightweight titanium", logo: silhouetteLogo, domain: "silhouette.com", category: "glasses" },
+  { slug: "silhouette", name: "Silhouette", tag: "Austrian craft", note: "Rimless lightweight titanium", logo: silhouetteLogo, domain: "silhouette.com", category: "glasses" },
   { slug: "tom-ford", name: "Tom Ford", tag: "Modern luxury", note: "Optical & oversize sun", domain: "tomford.com", category: "glasses" },
   { slug: "burberry", name: "Burberry", tag: "British heritage", note: "Check & monogram series", domain: "burberry.com", category: "glasses" },
   { slug: "philipp-plein", name: "Philipp Plein", tag: "Statement", note: "Bold, embellished frames", domain: "plein.com", category: "glasses" },

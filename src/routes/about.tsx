@@ -2,16 +2,27 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, Eye, Glasses, ShieldCheck, Users } from "lucide-react";
 import storeInterior from "@/assets/store-interior.webp";
 import madhuPhoto from "@/assets/madhu-founder.webp";
+import kphb1 from "@/assets/kphb-interior-1.jpg";
+import kphb2 from "@/assets/kphb-interior-2.jpg";
+import { StoreImageCarousel } from "@/components/site/StoreImageCarousel";
 import { Reveal } from "@/components/motion/Reveal";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Clear Sight Opticians | Since 2009" },
-      { name: "description", content: "Hyderabad's trusted optical destination since 2009 — ZEISS Certified Vision Experts, curated luxury eyewear and clinical eye care." },
-      { property: "og:title", content: "About — Clear Sight Opticians" },
-      { property: "og:description", content: "Delivering clarity with style since 2009. Our journey of vision & trust." },
+      { title: "About Clear Sight Opticians | Vision Experts in Hyderabad Since 2009" },
+      { name: "description", content: "Learn about Clear Sight Opticians, Hyderabad's trusted ZEISS Certified Vision Experts since 2009. Our journey, clinical expertise, and founders." },
+      { name: "keywords", content: "About Clear Sight Opticians, ZEISS Vision Expert Telangana, eye testing Hyderabad, luxury frames Hyderabad, Kukatpally opticians" },
+      { name: "robots", content: "index, follow" },
+      { property: "og:title", content: "About Clear Sight Opticians | Vision Experts since 2009" },
+      { property: "og:description", content: "Delivering clarity with style in Hyderabad since 2009. Meet Telangana's first ZEISS Certified Vision Experts." },
+      { property: "og:url", content: "https://www.clearsightopticians.in/about" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [
+      { rel: "canonical", href: "https://www.clearsightopticians.in/about" }
+    ]
   }),
   component: AboutPage,
 });
@@ -52,8 +63,8 @@ function AboutPage() {
       </section>
 
       <section className="px-6 lg:px-10 pb-20">
-        <div className="mx-auto max-w-7xl rounded-3xl overflow-hidden">
-          <img src={storeInterior} alt="Inside our Kukatpally flagship" width={1920} height={1080} loading="lazy" className="w-full h-[420px] lg:h-[560px] object-cover" />
+        <div className="mx-auto max-w-7xl rounded-3xl overflow-hidden h-[420px] lg:h-[560px]">
+          <StoreImageCarousel images={[kphb1, kphb2]} alt="Inside our Kukatpally flagship" />
         </div>
       </section>
 

@@ -32,6 +32,9 @@ import guessLogo from "@/assets/brands/guess-logo.webp";
 import silhouetteLogo from "@/assets/brands/silhouette-logo.webp";
 
 import storeInterior from "@/assets/store-interior.webp";
+import kphb1 from "@/assets/kphb-interior-1.jpg";
+import kphb2 from "@/assets/kphb-interior-2.jpg";
+import { StoreImageCarousel } from "@/components/site/StoreImageCarousel";
 import { TryOnSection } from "@/components/try-on/TryOnSection";
 import { KineticHeading } from "@/components/motion/KineticHeading";
 import { Reveal } from "@/components/motion/Reveal";
@@ -41,32 +44,41 @@ import { MagneticButton } from "@/components/motion/MagneticButton";
 import { motion, AnimatePresence } from "framer-motion";
 import { CatchGame } from "@/components/site/CatchGame";
 import { Gamepad2 } from "lucide-react";
+import { FAQSection } from "@/components/site/FAQSection";
 
 
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Clear Sight Opticians — Luxury Eyewear & Smart Glasses in Hyderabad" },
+      { title: "Clear Sight Opticians | Premium Eyewear & Eye Care in KPHB Hyderabad" },
       {
         name: "description",
         content:
-          "Curated luxury frames, smart eyewear and clinical eye care across Hyderabad. Ray-Ban Meta & Oakley Meta now with launch pricing.",
+          "Clear Sight Opticians in KPHB, JNTU Road Hyderabad offers premium eyewear, designer frames, customized lenses, computer glasses, and professional eye care services. Your vision deserves the best.",
       },
-      { property: "og:title", content: "Clear Sight Opticians — Luxury Eyewear in Hyderabad" },
+      { name: "keywords", content: "Clear Sight Opticians, optician in Hyderabad, optical shop KPHB, eye test Kukatpally, computer glasses Hyderabad, prescription lenses, Ray-Ban Meta smart glasses, eyewear store JNTU road" },
+      { name: "robots", content: "index, follow" },
+      { property: "og:title", content: "Clear Sight Opticians | Premium Eyewear & Eye Care" },
       {
         property: "og:description",
-        content: "Premium prescription glasses, sunglasses, contact lenses and smart eyewear.",
+        content: "Discover professional eye care and a premium selection of frames and lenses at Clear Sight Opticians, KPHB Hyderabad.",
       },
+      { property: "og:url", content: "https://www.clearsightopticians.in/" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Clear Sight Opticians | Premium Eyewear & Eye Care" },
+      { name: "twitter:description", content: "Discover professional eye care and a premium selection of frames and lenses at Clear Sight Opticians, KPHB Hyderabad." },
     ],
     links: [
-      { rel: "preload", as: "image", href: heroPortrait, fetchpriority: "high" },
+      { rel: "canonical", href: "https://www.clearsightopticians.in/" },
+      { rel: "preload", as: "image", href: heroPortrait, fetchPriority: "high" },
     ],
   }),
   component: HomePage,
 });
 
-const LOGO_TOKEN = import.meta.env.VITE_LOVABLE_CONNECTOR_LOGO_DEV_API_KEY as string | undefined;
+const LOGO_TOKEN = import.meta.env.VITE_LOGO_DEV_API_KEY as string | undefined;
 
 type MarqueeBrand = { name: string; domain: string; ai?: boolean; logo?: string };
 
@@ -153,6 +165,7 @@ const STORES = [
     address: "Shop #4, Padmaja Complex, JNTU Road, 6th Phase, KPHB, Hyderabad - 500085",
     phone: "+91 94405 25789",
     hours: "9:00 AM – 9:30 PM",
+    images: [kphb1, kphb2],
   },
   {
     name: "Nizampet",
@@ -160,6 +173,7 @@ const STORES = [
     address: "Beside Vazra Nirman Pushpak, Nizampet Colony, Hyderabad, Telangana",
     phone: "+91 94405 25789",
     hours: "9:00 AM – 9:30 PM",
+    images: [storeInterior],
   },
   {
     name: "Bowenpally",
@@ -167,6 +181,7 @@ const STORES = [
     address: "Near Delhi Public School, Sikh Village Road, Bowenpally, Hyderabad, Telangana",
     phone: "+91 94405 25789",
     hours: "9:00 AM – 9:30 PM",
+    images: [storeInterior],
   },
 ];
 
@@ -191,14 +206,30 @@ const TESTIMONIALS = [
   },
 ];
 
-const OFFERS = [
-  { tag: "Smart Glasses", title: "Up to 25% off Ray-Ban Meta", desc: "All silhouettes, all colourways. In-store only.", accent: true },
-  { tag: "Smart Glasses", title: "15% off Oakley Meta HSTN", desc: "Including prescription fitting in our lab." },
-  { tag: "Luxury", title: "Save ₹5,000 on Prada & Gucci", desc: "On any full-price optical frame above ₹20,000." },
-  { tag: "Bundle", title: "Frame + lenses, ₹6,499", desc: "Complete starter package with anti-glare coating." },
-  { tag: "Sunglasses", title: "Buy 1, get 1 at 50%", desc: "Across Ray-Ban, Carrera, Vogue & Police." },
-  { tag: "Contact Lenses", title: "3 months free", desc: "On any annual contact lens subscription." },
-];
+function LetterShimmer({ text, offset = 0 }: { text: string; offset?: number }) {
+  return (
+    <span className="inline-flex">
+      {text.split("").map((char, index) => (
+        <motion.span
+          key={index}
+          animate={{
+            y: [0, -4, 0],
+            opacity: [0.7, 1, 0.7],
+          }}
+          transition={{
+            duration: 4.5,
+            repeat: Infinity,
+            delay: (offset + index) * 0.06,
+            ease: "easeInOut",
+          }}
+          className="inline-block"
+        >
+          {char === " " ? "\u00A0" : char}
+        </motion.span>
+      ))}
+    </span>
+  );
+}
 
 
 function HomePage() {
@@ -224,11 +255,13 @@ function HomePage() {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     const msg = [
-      "Hi Clear Sight Opticians, I'd like to book a consultation.",
+      "Hi Clear Sight Opticians, I'd like to book an appointment.",
       fd.get("name") && `Name: ${fd.get("name")}`,
       fd.get("mobile") && `Mobile: ${fd.get("mobile")}`,
+      fd.get("email") && `Email: ${fd.get("email")}`,
       fd.get("store") && `Preferred store: ${fd.get("store")}`,
-      fd.get("notes") && `Details: ${fd.get("notes")}`,
+      fd.get("reason") && `Reason: ${fd.get("reason")}`,
+      fd.get("notes") && `Notes: ${fd.get("notes")}`,
     ]
       .filter(Boolean)
       .join("\n");
@@ -236,13 +269,15 @@ function HomePage() {
   };
 
   useEffect(() => {
-    if (!hash) return;
-    const el = document.getElementById(hash);
-    if (!el) return;
-    requestAnimationFrame(() => {
+    const target = sessionStorage.getItem("scrollTargetSection") || hash;
+    if (!target) return;
+    sessionStorage.removeItem("scrollTargetSection");
+    setTimeout(() => {
+      const el = document.getElementById(target);
+      if (!el) return;
       const top = el.getBoundingClientRect().top + window.scrollY - 80;
       window.scrollTo({ top, behavior: "smooth" });
-    });
+    }, 100);
   }, [hash]);
 
 
@@ -251,8 +286,8 @@ function HomePage() {
     <div className="bg-background">
       {/* ============== HERO ============== */}
       <section className="px-4 sm:px-6 lg:px-10 pt-6 pb-16 lg:pb-24">
-        <div className="relative w-full h-[560px] sm:h-[640px] lg:h-[780px] overflow-hidden rounded-[28px] lg:rounded-[40px] bg-secondary">
-          <img
+        <div className="relative w-full h-[calc(100svh-8rem)] sm:h-[calc(100svh-7.5rem)] lg:h-[calc(100vh-6.5rem)] overflow-hidden rounded-[28px] lg:rounded-[40px] bg-secondary">
+          <motion.img
             src={heroPortrait}
             alt="Person wearing clear-frame luxury eyewear in cinematic blue light"
             width={1920}
@@ -260,17 +295,26 @@ function HomePage() {
             fetchPriority="high"
             decoding="async"
             className="absolute inset-0 w-full h-full object-cover object-[center_20%]"
+            animate={{
+              scale: [1, 1.12, 1],
+            }}
+            transition={{
+              duration: 16,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
           />
 
           {/* gradients */}
           <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-ink/30 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
 
-
           {/* Top badge */}
-          <div className="absolute top-6 left-6 sm:top-8 sm:left-8 flex items-center gap-2 text-white/85 text-[11px] font-semibold uppercase tracking-[0.22em]">
-            <span className="size-1.5 rounded-full bg-electric" />
-            Hyderabad · Est. 2009
+          <div className="absolute top-6 left-6 sm:top-8 sm:left-8 text-white/85 text-[11px] font-semibold uppercase tracking-[0.22em]">
+            <div className="flex items-center gap-2">
+              <span className="size-1.5 rounded-full bg-electric animate-pulse" />
+              Hyderabad
+            </div>
           </div>
 
           {/* Top-right CTA */}
@@ -296,19 +340,22 @@ function HomePage() {
                 animate="show"
                 variants={{ hidden: {}, show: { transition: { staggerChildren: 0.07, delayChildren: 0.1 } } }}
               >
-                {["See", "better.", "Look", "better."].map((w, i) => (
-                  <span key={i} className="inline-block overflow-hidden align-baseline pb-[0.12em] mr-[0.28em]">
-                    <motion.span
-                      className="inline-block will-change-transform"
-                      variants={{
-                        hidden: { y: "110%" },
-                        show: { y: "0%", transition: { duration: 0.95, ease: [0.16, 1, 0.3, 1] } },
-                      }}
-                    >
-                      {w}
-                    </motion.span>
-                  </span>
-                ))}
+                {["See", "better.", "Look", "better."].map((w, i) => {
+                  const offsets = [0, 4, 12, 17];
+                  return (
+                    <span key={i} className="inline-block overflow-hidden align-baseline pb-[0.12em] mr-[0.28em]">
+                      <motion.span
+                        className="inline-block will-change-transform"
+                        variants={{
+                          hidden: { y: "110%" },
+                          show: { y: "0%", transition: { duration: 0.95, ease: [0.16, 1, 0.3, 1] } },
+                        }}
+                      >
+                        <LetterShimmer text={w} offset={offsets[i]} />
+                      </motion.span>
+                    </span>
+                  );
+                })}
                 <br />
                 <span className="inline-block overflow-hidden align-baseline pb-[0.12em] mr-[0.28em]">
                   <motion.span
@@ -318,13 +365,13 @@ function HomePage() {
                       show: { y: "0%", transition: { duration: 0.95, ease: [0.16, 1, 0.3, 1] } },
                     }}
                   >
-                    Live
+                    <LetterShimmer text="Live" offset={25} />
                   </motion.span>
                 </span>
                 <motion.span
                   variants={{
                     hidden: { opacity: 0, scale: 0.85, y: 20 },
-                    show: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } },
+                    show: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.95, ease: [0.16, 1, 0.3, 1] } },
                   }}
                   className="relative font-serif italic font-medium px-5 py-1 sm:px-8 sm:py-1.5 rounded-full inline-block"
                   style={{
@@ -338,7 +385,7 @@ function HomePage() {
                     textShadow: "0 2px 18px rgba(255,255,255,0.35)",
                   }}
                 >
-                  smarter.
+                  <LetterShimmer text="smarter." offset={30} />
                   <span
                     aria-hidden
                     className="pointer-events-none absolute inset-0 rounded-full lens-iridescence mix-blend-screen opacity-60"
@@ -485,78 +532,71 @@ function HomePage() {
             </Link>
           </div>
 
-          {/* Main Ray-Ban Meta video card */}
-          <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden bg-ink group">
-            <video
-              ref={rbVideoRef}
-              src="/videos/rayban-meta.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            {/* overlays */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/15" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent" />
+          {/* Ray-Ban + Oakley — equal 2-col grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
 
-            {/* brand badges */}
-            <div className="absolute top-5 left-5 sm:top-8 sm:left-8 flex items-center gap-2">
-              <span className="text-white/90 text-[10px] sm:text-xs font-bold tracking-[0.22em] uppercase bg-white/10 backdrop-blur border border-white/20 rounded-full px-3 py-1">
-                Ray-Ban
-              </span>
-              <span className="text-white/40 text-xs">×</span>
-              <span className="text-white/90 text-[10px] sm:text-xs font-bold tracking-[0.22em] uppercase bg-white/10 backdrop-blur border border-white/20 rounded-full px-3 py-1">
-                Meta
-              </span>
-            </div>
+            {/* Ray-Ban Meta card */}
+            <div className="relative rounded-3xl overflow-hidden bg-ink group min-h-[280px] md:min-h-[420px]">
+              <video
+                ref={rbVideoRef}
+                src="/videos/rayban-meta.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/15" />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent" />
 
-            {/* discount badge */}
-            <div className="absolute top-5 right-14 sm:top-8 sm:right-16">
-              <span className="bg-electric text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
-                15% Off
-              </span>
-            </div>
-
-            {/* headline */}
-            <div className="absolute bottom-6 left-5 sm:bottom-10 sm:left-8 right-16">
-              <p className="text-white/60 text-[10px] font-bold uppercase tracking-[0.25em] mb-2">Ray-Ban Meta Wayfarer (Gen 2)</p>
-              <h3 className="text-white text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tighter leading-tight max-w-xl">
-                Iconic frames.
-                <br />
-                <span className="font-serif italic font-medium text-white/80">Now intelligent.</span>
-              </h3>
-              <div className="mt-5 flex flex-wrap gap-3">
-                <Link
-                  to="/smart-glasses"
-                  className="bg-electric text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-ink transition-colors"
-                >
-                  Explore Now
-                </Link>
-                <Link
-                  to="/contact"
-                  className="border border-white/30 text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-colors"
-                >
-                  Book Demo
-                </Link>
+              {/* brand badges */}
+              <div className="absolute top-5 left-5 flex items-center gap-2">
+                <span className="text-white/90 text-[10px] font-bold tracking-[0.22em] uppercase bg-white/10 backdrop-blur border border-white/20 rounded-full px-3 py-1">
+                  Ray-Ban
+                </span>
+                <span className="text-white/40 text-xs">×</span>
+                <span className="text-white/90 text-[10px] font-bold tracking-[0.22em] uppercase bg-white/10 backdrop-blur border border-white/20 rounded-full px-3 py-1">
+                  Meta
+                </span>
               </div>
+
+              {/* headline */}
+              <div className="absolute bottom-6 left-5 right-14">
+                <p className="text-white/60 text-[10px] font-bold uppercase tracking-[0.25em] mb-2">Ray-Ban Meta Wayfarer (Gen 2)</p>
+                <h3 className="text-white text-2xl sm:text-3xl font-bold tracking-tighter leading-tight">
+                  Iconic frames.
+                  <br />
+                  <span className="font-serif italic font-medium text-white/80">Now intelligent.</span>
+                </h3>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  <Link
+                    to="/smart-glasses"
+                    className="bg-electric text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-ink transition-colors"
+                  >
+                    Explore Now
+                  </Link>
+                  <Link
+                    to="/contact"
+                    className="border border-white/30 text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-colors"
+                  >
+                    Book Demo
+                  </Link>
+                </div>
+              </div>
+
+              {/* mute toggle */}
+              <button
+                type="button"
+                onClick={toggleRbMute}
+                className="absolute bottom-5 right-5 size-9 rounded-full bg-white/10 backdrop-blur border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                aria-label={rbMuted ? "Unmute video" : "Mute video"}
+              >
+                {rbMuted ? <VolumeX className="size-4" /> : <Volume2 className="size-4" />}
+              </button>
             </div>
 
-            {/* mute toggle */}
-            <button
-              type="button"
-              onClick={toggleRbMute}
-              className="absolute bottom-5 right-5 sm:bottom-8 sm:right-7 size-9 rounded-full bg-white/10 backdrop-blur border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
-              aria-label={rbMuted ? "Unmute video" : "Mute video"}
-            >
-              {rbMuted ? <VolumeX className="size-4" /> : <Volume2 className="size-4" />}
-            </button>
-          </div>
-
-          {/* Oakley + Offer row below */}
-          <div className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-5">
-            {/* Oakley video card */}
-            <div className="md:col-span-2 relative rounded-3xl overflow-hidden bg-ink aspect-[16/7] md:aspect-auto min-h-[220px] group">
+            {/* Oakley Meta card */}
+            <div className="relative rounded-3xl overflow-hidden bg-ink group min-h-[280px] md:min-h-[420px]">
               <video
                 ref={oakVideoRef}
                 src="/videos/oakley-meta.mp4"
@@ -569,63 +609,44 @@ function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
-              <div className="relative h-full p-6 sm:p-8 flex flex-col justify-between">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="text-white/90 text-[10px] font-bold tracking-[0.22em] uppercase bg-white/10 backdrop-blur border border-white/20 rounded-full px-2.5 py-1">
-                      Oakley
-                    </span>
-                    <span className="text-white/40 text-[10px]">×</span>
-                    <span className="text-white/90 text-[10px] font-bold tracking-[0.22em] uppercase bg-white/10 backdrop-blur border border-white/20 rounded-full px-2.5 py-1">
-                      Meta
-                    </span>
-                  </div>
-                  <span className="bg-electric text-white text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">
-                    20% Off
-                  </span>
-                </div>
-                <div>
-                  <h3 className="text-white text-2xl sm:text-3xl font-bold tracking-tight">
-                    Built for the way you move.
-                  </h3>
-                  <p className="text-white/65 text-sm mt-2 max-w-sm">
-                    HSTN with Meta AI, Prizm™ lenses and open-ear audio.
-                  </p>
-                  <Link
-                    to="/smart-glasses"
-                    className="mt-4 inline-flex items-center gap-2 text-electric text-sm font-semibold"
-                  >
-                    Shop Oakley Meta <ArrowUpRight className="size-4" />
-                  </Link>
-                </div>
+              {/* brand badges */}
+              <div className="absolute top-5 left-5 flex items-center gap-2">
+                <span className="text-white/90 text-[10px] font-bold tracking-[0.22em] uppercase bg-white/10 backdrop-blur border border-white/20 rounded-full px-2.5 py-1">
+                  Oakley
+                </span>
+                <span className="text-white/40 text-[10px]">×</span>
+                <span className="text-white/90 text-[10px] font-bold tracking-[0.22em] uppercase bg-white/10 backdrop-blur border border-white/20 rounded-full px-2.5 py-1">
+                  Meta
+                </span>
               </div>
 
+              {/* headline */}
+              <div className="absolute bottom-6 left-5 right-14">
+                <h3 className="text-white text-2xl sm:text-3xl font-bold tracking-tight">
+                  Built for the way you move.
+                </h3>
+                <p className="text-white/65 text-sm mt-2 max-w-sm">
+                  HSTN with Meta AI, Prizm™ lenses and open-ear audio.
+                </p>
+                <Link
+                  to="/smart-glasses"
+                  className="mt-4 inline-flex items-center gap-2 text-electric text-sm font-semibold"
+                >
+                  Shop Oakley Meta <ArrowUpRight className="size-4" />
+                </Link>
+              </div>
+
+              {/* mute toggle */}
               <button
                 type="button"
                 onClick={toggleOakMute}
-                className="absolute bottom-4 right-5 size-8 rounded-full bg-white/10 backdrop-blur border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                className="absolute bottom-5 right-5 size-8 rounded-full bg-white/10 backdrop-blur border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
                 aria-label={oakMuted ? "Unmute" : "Mute"}
               >
                 {oakMuted ? <VolumeX className="size-3.5" /> : <Volume2 className="size-3.5" />}
               </button>
             </div>
 
-            {/* Offer card */}
-            <div className="rounded-3xl bg-electric text-white p-8 flex flex-col justify-between min-h-[220px]">
-              <div>
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">This Season</span>
-                <p className="mt-3 text-3xl font-bold leading-tight">Up to 20% off Meta smart eyewear</p>
-              </div>
-              <div>
-                <p className="text-white/85 text-sm mt-6">In-store demo, expert fitting, launch pricing — at all three Hyderabad studios.</p>
-                <Link
-                  to="/smart-glasses"
-                  className="mt-5 inline-flex items-center gap-2 bg-white text-electric px-5 py-3 rounded-full text-sm font-semibold"
-                >
-                  See all models <ArrowUpRight className="size-4" />
-                </Link>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -722,50 +743,7 @@ function HomePage() {
       {/* ============== VIRTUAL TRY-ON ============== */}
       <TryOnSection id="try-on" />
 
-      {/* ============== OFFERS ============== */}
-      <section id="offers" className="scroll-mt-24 px-6 lg:px-10 py-20 lg:py-28">
-        <div className="mx-auto max-w-7xl">
-          <div className="flex flex-col sm:flex-row justify-between sm:items-end gap-4 mb-12 lg:mb-16">
-            <div>
-              <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">This Season</span>
-              <h2 className="text-4xl sm:text-5xl font-bold tracking-tighter mt-3">
-                Limited-time <span className="font-serif italic font-medium text-electric">offers.</span>
-              </h2>
-              <p className="text-muted-foreground mt-3 max-w-2xl text-lg">
-                Quietly generous deals on the brands you love — refreshed every season,
-                honoured at every branch.
-              </p>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {OFFERS.map((o, i) => (
-              <article
-                key={o.title}
-                className={`rounded-3xl p-8 lg:p-10 flex flex-col min-h-[280px] ${o.accent ? "bg-electric text-white" : "bg-secondary/60 border border-border"}`}
-              >
-                <div className="flex items-center justify-between mb-8">
-                  <span className={`text-[10px] font-bold uppercase tracking-[0.22em] ${o.accent ? "text-white/80" : "text-electric"}`}>
-                    {o.tag}
-                  </span>
-                  <span className={`text-[10px] font-mono tracking-widest ${o.accent ? "text-white/60" : "text-muted-foreground"}`}>
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                </div>
-                <h3 className="text-2xl lg:text-3xl font-bold tracking-tighter leading-tight">{o.title}</h3>
-                <p className={`mt-3 text-sm ${o.accent ? "text-white/85" : "text-muted-foreground"} font-serif italic`}>
-                  {o.desc}
-                </p>
-                <Link
-                  to="/contact"
-                  className={`mt-auto pt-8 inline-flex items-center gap-2 text-sm font-semibold ${o.accent ? "text-white" : "text-electric"}`}
-                >
-                  Claim in store <ArrowUpRight className="size-4" />
-                </Link>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* ============== STORE LOCATOR ============== */}
       <section id="stores" className="scroll-mt-24 px-6 lg:px-10 py-20 lg:py-32">
@@ -787,13 +765,10 @@ function HomePage() {
             {STORES.map((s, i) => (
               <article key={s.name} className="bg-background border border-border rounded-3xl overflow-hidden flex flex-col">
                 <div className="aspect-[4/3] bg-secondary overflow-hidden">
-                  <img
-                    src={storeInterior}
-                    alt={`${s.name} interior`}
-                    width={1200}
-                    height={900}
-                    loading="lazy"
-                    className={`w-full h-full object-cover ${i === 1 ? "scale-110" : i === 2 ? "-scale-x-100" : ""}`}
+                  <StoreImageCarousel
+                    images={s.images}
+                    alt={s.name}
+                    className={i === 1 ? "scale-110" : i === 2 ? "-scale-x-100" : ""}
                   />
                 </div>
                 <div className="p-7 flex flex-col gap-4 flex-1">
@@ -853,6 +828,15 @@ function HomePage() {
               </div>
             ))}
           </div>
+
+          <div className="mt-12 flex justify-center">
+            <Link
+              to="/about"
+              className="inline-flex items-center gap-2 bg-electric text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-ink hover:border hover:border-border transition-colors shadow-sm"
+            >
+              Our Story & Team <ArrowUpRight className="size-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -888,53 +872,101 @@ function HomePage() {
         </div>
       </section>
 
+      {/* ============== FAQS (AEO & SEO) ============== */}
+      <FAQSection />
+
 
       {/* ============== BOOKING / CONTACT ============== */}
       <section id="contact" className="scroll-mt-24 px-6 lg:px-10 pt-20 lg:pt-28 pb-20 lg:pb-32">
-        <div className="mx-auto max-w-7xl bg-secondary border border-border text-foreground rounded-[28px] lg:rounded-[40px] p-8 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-12 shadow-sm">
-          <div className="lg:col-span-5">
-            <h2 className="text-4xl lg:text-6xl font-bold tracking-tighter leading-[1.02]">
-              Book a private{" "}
-              <span className="font-serif italic font-medium text-electric">consultation</span> today.
-            </h2>
-            <p className="mt-6 text-muted-foreground max-w-md leading-relaxed">
-              Eye tests, frame styling, smart glasses demos — one of our specialists
-              will be expecting you.
-            </p>
-            <div className="mt-10 space-y-4 text-sm text-foreground/80">
-              <p className="inline-flex items-center gap-3"><Phone className="size-4 shrink-0 text-electric" /><span>+91 94405 25789</span></p>
-              <p className="inline-flex items-center gap-3"><Mail className="size-4 shrink-0 text-electric" /><span>hello@clearsight.in</span></p>
-              <p className="inline-flex items-start gap-3"><MapPin className="size-4 shrink-0 text-electric mt-0.5" /><span>Kukatpally (KPHB), Nizampet, Bowenpally</span></p>
-            </div>
+        <div className="mx-auto max-w-7xl">
+          <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">Get In Touch</span>
+          <h2 className="mt-3 text-4xl lg:text-6xl font-bold tracking-tighter max-w-3xl leading-[1.02]">
+            Book your eye test or smart glasses{" "}
+            <span className="font-serif italic font-medium text-electric">demo.</span>
+          </h2>
+
+          <div className="mt-16 grid grid-cols-1 lg:grid-cols-12 gap-10">
+            <aside className="lg:col-span-4 space-y-8">
+              <div>
+                <h3 className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground mb-3">Call</h3>
+                <a href="tel:+919440525789" className="text-2xl font-bold tracking-tight inline-flex items-center gap-3">
+                  <Phone className="size-5 text-electric" /> +91 94405 25789
+                </a>
+              </div>
+              <div>
+                <h3 className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground mb-3">WhatsApp</h3>
+                <a href="https://wa.me/919440525789" target="_blank" rel="noopener noreferrer" className="text-2xl font-bold tracking-tight inline-flex items-center gap-3">
+                  <MessageCircle className="size-5 text-electric" /> Chat with us
+                </a>
+              </div>
+              <div>
+                <h3 className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground mb-3">Email</h3>
+                <a href="mailto:hello@clearsight.in" className="text-xl font-bold tracking-tight inline-flex items-center gap-3 break-all">
+                  <Mail className="size-5 text-electric" />
+                  <span>hello@clearsight.in</span>
+                </a>
+              </div>
+              <div>
+                <h3 className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground mb-3">Opening Hours</h3>
+                <p className="text-lg font-bold tracking-tight inline-flex items-center gap-3">
+                  <Clock className="size-5 text-electric" /> Mon–Sun: 9:00 AM – 9:30 PM
+                </p>
+              </div>
+              <div>
+                <h3 className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground mb-3">Main Address</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed inline-flex items-start gap-3">
+                  <MapPin className="size-5 text-electric mt-0.5" />
+                  <span>Shop #4, Padmaja Complex, JNTU Road, 6th Phase, KPHB, Hyderabad - 500085</span>
+                </p>
+                <p className="mt-3 text-sm text-muted-foreground">
+                  Also at Nizampet &amp; Bowenpally · Open daily 9:00 AM – 9:30 PM
+                </p>
+              </div>
+            </aside>
+
+            <form onSubmit={handleBookingSubmit} className="lg:col-span-8 bg-secondary/60 border border-border rounded-3xl p-8 lg:p-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <label className="flex flex-col gap-2">
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">Full name</span>
+                <input name="name" type="text" placeholder="Aarav Reddy" className="bg-transparent border-b border-border py-3 focus:outline-none focus:border-electric transition-colors" />
+              </label>
+              <label className="flex flex-col gap-2">
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">Mobile</span>
+                <input name="mobile" type="tel" placeholder="+91 …" className="bg-transparent border-b border-border py-3 focus:outline-none focus:border-electric transition-colors" />
+              </label>
+              <label className="flex flex-col gap-2 sm:col-span-2">
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">Email</span>
+                <input name="email" type="email" placeholder="you@example.com" className="bg-transparent border-b border-border py-3 focus:outline-none focus:border-electric transition-colors" />
+              </label>
+              <label className="flex flex-col gap-2">
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">Preferred store</span>
+                <select name="store" className="bg-transparent border-b border-border py-3 focus:outline-none focus:border-electric transition-colors">
+                  <option className="bg-card text-foreground">Kukatpally (KPHB)</option>
+                  <option className="bg-card text-foreground">Nizampet</option>
+                  <option className="bg-card text-foreground">Bowenpally</option>
+                </select>
+              </label>
+              <label className="flex flex-col gap-2">
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">Reason</span>
+                <select name="reason" className="bg-transparent border-b border-border py-3 focus:outline-none focus:border-electric transition-colors">
+                  <option className="bg-card text-foreground">Eye test</option>
+                  <option className="bg-card text-foreground">Smart glasses demo</option>
+                  <option className="bg-card text-foreground">Frame styling</option>
+                  <option className="bg-card text-foreground">Contact lens fitting</option>
+                  <option className="bg-card text-foreground">Something else</option>
+                </select>
+              </label>
+              <label className="flex flex-col gap-2 sm:col-span-2">
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">Notes</span>
+                <textarea name="notes" rows={4} placeholder="Tell us anything that would help us prepare." className="bg-transparent border-b border-border py-3 focus:outline-none focus:border-electric transition-colors resize-none" />
+              </label>
+              <button
+                type="submit"
+                className="sm:col-span-2 mt-4 inline-flex items-center justify-center gap-2 bg-electric text-white py-4 rounded-full font-bold tracking-[0.18em] uppercase text-xs hover:bg-ink transition-colors"
+              >
+                <MessageCircle className="size-4" /> Send via WhatsApp
+              </button>
+            </form>
           </div>
-          <form onSubmit={handleBookingSubmit} className="lg:col-span-7 bg-card border border-border rounded-3xl p-8 lg:p-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <label className="flex flex-col gap-2 sm:col-span-1">
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">Full name</span>
-              <input name="name" type="text" placeholder="Aarav Reddy" className="bg-transparent border-b border-border py-3 focus:outline-none focus:border-electric placeholder:text-muted-foreground/60 transition-colors" />
-            </label>
-            <label className="flex flex-col gap-2">
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">Mobile</span>
-              <input name="mobile" type="tel" placeholder="+91 …" className="bg-transparent border-b border-border py-3 focus:outline-none focus:border-electric placeholder:text-muted-foreground/60 transition-colors" />
-            </label>
-            <label className="flex flex-col gap-2 sm:col-span-2">
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">Preferred store</span>
-              <select name="store" className="bg-transparent border-b border-border py-3 focus:outline-none focus:border-electric transition-colors">
-                <option className="bg-card text-foreground">Kukatpally (KPHB)</option>
-                <option className="bg-card text-foreground">Nizampet</option>
-                <option className="bg-card text-foreground">Bowenpally</option>
-              </select>
-            </label>
-            <label className="flex flex-col gap-2 sm:col-span-2">
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">What brings you in?</span>
-              <textarea name="notes" rows={3} placeholder="Eye test, smart glasses demo, frame styling…" className="bg-transparent border-b border-border py-3 focus:outline-none focus:border-electric placeholder:text-muted-foreground/60 transition-colors resize-none" />
-            </label>
-            <button
-              type="submit"
-              className="sm:col-span-2 mt-2 inline-flex items-center justify-center gap-2 bg-electric text-white py-4 rounded-full font-bold tracking-[0.18em] uppercase text-xs hover:opacity-90 transition-opacity"
-            >
-              <MessageCircle className="size-4" /> Send via WhatsApp
-            </button>
-          </form>
         </div>
       </section>
 

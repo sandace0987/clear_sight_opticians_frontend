@@ -13,156 +13,67 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { EnquireDialog } from "@/components/site/EnquireDialog";
+import { BRANDS } from "@/lib/brand-catalog";
+import { ModelCard } from "@/components/site/ModelCard";
 
-// Ray-Ban Meta images
-import rbMatteBlackClear from "@/assets/meta/rayban/rb-matte-black-clear.webp";
-import rbShinyBlackGreen from "@/assets/meta/rayban/rb-shiny-black-green.webp";
-import rbMatteBlackGraphite from "@/assets/meta/rayban/rb-matte-black-graphite.webp";
-import rbCosmicBlueSapphire from "@/assets/meta/rayban/rb-cosmic-blue-sapphire.webp";
-import rbMatteBlackGreyTransitions from "@/assets/meta/rayban/rb-matte-black-grey-transitions.webp";
-import rbTransparentGreySapphire from "@/assets/meta/rayban/rb-transparent-grey-sapphire.webp";
 
-// Oakley Meta images
-import oakWarmGreyPrizmRuby from "@/assets/meta/oakley/oak-warm-grey-prizm-ruby.webp";
-import oakBlackAmethyst from "@/assets/meta/oakley/oak-black-amethyst.webp";
-import oakBrownSmoke from "@/assets/meta/oakley/oak-brown-smoke-deep-water.webp";
-import oakBlackDarkGolf from "@/assets/meta/oakley/oak-black-prizm-dark-golf.webp";
+const SMART_GLASSES_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Ray-Ban Meta Smart Glasses (Wayfarer Gen 2)",
+  "image": "https://www.clearsightopticians.in/rayban-meta.webp",
+  "description": "Iconic Ray-Ban frames engineered with Meta AI, hands-free video capture, calls, and open-ear audio. Available at Clear Sight Opticians Hyderabad.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Ray-Ban"
+  },
+  "offers": {
+    "@type": "AggregateOffer",
+    "lowPrice": "29999",
+    "priceCurrency": "INR",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "OpticalBusiness",
+      "name": "Clear Sight Opticians"
+    }
+  }
+};
 
 export const Route = createFileRoute("/smart-glasses")({
   head: () => ({
     meta: [
-      { title: "Meta Smart Glasses — Ray-Ban Meta & Oakley Meta | Clear Sight" },
+      { title: "Ray-Ban Meta & Oakley Meta Smart Glasses in Hyderabad | Clear Sight Opticians" },
       {
         name: "description",
-        content:
-          "Shop Ray-Ban Meta Wayfarer Gen 2 and Oakley Meta HSTN AI glasses at Clear Sight Opticians Hyderabad. In-store demos, expert fitting and exclusive pricing.",
+        content: "Shop Ray-Ban Meta Wayfarer Gen 2 and Oakley Meta HSTN AI glasses at Clear Sight Opticians Hyderabad. Experience hands-free capture, calls, and Meta AI. Book a demo today.",
       },
-      { property: "og:title", content: "Meta Smart Glasses — Ray-Ban Meta & Oakley Meta" },
+      { name: "keywords", content: "Ray-Ban Meta Hyderabad, Oakley Meta smart glasses, smart eyewear, prescription smart glasses, Ray-Ban smart glasses India, AI glasses Hyderabad, Kukatpally optician" },
+      { name: "robots", content: "index, follow" },
+      { property: "og:title", content: "Ray-Ban Meta & Oakley Meta Smart Glasses in Hyderabad" },
       {
         property: "og:description",
-        content: "Iconic style meets Meta AI. Hands-free capture, calls and Meta AI in the frames you love.",
+        content: "Iconic style meets Meta AI. Hands-free capture, calls and Meta AI in the frames you love. Available at Clear Sight Opticians.",
       },
+      { property: "og:url", content: "https://www.clearsightopticians.in/smart-glasses" },
+      { property: "og:type", content: "product" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Ray-Ban Meta & Oakley Meta Smart Glasses in Hyderabad" },
+      { name: "twitter:description", content: "Iconic style meets Meta AI. Book an in-store demo at Clear Sight Opticians today." },
     ],
+    links: [
+      { rel: "canonical", href: "https://www.clearsightopticians.in/smart-glasses" }
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(SMART_GLASSES_SCHEMA)
+      }
+    ]
   }),
   component: SmartGlassesPage,
 });
 
 /* ─── Data ─────────────────────────────────────────────────── */
-
-type MetaModel = {
-  sku: string;
-  name: string;
-  frame: string;
-  lens: string;
-  price: number;
-  image: string;
-  swatch: string;
-};
-
-const RAYBAN_MODELS: MetaModel[] = [
-  {
-    sku: "SK-1001200-01",
-    name: "Wayfarer (Gen 2)",
-    frame: "Large Matt Black",
-    lens: "Clear",
-    price: 39900,
-    image: rbMatteBlackClear,
-    swatch: "#1a1a1a",
-  },
-  {
-    sku: "SK-1001203-01",
-    name: "Wayfarer (Gen 2)",
-    frame: "Large Shiny Black",
-    lens: "Green",
-    price: 39900,
-    image: rbShinyBlackGreen,
-    swatch: "#1a1a1a",
-  },
-  {
-    sku: "SK-1001238-01",
-    name: "Wayfarer (Gen 2)",
-    frame: "Large Matt Black",
-    lens: "Polar Gradient Graphite",
-    price: 42100,
-    image: rbMatteBlackGraphite,
-    swatch: "#2c2c2c",
-  },
-  {
-    sku: "SK-1001237-01",
-    name: "Wayfarer (Gen 2)",
-    frame: "Matt Black",
-    lens: "Polar Gradient Graphite",
-    price: 42100,
-    image: rbMatteBlackGraphite,
-    swatch: "#2c2c2c",
-  },
-  {
-    sku: "SK-1001242-01",
-    name: "Wayfarer (Gen 2)",
-    frame: "Large Shiny Cosmic Blue",
-    lens: "Transitions® Sapphire",
-    price: 45700,
-    image: rbCosmicBlueSapphire,
-    swatch: "#3b6fd4",
-  },
-  {
-    sku: "SK-1001247-01",
-    name: "Wayfarer (Gen 2)",
-    frame: "Large Matt Black",
-    lens: "Transitions® Grey",
-    price: 45700,
-    image: rbMatteBlackGreyTransitions,
-    swatch: "#1a1a1a",
-  },
-  {
-    sku: "SK-1001846-01",
-    name: "Wayfarer (Gen 2)",
-    frame: "Large Shiny Transparent Grey",
-    lens: "Transitions® Sapphire",
-    price: 45700,
-    image: rbTransparentGreySapphire,
-    swatch: "#a8b0c0",
-  },
-];
-
-const OAKLEY_MODELS: MetaModel[] = [
-  {
-    sku: "SK-1001193-01",
-    name: "HSTN",
-    frame: "Warm Grey",
-    lens: "Prizm™ Ruby",
-    price: 41800,
-    image: oakWarmGreyPrizmRuby,
-    swatch: "#9a8070",
-  },
-  {
-    sku: "SK-1001194-01",
-    name: "HSTN",
-    frame: "Black",
-    lens: "Clear to Amethyst Transitions®",
-    price: 47600,
-    image: oakBlackAmethyst,
-    swatch: "#1a1a1a",
-  },
-  {
-    sku: "SK-1001197-01",
-    name: "HSTN",
-    frame: "Brown Smoke",
-    lens: "Prizm™ Deep Water Polarised",
-    price: 44200,
-    image: oakBrownSmoke,
-    swatch: "#5a3e2b",
-  },
-  {
-    sku: "SK-1001850-01",
-    name: "HSTN",
-    frame: "Black",
-    lens: "Prizm™ Dark Golf",
-    price: 41800,
-    image: oakBlackDarkGolf,
-    swatch: "#1a1a1a",
-  },
-];
 
 const FEATURES = [
   { icon: Camera, title: "12MP Ultra-wide Camera", desc: "Capture first-person photo & 1080p video, hands-free." },
@@ -268,78 +179,7 @@ function VideoHero({
   );
 }
 
-/* ─── Product Card ───────────────────────────────────────────── */
 
-function MetaProductCard({
-  model,
-  discountPct,
-  brand,
-}: {
-  model: MetaModel;
-  discountPct: number;
-  brand: string;
-}) {
-  const discounted = Math.round(model.price * (1 - discountPct / 100) / 100) * 100;
-  return (
-    <article className="group bg-secondary/60 border border-border rounded-3xl overflow-hidden flex flex-col h-full hover:border-electric/40 transition-all duration-300 hover:shadow-lg">
-      {/* image */}
-      <div className="relative bg-white p-6 aspect-[4/3] flex items-center justify-center overflow-hidden">
-        <img
-          src={model.image}
-          alt={`${brand} ${model.name} — ${model.frame} / ${model.lens}`}
-          width={800}
-          height={600}
-          loading="lazy"
-          className="max-h-40 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
-        />
-        {/* discount badge */}
-        <span className="absolute top-3 right-3 bg-electric text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">
-          {discountPct}% Off
-        </span>
-      </div>
-
-      {/* info */}
-      <div className="p-6 flex flex-col flex-1">
-        <div className="flex items-center gap-2 mb-1">
-          <span
-            className="size-3 rounded-full border border-border/80 shrink-0"
-            style={{ background: model.swatch }}
-            title={model.frame}
-          />
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-electric">
-            {brand}
-          </span>
-        </div>
-
-        <h3 className="text-lg font-bold tracking-tight mt-1">
-          {brand} {model.name}
-        </h3>
-        <p className="text-xs text-muted-foreground mt-1 font-serif italic leading-relaxed">
-          {model.frame} · {model.lens}
-        </p>
-
-        <div className="mt-4 flex items-baseline gap-2">
-          <span className="text-2xl font-bold text-electric">
-            ₹{discounted.toLocaleString("en-IN")}
-          </span>
-          <span className="text-xs line-through text-muted-foreground">
-            ₹{model.price.toLocaleString("en-IN")}
-          </span>
-        </div>
-
-        <EnquireDialog
-          brand={brand}
-          model={`${brand} ${model.name} — ${model.frame} / ${model.lens}`}
-          trigger={
-            <button className="mt-auto pt-5 w-full inline-flex items-center justify-center gap-2 bg-ink text-white py-3 rounded-full text-[11px] font-bold uppercase tracking-[0.18em] hover:bg-electric transition-colors">
-              Book Demo <ArrowUpRight className="size-3.5" />
-            </button>
-          }
-        />
-      </div>
-    </article>
-  );
-}
 
 /* ─── Page ───────────────────────────────────────────────────── */
 
@@ -347,6 +187,12 @@ type Tab = "rayban" | "oakley";
 
 function SmartGlassesPage() {
   const [tab, setTab] = React.useState<Tab>("rayban");
+
+  const raybanMetaModels = BRANDS.find((b) => b.slug === "ray-ban")
+    ?.models.filter((m) => m.line === "Meta Glasses") || [];
+
+  const oakleyMetaModels = BRANDS.find((b) => b.slug === "oakley")
+    ?.models.filter((m) => m.line === "Meta Glasses") || [];
 
   return (
     <div className="bg-background">
@@ -416,13 +262,13 @@ function SmartGlassesPage() {
                 </p>
               </div>
               <span className="shrink-0 text-xs font-bold uppercase tracking-[0.22em] text-muted-foreground">
-                {RAYBAN_MODELS.length} models
+                {raybanMetaModels.length} models
               </span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-              {RAYBAN_MODELS.map((m) => (
-                <MetaProductCard key={m.sku} model={m} discountPct={15} brand="Ray-Ban Meta" />
+              {raybanMetaModels.map((m, idx) => (
+                <ModelCard key={m.model} m={m} index={idx} brandName="Ray-Ban" />
               ))}
             </div>
           </div>
@@ -449,21 +295,21 @@ function SmartGlassesPage() {
                   Performance AI Eyewear
                 </span>
                 <h2 className="mt-2 text-2xl lg:text-3xl font-bold tracking-tight">
-                  Oakley Meta HSTN
+                  Oakley Meta Smart Eyewear
                 </h2>
                 <p className="mt-2 text-sm text-muted-foreground max-w-xl">
-                  Sport-lifestyle silhouette meets Meta AI. Advanced audio, hands-free capture
-                  and Prizm™ lens technology — engineered for athletes.
+                  Sport-lifestyle silhouettes meets Meta AI. Advanced audio, hands-free capture
+                  and Prizm™ lens technology — engineered for athletes and active lifestyles.
                 </p>
               </div>
               <span className="shrink-0 text-xs font-bold uppercase tracking-[0.22em] text-muted-foreground">
-                {OAKLEY_MODELS.length} models
+                {oakleyMetaModels.length} models
               </span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-5">
-              {OAKLEY_MODELS.map((m) => (
-                <MetaProductCard key={m.sku} model={m} discountPct={20} brand="Oakley Meta" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+              {oakleyMetaModels.map((m, idx) => (
+                <ModelCard key={m.model} m={m} index={idx} brandName="Oakley" />
               ))}
             </div>
           </div>
@@ -537,7 +383,8 @@ function SmartGlassesPage() {
 
             <div className="relative flex flex-col gap-3 shrink-0">
               <Link
-                to="/contact"
+                to="/"
+                onClick={() => sessionStorage.setItem("scrollTargetSection", "contact")}
                 className="bg-electric text-white px-8 py-4 rounded-full text-sm font-semibold inline-flex items-center gap-2 hover:bg-white hover:text-ink transition-colors"
               >
                 Book Demo <ArrowUpRight className="size-4" />

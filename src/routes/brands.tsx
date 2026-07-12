@@ -29,11 +29,19 @@ const SECTIONS = [
 export const Route = createFileRoute("/brands")({
   head: () => ({
     meta: [
-      { title: "Brands — Clear Sight Opticians" },
-      { name: "description", content: "Maui Jim, Ray-Ban, Oakley, Prada, Gucci, Persol and more — curated luxury eyewear in Hyderabad." },
-      { property: "og:title", content: "Brands — Clear Sight Opticians" },
-      { property: "og:description", content: "Curated luxury eyewear houses, in one place." },
+      { title: "Designer Eyewear Brands in Hyderabad | Clear Sight Opticians" },
+      { name: "description", content: "Explore our curated selection of global designer eyewear brands including Prada, Oakley, Ray-Ban, Gucci, Silhouette, and Maui Jim. Available at KPHB, Nizampet & Bowenpally." },
+      { name: "keywords", content: "designer eyewear Hyderabad, luxury frames, Prada sunglasses India, custom prescription lenses, Silhouette frames Hyderabad, Maui Jim Hyderabad, Kukatpally optics" },
+      { name: "robots", content: "index, follow" },
+      { property: "og:title", content: "Designer Eyewear Brands in Hyderabad | Clear Sight Opticians" },
+      { property: "og:description", content: "Curated luxury frames and prescription lenses from world-leading designer houses. Stocked across our Hyderabad studios." },
+      { property: "og:url", content: "https://www.clearsightopticians.in/brands" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [
+      { rel: "canonical", href: "https://www.clearsightopticians.in/brands" }
+    ]
   }),
   component: BrandsPage,
 });
@@ -102,7 +110,11 @@ function BrandsPage() {
             </p>
           </div>
           <MagneticButton>
-            <Link to="/contact" className="bg-electric text-white px-7 py-3.5 rounded-full text-sm font-semibold inline-flex items-center gap-2">
+            <Link
+              to="/"
+              onClick={() => sessionStorage.setItem("scrollTargetSection", "contact")}
+              className="bg-electric text-white px-7 py-3.5 rounded-full text-sm font-semibold inline-flex items-center gap-2"
+            >
               Get in touch <ArrowUpRight className="size-4" />
             </Link>
           </MagneticButton>
@@ -113,7 +125,7 @@ function BrandsPage() {
 }
 
 function BrandCard({ h, index }: { h: House; index: number }) {
-  const logoDevKey = import.meta.env.VITE_LOVABLE_CONNECTOR_LOGO_DEV_API_KEY;
+  const logoDevKey = import.meta.env.VITE_LOGO_DEV_API_KEY;
   const logoSrc = h.logo
     ? h.logo
     : h.domain && logoDevKey

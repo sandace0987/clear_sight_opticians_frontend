@@ -10,13 +10,12 @@ type NavItem = { to: string; hash?: string; label: string; route?: boolean };
 
 const NAV: NavItem[] = [
   { to: "/", hash: undefined, label: "Home" },
-  { to: "/smart-glasses", label: "Smart Glasses", route: true },
+  { to: "/", hash: "smart-glasses", label: "Smart Glasses" },
   { to: "/", hash: "brands", label: "Brands" },
   { to: "/", hash: "try-on", label: "Try On" },
-  { to: "/", hash: "offers", label: "Offers" },
   { to: "/", hash: "stores", label: "Stores" },
-  { to: "/about", label: "About", route: true },
-  { to: "/contact", label: "Contact", route: true },
+  { to: "/", hash: "about", label: "About" },
+  { to: "/", hash: "contact", label: "Contact" },
 ];
 
 const SECTION_IDS = NAV.filter((n) => n.hash).map((n) => n.hash as string);
@@ -34,10 +33,20 @@ export function SiteHeader() {
       setActiveSection(undefined);
       return;
     }
+
+    const handleScroll = () => {
+      if (window.scrollY < 360) {
+        setActiveSection(undefined);
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
     const sections = SECTION_IDS
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => Boolean(el));
-    if (!sections.length) return;
+    if (!sections.length) {
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
 
     const visible = new Map<string, number>();
     const observer = new IntersectionObserver(
@@ -47,7 +56,7 @@ export function SiteHeader() {
           else visible.delete(entry.target.id);
         }
         // Top of page → no section highlighted ("Home")
-        if (window.scrollY < 120) {
+        if (window.scrollY < 360) {
           setActiveSection(undefined);
           return;
         }
@@ -64,26 +73,38 @@ export function SiteHeader() {
       { rootMargin: "-45% 0px -45% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] },
     );
     sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
+    };
   }, [location.pathname]);
 
   const handleNavClick = (item: NavItem) => (e: React.MouseEvent) => {
-    if (item.route) {
-      // Separate page route — let the router navigate.
-      setOpen(false);
-      return;
-    }
-    if (location.pathname !== "/") return; // let router handle cross-route nav to homepage
-    if (!item.hash) {
-      // "Home" — scroll to top
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    if (location.pathname !== "/") {
+      if (item.hash) {
+        sessionStorage.setItem("scrollTargetSection", item.hash);
+      }
       setOpen(false);
       return;
     }
     e.preventDefault();
-    const el = document.getElementById(item.hash);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (!item.hash) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const el = document.getElementById(item.hash);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    setOpen(false);
+  };
+
+  const handleBookTestClick = (e: React.MouseEvent) => {
+    if (location.pathname === "/") {
+      e.preventDefault();
+      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      sessionStorage.setItem("scrollTargetSection", "contact");
+    }
     setOpen(false);
   };
 
@@ -118,7 +139,8 @@ export function SiteHeader() {
               <Phone className="size-4" /> Call
             </a>
             <Link
-              to="/contact"
+              to="/"
+              onClick={handleBookTestClick}
               className="bg-electric text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-ink transition-colors"
             >
               Book Eye Test
@@ -129,7 +151,8 @@ export function SiteHeader() {
           {/* Mobile right cluster */}
           <div className="md:hidden flex items-center gap-1.5 shrink-0">
             <Link
-              to="/contact"
+              to="/"
+              onClick={handleBookTestClick}
               aria-label="Book Eye Test"
               className="inline-flex size-9 items-center justify-center rounded-full bg-electric text-white hover:bg-ink transition-colors"
             >
@@ -165,7 +188,6 @@ export function SiteHeader() {
               <Link
                 key={item.label}
                 to={item.to}
-                hash={item.hash}
                 onClick={handleNavClick(item)}
                 className={cn(
                   "transition-colors",
@@ -198,7 +220,6 @@ export function SiteHeader() {
               <Link
                 key={item.label}
                 to={item.to}
-                hash={item.hash}
                 onClick={handleNavClick(item)}
                 className={cn(
                   "py-2 text-sm font-medium",
@@ -210,7 +231,8 @@ export function SiteHeader() {
             );
           })}
           <Link
-            to="/contact"
+            to="/"
+            onClick={handleBookTestClick}
             className="mt-2 text-center bg-electric text-white px-5 py-3 rounded-full text-sm font-semibold"
           >
             Book Eye Test
