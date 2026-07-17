@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useRouterState } from "@tanstack/react-router";
-import { type ReactNode } from "react";
+import { type ReactNode, useEffect } from "react";
 import { useReducedMotion } from "@/hooks/use-motion-prefs";
 import { pageTransition } from "@/lib/motion-variants";
 
@@ -8,7 +8,10 @@ export function PageTransition({ children }: { children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const reduced = useReducedMotion();
 
-
+  useEffect(() => {
+    // Reset scroll to top instantly upon new page mount/transition
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   if (reduced) return <>{children}</>;
 

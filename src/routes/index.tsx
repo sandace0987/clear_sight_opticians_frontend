@@ -1,9 +1,8 @@
 import { createFileRoute, Link, useRouterState } from "@tanstack/react-router";
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { cn } from "@/lib/utils";
 import {
   ArrowUpRight,
-  
   Sparkles,
   Cpu,
   Eye,
@@ -17,8 +16,6 @@ import {
   Clock,
   Quote,
   MessageCircle,
-  Volume2,
-  VolumeX,
 } from "lucide-react";
 
 import { HOUSES } from "@/lib/brand-catalog";
@@ -34,6 +31,15 @@ import silhouetteLogo from "@/assets/brands/silhouette-logo.webp";
 import storeInterior from "@/assets/store-interior.webp";
 import kphb1 from "@/assets/kphb-interior-1.jpg";
 import kphb2 from "@/assets/kphb-interior-2.jpg";
+import nizampet1 from "@/assets/nizampet-1.jpg";
+import nizampet2 from "@/assets/nizampet-2.jpg";
+import bowenpallyImg from "@/assets/bowenpally.jpg";
+
+import pumaModel from "@/assets/brands/puma-model.jpg";
+import silhouetteModel from "@/assets/brands/silhouette-model.jpg";
+import vogueModel from "@/assets/brands/vogue-model.jpg";
+import montblancModel from "@/assets/brands/montblanc-model.jpg";
+
 import { StoreImageCarousel } from "@/components/site/StoreImageCarousel";
 import { TryOnSection } from "@/components/try-on/TryOnSection";
 import { KineticHeading } from "@/components/motion/KineticHeading";
@@ -42,6 +48,21 @@ import { TiltCard } from "@/components/motion/TiltCard";
 import { CountUp } from "@/components/motion/CountUp";
 import { MagneticButton } from "@/components/motion/MagneticButton";
 import { motion, AnimatePresence } from "framer-motion";
+import {
+  ProductReveal,
+  SMART_GLASSES_SEQUENCE,
+  SMART_GLASSES_TEXT_TIMELINE,
+} from "@/components/ProductReveal";
+
+const BRAND_CAMPAIGN_IMAGES: Record<string, string> = {
+  prada: pradaModelMale,
+  "ray-ban": raybanModel,
+  oakley: oakleyModel,
+  vogue: vogueModel,
+  silhouette: silhouetteModel,
+  puma: pumaModel,
+  montblanc: montblancModel,
+};
 import { CatchGame } from "@/components/site/CatchGame";
 import { Gamepad2 } from "lucide-react";
 import { FAQSection } from "@/components/site/FAQSection";
@@ -170,18 +191,18 @@ const STORES = [
   {
     name: "Nizampet",
     tag: "Studio",
-    address: "Beside Vazra Nirman Pushpak, Nizampet Colony, Hyderabad, Telangana",
+    address: "58, Blooming Dale Rd, Madhura Nagar, Nizampet, Hyderabad, Telangana 500090",
     phone: "+91 94405 25789",
     hours: "9:00 AM – 9:30 PM",
-    images: [storeInterior],
+    images: [nizampet1, nizampet2],
   },
   {
     name: "Bowenpally",
     tag: "Studio",
-    address: "Near Delhi Public School, Sikh Village Road, Bowenpally, Hyderabad, Telangana",
+    address: "Sikh Rd, Cantonment Co-op Housing Society, Radha Swamy Colony, Bowenpally, Secunderabad, Telangana 500009",
     phone: "+91 94405 25789",
     hours: "9:00 AM – 9:30 PM",
-    images: [storeInterior],
+    images: [bowenpallyImg],
   },
 ];
 
@@ -235,21 +256,6 @@ function LetterShimmer({ text, offset = 0 }: { text: string; offset?: number }) 
 function HomePage() {
   const hash = useRouterState({ select: (s) => s.location.hash });
   const [playing, setPlaying] = useState(false);
-  const rbVideoRef = useRef<HTMLVideoElement>(null);
-  const oakVideoRef = useRef<HTMLVideoElement>(null);
-  const [rbMuted, setRbMuted] = useState(true);
-  const [oakMuted, setOakMuted] = useState(true);
-
-  const toggleRbMute = () => {
-    if (!rbVideoRef.current) return;
-    rbVideoRef.current.muted = !rbMuted;
-    setRbMuted((v) => !v);
-  };
-  const toggleOakMute = () => {
-    if (!oakVideoRef.current) return;
-    oakVideoRef.current.muted = !oakMuted;
-    setOakMuted((v) => !v);
-  };
 
   const handleBookingSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -373,7 +379,7 @@ function HomePage() {
                     hidden: { opacity: 0, scale: 0.85, y: 20 },
                     show: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.95, ease: [0.16, 1, 0.3, 1] } },
                   }}
-                  className="relative font-serif italic font-medium px-5 py-1 sm:px-8 sm:py-1.5 rounded-full inline-block"
+                  className="relative font-serif italic font-medium px-5 py-1 sm:px-8 sm:py-1.5 rounded-full inline-flex items-center justify-center align-middle -translate-y-[0.05em]"
                   style={{
                     backdropFilter: "blur(10px) saturate(170%) contrast(110%)",
                     WebkitBackdropFilter: "blur(10px) saturate(170%) contrast(110%)",
@@ -512,144 +518,14 @@ function HomePage() {
 
 
 
-      {/* ============== SMART GLASSES — VIDEO HERO ============== */}
-      <section id="smart-glasses" className="relative scroll-mt-24 px-4 sm:px-6 lg:px-10 py-16 lg:py-24">
-        <div className="mx-auto max-w-7xl">
-          {/* Section label */}
-          <div className="flex items-center justify-between mb-8">
-            <div>
-              <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">Smart Glasses</span>
-              <h2 className="mt-2 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tighter">
-                Iconic style meets{" "}
-                <span className="font-serif italic font-medium text-electric">Meta AI.</span>
-              </h2>
-            </div>
-            <Link
-              to="/smart-glasses"
-              className="hidden sm:inline-flex items-center gap-2 text-sm font-bold border-b-2 border-electric pb-1 tracking-[0.2em] uppercase"
-            >
-              Shop All
-            </Link>
-          </div>
+      {/* ============== SMART GLASSES — SCROLL IMAGE SEQUENCE (Apple-style) ============== */}
+      <ProductReveal
+        sequence={SMART_GLASSES_SEQUENCE}
+        textTimeline={SMART_GLASSES_TEXT_TIMELINE}
+        scrollHeight={3000}
+        id="smart-glasses"
+      />
 
-          {/* Ray-Ban + Oakley — equal 2-col grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-
-            {/* Ray-Ban Meta card */}
-            <div className="relative rounded-3xl overflow-hidden bg-ink group min-h-[280px] md:min-h-[420px]">
-              <video
-                ref={rbVideoRef}
-                src="/videos/rayban-meta.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/15" />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent" />
-
-              {/* brand badges */}
-              <div className="absolute top-5 left-5 flex items-center gap-2">
-                <span className="text-white/90 text-[10px] font-bold tracking-[0.22em] uppercase bg-white/10 backdrop-blur border border-white/20 rounded-full px-3 py-1">
-                  Ray-Ban
-                </span>
-                <span className="text-white/40 text-xs">×</span>
-                <span className="text-white/90 text-[10px] font-bold tracking-[0.22em] uppercase bg-white/10 backdrop-blur border border-white/20 rounded-full px-3 py-1">
-                  Meta
-                </span>
-              </div>
-
-              {/* headline */}
-              <div className="absolute bottom-6 left-5 right-14">
-                <p className="text-white/60 text-[10px] font-bold uppercase tracking-[0.25em] mb-2">Ray-Ban Meta Wayfarer (Gen 2)</p>
-                <h3 className="text-white text-2xl sm:text-3xl font-bold tracking-tighter leading-tight">
-                  Iconic frames.
-                  <br />
-                  <span className="font-serif italic font-medium text-white/80">Now intelligent.</span>
-                </h3>
-                <div className="mt-4 flex flex-wrap gap-3">
-                  <Link
-                    to="/smart-glasses"
-                    className="bg-electric text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-ink transition-colors"
-                  >
-                    Explore Now
-                  </Link>
-                  <Link
-                    to="/contact"
-                    className="border border-white/30 text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-colors"
-                  >
-                    Book Demo
-                  </Link>
-                </div>
-              </div>
-
-              {/* mute toggle */}
-              <button
-                type="button"
-                onClick={toggleRbMute}
-                className="absolute bottom-5 right-5 size-9 rounded-full bg-white/10 backdrop-blur border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
-                aria-label={rbMuted ? "Unmute video" : "Mute video"}
-              >
-                {rbMuted ? <VolumeX className="size-4" /> : <Volume2 className="size-4" />}
-              </button>
-            </div>
-
-            {/* Oakley Meta card */}
-            <div className="relative rounded-3xl overflow-hidden bg-ink group min-h-[280px] md:min-h-[420px]">
-              <video
-                ref={oakVideoRef}
-                src="/videos/oakley-meta.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-
-              {/* brand badges */}
-              <div className="absolute top-5 left-5 flex items-center gap-2">
-                <span className="text-white/90 text-[10px] font-bold tracking-[0.22em] uppercase bg-white/10 backdrop-blur border border-white/20 rounded-full px-2.5 py-1">
-                  Oakley
-                </span>
-                <span className="text-white/40 text-[10px]">×</span>
-                <span className="text-white/90 text-[10px] font-bold tracking-[0.22em] uppercase bg-white/10 backdrop-blur border border-white/20 rounded-full px-2.5 py-1">
-                  Meta
-                </span>
-              </div>
-
-              {/* headline */}
-              <div className="absolute bottom-6 left-5 right-14">
-                <h3 className="text-white text-2xl sm:text-3xl font-bold tracking-tight">
-                  Built for the way you move.
-                </h3>
-                <p className="text-white/65 text-sm mt-2 max-w-sm">
-                  HSTN with Meta AI, Prizm™ lenses and open-ear audio.
-                </p>
-                <Link
-                  to="/smart-glasses"
-                  className="mt-4 inline-flex items-center gap-2 text-electric text-sm font-semibold"
-                >
-                  Shop Oakley Meta <ArrowUpRight className="size-4" />
-                </Link>
-              </div>
-
-              {/* mute toggle */}
-              <button
-                type="button"
-                onClick={toggleOakMute}
-                className="absolute bottom-5 right-5 size-8 rounded-full bg-white/10 backdrop-blur border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
-                aria-label={oakMuted ? "Unmute" : "Mute"}
-              >
-                {oakMuted ? <VolumeX className="size-3.5" /> : <Volume2 className="size-3.5" />}
-              </button>
-            </div>
-
-          </div>
-        </div>
-      </section>
 
       {/* ============== BRANDS ============== */}
       <section id="brands" className="scroll-mt-24 px-6 lg:px-10 py-20 lg:py-32">
@@ -670,7 +546,7 @@ function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {["ray-ban", "oakley", "maui-jim", "prada", "burberry"]
+            {["ray-ban", "oakley", "maui-jim", "prada", "montblanc", "silhouette", "vogue", "burberry"]
               .map((s) => HOUSES.find((h) => h.slug === s))
               .filter((h): h is NonNullable<typeof h> => Boolean(h))
               .map((h, i) => (
@@ -681,9 +557,9 @@ function HomePage() {
                       params={{ brand: h.slug! }}
                       className="group relative bg-secondary/60 border border-border rounded-3xl p-8 hover:bg-ink hover:text-white transition-colors block h-full overflow-hidden"
                     >
-                      {(h.slug === "prada" || h.slug === "ray-ban" || h.slug === "oakley") && (
+                      {BRAND_CAMPAIGN_IMAGES[h.slug!] && (
                         <img
-                          src={h.slug === "prada" ? pradaModelMale : h.slug === "ray-ban" ? raybanModel : oakleyModel}
+                          src={BRAND_CAMPAIGN_IMAGES[h.slug!]}
                           alt={`${h.name} campaign`}
                           loading="lazy"
                           className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-20 group-hover:opacity-30 transition-opacity z-0"

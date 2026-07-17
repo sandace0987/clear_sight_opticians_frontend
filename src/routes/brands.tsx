@@ -6,10 +6,13 @@ import { MagneticButton } from "@/components/motion/MagneticButton";
 import { housesByCategory, type House } from "@/lib/brand-catalog";
 import pradaModelMale from "@/assets/brands/prada-model-male.webp";
 import pleinModel from "@/assets/brands/plein-model.webp";
-import vogueModel from "@/assets/brands/vogue-model.webp";
+import vogueModel from "@/assets/brands/vogue-model.jpg";
 import policeModel from "@/assets/brands/police-model.webp";
 import oakleyModel from "@/assets/brands/oakley-model.webp";
 import raybanModel from "@/assets/brands/rayban-model.webp";
+import pumaModel from "@/assets/brands/puma-model.jpg";
+import silhouetteModel from "@/assets/brands/silhouette-model.jpg";
+import montblancModel from "@/assets/brands/montblanc-model.jpg";
 
 const BRAND_MODELS: Record<string, { src: string; alt: string }> = {
   prada: { src: pradaModelMale, alt: "Male model wearing Prada sunglasses" },
@@ -18,6 +21,9 @@ const BRAND_MODELS: Record<string, { src: string; alt: string }> = {
   police: { src: policeModel, alt: "Model wearing Police sunglasses" },
   oakley: { src: oakleyModel, alt: "Athlete wearing Oakley sunglasses" },
   "ray-ban": { src: raybanModel, alt: "Models wearing Ray-Ban Scuderia Ferrari" },
+  puma: { src: pumaModel, alt: "Model wearing Puma athletic eyewear" },
+  silhouette: { src: silhouetteModel, alt: "Model wearing Silhouette rimless eyewear" },
+  montblanc: { src: montblancModel, alt: "Model wearing Montblanc designer frames" },
 };
 
 const SECTIONS = [
@@ -158,9 +164,11 @@ function BrandCard({ h, index }: { h: House; index: number }) {
             />
           </div>
         ) : (
-          h.slug && (
-            <ArrowUpRight className="size-5 opacity-40 group-hover:opacity-100 group-hover:text-electric transition-all" />
-          )
+          <div className="shrink-0 rounded-2xl bg-white p-3.5 shadow-sm ring-1 ring-black/5 flex items-center justify-center h-20 w-32">
+            <span className="text-[11px] font-bold text-ink text-center tracking-tight px-1 select-none uppercase">
+              {h.name}
+            </span>
+          </div>
         )}
       </div>
       <h3 className="relative z-10 text-2xl font-bold tracking-tight">{h.name}</h3>

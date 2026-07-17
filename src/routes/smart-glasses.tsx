@@ -214,10 +214,11 @@ function SmartGlassesPage() {
           </div>
 
           <VideoHero
-            videoSrc="/videos/rayban-meta.mp4"
-            brand="rayban"
-            headline="Iconic style meets Meta AI."
-            sub="Capture, call, and ask Meta AI — without ever reaching for your phone."
+            key={tab} // force re-mount to play new video
+            videoSrc={tab === "rayban" ? "/videos/rayban-meta.mp4" : "/videos/oakley-meta.mp4"}
+            brand={tab === "rayban" ? "rayban" : "oakley"}
+            headline={tab === "rayban" ? "Iconic style meets Meta AI." : "Built for the way you move."}
+            sub={tab === "rayban" ? "Capture, call, and ask Meta AI — without ever reaching for your phone." : "Capture, listen and talk to Meta AI — without breaking stride."}
           />
         </div>
       </section>
@@ -279,15 +280,6 @@ function SmartGlassesPage() {
       {tab === "oakley" && (
         <section className="px-4 sm:px-6 lg:px-10 py-10">
           <div className="mx-auto max-w-7xl">
-            {/* Oakley video strip */}
-            <div className="mb-10 rounded-2xl overflow-hidden">
-              <VideoHero
-                videoSrc="/videos/oakley-meta.mp4"
-                brand="oakley"
-                headline="Built for the way you move."
-                sub="Capture, listen and talk to Meta AI — without breaking stride."
-              />
-            </div>
 
             <div className="flex items-baseline justify-between gap-4 border-b border-border pb-5 mb-10">
               <div>

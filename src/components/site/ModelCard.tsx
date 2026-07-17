@@ -46,7 +46,18 @@ export function ModelCard({ m, index, brandName }: { m: GlassItem; index: number
         )}
       </div>
 
-      {hasVariants && variant ? (
+      {m.image ? (
+        <div className="my-7 block overflow-hidden rounded-2xl bg-white h-36">
+          <img
+            src={m.image}
+            alt={`${brandName} ${m.model}`}
+            width={900}
+            height={320}
+            loading="lazy"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      ) : hasVariants && variant ? (
         <>
           <div className="my-7 block overflow-hidden rounded-2xl bg-white p-4">
             <div className="flex items-center justify-center h-28">
@@ -85,7 +96,7 @@ export function ModelCard({ m, index, brandName }: { m: GlassItem; index: number
         <p className="text-sm font-semibold mt-3">From ₹{m.priceFrom.toLocaleString("en-IN")}</p>
       )}
 
-      {hasVariants && (
+      {hasVariants && m.variants!.length > 1 && (
         <div className="mt-3 flex items-center gap-2">
           {m.variants!.map((v) => (
             <button

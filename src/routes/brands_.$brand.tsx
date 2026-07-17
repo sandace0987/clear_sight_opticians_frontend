@@ -9,6 +9,28 @@ import { Reveal } from "@/components/motion/Reveal";
 import { TiltCard } from "@/components/motion/TiltCard";
 import { ModelCard } from "@/components/site/ModelCard";
 
+import pradaModelMale from "@/assets/brands/prada-model-male.webp";
+import pleinModel from "@/assets/brands/plein-model.webp";
+import vogueModel from "@/assets/brands/vogue-model.jpg";
+import policeModel from "@/assets/brands/police-model.webp";
+import oakleyModel from "@/assets/brands/oakley-model.webp";
+import raybanModel from "@/assets/brands/rayban-model.webp";
+import silhouetteModel from "@/assets/brands/silhouette-model.jpg";
+import pumaModel from "@/assets/brands/puma-model.jpg";
+import montblancModel from "@/assets/brands/montblanc-model.jpg";
+
+const CAMPAIGN_IMAGES: Record<string, string> = {
+  prada: pradaModelMale,
+  "philipp-plein": pleinModel,
+  vogue: vogueModel,
+  police: policeModel,
+  oakley: oakleyModel,
+  "ray-ban": raybanModel,
+  silhouette: silhouetteModel,
+  puma: pumaModel,
+  montblanc: montblancModel,
+};
+
 // Meta product images — Ray-Ban
 
 
@@ -72,6 +94,8 @@ const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").repla
 
 function BrandPage() {
   const { brand } = Route.useLoaderData() as { brand: BrandData };
+  const [videoMuted, setVideoMuted] = React.useState(true);
+
   const otherBrands = BRANDS.filter((b) => b.slug !== brand.slug)
     .sort((a, b) => priorityIndex(a.name) - priorityIndex(b.name))
     .slice(0, 6);
@@ -99,8 +123,16 @@ function BrandPage() {
           <ArrowLeft className="size-4" /> All brands
         </Link>
 
-        <div className="relative mt-6 overflow-hidden rounded-3xl">
-          <div className="relative flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 p-6 lg:p-10">
+        <div className="relative mt-6 overflow-hidden rounded-3xl bg-secondary/40 border border-border">
+          {CAMPAIGN_IMAGES[brand.slug] && (
+            <img
+              src={CAMPAIGN_IMAGES[brand.slug]}
+              alt={`${brand.name} campaign`}
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover opacity-15 pointer-events-none z-0"
+            />
+          )}
+          <div className="relative flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 p-6 lg:p-10 z-10">
             <div>
               <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">{brand.tag}</span>
               {brand.logo ? (
@@ -133,6 +165,42 @@ function BrandPage() {
             </div>
           </div>
         </div>
+
+        {/* Featured Video for Ray-Ban and Oakley */}
+        {(brand.slug === "ray-ban" || brand.slug === "oakley") && (
+          <div className="mt-8 relative overflow-hidden rounded-3xl bg-ink aspect-video max-h-[480px] w-full">
+            <video
+              src={brand.slug === "ray-ban" ? "/videos/rayban-meta.mp4" : "/videos/oakley-meta.mp4"}
+              autoPlay
+              muted={videoMuted}
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover opacity-80"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+            <div className="absolute bottom-6 left-6 right-16 text-white z-10">
+              <span className="text-electric text-[10px] font-bold tracking-[0.22em] uppercase bg-electric/20 border border-electric/30 rounded-full px-3 py-1">
+                Featured Campaign
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter mt-3">
+                {brand.slug === "ray-ban" ? "Ray-Ban Meta Collection" : "Oakley Meta Performance"}
+              </h2>
+              <p className="text-xs sm:text-sm text-white/75 mt-2 max-w-lg">
+                {brand.slug === "ray-ban"
+                  ? "Explore the fusion of legendary Ray-Ban design and groundbreaking Meta technology. capture photos, take calls, and livestream directly from your frames."
+                  : "Oakley sports heritage meets intelligent audio. Engineered for performance, built with active lifestyle features and clear Prizm™ optics."}
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setVideoMuted((m) => !m)}
+              className="absolute bottom-6 right-6 size-9 rounded-full bg-white/10 backdrop-blur border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors z-10"
+              aria-label={videoMuted ? "Unmute video" : "Mute video"}
+            >
+              {videoMuted ? <VolumeX className="size-4" /> : <Volume2 className="size-4" />}
+            </button>
+          </div>
+        )}
 
         {navSections.length > 0 && (
           <div className="mt-10 sticky top-[108px] lg:top-[124px] z-30 -mx-4 px-4 py-3 bg-background/85 backdrop-blur-xl border-b border-border/60 flex flex-wrap gap-2">

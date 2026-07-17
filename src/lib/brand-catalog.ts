@@ -48,6 +48,16 @@ import silhouetteLogo from "@/assets/brands/silhouette-logo.webp";
 import pradaMilanoLogo from "@/assets/brands/prada-milano-logo.webp";
 import rayBanLogo from "@/assets/brands/ray-ban-logo.svg";
 import guessLogo from "@/assets/brands/guess-logo.webp";
+
+// Montblanc Products
+import mb0256oFront from "@/assets/products/montblanc/mb-0256o-front.jpg";
+import mb0256oSide from "@/assets/products/montblanc/mb-0256o-side.jpg";
+import mb0421sFront from "@/assets/products/montblanc/mb-0421s-front.jpg";
+import mb0421sSide from "@/assets/products/montblanc/mb-0421s-side.jpg";
+import mb0428sFront from "@/assets/products/montblanc/mb-0428s-front.jpg";
+import mb0428sSide from "@/assets/products/montblanc/mb-0428s-side.jpg";
+import mb0427oFront from "@/assets/products/montblanc/mb-0427o-front.jpg";
+import mb0427oSide from "@/assets/products/montblanc/mb-0427o-side.jpg";
 import pradaPs03qv2azFront from "@/assets/products/prada/prada-ps03qv/2az-front.webp";
 import pradaPs03qv2azQuarter from "@/assets/products/prada/prada-ps03qv/2az-quarter.webp";
 import pradaPs03qv2azSide from "@/assets/products/prada/prada-ps03qv/2az-side.webp";
@@ -342,6 +352,7 @@ import silIllusion1617Side from "@/assets/products/silhouette/illusion-1617-side
 import silTimeless5603Front from "@/assets/products/silhouette/timeless-visionary-5603-front.png";
 import silTimeless5603Quarter from "@/assets/products/silhouette/timeless-visionary-5603-quarter.png";
 import silTimeless5603Side from "@/assets/products/silhouette/timeless-visionary-5603-side.png";
+import zeissLens from "@/assets/products/zeiss-lens.webp";
 
 export type ColorVariant = {
   id: string;
@@ -355,6 +366,7 @@ export type GlassItem = {
   model: string;
   shape: string;
   colour: string;
+  image?: string;
   /** omit to leave price blank (hidden on card & dialog) */
   priceFrom?: number;
   variants?: ColorVariant[];
@@ -1882,12 +1894,14 @@ export const BRANDS: BrandData[] = [
         model: "ClearMind Lenses",
         shape: "single vision",
         colour: "Clear · BlueGuard · DuraVision",
+        image: zeissLens,
         priceFrom: 6990,
       },
       {
         model: "SmartLife Lenses",
         shape: "progressive",
         colour: "Age-adaptive · DriveSafe · UVProtect",
+        image: zeissLens,
         priceFrom: 14990,
       },
     ],
@@ -2055,6 +2069,74 @@ export const BRANDS: BrandData[] = [
       },
     ],
   },
+  {
+    slug: "montblanc",
+    name: "Montblanc",
+    tag: "German maison",
+    blurb: "Exquisite craftsmanship and refined designs from the legendary German luxury house.",
+    models: [
+      {
+        model: "Montblanc 0256O",
+        shape: "rectangular",
+        colour: "Crystal Sand",
+        priceFrom: 23720,
+        variants: [
+          {
+            id: "crystal-sand",
+            name: "Crystal Sand",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #d4a574 0%, #c4956a 100%)",
+            images: { front: mb0256oFront, quarter: mb0256oFront, side: mb0256oSide },
+          },
+        ],
+      },
+      {
+        model: "Montblanc 0421S",
+        shape: "square",
+        colour: "Shiny Black",
+        priceFrom: 24100,
+        variants: [
+          {
+            id: "shiny-black",
+            name: "Shiny Black",
+            lens: "Dark Grey",
+            swatch: "linear-gradient(135deg, #111 0%, #333 100%)",
+            images: { front: mb0421sFront, quarter: mb0421sFront, side: mb0421sSide },
+          },
+        ],
+      },
+      {
+        model: "Montblanc 0428S",
+        shape: "aviator",
+        colour: "Silver / Mustard",
+        priceFrom: 22200,
+        variants: [
+          {
+            id: "silver-mustard",
+            name: "Silver & Mustard",
+            lens: "Mustard Yellow",
+            swatch: "linear-gradient(135deg, #c0c0c0 0%, #d4a017 100%)",
+            images: { front: mb0428sFront, quarter: mb0428sFront, side: mb0428sSide },
+          },
+        ],
+      },
+      {
+        model: "Montblanc 0427O",
+        shape: "round",
+        colour: "Walnut Brown & Gold",
+        priceFrom: 23300,
+        variants: [
+          {
+            id: "walnut-gold",
+            name: "Walnut Brown & Gold",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #6b3a2a 0%, #c5a059 100%)",
+            images: { front: mb0427oFront, quarter: mb0427oFront, side: mb0427oSide },
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 // Deterministically flag 2-3 "hot" (selling fast) models per brand.
@@ -2098,8 +2180,8 @@ export const HOUSES: House[] = [
   { slug: "ray-ban", name: "Ray-Ban", tag: "American icon", note: "Wayfarer, Aviator & Meta editions", logo: rayBanLogo, domain: "ray-ban.com", category: "glasses" },
   { slug: "oakley", name: "Oakley", tag: "Performance", note: "Sport, lifestyle & Meta HSTN", domain: "oakley.com", category: "glasses" },
   { slug: "prada", name: "Prada", tag: "Italian luxury", note: "Linea Rossa & Symbole", logo: pradaMilanoLogo, domain: "prada.com", category: "glasses" },
-  { name: "Montblanc", tag: "German maison", note: "Refined optical & sun", domain: "montblanc.com", category: "glasses" },
-  { name: "Puma", tag: "Sport", note: "Active & everyday eyewear", domain: "puma.com", category: "glasses" },
+  { slug: "montblanc", name: "Montblanc", tag: "German maison", note: "Refined optical & sun", domain: "montblanc.com", category: "glasses" },
+  { slug: "puma", name: "Puma", tag: "Sport", note: "Active & everyday eyewear", domain: "puma.com", category: "glasses" },
   { slug: "silhouette", name: "Silhouette", tag: "Austrian craft", note: "Rimless lightweight titanium", logo: silhouetteLogo, domain: "silhouette.com", category: "glasses" },
   { slug: "tom-ford", name: "Tom Ford", tag: "Modern luxury", note: "Optical & oversize sun", domain: "tomford.com", category: "glasses" },
   { slug: "burberry", name: "Burberry", tag: "British heritage", note: "Check & monogram series", domain: "burberry.com", category: "glasses" },

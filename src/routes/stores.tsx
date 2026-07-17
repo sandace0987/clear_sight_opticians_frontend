@@ -3,6 +3,9 @@ import { Clock, MapPin, Phone } from "lucide-react";
 import storeInterior from "@/assets/store-interior.webp";
 import kphb1 from "@/assets/kphb-interior-1.jpg";
 import kphb2 from "@/assets/kphb-interior-2.jpg";
+import nizampet1 from "@/assets/nizampet-1.jpg";
+import nizampet2 from "@/assets/nizampet-2.jpg";
+import bowenpallyImg from "@/assets/bowenpally.jpg";
 import { StoreImageCarousel } from "@/components/site/StoreImageCarousel";
 
 export const Route = createFileRoute("/stores")({
@@ -37,18 +40,18 @@ const STORES = [
   {
     name: "Nizampet",
     tag: "Studio",
-    address: "Beside Vazra Nirman Pushpak, Nizampet Colony, Hyderabad, Telangana",
+    address: "58, Blooming Dale Rd, Madhura Nagar, Nizampet, Hyderabad, Telangana 500090",
     phone: "+91 94405 25789",
     hours: "Mon–Sun · 9:00 AM – 9:30 PM",
-    images: [storeInterior],
+    images: [nizampet1, nizampet2],
   },
   {
     name: "Bowenpally",
     tag: "Studio",
-    address: "Near Delhi Public School, Sikh Village Road, Bowenpally, Hyderabad, Telangana",
+    address: "Sikh Rd, Cantonment Co-op Housing Society, Radha Swamy Colony, Bowenpally, Secunderabad, Telangana 500009",
     phone: "+91 94405 25789",
     hours: "Mon–Sun · 9:00 AM – 9:30 PM",
-    images: [storeInterior],
+    images: [bowenpallyImg],
   },
 ];
 
