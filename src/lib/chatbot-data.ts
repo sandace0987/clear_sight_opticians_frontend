@@ -5,42 +5,43 @@ export interface ChatQA {
 
 export const chatbotQA: ChatQA[] = [
   {
-    question: "Which brands do you stock?",
+    question: "📍 Where are your stores located?",
     answer:
-      "We carry the world's finest eyewear houses — Ray-Ban, Oakley, Prada, Tom Ford, Burberry, Versace, Maui Jim, Carrera, Police and more, plus Ray-Ban Meta & Oakley Meta smart glasses.",
+      "We have three state-of-the-art Hyderabad studios open daily from <strong>9:00 AM to 9:30 PM</strong>:<br/><br/>• <strong>KPHB Colony</strong> (Near JNTU Metro)<br/>• <strong>Nizampet</strong> (Main Road)<br/>• <strong>Bowenpally</strong> (Near Diamond Point)<br/><br/>You can get directions and phone numbers on our <a href=\"/stores\" class=\"text-electric underline font-semibold\">Stores Page</a>.",
   },
   {
-    question: "How do I book an eye test?",
+    question: "👓 Which designer brands do you carry?",
     answer:
-      'Booking takes a minute — tap "Book Eye Test" in the menu, or call us on <a href="tel:+919440525789" class="underline font-medium">+91 94405 25789</a>. Walk-ins are welcome too!',
+      "We stock authentic collections from the world's finest designer eyewear houses, including <strong>Ray-Ban, Oakley, Prada, Montblanc, Burberry, Philipp Plein, Maui Jim, Police, and Vogue Eyewear</strong>.<br/><br/>Other premium lines like <strong>Tom Ford, Carrera, Versace, and Porsche Design</strong> are available in-store with online inventory coming soon. If you're looking for a specific model, we can source it for you!",
   },
   {
-    question: "Are you ZEISS certified?",
+    question: "📅 How do I book an eye test?",
     answer:
-      "Yes! We are ZEISS Certified Vision Experts — the first eye-care professionals in Telangana to partner with ZEISS. We fit ClearMind and SmartLife lenses with DuraVision, BlueGuard and UVProtect coatings.",
+      "Eye testing at Clear Sight is <strong>computerized, precision-calibrated, and free of charge</strong> with any frame or lens purchase! Bookings take under a minute:<br/><br/>• Tap <a href=\"/\" class=\"text-electric underline font-semibold\">Book Eye Test</a> in the menu<br/>• Call us directly at <a href=\"tel:+919440525789\" class=\"text-electric underline font-semibold\">+91 94405 25789</a><br/>• Walk-ins are always welcome!",
   },
   {
-    question: "What are your shop timings?",
+    question: "⚡ Do you have Ray-Ban Meta smart glasses?",
     answer:
-      "We're open <strong>Monday to Sunday, 9:00 AM to 9:30 PM</strong> across all three studios. Walk-ins are welcome, and we recommend booking an eye test in advance during weekends.",
+      "Yes! We have in-store display models and active stock for both <strong>Ray-Ban Meta Wayfarer</strong> and <strong>Oakley Meta HSTN</strong> smart glasses. Drop by any branch for a live hands-free demo of photo/video capture, calling, and Meta AI features.",
   },
   {
-    question: "Where are your stores located?",
+    question: "🔬 What prescription lenses do you recommend?",
     answer:
-      "We have three Hyderabad studios:<br/>• <strong>Kukatpally (KPHB)</strong><br/>• <strong>Nizampet</strong><br/>• <strong>Bowenpally</strong><br/>Open Mon–Sun, 9:00 AM – 9:30 PM. Visit the Stores page for maps and directions.",
+      "We are proud <strong>ZEISS Certified Vision Experts</strong>, offering the absolute best in optics:<br/><br/>• <strong>ZEISS SmartLife & ClearMind</strong>: Advanced single-vision & progressives optimized for digital lifestyles.<br/>• <strong>Specialty Coatings</strong>: DuraVision Anti-Reflective, BlueGuard digital protection, and UVProtect.<br/>• We also carry premium progressives and myopia control options from <strong>Hoya and Essilor</strong>.",
   },
   {
-    question: "Do you have smart glasses?",
+    question: "👶 Do you offer eye care for kids?",
     answer:
-      "We do — Ray-Ban Meta and Oakley Meta with in-store demos and launch pricing. Capture, call and ask Meta AI, all hands-free.",
+      "Yes, we specialize in pediatric eye care and myopia control! We fit advanced pediatric lenses like <strong>ZEISS MyoCare</strong> and <strong>Hoya MiYOSMART</strong> to help slow down myopia progression in children, paired with extremely durable and flexible child-safe frames.",
   },
   {
-    question: "Do you sell lenses for kids?",
+    question: "💬 Can I check frame price and stock availability?",
     answer:
-      "Yes — including myopia-control options like ZEISS MyoCare and Hoya MiYOSMART, plus durable kids frames. Our full kids range is expanding — enquire in store.",
+      "Absolutely! We can check live stock across our three Hyderabad warehouses instantly. Simply tap the <strong>WhatsApp</strong> button below or call us with the model name/number, and our opticians will assist you right away.",
   },
 ];
 
 export const FALLBACK_MESSAGE =
-  'Happy to help! Reach us directly on <a href="https://wa.me/919440525789" target="_blank" rel="noopener noreferrer" class="underline font-medium">WhatsApp</a> or call <a href="tel:+919440525789" class="underline font-medium">+91 94405 25789</a>, or drop by any of our three Hyderabad studios and our team will assist you.';
+  'We\'d love to help! Reach out directly to our opticians on <a href="https://wa.me/919440525789" target="_blank" rel="noopener noreferrer" class="text-electric underline font-semibold">WhatsApp</a>, call us at <a href="tel:+919440525789" class="text-electric underline font-semibold">+91 94405 25789</a>, or visit any of our three stores in KPHB, Nizampet, or Bowenpally.';
+
 

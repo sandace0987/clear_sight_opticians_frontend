@@ -5,6 +5,7 @@ import { HoverLens } from "@/components/motion/HoverLens";
 import { EnquireDialog } from "@/components/site/EnquireDialog";
 import { ArrowUpRight } from "lucide-react";
 import type { ColorVariant } from "@/lib/brand-catalog";
+import { useImageDominantColor } from "@/hooks/useImageDominantColor";
 
 type Props = {
   brand: string;
@@ -27,6 +28,7 @@ export function ProductDialog({ brand, model, priceFrom, variants, trigger, open
   const [view, setView] = React.useState<keyof ColorVariant["images"]>("front");
 
   const variant = variants.find((v) => v.id === variantId) ?? variants[0];
+  const { color } = useImageDominantColor(variant.images[view]);
 
   return (
     // Stop synthetic click events from Radix's portal bubbling up the React tree
@@ -40,7 +42,10 @@ export function ProductDialog({ brand, model, priceFrom, variants, trigger, open
       >
         <div className="grid grid-cols-1 md:grid-cols-2">
           {/* Gallery */}
-          <div className="bg-white p-6 flex flex-col gap-4">
+          <div
+            className="p-6 flex flex-col gap-4"
+            style={{ backgroundColor: color, transition: "background-color 0.4s ease" }}
+          >
             <ZoomViewer
               src={variant.images[view]}
               alt={`${brand} ${model} — ${variant.name}, ${view} view`}
@@ -93,17 +98,27 @@ export function ProductDialog({ brand, model, priceFrom, variants, trigger, open
               <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground">Colour</span>
               <div className="mt-2 flex items-center gap-3">
                 {variants.map((v) => (
-                  <button
+                  <span
                     key={v.id}
-                    type="button"
-                    onClick={() => setVariantId(v.id)}
-                    aria-label={v.name}
-                    title={v.name}
-                    className={`size-8 rounded-full border transition-all ${
-                      v.id === variantId ? "ring-2 ring-electric ring-offset-2 ring-offset-background border-transparent" : "border-border"
+                    className={`inline-flex rounded-full p-0.5 transition-all ${
+                      v.id === variantId
+                        ? "ring-2 ring-electric ring-offset-1 ring-offset-background"
+                        : "ring-1 ring-border"
                     }`}
-                    style={{ background: v.swatch }}
-                  />
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setVariantId(v.id)}
+                      aria-label={v.name}
+                      title={v.name}
+                      className="size-7 rounded-full block overflow-hidden"
+                      style={{
+                        background: v.swatch,
+                        transform: "translateZ(0)",
+                        backfaceVisibility: "hidden",
+                      }}
+                    />
+                  </span>
                 ))}
               </div>
             </div>

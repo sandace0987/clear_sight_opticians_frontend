@@ -18,4 +18,21 @@ export default defineConfig({
     }),
     react(),
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes("node_modules/framer-motion")) return "chunk-motion";
+          if (id.includes("node_modules/@radix-ui")) return "chunk-radix";
+          if (
+            id.includes("node_modules/@tanstack/react-query") ||
+            id.includes("node_modules/@tanstack/react-router") ||
+            id.includes("node_modules/@tanstack/router")
+          )
+            return "chunk-tanstack";
+        },
+      },
+    },
+  },
 });
+

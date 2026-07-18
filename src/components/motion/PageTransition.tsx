@@ -1,17 +1,39 @@
 import { motion } from "framer-motion";
 import { useRouterState } from "@tanstack/react-router";
-import { type ReactNode, useEffect } from "react";
+import { type ReactNode, useLayoutEffect, useRef } from "react";
 import { useReducedMotion } from "@/hooks/use-motion-prefs";
 import { pageTransition } from "@/lib/motion-variants";
 
-export function PageTransition({ children }: { children: ReactNode }) {
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const reduced = useReducedMotion();
+// Cache to store scroll positions of visited pages
+const scrollCache = new Map<string, number>();
 
-  useEffect(() => {
-    // Reset scroll to top instantly upon new page mount/transition
-    window.scrollTo(0, 0);
-  }, [pathname]);
+export function PageTransition({ children }: { children: ReactNode }) {
+  const routePathname = useRouterState({
+    select: (s) => s.matches.at(-1)?.pathname ?? s.location.pathname,
+  });
+  const reduced = useReducedMotion();
+  const prevPathnameRef = useRef(routePathname);
+
+  useLayoutEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const prevPath = prevPathnameRef.current;
+    if (prevPath) {
+      scrollCache.set(prevPath, window.scrollY);
+    }
+
+    const savedScroll = scrollCache.get(routePathname) ?? 0;
+
+    // Use the committed route match rather than the pending URL. Otherwise the
+    // old page can be scrolled to the next page's top while it is still visible.
+    window.scrollTo({
+      top: savedScroll,
+      left: 0,
+      behavior: "instant" as ScrollBehavior,
+    });
+
+    prevPathnameRef.current = routePathname;
+  }, [routePathname]);
 
   if (reduced) return <>{children}</>;
 
@@ -20,7 +42,7 @@ export function PageTransition({ children }: { children: ReactNode }) {
   // previous page (e.g. home) to flash briefly before the new page mounted.
   return (
     <motion.div
-      key={pathname}
+      key={routePathname}
       initial="hidden"
       animate="show"
       variants={pageTransition}

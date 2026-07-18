@@ -76,25 +76,23 @@ function drawImageCentered(
   // We aggressively crop the active video area: 1280x560 starting at Y=80
   // to completely remove any baked-in black letterboxing or watermarks
   const cropX = 0;
-  const cropY = 80;
+  const cropY = 0;
   const cropW = img.naturalWidth;
-  const cropH = 560;
+  const cropH = img.naturalHeight;
 
   const scaleX = canvasW / cropW;
   const scaleY = canvasH / cropH;
   
-  // Use a blend of cover and contain depending on aspect ratio to avoid extreme mobile cropping
-  // If the screen is very tall (mobile), contain to width (scaleX). If wide, cover (scaleY).
-  const isMobile = canvasW < canvasH;
-  const scale = isMobile ? scaleX : Math.max(scaleX, scaleY);
+  // Crop to fill (cover scale) on all devices
+  const scale = Math.max(scaleX, scaleY);
 
   const drawW = cropW * scale;
   const drawH = cropH * scale;
   const x = (canvasW - drawW) / 2;
   const y = (canvasH - drawH) / 2;
 
-  // Background to match video frame edges
-  ctx.fillStyle = "#e8e8e8";
+  // Fill background with black color
+  ctx.fillStyle = "#000000";
   ctx.fillRect(0, 0, canvasW, canvasH);
 
   // Sharpen canvas rendering

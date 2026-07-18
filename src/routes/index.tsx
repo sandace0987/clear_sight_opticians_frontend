@@ -1,5 +1,5 @@
 import { createFileRoute, Link, useRouterState } from "@tanstack/react-router";
-import { useEffect, useState, type FormEvent } from "react";
+import { lazy, Suspense, useEffect, useState, type FormEvent } from "react";
 import { cn } from "@/lib/utils";
 import {
   ArrowUpRight,
@@ -19,7 +19,8 @@ import {
 } from "lucide-react";
 
 import { HOUSES } from "@/lib/brand-catalog";
-import heroPortrait from "@/assets/hero-portrait.webp";
+import heroPortraitLight from "@/assets/homepage/hero-portrait-light.webp";
+import heroPortraitDark from "@/assets/homepage/hero-portrait-dark.webp";
 import pradaModelMale from "@/assets/brands/prada-model-male.webp";
 import raybanModel from "@/assets/brands/rayban-model.webp";
 import oakleyModel from "@/assets/brands/oakley-model.webp";
@@ -28,31 +29,29 @@ import rayBanLogo from "@/assets/brands/ray-ban-logo.svg";
 import guessLogo from "@/assets/brands/guess-logo.webp";
 import silhouetteLogo from "@/assets/brands/silhouette-logo.webp";
 
-import storeInterior from "@/assets/store-interior.webp";
-import kphb1 from "@/assets/kphb-interior-1.jpg";
-import kphb2 from "@/assets/kphb-interior-2.jpg";
-import nizampet1 from "@/assets/nizampet-1.jpg";
-import nizampet2 from "@/assets/nizampet-2.jpg";
-import bowenpallyImg from "@/assets/bowenpally.jpg";
+import storeInterior from "@/assets/miscellaneous/store-interior.webp";
+import kphb1 from "@/assets/miscellaneous/kphb-interior-1.webp";
+import kphb2 from "@/assets/miscellaneous/kphb-interior-2.webp";
+import nizampet1 from "@/assets/miscellaneous/nizampet-1.webp";
+import nizampet2 from "@/assets/miscellaneous/nizampet-2.webp";
+import bowenpallyImg from "@/assets/miscellaneous/bowenpally.webp";
 
-import pumaModel from "@/assets/brands/puma-model.jpg";
-import silhouetteModel from "@/assets/brands/silhouette-model.jpg";
-import vogueModel from "@/assets/brands/vogue-model.jpg";
-import montblancModel from "@/assets/brands/montblanc-model.jpg";
+import pumaModel from "@/assets/brands/puma-model.webp";
+import silhouetteModel from "@/assets/brands/silhouette-model.webp";
+import vogueModel from "@/assets/brands/vogue-model.webp";
+import montblancModel from "@/assets/brands/montblanc-model.webp";
+import burberryModel from "@/assets/brands/burberry-model.webp";
+import mauiJimModel from "@/assets/brands/maui-jim-model.webp";
 
 import { StoreImageCarousel } from "@/components/site/StoreImageCarousel";
-import { TryOnSection } from "@/components/try-on/TryOnSection";
 import { KineticHeading } from "@/components/motion/KineticHeading";
 import { Reveal } from "@/components/motion/Reveal";
 import { TiltCard } from "@/components/motion/TiltCard";
 import { CountUp } from "@/components/motion/CountUp";
 import { MagneticButton } from "@/components/motion/MagneticButton";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  ProductReveal,
-  SMART_GLASSES_SEQUENCE,
-  SMART_GLASSES_TEXT_TIMELINE,
-} from "@/components/ProductReveal";
+import { SMART_GLASSES_SEQUENCE } from "@/components/ProductReveal/sequence";
+import { SMART_GLASSES_TEXT_TIMELINE } from "@/components/ProductReveal/textTimeline";
 
 const BRAND_CAMPAIGN_IMAGES: Record<string, string> = {
   prada: pradaModelMale,
@@ -62,38 +61,48 @@ const BRAND_CAMPAIGN_IMAGES: Record<string, string> = {
   silhouette: silhouetteModel,
   puma: pumaModel,
   montblanc: montblancModel,
+  burberry: burberryModel,
+  "maui-jim": mauiJimModel,
 };
-import { CatchGame } from "@/components/site/CatchGame";
 import { Gamepad2 } from "lucide-react";
 import { FAQSection } from "@/components/site/FAQSection";
+import { breadcrumbSchema, createSeoHead, itemListSchema, STORE_LOCATIONS } from "@/lib/seo";
 
+const ProductReveal = lazy(() =>
+  import("@/components/ProductReveal/ProductReveal").then((module) => ({
+    default: module.ProductReveal,
+  })),
+);
+const TryOnSection = lazy(() =>
+  import("@/components/try-on/TryOnSection").then((module) => ({
+    default: module.TryOnSection,
+  })),
+);
+const CatchGame = lazy(() =>
+  import("@/components/site/CatchGame").then((module) => ({ default: module.CatchGame })),
+);
 
 
 export const Route = createFileRoute("/")({
   head: () => ({
-    meta: [
-      { title: "Clear Sight Opticians | Premium Eyewear & Eye Care in KPHB Hyderabad" },
-      {
-        name: "description",
-        content:
-          "Clear Sight Opticians in KPHB, JNTU Road Hyderabad offers premium eyewear, designer frames, customized lenses, computer glasses, and professional eye care services. Your vision deserves the best.",
-      },
-      { name: "keywords", content: "Clear Sight Opticians, optician in Hyderabad, optical shop KPHB, eye test Kukatpally, computer glasses Hyderabad, prescription lenses, Ray-Ban Meta smart glasses, eyewear store JNTU road" },
-      { name: "robots", content: "index, follow" },
-      { property: "og:title", content: "Clear Sight Opticians | Premium Eyewear & Eye Care" },
-      {
-        property: "og:description",
-        content: "Discover professional eye care and a premium selection of frames and lenses at Clear Sight Opticians, KPHB Hyderabad.",
-      },
-      { property: "og:url", content: "https://www.clearsightopticians.in/" },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Clear Sight Opticians | Premium Eyewear & Eye Care" },
-      { name: "twitter:description", content: "Discover professional eye care and a premium selection of frames and lenses at Clear Sight Opticians, KPHB Hyderabad." },
-    ],
+    ...createSeoHead({
+      title: "Clear Sight Opticians | ZEISS Eye Tests, Designer Eyewear & Smart Glasses in Hyderabad",
+      description:
+        "Book ZEISS eye tests, prescription lenses, designer eyewear, contact lenses, computer glasses, and Ray-Ban Meta demos at Clear Sight Opticians in KPHB, Nizampet, and Bowenpally.",
+      path: "/",
+      schema: [
+        breadcrumbSchema([{ name: "Home", path: "/" }]),
+        itemListSchema(
+          "Clear Sight Opticians Hyderabad stores",
+          "/stores",
+          STORE_LOCATIONS.map((store) => ({ name: store.name, path: `/stores#${store.id}` })),
+        ),
+      ],
+    }),
     links: [
       { rel: "canonical", href: "https://www.clearsightopticians.in/" },
-      { rel: "preload", as: "image", href: heroPortrait, fetchPriority: "high" },
+      { rel: "preload", as: "image", href: heroPortraitLight, fetchPriority: "high" },
+      { rel: "preload", as: "image", href: heroPortraitDark, fetchPriority: "high" },
     ],
   }),
   component: HomePage,
@@ -179,32 +188,39 @@ const WHY = [
   { icon: Sparkles, title: "Personalised styling", desc: "Frame consultations matched to your face shape." },
 ];
 
-const STORES = [
+const ANSWER_BLOCKS = [
   {
-    name: "Kukatpally (KPHB)",
-    tag: "Flagship",
-    address: "Shop #4, Padmaja Complex, JNTU Road, 6th Phase, KPHB, Hyderabad - 500085",
-    phone: "+91 94405 25789",
-    hours: "9:00 AM – 9:30 PM",
-    images: [kphb1, kphb2],
+    question: "Where can I get a ZEISS eye test in Hyderabad?",
+    answer:
+      "Clear Sight Opticians offers professional ZEISS eye testing at KPHB, Nizampet, and Bowenpally. Each visit includes careful refraction, frame guidance, and lens recommendations for your daily routine.",
   },
   {
-    name: "Nizampet",
-    tag: "Studio",
-    address: "58, Blooming Dale Rd, Madhura Nagar, Nizampet, Hyderabad, Telangana 500090",
-    phone: "+91 94405 25789",
-    hours: "9:00 AM – 9:30 PM",
-    images: [nizampet1, nizampet2],
+    question: "Can Ray-Ban Meta and Oakley Meta take prescription lenses?",
+    answer:
+      "Yes. Our team helps fit compatible prescription, progressive, transition, and blue-light lens options for Ray-Ban Meta and Oakley Meta frames without blocking the camera, speakers, or controls.",
   },
   {
-    name: "Bowenpally",
-    tag: "Studio",
-    address: "Sikh Rd, Cantonment Co-op Housing Society, Radha Swamy Colony, Bowenpally, Secunderabad, Telangana 500009",
-    phone: "+91 94405 25789",
-    hours: "9:00 AM – 9:30 PM",
-    images: [bowenpallyImg],
+    question: "Which designer eyewear brands are available?",
+    answer:
+      "We stock authentic designer eyewear including Ray-Ban, Oakley, Prada, Maui Jim, Silhouette, Montblanc, Burberry, Vogue Eyewear, Police, Philipp Plein, Puma, Carrera, Tom Ford, and ZEISS lenses.",
+  },
+  {
+    question: "Which Clear Sight store is nearest to me?",
+    answer:
+      "Choose KPHB for JNTU, Kukatpally, Miyapur, and Pragathi Nagar; Nizampet for Bachupally and Hyder Nagar; and Bowenpally for Secunderabad, Cantonment, Sikh Village, Paradise, and Begumpet.",
   },
 ];
+
+const STORE_IMAGES = {
+  kphb: [kphb1, kphb2],
+  nizampet: [nizampet1, nizampet2],
+  bowenpally: [bowenpallyImg],
+} as const;
+
+const STORES = STORE_LOCATIONS.map((store) => ({
+  ...store,
+  images: [...STORE_IMAGES[store.id]] as string[],
+}));
 
 const TESTIMONIALS = [
   {
@@ -256,6 +272,19 @@ function LetterShimmer({ text, offset = 0 }: { text: string; offset?: number }) 
 function HomePage() {
   const hash = useRouterState({ select: (s) => s.location.hash });
   const [playing, setPlaying] = useState(false);
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    setIsDark(document.documentElement.classList.contains("dark"));
+    const observer = new MutationObserver(() => {
+      setIsDark(document.documentElement.classList.contains("dark"));
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+    return () => observer.disconnect();
+  }, []);
 
   const handleBookingSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -289,12 +318,12 @@ function HomePage() {
 
 
   return (
-    <div className="bg-background">
+    <div>
       {/* ============== HERO ============== */}
       <section className="px-4 sm:px-6 lg:px-10 pt-6 pb-16 lg:pb-24">
         <div className="relative w-full h-[calc(100svh-8rem)] sm:h-[calc(100svh-7.5rem)] lg:h-[calc(100vh-6.5rem)] overflow-hidden rounded-[28px] lg:rounded-[40px] bg-secondary">
           <motion.img
-            src={heroPortrait}
+            src={isDark ? heroPortraitDark : heroPortraitLight}
             alt="Person wearing clear-frame luxury eyewear in cinematic blue light"
             width={1920}
             height={1080}
@@ -363,23 +392,24 @@ function HomePage() {
                   );
                 })}
                 <br />
-                <span className="inline-block overflow-hidden align-baseline pb-[0.12em] mr-[0.28em]">
+                <span className="inline-flex items-center gap-x-[0.28em] whitespace-nowrap">
+                  <span className="inline-block overflow-hidden">
+                    <motion.span
+                      className="inline-block will-change-transform"
+                      variants={{
+                        hidden: { y: "110%" },
+                        show: { y: "0%", transition: { duration: 0.95, ease: [0.16, 1, 0.3, 1] } },
+                      }}
+                    >
+                      <LetterShimmer text="Live" offset={25} />
+                    </motion.span>
+                  </span>
                   <motion.span
-                    className="inline-block will-change-transform"
                     variants={{
-                      hidden: { y: "110%" },
-                      show: { y: "0%", transition: { duration: 0.95, ease: [0.16, 1, 0.3, 1] } },
+                      hidden: { opacity: 0, scale: 0.85, y: 20 },
+                      show: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.95, ease: [0.16, 1, 0.3, 1] } },
                     }}
-                  >
-                    <LetterShimmer text="Live" offset={25} />
-                  </motion.span>
-                </span>
-                <motion.span
-                  variants={{
-                    hidden: { opacity: 0, scale: 0.85, y: 20 },
-                    show: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.95, ease: [0.16, 1, 0.3, 1] } },
-                  }}
-                  className="relative font-serif italic font-medium px-5 py-1 sm:px-8 sm:py-1.5 rounded-full inline-flex items-center justify-center align-middle -translate-y-[0.05em]"
+                    className="relative font-serif italic font-medium px-5 py-1 sm:px-8 sm:py-1.5 rounded-full inline-flex items-center justify-center"
                   style={{
                     backdropFilter: "blur(10px) saturate(170%) contrast(110%)",
                     WebkitBackdropFilter: "blur(10px) saturate(170%) contrast(110%)",
@@ -436,6 +466,7 @@ function HomePage() {
                     }}
                   />
                 </motion.span>
+                </span>
               </motion.h1>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -465,7 +496,11 @@ function HomePage() {
 
           {/* Mini-game overlay */}
           <AnimatePresence>
-            {playing && <CatchGame key="catch-game" onExit={() => setPlaying(false)} />}
+            {playing && (
+              <Suspense fallback={null}>
+                <CatchGame key="catch-game" onExit={() => setPlaying(false)} />
+              </Suspense>
+            )}
           </AnimatePresence>
 
         </div>
@@ -519,12 +554,14 @@ function HomePage() {
 
 
       {/* ============== SMART GLASSES — SCROLL IMAGE SEQUENCE (Apple-style) ============== */}
-      <ProductReveal
-        sequence={SMART_GLASSES_SEQUENCE}
-        textTimeline={SMART_GLASSES_TEXT_TIMELINE}
-        scrollHeight={3000}
-        id="smart-glasses"
-      />
+      <Suspense fallback={<section id="smart-glasses" className="min-h-[70vh] bg-ink" />}>
+        <ProductReveal
+          sequence={SMART_GLASSES_SEQUENCE}
+          textTimeline={SMART_GLASSES_TEXT_TIMELINE}
+          scrollHeight={3000}
+          id="smart-glasses"
+        />
+      </Suspense>
 
 
       {/* ============== BRANDS ============== */}
@@ -617,7 +654,9 @@ function HomePage() {
 
 
       {/* ============== VIRTUAL TRY-ON ============== */}
-      <TryOnSection id="try-on" />
+      <Suspense fallback={<section id="try-on" className="min-h-[50vh] bg-secondary/40" />}>
+        <TryOnSection id="try-on" />
+      </Suspense>
 
 
 
@@ -664,13 +703,15 @@ function HomePage() {
                   </div>
                   <div className="mt-auto pt-2 flex gap-2">
                     <a
-                      href="#"
+                      href={s.mapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex-1 text-center bg-ink text-white py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-electric transition-colors"
                     >
                       Directions
                     </a>
                     <a
-                      href={`tel:${s.phone.replace(/\s/g, "")}`}
+                      href={s.phoneHref}
                       className="flex-1 text-center bg-secondary py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-accent transition-colors"
                     >
                       Call
@@ -743,6 +784,33 @@ function HomePage() {
                   <p className="text-xs text-muted-foreground font-serif italic mt-1">{t.context}</p>
                 </figcaption>
               </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============== ANSWER ENGINE CONTENT ============== */}
+      <section className="px-6 lg:px-10 py-20 lg:py-28 border-t border-border">
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-2xl mb-12">
+            <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">
+              Quick answers
+            </span>
+            <h2 className="mt-3 text-4xl sm:text-5xl font-bold tracking-tighter">
+              Eye care answers for{" "}
+              <span className="font-serif italic font-medium text-electric">Hyderabad.</span>
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              Direct answers to the questions customers ask before choosing an optician,
+              eye test, prescription lens, or smart glasses demo.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {ANSWER_BLOCKS.map((item) => (
+              <article key={item.question} className="rounded-2xl border border-border bg-secondary/40 p-7">
+                <h3 className="text-lg font-bold tracking-tight">{item.question}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.answer}</p>
+              </article>
             ))}
           </div>
         </div>

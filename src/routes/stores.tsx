@@ -1,59 +1,52 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Clock, MapPin, Phone } from "lucide-react";
-import storeInterior from "@/assets/store-interior.webp";
-import kphb1 from "@/assets/kphb-interior-1.jpg";
-import kphb2 from "@/assets/kphb-interior-2.jpg";
-import nizampet1 from "@/assets/nizampet-1.jpg";
-import nizampet2 from "@/assets/nizampet-2.jpg";
-import bowenpallyImg from "@/assets/bowenpally.jpg";
+import { Clock, MapPin, Phone, Car, Sparkles } from "lucide-react";
+import kphb1 from "@/assets/miscellaneous/kphb-interior-1.webp";
+import kphb2 from "@/assets/miscellaneous/kphb-interior-2.webp";
+import nizampet1 from "@/assets/miscellaneous/nizampet-1.webp";
+import nizampet2 from "@/assets/miscellaneous/nizampet-2.webp";
+import bowenpallyImg from "@/assets/miscellaneous/bowenpally.webp";
 import { StoreImageCarousel } from "@/components/site/StoreImageCarousel";
+import {
+  breadcrumbSchema,
+  createSeoHead,
+  itemListSchema,
+  STORE_LOCATIONS,
+  storeSchema,
+} from "@/lib/seo";
 
 export const Route = createFileRoute("/stores")({
-  head: () => ({
-    meta: [
-      { title: "Optical Stores in Hyderabad: KPHB, Nizampet & Bowenpally | Clear Sight" },
-      { name: "description", content: "Visit Clear Sight Opticians at KPHB Colony (Kukatpally), Nizampet, or Bowenpally in Hyderabad. Open daily 9:00 AM to 9:30 PM. Professional eye testing and prescription fittings." },
-      { name: "keywords", content: "optical stores Hyderabad, optician Kukatpally, eye clinic Nizampet, optical shop Bowenpally, best opticians in Hyderabad, computer glasses Hyderabad" },
-      { name: "robots", content: "index, follow" },
-      { property: "og:title", content: "Optical Stores in Hyderabad: KPHB, Nizampet & Bowenpally" },
-      { property: "og:description", content: "Visit Clear Sight Opticians at KPHB, Nizampet, or Bowenpally Colony in Hyderabad. Three locations, one standard of vision care." },
-      { property: "og:url", content: "https://www.clearsightopticians.in/stores" },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [
-      { rel: "canonical", href: "https://www.clearsightopticians.in/stores" }
-    ]
-  }),
+  head: () =>
+    createSeoHead({
+      title: "Optical Stores in Hyderabad | KPHB, Nizampet & Bowenpally | Clear Sight",
+      description:
+        "Visit Clear Sight Opticians in KPHB, Nizampet, or Bowenpally for ZEISS eye tests, designer eyewear, prescription lenses, computer glasses, and smart glasses demos.",
+      path: "/stores",
+      schema: [
+        breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Stores", path: "/stores" },
+        ]),
+        itemListSchema(
+          "Clear Sight Opticians store locations",
+          "/stores",
+          STORE_LOCATIONS.map((store) => ({ name: store.name, path: `/stores#${store.id}` })),
+        ),
+        ...STORE_LOCATIONS.map(storeSchema),
+      ],
+    }),
   component: StoresPage,
 });
 
-const STORES = [
-  {
-    name: "Kukatpally (KPHB)",
-    tag: "Flagship",
-    address: "Shop #4, Padmaja Complex, JNTU Road, 6th Phase, KPHB, Hyderabad - 500085",
-    phone: "+91 94405 25789",
-    hours: "Mon–Sun · 9:00 AM – 9:30 PM",
-    images: [kphb1, kphb2],
-  },
-  {
-    name: "Nizampet",
-    tag: "Studio",
-    address: "58, Blooming Dale Rd, Madhura Nagar, Nizampet, Hyderabad, Telangana 500090",
-    phone: "+91 94405 25789",
-    hours: "Mon–Sun · 9:00 AM – 9:30 PM",
-    images: [nizampet1, nizampet2],
-  },
-  {
-    name: "Bowenpally",
-    tag: "Studio",
-    address: "Sikh Rd, Cantonment Co-op Housing Society, Radha Swamy Colony, Bowenpally, Secunderabad, Telangana 500009",
-    phone: "+91 94405 25789",
-    hours: "Mon–Sun · 9:00 AM – 9:30 PM",
-    images: [bowenpallyImg],
-  },
-];
+const STORE_IMAGES = {
+  kphb: [kphb1, kphb2],
+  nizampet: [nizampet1, nizampet2],
+  bowenpally: [bowenpallyImg],
+} as const;
+
+const STORES = STORE_LOCATIONS.map((store) => ({
+  ...store,
+  images: [...STORE_IMAGES[store.id]] as string[],
+}));
 
 
 function StoresPage() {
@@ -70,7 +63,7 @@ function StoresPage() {
 
         <div className="mt-16 flex flex-col gap-6">
           {STORES.map((s, i) => (
-            <article key={s.name} className="grid grid-cols-1 lg:grid-cols-12 bg-secondary/60 border border-border rounded-3xl overflow-hidden">
+            <article key={s.name} id={s.id} className="grid grid-cols-1 lg:grid-cols-12 bg-secondary/60 border border-border rounded-3xl overflow-hidden">
               <div className="lg:col-span-5 aspect-[4/3] lg:aspect-auto overflow-hidden bg-secondary">
                 <StoreImageCarousel
                   images={s.images}
@@ -86,18 +79,74 @@ function StoresPage() {
                   </span>
                 </div>
                 <h2 className="text-3xl lg:text-4xl font-bold tracking-tighter">{s.name}</h2>
+
+                {/* Address */}
                 <p className="text-muted-foreground leading-relaxed flex items-start gap-3 max-w-xl">
                   <MapPin className="size-5 mt-0.5 shrink-0 text-electric" /> {s.address}
                 </p>
+
+                {/* Phone + Hours */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-                  <p className="inline-flex items-center gap-2"><Phone className="size-4 text-muted-foreground" /> {s.phone}</p>
-                  <p className="inline-flex items-center gap-2"><Clock className="size-4 text-muted-foreground" /> {s.hours}</p>
+                  <a
+                    href={s.phoneHref}
+                    className="inline-flex items-center gap-2 hover:text-electric transition-colors"
+                    aria-label={`Call ${s.name}`}
+                  >
+                    <Phone className="size-4 text-muted-foreground" /> {s.phone}
+                  </a>
+                  <p className="inline-flex items-center gap-2">
+                    <Clock className="size-4 text-muted-foreground" /> {s.hours}
+                  </p>
                 </div>
+
+                {/* Visit note */}
+                <p className="text-sm text-muted-foreground leading-relaxed max-w-lg">{s.visitNote}</p>
+
+                {/* Nearby areas */}
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">Nearby</p>
+                  <div className="flex flex-wrap gap-2">
+                    {s.nearbyAreas.map((area) => (
+                      <span key={area} className="text-xs px-2.5 py-1 rounded-full border border-border text-muted-foreground">
+                        {area}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Services */}
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">
+                    <Sparkles className="size-3 inline mr-1 text-electric" />Services
+                  </p>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1">
+                    {s.services.map((svc) => (
+                      <li key={svc} className="text-xs text-muted-foreground flex items-center gap-1.5">
+                        <span className="size-1 rounded-full bg-electric shrink-0" />{svc}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Parking */}
+                <p className="text-xs text-muted-foreground flex items-center gap-2">
+                  <Car className="size-4 shrink-0 text-muted-foreground" /> {s.parkingNote}
+                </p>
+
+                {/* CTAs */}
                 <div className="flex flex-wrap gap-3 mt-2">
-                  <a href="#" className="bg-ink text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-electric transition-colors">
+                  <a
+                    href={s.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-ink text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-electric transition-colors"
+                  >
                     Get directions
                   </a>
-                  <a href={`tel:${s.phone.replace(/\s/g, "")}`} className="bg-background border border-border px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:border-electric hover:text-electric transition-colors">
+                  <a
+                    href={s.phoneHref}
+                    className="bg-background border border-border px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:border-electric hover:text-electric transition-colors"
+                  >
                     Call now
                   </a>
                   <Link
@@ -116,3 +165,4 @@ function StoresPage() {
     </div>
   );
 }
+

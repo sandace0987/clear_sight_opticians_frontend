@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, Eye, Glasses, ShieldCheck, Users } from "lucide-react";
-import storeInterior from "@/assets/store-interior.webp";
-import madhuPhoto from "@/assets/madhu-founder.webp";
-import kphb1 from "@/assets/kphb-interior-1.jpg";
-import kphb2 from "@/assets/kphb-interior-2.jpg";
+import storeInterior from "@/assets/miscellaneous/store-interior.webp";
+import madhuPhoto from "@/assets/miscellaneous/madhu-founder.webp";
+import kphb1 from "@/assets/miscellaneous/kphb-interior-1.webp";
+import kphb2 from "@/assets/miscellaneous/kphb-interior-2.webp";
 import { StoreImageCarousel } from "@/components/site/StoreImageCarousel";
 import { Reveal } from "@/components/motion/Reveal";
 
@@ -44,7 +44,7 @@ const VALUES = [
 
 function AboutPage() {
   return (
-    <div className="bg-background">
+    <div>
       {/* Hero */}
       <section className="px-6 lg:px-10 pt-16 lg:pt-24 pb-12">
         <div className="mx-auto max-w-7xl">

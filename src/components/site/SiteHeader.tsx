@@ -3,8 +3,8 @@ import { Menu, X, Phone, CalendarCheck } from "lucide-react";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { AnimatedWordmark } from "./AnimatedWordmark";
-import { ThemeToggle } from "./ThemeToggle";
-import logoUrl from "@/assets/clear-sight-logo.avif";
+import { ThemeSwatches } from "./ThemeSwatches";
+import logoUrl from "@/assets/miscellaneous/clear-sight-logo.avif";
 
 type NavItem = { to: string; hash?: string; label: string; route?: boolean };
 
@@ -159,7 +159,7 @@ export function SiteHeader() {
             >
               Book Eye Test
             </Link>
-            <ThemeToggle />
+            <ThemeSwatches />
           </div>
 
           {/* Mobile right cluster */}
@@ -172,7 +172,7 @@ export function SiteHeader() {
             >
               <CalendarCheck className="size-4" />
             </Link>
-            <ThemeToggle />
+            <ThemeSwatches />
             <button
               type="button"
               aria-label="Open menu"

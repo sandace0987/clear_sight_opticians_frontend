@@ -36,27 +36,8 @@ export function FAQSection() {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": FAQS.map((faq) => ({
-      "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.answer,
-      },
-    })),
-  };
-
   return (
     <section className="py-20 lg:py-28 border-t border-border/60 bg-secondary/20">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema),
-        }}
-      />
       <div className="mx-auto max-w-4xl px-6 lg:px-10">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">Answers</span>

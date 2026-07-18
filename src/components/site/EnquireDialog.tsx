@@ -59,14 +59,13 @@ export function EnquireDialog({ brand, model, colour: initialColour, trigger }: 
         </DialogHeader>
 
         {/* Call now — top right (left of close X) */}
-        <button
-          type="button"
-          onClick={() => openWhatsApp(false)}
+        <a
+          href="tel:+919440525789"
           className="absolute right-12 top-4 inline-flex items-center gap-1.5 bg-electric text-white px-3 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.14em] hover:opacity-90 transition"
-          aria-label="Call now via WhatsApp"
+          aria-label="Call store now"
         >
           <Phone className="size-3.5" /> Call now
-        </button>
+        </a>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
           <label className="flex flex-col gap-1.5 sm:col-span-2">

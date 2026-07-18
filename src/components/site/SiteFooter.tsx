@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Facebook } from "lucide-react";
-import logoUrl from "@/assets/clear-sight-logo.avif";
+import logoUrl from "@/assets/miscellaneous/clear-sight-logo.avif";
 
 export function SiteFooter() {
   return (

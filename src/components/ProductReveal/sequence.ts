@@ -6,7 +6,7 @@ export const SMART_GLASSES_SEQUENCE: FrameSequenceConfig = {
   basePath: "/frames/smart-glasses/frame-",
   padWidth: 3,
   ext: ".webp",
-  totalFrames: 192,
+  totalFrames: 369,
 };
 
 /** Build the URL for frame number n (1-indexed) */

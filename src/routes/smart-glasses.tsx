@@ -15,13 +15,14 @@ import { motion } from "framer-motion";
 import { EnquireDialog } from "@/components/site/EnquireDialog";
 import { BRANDS } from "@/lib/brand-catalog";
 import { ModelCard } from "@/components/site/ModelCard";
+import { breadcrumbSchema, createSeoHead, SITE_LOGO } from "@/lib/seo";
 
 
 const SMART_GLASSES_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "Ray-Ban Meta Smart Glasses (Wayfarer Gen 2)",
-  "image": "https://www.clearsightopticians.in/rayban-meta.webp",
+  "image": SITE_LOGO,
   "description": "Iconic Ray-Ban frames engineered with Meta AI, hands-free video capture, calls, and open-ear audio. Available at Clear Sight Opticians Hyderabad.",
   "brand": {
     "@type": "Brand",
@@ -40,38 +41,24 @@ const SMART_GLASSES_SCHEMA = {
 };
 
 export const Route = createFileRoute("/smart-glasses")({
-  head: () => ({
-    meta: [
-      { title: "Ray-Ban Meta & Oakley Meta Smart Glasses in Hyderabad | Clear Sight Opticians" },
-      {
-        name: "description",
-        content: "Shop Ray-Ban Meta Wayfarer Gen 2 and Oakley Meta HSTN AI glasses at Clear Sight Opticians Hyderabad. Experience hands-free capture, calls, and Meta AI. Book a demo today.",
-      },
-      { name: "keywords", content: "Ray-Ban Meta Hyderabad, Oakley Meta smart glasses, smart eyewear, prescription smart glasses, Ray-Ban smart glasses India, AI glasses Hyderabad, Kukatpally optician" },
-      { name: "robots", content: "index, follow" },
-      { property: "og:title", content: "Ray-Ban Meta & Oakley Meta Smart Glasses in Hyderabad" },
-      {
-        property: "og:description",
-        content: "Iconic style meets Meta AI. Hands-free capture, calls and Meta AI in the frames you love. Available at Clear Sight Opticians.",
-      },
-      { property: "og:url", content: "https://www.clearsightopticians.in/smart-glasses" },
-      { property: "og:type", content: "product" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Ray-Ban Meta & Oakley Meta Smart Glasses in Hyderabad" },
-      { name: "twitter:description", content: "Iconic style meets Meta AI. Book an in-store demo at Clear Sight Opticians today." },
-    ],
-    links: [
-      { rel: "canonical", href: "https://www.clearsightopticians.in/smart-glasses" }
-    ],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify(SMART_GLASSES_SCHEMA)
-      }
-    ]
-  }),
+  head: () =>
+    createSeoHead({
+      title: "Ray-Ban Meta & Oakley Meta Smart Glasses in Hyderabad | Clear Sight Opticians",
+      description:
+        "Shop Ray-Ban Meta Wayfarer Gen 2 and Oakley Meta HSTN AI glasses at Clear Sight Opticians Hyderabad. Experience hands-free capture, calls, and Meta AI. Book a demo at KPHB, Nizampet or Bowenpally.",
+      path: "/smart-glasses",
+      type: "product",
+      schema: [
+        breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Smart Glasses", path: "/smart-glasses" },
+        ]),
+        SMART_GLASSES_SCHEMA,
+      ],
+    }),
   component: SmartGlassesPage,
 });
+
 
 /* ─── Data ─────────────────────────────────────────────────── */
 
@@ -195,7 +182,7 @@ function SmartGlassesPage() {
     ?.models.filter((m) => m.line === "Meta Glasses") || [];
 
   return (
-    <div className="bg-background">
+    <div>
       {/* ── Hero ── */}
       <section className="px-4 sm:px-6 lg:px-10 pt-8 pb-4">
         <div className="mx-auto max-w-7xl">

@@ -4,6 +4,7 @@ import { type GlassItem } from "@/lib/brand-catalog";
 import { GlassSilhouette } from "@/components/site/GlassSilhouette";
 import { EnquireDialog } from "@/components/site/EnquireDialog";
 import { ProductDialog } from "@/components/site/ProductDialog";
+import { useImageDominantColor } from "@/hooks/useImageDominantColor";
 
 export function ModelCard({ m, index, brandName }: { m: GlassItem; index: number; brandName: string }) {
   const hasVariants = !!m.variants && m.variants.length > 0;
@@ -12,6 +13,9 @@ export function ModelCard({ m, index, brandName }: { m: GlassItem; index: number
   const variant = m.variants?.find((v) => v.id === variantId) ?? m.variants?.[0];
   const collection =
     brandName === "Prada" ? (m.model.includes("Linea Rossa") ? "Linea Rossa" : "Milano") : null;
+
+  const imageSrc = m.image || variant?.images.front;
+  const { color } = useImageDominantColor(imageSrc);
 
   return (
     <article
@@ -47,7 +51,10 @@ export function ModelCard({ m, index, brandName }: { m: GlassItem; index: number
       </div>
 
       {m.image ? (
-        <div className="my-7 block overflow-hidden rounded-2xl bg-white h-36">
+        <div
+          className="my-7 block overflow-hidden rounded-2xl h-36"
+          style={{ backgroundColor: color, transition: "background-color 0.4s ease" }}
+        >
           <img
             src={m.image}
             alt={`${brandName} ${m.model}`}
@@ -59,7 +66,10 @@ export function ModelCard({ m, index, brandName }: { m: GlassItem; index: number
         </div>
       ) : hasVariants && variant ? (
         <>
-          <div className="my-7 block overflow-hidden rounded-2xl bg-white p-4">
+          <div
+            className="my-7 block overflow-hidden rounded-2xl p-4"
+            style={{ backgroundColor: color, transition: "background-color 0.4s ease" }}
+          >
             <div className="flex items-center justify-center h-28">
               <img
                 src={variant.images.front}
@@ -99,20 +109,30 @@ export function ModelCard({ m, index, brandName }: { m: GlassItem; index: number
       {hasVariants && m.variants!.length > 1 && (
         <div className="mt-3 flex items-center gap-2">
           {m.variants!.map((v) => (
-            <button
+            <span
               key={v.id}
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                setVariantId(v.id);
-              }}
-              aria-label={v.name}
-              title={v.name}
-              className={`size-6 rounded-full border transition-all ${
-                v.id === variantId ? "ring-2 ring-electric ring-offset-2 ring-offset-secondary border-transparent" : "border-border"
+              className={`inline-flex rounded-full p-0.5 transition-all ${
+                v.id === variantId
+                  ? "ring-2 ring-electric ring-offset-1 ring-offset-secondary"
+                  : "ring-1 ring-border"
               }`}
-              style={{ background: v.swatch }}
-            />
+            >
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setVariantId(v.id);
+                }}
+                aria-label={v.name}
+                title={v.name}
+                className="size-5 rounded-full block overflow-hidden"
+                style={{
+                  background: v.swatch,
+                  transform: "translateZ(0)",
+                  backfaceVisibility: "hidden",
+                }}
+              />
+            </span>
           ))}
         </div>
       )}

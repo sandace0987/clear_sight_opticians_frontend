@@ -64,7 +64,7 @@ const TextOverlay: FC<TextOverlayProps> = ({ cue, opacity, translateY }) => {
         </span>
       )}
 
-      <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter leading-[1.05] text-ink max-w-3xl">
+      <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter leading-[1.05] text-white max-w-3xl">
         {lines.map((line, i) =>
           i % 2 === 0 ? (
             <span key={i} className="block">
@@ -73,7 +73,7 @@ const TextOverlay: FC<TextOverlayProps> = ({ cue, opacity, translateY }) => {
           ) : (
             <span
               key={i}
-              className="block font-serif italic font-normal text-ink/75"
+              className="block font-serif italic font-normal text-white/75"
             >
               {line}
             </span>
@@ -82,7 +82,7 @@ const TextOverlay: FC<TextOverlayProps> = ({ cue, opacity, translateY }) => {
       </h2>
 
       {cue.body && (
-        <p className="mt-5 text-sm sm:text-base text-ink/60 max-w-sm sm:max-w-md leading-relaxed">
+        <p className="mt-5 text-sm sm:text-base text-white/60 max-w-sm sm:max-w-md leading-relaxed">
           {cue.body}
         </p>
       )}
@@ -91,13 +91,13 @@ const TextOverlay: FC<TextOverlayProps> = ({ cue, opacity, translateY }) => {
         <div className="flex flex-wrap gap-4 justify-center mt-8">
           <Link
             to="/smart-glasses"
-            className="bg-ink text-white px-7 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-electric hover:text-white transition-colors shadow-lg shadow-ink/10"
+            className="bg-white text-black px-7 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-electric hover:text-white transition-colors shadow-lg"
           >
             Shop Collection
           </Link>
           <Link
             to="/contact"
-            className="border border-ink/20 text-ink px-7 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-ink/5 transition-colors"
+            className="border border-white/20 text-white px-7 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white/5 transition-colors"
           >
             Book Free Demo
           </Link>
@@ -112,23 +112,23 @@ const TextOverlay: FC<TextOverlayProps> = ({ cue, opacity, translateY }) => {
 const ReducedMotionFallback: FC<{ id?: string }> = ({ id }) => (
   <section
     id={id}
-    className="relative h-screen bg-[#e8e8e8] flex items-center justify-center overflow-hidden"
+    className="relative h-screen bg-black flex items-center justify-center overflow-hidden"
   >
-    <div className="text-center text-ink px-6 max-w-2xl">
+    <div className="text-center text-white px-6 max-w-2xl">
       <span className="text-electric text-xs font-bold tracking-[0.3em] uppercase mb-4 block">
-        Ray-Ban Meta
+        Meta Glasses
       </span>
       <h2 className="text-5xl font-bold tracking-tighter leading-tight">
         Looks like eyewear.
         <br />
-        <span className="font-serif italic font-normal text-ink/75">
+        <span className="font-serif italic font-normal text-white/75">
           Engineered beyond expectations.
         </span>
       </h2>
       <div className="flex gap-4 justify-center mt-8">
         <Link
           to="/smart-glasses"
-          className="bg-ink text-white px-7 py-3 rounded-full text-xs font-bold uppercase tracking-widest"
+          className="bg-white text-black px-7 py-3 rounded-full text-xs font-bold uppercase tracking-widest"
         >
           Shop Collection
         </Link>
@@ -156,6 +156,15 @@ export const ProductReveal: FC<ProductRevealProps> = ({
     opacity: number;
     translateY: number;
   } | null>(null);
+
+  const [clientHeight, setClientHeight] = useState(1000);
+
+  useEffect(() => {
+    setClientHeight(window.innerHeight);
+    const handleResize = () => setClientHeight(window.innerHeight);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const prefersReducedMotion =
     typeof window !== "undefined" &&
@@ -201,8 +210,8 @@ export const ProductReveal: FC<ProductRevealProps> = ({
     <section
       ref={sectionRef}
       id={id}
-      className="relative scroll-mt-24 bg-[#e8e8e8]"
-      style={{ height: `${scrollHeight + window.innerHeight}px` }}
+      className="relative scroll-mt-24 bg-black"
+      style={{ height: `${scrollHeight + clientHeight}px` }}
     >
       {/* ── Sticky viewport ── */}
       <div className="sticky top-0 h-screen w-full overflow-hidden">
@@ -215,12 +224,12 @@ export const ProductReveal: FC<ProductRevealProps> = ({
 
         {/* ── Section label bar ── */}
         <div className="absolute top-8 left-6 sm:left-10 right-6 sm:right-10 flex items-center justify-between z-20">
-          <span className="text-ink text-[10px] sm:text-xs font-bold tracking-[0.25em] uppercase bg-ink/5 border border-ink/10 backdrop-blur rounded-full px-3 py-1">
+          <span className="text-white text-[10px] sm:text-xs font-bold tracking-[0.25em] uppercase bg-white/5 border border-white/10 backdrop-blur rounded-full px-3 py-1">
             Smart Glasses
           </span>
           <Link
             to="/smart-glasses"
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-ink border-b-2 border-ink pb-1 tracking-[0.2em] uppercase hover:text-electric hover:border-electric transition-colors"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-white border-b-2 border-white pb-1 tracking-[0.2em] uppercase hover:text-electric hover:border-electric transition-colors"
           >
             Shop All
           </Link>

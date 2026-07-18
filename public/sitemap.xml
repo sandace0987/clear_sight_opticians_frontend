@@ -3,99 +3,117 @@
   <!-- Core pages -->
   <url>
     <loc>https://www.clearsightopticians.in/</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.clearsightopticians.in/about</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.clearsightopticians.in/stores</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.clearsightopticians.in/smart-glasses</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.clearsightopticians.in/brands</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Brand detail pages -->
+  <!-- Brand detail pages (only slugs with real catalog pages) -->
   <url>
     <loc>https://www.clearsightopticians.in/brands/ray-ban</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.clearsightopticians.in/brands/oakley</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.clearsightopticians.in/brands/prada</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.clearsightopticians.in/brands/maui-jim</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.clearsightopticians.in/brands/silhouette</loc>
-    <lastmod>2026-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.clearsightopticians.in/brands/gucci</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.clearsightopticians.in/brands/tom-ford</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.clearsightopticians.in/brands/montblanc</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.clearsightopticians.in/brands/burberry</loc>
+    <lastmod>2026-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.clearsightopticians.in/brands/carrera</loc>
+    <lastmod>2026-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.clearsightopticians.in/brands/puma</loc>
+    <lastmod>2026-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.clearsightopticians.in/brands/zeiss</loc>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.clearsightopticians.in/brands/philipp-plein</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.clearsightopticians.in/brands/vogue</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.clearsightopticians.in/brands/police</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

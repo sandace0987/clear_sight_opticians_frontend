@@ -33,11 +33,21 @@ export function useScrollProgress(
 
       rawRef.current = raw;
 
-      // Lerp for smooth interpolation — ~8 frames to settle
-      const lerp = 0.12;
-      smoothRef.current += (rawRef.current - smoothRef.current) * lerp;
+      // Lerp for buttery smooth interpolation (Apple-style heavy feel)
+      const lerp = 0.06;
+      let newSmooth = smoothRef.current + (rawRef.current - smoothRef.current) * lerp;
 
-      onProgress(smoothRef.current);
+      // Snap to target if difference is microscopic to prevent end-of-scroll jitter
+      if (Math.abs(rawRef.current - newSmooth) < 0.0001) {
+        newSmooth = rawRef.current;
+      }
+
+      // Only fire callback if progress actually changed
+      if (newSmooth !== smoothRef.current) {
+        smoothRef.current = newSmooth;
+        onProgress(smoothRef.current);
+      }
+
       rafRef.current = requestAnimationFrame(tick);
     }
 

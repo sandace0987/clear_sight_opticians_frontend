@@ -1,18 +1,29 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Reveal } from "@/components/motion/Reveal";
 import { TiltCard } from "@/components/motion/TiltCard";
 import { MagneticButton } from "@/components/motion/MagneticButton";
-import { housesByCategory, type House } from "@/lib/brand-catalog";
+import { housesByCategory, type House, BRANDS } from "@/lib/brand-catalog";
 import pradaModelMale from "@/assets/brands/prada-model-male.webp";
 import pleinModel from "@/assets/brands/plein-model.webp";
-import vogueModel from "@/assets/brands/vogue-model.jpg";
+import vogueModel from "@/assets/brands/vogue-model.webp";
 import policeModel from "@/assets/brands/police-model.webp";
 import oakleyModel from "@/assets/brands/oakley-model.webp";
 import raybanModel from "@/assets/brands/rayban-model.webp";
-import pumaModel from "@/assets/brands/puma-model.jpg";
-import silhouetteModel from "@/assets/brands/silhouette-model.jpg";
-import montblancModel from "@/assets/brands/montblanc-model.jpg";
+import pumaModel from "@/assets/brands/puma-model.webp";
+import silhouetteModel from "@/assets/brands/silhouette-model.webp";
+import montblancModel from "@/assets/brands/montblanc-model.webp";
+import burberryModel from "@/assets/brands/burberry-model.webp";
+import mauiJimModel from "@/assets/brands/maui-jim-model.webp";
+import porscheModel from "@/assets/brands/porsche-model.webp";
+import tomFordModel from "@/assets/brands/tom-ford-model.webp";
+import versaceModel from "@/assets/brands/versace-model.webp";
+import carreraModel from "@/assets/brands/carrera-model.webp";
+import guessModel from "@/assets/brands/guess-model.webp";
+import modoModel from "@/assets/brands/modo-model.webp";
+import stepperModel from "@/assets/brands/stepper-model.webp";
+import { breadcrumbSchema, createSeoHead, itemListSchema } from "@/lib/seo";
 
 const BRAND_MODELS: Record<string, { src: string; alt: string }> = {
   prada: { src: pradaModelMale, alt: "Male model wearing Prada sunglasses" },
@@ -24,6 +35,15 @@ const BRAND_MODELS: Record<string, { src: string; alt: string }> = {
   puma: { src: pumaModel, alt: "Model wearing Puma athletic eyewear" },
   silhouette: { src: silhouetteModel, alt: "Model wearing Silhouette rimless eyewear" },
   montblanc: { src: montblancModel, alt: "Model wearing Montblanc designer frames" },
+  burberry: { src: burberryModel, alt: "Model wearing Burberry eyewear" },
+  "maui-jim": { src: mauiJimModel, alt: "Model wearing Maui Jim polarized sunglasses" },
+  "porsche-design": { src: porscheModel, alt: "Model wearing Porsche Design minimalism eyewear" },
+  "tom-ford": { src: tomFordModel, alt: "Model wearing Tom Ford luxury sunglasses" },
+  versace: { src: versaceModel, alt: "Model wearing Versace luxury sunglasses" },
+  carrera: { src: carreraModel, alt: "Model wearing Carrera sunglasses" },
+  guess: { src: guessModel, alt: "Model wearing Guess eyewear" },
+  modo: { src: modoModel, alt: "Model wearing Modo eyewear" },
+  stepper: { src: stepperModel, alt: "Model wearing Stepper skin-friendly frames" },
 };
 
 const SECTIONS = [
@@ -33,22 +53,24 @@ const SECTIONS = [
 ] as const;
 
 export const Route = createFileRoute("/brands")({
-  head: () => ({
-    meta: [
-      { title: "Designer Eyewear Brands in Hyderabad | Clear Sight Opticians" },
-      { name: "description", content: "Explore our curated selection of global designer eyewear brands including Prada, Oakley, Ray-Ban, Gucci, Silhouette, and Maui Jim. Available at KPHB, Nizampet & Bowenpally." },
-      { name: "keywords", content: "designer eyewear Hyderabad, luxury frames, Prada sunglasses India, custom prescription lenses, Silhouette frames Hyderabad, Maui Jim Hyderabad, Kukatpally optics" },
-      { name: "robots", content: "index, follow" },
-      { property: "og:title", content: "Designer Eyewear Brands in Hyderabad | Clear Sight Opticians" },
-      { property: "og:description", content: "Curated luxury frames and prescription lenses from world-leading designer houses. Stocked across our Hyderabad studios." },
-      { property: "og:url", content: "https://www.clearsightopticians.in/brands" },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [
-      { rel: "canonical", href: "https://www.clearsightopticians.in/brands" }
-    ]
-  }),
+  head: () =>
+    createSeoHead({
+      title: "Designer Eyewear Brands in Hyderabad | Clear Sight Opticians",
+      description:
+        "Explore our curated selection of global designer eyewear brands including Prada, Oakley, Ray-Ban, Silhouette, Maui Jim, Puma, and more. Available at KPHB, Nizampet & Bowenpally, Hyderabad.",
+      path: "/brands",
+      schema: [
+        breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Brands", path: "/brands" },
+        ]),
+        itemListSchema(
+          "Designer eyewear brands at Clear Sight Opticians Hyderabad",
+          "/brands",
+          BRANDS.map((b) => ({ name: b.name, path: `/brands/${b.slug}` })),
+        ),
+      ],
+    }),
   component: BrandsPage,
 });
 
@@ -178,16 +200,40 @@ function BrandCard({ h, index }: { h: House; index: number }) {
     </>
   );
 
-  const className =
-    "relative group bg-secondary/60 border border-border rounded-3xl p-8 hover:bg-ink hover:text-white transition-colors block h-full overflow-hidden";
+  const isClickable = h.slug && !h.comingSoon;
+  const className = isClickable
+    ? "relative group bg-secondary/60 border border-border rounded-3xl p-8 hover:bg-ink hover:text-white transition-colors block h-full overflow-hidden"
+    : "relative group bg-secondary/40 border border-border/60 rounded-3xl p-8 opacity-75 hover:opacity-90 transition-opacity block h-full overflow-hidden cursor-default";
 
-  if (h.slug) {
+  if (isClickable) {
     return (
-      <Link to="/brands/$brand" params={{ brand: h.slug }} className={className}>
+      <Link to="/brands/$brand" params={{ brand: h.slug! }} className={className}>
         {inner}
       </Link>
     );
   }
-  return <div className={className}>{inner}</div>;
-}
 
+  const showTooltip = h.slug && ["carrera", "guess", "modo", "stepper"].includes(h.slug);
+
+  if (!showTooltip) {
+    return <div className={className}>{inner}</div>;
+  }
+
+  return (
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <div className={className}>
+            {inner}
+          </div>
+        </TooltipTrigger>
+        <TooltipContent className="bg-ink border border-border/80 text-white p-3 rounded-xl max-w-xs text-xs shadow-xl">
+          <p className="font-semibold mb-1">Coming Soon</p>
+          <p className="text-white/75">
+            We are adding this collection to our inventory. In the meantime, contact us directly via WhatsApp or Call to check available stock.
+          </p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+  );
+}

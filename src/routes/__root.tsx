@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -12,11 +12,19 @@ import {
 
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
-import { FloatingVideoCard } from "@/components/site/FloatingVideoCard";
 import { ScrollToTop } from "@/components/site/ScrollToTop";
-import { ChatBot } from "@/components/site/ChatBot";
 import { PageTransition } from "@/components/motion/PageTransition";
+import { ORGANIZATION_SCHEMA, createSeoHead } from "@/lib/seo";
 import appCss from "../styles.css?url";
+
+const FloatingVideoCard = lazy(() =>
+  import("@/components/site/FloatingVideoCard").then((module) => ({
+    default: module.FloatingVideoCard,
+  })),
+);
+const ChatBot = lazy(() =>
+  import("@/components/site/ChatBot").then((module) => ({ default: module.ChatBot })),
+);
 
 function NotFoundComponent() {
   return (
@@ -76,156 +84,30 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Clear Sight Opticians — Luxury Eyewear & Smart Glasses in Hyderabad" },
-      { name: "description", content: "Hyderabad's premium destination for luxury eyewear, prescription glasses, sunglasses, contact lenses and Ray-Ban Meta & Oakley Meta smart glasses." },
-      { name: "author", content: "Clear Sight Opticians" },
-      { property: "og:title", content: "Clear Sight Opticians — Luxury Eyewear & Smart Glasses" },
-      { property: "og:description", content: "Curated luxury frames and next-generation smart glasses, fitted by experts across Hyderabad." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "theme-color", content: "#ffffff", media: "(prefers-color-scheme: light)" },
-      { name: "theme-color", content: "#0b0b12", media: "(prefers-color-scheme: dark)" },
-    ],
-    links: [
-      { rel: "stylesheet", href: appCss },
-      { rel: "icon", type: "image/avif", href: "/clear-sight-logo.avif" },
-      { rel: "apple-touch-icon", href: "/clear-sight-logo.avif" },
-    ],
-  }),
+  head: () =>
+    createSeoHead({
+      title: "Clear Sight Opticians | Eye Tests, Designer Eyewear & Smart Glasses in Hyderabad",
+      description:
+        "Visit Clear Sight Opticians for ZEISS eye tests, designer frames, prescription lenses, sunglasses, contact lenses, and Ray-Ban Meta demos in KPHB, Nizampet, and Bowenpally.",
+      path: "/",
+      meta: [
+        { charSet: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { name: "author", content: "Clear Sight Opticians" },
+        { name: "theme-color", content: "#ffffff", media: "(prefers-color-scheme: light)" },
+        { name: "theme-color", content: "#0b0b12", media: "(prefers-color-scheme: dark)" },
+      ],
+      links: [
+        { rel: "stylesheet", href: appCss },
+        { rel: "icon", type: "image/avif", href: "/clear-sight-logo.avif" },
+        { rel: "apple-touch-icon", href: "/clear-sight-logo.avif" },
+      ],
+    }),
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
-
-const SCHEMA_DATA = {
-  "@context": "https://schema.org",
-  "@type": "OpticalBusiness",
-  "name": "Clear Sight Opticians",
-  "image": "https://www.clearsightopticians.in/clear-sight-logo.avif",
-  "@id": "https://www.clearsightopticians.in/#organization",
-  "url": "https://www.clearsightopticians.in/",
-  "telephone": "+919440525789",
-  "priceRange": "$$",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Shop #4, Padmaja Complex, JNTU Road, 6th Phase, KPHB Colony, Kukatpally",
-    "addressLocality": "Hyderabad",
-    "addressRegion": "Telangana",
-    "postalCode": "500085",
-    "addressCountry": "IN"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 17.493921,
-    "longitude": 78.397634
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
-    ],
-    "opens": "09:00",
-    "closes": "21:30"
-  },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+919440525789",
-    "contactType": "customer service",
-    "areaServed": "IN",
-    "availableLanguage": ["English", "Telugu", "Hindi"]
-  },
-  "department": [
-    {
-      "@type": "Optician",
-      "name": "Clear Sight Opticians - Kukatpally (KPHB)",
-      "image": "https://www.clearsightopticians.in/clear-sight-logo.avif",
-      "telephone": "+919440525789",
-      "priceRange": "$$",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Shop #4, Padmaja Complex, JNTU Road, 6th Phase, KPHB",
-        "addressLocality": "Hyderabad",
-        "addressRegion": "Telangana",
-        "postalCode": "500085",
-        "addressCountry": "IN"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 17.493921,
-        "longitude": 78.397634
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "opens": "09:00",
-        "closes": "21:30"
-      }
-    },
-    {
-      "@type": "Optician",
-      "name": "Clear Sight Opticians - Nizampet",
-      "image": "https://www.clearsightopticians.in/clear-sight-logo.avif",
-      "telephone": "+919440525789",
-      "priceRange": "$$",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Beside Vazra Nirman Pushpak, Nizampet Colony",
-        "addressLocality": "Hyderabad",
-        "addressRegion": "Telangana",
-        "postalCode": "500090",
-        "addressCountry": "IN"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 17.5186,
-        "longitude": 78.3854
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "opens": "09:00",
-        "closes": "21:30"
-      }
-    },
-    {
-      "@type": "Optician",
-      "name": "Clear Sight Opticians - Bowenpally",
-      "image": "https://www.clearsightopticians.in/clear-sight-logo.avif",
-      "telephone": "+919440525789",
-      "priceRange": "$$",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Near Delhi Public School, Sikh Village Road, Bowenpally",
-        "addressLocality": "Hyderabad",
-        "addressRegion": "Telangana",
-        "postalCode": "500009",
-        "addressCountry": "IN"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 17.4764,
-        "longitude": 78.4842
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "opens": "09:00",
-        "closes": "21:30"
-      }
-    }
-  ]
-};
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
@@ -235,7 +117,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(SCHEMA_DATA),
+            __html: JSON.stringify(ORGANIZATION_SCHEMA),
           }}
         />
         <script
@@ -266,7 +148,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col bg-background text-foreground">
+      <div className="flex min-h-screen flex-col text-foreground">
         <SiteHeader />
         <main className="flex-1">
           <PageTransition>
@@ -274,9 +156,11 @@ function RootComponent() {
           </PageTransition>
         </main>
         <SiteFooter />
-        {isHome && <FloatingVideoCard />}
+        <Suspense fallback={null}>{isHome && <FloatingVideoCard />}</Suspense>
         <ScrollToTop />
-        <ChatBot />
+        <Suspense fallback={null}>
+          <ChatBot />
+        </Suspense>
       </div>
     </QueryClientProvider>
   );

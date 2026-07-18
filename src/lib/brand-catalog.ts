@@ -50,14 +50,38 @@ import rayBanLogo from "@/assets/brands/ray-ban-logo.svg";
 import guessLogo from "@/assets/brands/guess-logo.webp";
 
 // Montblanc Products
-import mb0256oFront from "@/assets/products/montblanc/mb-0256o-front.jpg";
-import mb0256oSide from "@/assets/products/montblanc/mb-0256o-side.jpg";
-import mb0421sFront from "@/assets/products/montblanc/mb-0421s-front.jpg";
-import mb0421sSide from "@/assets/products/montblanc/mb-0421s-side.jpg";
-import mb0428sFront from "@/assets/products/montblanc/mb-0428s-front.jpg";
-import mb0428sSide from "@/assets/products/montblanc/mb-0428s-side.jpg";
-import mb0427oFront from "@/assets/products/montblanc/mb-0427o-front.jpg";
-import mb0427oSide from "@/assets/products/montblanc/mb-0427o-side.jpg";
+import mb0256oFront from "@/assets/products/montblanc/mb-0256o-front.webp";
+import mb0256oSide from "@/assets/products/montblanc/mb-0256o-side.webp";
+import mb0421sFront from "@/assets/products/montblanc/mb-0421s-front.webp";
+import mb0421sSide from "@/assets/products/montblanc/mb-0421s-side.webp";
+import mb0428sFront from "@/assets/products/montblanc/mb-0428s-front.webp";
+import mb0428sSide from "@/assets/products/montblanc/mb-0428s-side.webp";
+import mb0427oFront from "@/assets/products/montblanc/mb-0427o-front.webp";
+import mb0427oSide from "@/assets/products/montblanc/mb-0427o-side.webp";
+
+// Puma Products
+import pumaPu0450o002Front from "@/assets/products/puma/puma-pu0450o/002-front.webp";
+import pumaPu0450o002Quarter from "@/assets/products/puma/puma-pu0450o/002-quarter.webp";
+import pumaPu0450o002Side from "@/assets/products/puma/puma-pu0450o/002-side.webp";
+
+import pumaPu0447o001Front from "@/assets/products/puma/puma-pu0447o/001-front.webp";
+import pumaPu0447o001Quarter from "@/assets/products/puma/puma-pu0447o/001-quarter.webp";
+import pumaPu0447o001Side from "@/assets/products/puma/puma-pu0447o/001-side.webp";
+
+import pumaPu0455o001Front from "@/assets/products/puma/puma-pu0455o/001-front.webp";
+import pumaPu0455o001Quarter from "@/assets/products/puma/puma-pu0455o/001-quarter.webp";
+import pumaPu0455o001Side from "@/assets/products/puma/puma-pu0455o/001-side.webp";
+import pumaPu0455o002Front from "@/assets/products/puma/puma-pu0455o/002-front.webp";
+import pumaPu0455o002Quarter from "@/assets/products/puma/puma-pu0455o/002-quarter.webp";
+import pumaPu0455o002Side from "@/assets/products/puma/puma-pu0455o/002-side.webp";
+
+import pumaPu0486o001Front from "@/assets/products/puma/puma-pu0486o/001-front.webp";
+import pumaPu0486o001Quarter from "@/assets/products/puma/puma-pu0486o/001-quarter.webp";
+import pumaPu0486o001Side from "@/assets/products/puma/puma-pu0486o/001-side.webp";
+import pumaPu0486o005Front from "@/assets/products/puma/puma-pu0486o/005-front.webp";
+import pumaPu0486o005Quarter from "@/assets/products/puma/puma-pu0486o/005-quarter.webp";
+import pumaPu0486o005Side from "@/assets/products/puma/puma-pu0486o/005-side.webp";
+
 import pradaPs03qv2azFront from "@/assets/products/prada/prada-ps03qv/2az-front.webp";
 import pradaPs03qv2azQuarter from "@/assets/products/prada/prada-ps03qv/2az-quarter.webp";
 import pradaPs03qv2azSide from "@/assets/products/prada/prada-ps03qv/2az-side.webp";
@@ -274,24 +298,24 @@ import policeSplt36kFront from "@/assets/products/police/police-splt36k/front.we
 import policeSplt36kQuarter from "@/assets/products/police/police-splt36k/quarter.webp";
 import policeSplt36kSide from "@/assets/products/police/police-splt36k/side.webp";
 // Meta Smart Glasses — Ray-Ban Wayfarer PNG Binaries
-import rbmClearFront from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-matte-black-clear-front.png";
-import rbmClearQuarter from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-matte-black-clear-quarter.png";
-import rbmClearBox from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-matte-black-clear-box.png";
-import rbmGraphiteFront from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-matte-black-graphite-front.png";
-import rbmGraphiteQuarter from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-matte-black-graphite-quarter.png";
-import rbmGraphiteBox from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-matte-black-graphite-box.png";
-import rbmGreyTransFront from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-matte-black-grey-transitions-front.png";
-import rbmGreyTransQuarter from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-matte-black-grey-transitions-quarter.png";
-import rbmGreyTransBox from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-matte-black-grey-transitions-box.png";
-import rbmGreenFront from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-black-green-front.png";
-import rbmGreenQuarter from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-black-green-quarter.png";
-import rbmGreenBox from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-black-green-box.png";
-import rbmBlueSapphireFront from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-cosmic-blue-sapphire-front.png";
-import rbmBlueSapphireQuarter from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-cosmic-blue-sapphire-quarter.png";
-import rbmBlueSapphireBox from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-cosmic-blue-sapphire-box.png";
-import rbmGreySapphireFront from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-transparent-grey-sapphire-front.png";
-import rbmGreySapphireQuarter from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-transparent-grey-sapphire-quarter.png";
-import rbmGreySapphireBox from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-transparent-grey-sapphire-box.png";
+import rbmClearFront from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-matte-black-clear-front.webp";
+import rbmClearQuarter from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-matte-black-clear-quarter.webp";
+import rbmClearBox from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-matte-black-clear-box.webp";
+import rbmGraphiteFront from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-matte-black-graphite-front.webp";
+import rbmGraphiteQuarter from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-matte-black-graphite-quarter.webp";
+import rbmGraphiteBox from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-matte-black-graphite-box.webp";
+import rbmGreyTransFront from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-matte-black-grey-transitions-front.webp";
+import rbmGreyTransQuarter from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-matte-black-grey-transitions-quarter.webp";
+import rbmGreyTransBox from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-matte-black-grey-transitions-box.webp";
+import rbmGreenFront from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-black-green-front.webp";
+import rbmGreenQuarter from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-black-green-quarter.webp";
+import rbmGreenBox from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-black-green-box.webp";
+import rbmBlueSapphireFront from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-cosmic-blue-sapphire-front.webp";
+import rbmBlueSapphireQuarter from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-cosmic-blue-sapphire-quarter.webp";
+import rbmBlueSapphireBox from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-cosmic-blue-sapphire-box.webp";
+import rbmGreySapphireFront from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-transparent-grey-sapphire-front.webp";
+import rbmGreySapphireQuarter from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-transparent-grey-sapphire-quarter.webp";
+import rbmGreySapphireBox from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-transparent-grey-sapphire-box.webp";
 
 // Oakley Meta HSTN WebP Binaries
 import hstnClearGrey from "@/assets/products/oakley/oakley-hstn/clear-grey.webp";
@@ -304,20 +328,20 @@ import hstnRubyGrey from "@/assets/products/oakley/oakley-hstn/ruby-grey.webp";
 import hstnDarkGolfBlack from "@/assets/products/oakley/oakley-hstn/darkgolf-black.webp";
 
 // Oakley Meta HSTN PNG orientation screenshots
-import hstnClearGreyQuarter from "@/assets/products/oakley/oakley-hstn/hstn-clear-grey-quarter.png";
-import hstnClearGreyBox from "@/assets/products/oakley/oakley-hstn/hstn-clear-grey-box.png";
-import hstnClearBlackQuarter from "@/assets/products/oakley/oakley-hstn/hstn-clear-black-quarter.png";
-import hstnClearBlackBox from "@/assets/products/oakley/oakley-hstn/hstn-clear-black-box.png";
-import hstnAmethystBlackQuarter from "@/assets/products/oakley/oakley-hstn/hstn-amethyst-black-quarter.png";
-import hstnAmethystBlackBox from "@/assets/products/oakley/oakley-hstn/hstn-amethyst-black-box.png";
-import hstnBrownCurryQuarter from "@/assets/products/oakley/oakley-hstn/hstn-brown-curry-quarter.png";
-import hstnBrownCurryBox from "@/assets/products/oakley/oakley-hstn/hstn-brown-curry-box.png";
-import hstnDeepwaterBrownQuarter from "@/assets/products/oakley/oakley-hstn/hstn-deepwater-brown-quarter.png";
-import hstnDeepwaterBrownBox from "@/assets/products/oakley/oakley-hstn/hstn-deepwater-brown-box.png";
-import hstnRubyGreyQuarter from "@/assets/products/oakley/oakley-hstn/hstn-ruby-grey-quarter.png";
-import hstnRubyGreyBox from "@/assets/products/oakley/oakley-hstn/hstn-ruby-grey-box.png";
-import hstnDarkGolfBlackQuarter from "@/assets/products/oakley/oakley-hstn/hstn-darkgolf-black-quarter.png";
-import hstnDarkGolfBlackBox from "@/assets/products/oakley/oakley-hstn/hstn-darkgolf-black-box.png";
+import hstnClearGreyQuarter from "@/assets/products/oakley/oakley-hstn/hstn-clear-grey-quarter.webp";
+import hstnClearGreyBox from "@/assets/products/oakley/oakley-hstn/hstn-clear-grey-box.webp";
+import hstnClearBlackQuarter from "@/assets/products/oakley/oakley-hstn/hstn-clear-black-quarter.webp";
+import hstnClearBlackBox from "@/assets/products/oakley/oakley-hstn/hstn-clear-black-box.webp";
+import hstnAmethystBlackQuarter from "@/assets/products/oakley/oakley-hstn/hstn-amethyst-black-quarter.webp";
+import hstnAmethystBlackBox from "@/assets/products/oakley/oakley-hstn/hstn-amethyst-black-box.webp";
+import hstnBrownCurryQuarter from "@/assets/products/oakley/oakley-hstn/hstn-brown-curry-quarter.webp";
+import hstnBrownCurryBox from "@/assets/products/oakley/oakley-hstn/hstn-brown-curry-box.webp";
+import hstnDeepwaterBrownQuarter from "@/assets/products/oakley/oakley-hstn/hstn-deepwater-brown-quarter.webp";
+import hstnDeepwaterBrownBox from "@/assets/products/oakley/oakley-hstn/hstn-deepwater-brown-box.webp";
+import hstnRubyGreyQuarter from "@/assets/products/oakley/oakley-hstn/hstn-ruby-grey-quarter.webp";
+import hstnRubyGreyBox from "@/assets/products/oakley/oakley-hstn/hstn-ruby-grey-box.webp";
+import hstnDarkGolfBlackQuarter from "@/assets/products/oakley/oakley-hstn/hstn-darkgolf-black-quarter.webp";
+import hstnDarkGolfBlackBox from "@/assets/products/oakley/oakley-hstn/hstn-darkgolf-black-box.webp";
 
 // Oakley Meta Vanguard WebP Binaries
 import vgGoldBlackFront from "@/assets/products/oakley/oakley-vanguard/gold-black-front.webp";
@@ -349,9 +373,9 @@ import silIllusion1617Front from "@/assets/products/silhouette/illusion-1617-fro
 import silIllusion1617Quarter from "@/assets/products/silhouette/illusion-1617-quarter.webp";
 import silIllusion1617Side from "@/assets/products/silhouette/illusion-1617-side.webp";
 
-import silTimeless5603Front from "@/assets/products/silhouette/timeless-visionary-5603-front.png";
-import silTimeless5603Quarter from "@/assets/products/silhouette/timeless-visionary-5603-quarter.png";
-import silTimeless5603Side from "@/assets/products/silhouette/timeless-visionary-5603-side.png";
+import silTimeless5603Front from "@/assets/products/silhouette/timeless-visionary-5603-front.webp";
+import silTimeless5603Quarter from "@/assets/products/silhouette/timeless-visionary-5603-quarter.webp";
+import silTimeless5603Side from "@/assets/products/silhouette/timeless-visionary-5603-side.webp";
 import zeissLens from "@/assets/products/zeiss-lens.webp";
 
 export type ColorVariant = {
@@ -390,6 +414,7 @@ export type BrandData = {
   /** coating / special-feature cards shown on the brand page */
   features?: { title: string; desc: string }[];
   models: GlassItem[];
+  comingSoon?: boolean;
 };
 
 export const BRANDS: BrandData[] = [
@@ -1791,6 +1816,7 @@ export const BRANDS: BrandData[] = [
     name: "Carrera",
     tag: "Motorsport DNA",
     blurb: "Bold, fearless silhouettes built on a motorsport heritage since 1956.",
+    comingSoon: true,
     models: [
       { model: "Champion Aviator", shape: "aviator", colour: "Matte Black", priceFrom: 9990 },
       { model: "Retro Round", shape: "round", colour: "Gold", priceFrom: 8490 },
@@ -1805,6 +1831,7 @@ export const BRANDS: BrandData[] = [
     name: "Tom Ford",
     tag: "Modern luxury",
     blurb: "Polished, oversized silhouettes with signature T-temples and deep acetates.",
+    comingSoon: true,
     models: [
       { model: "Anoushka Cat-Eye", shape: "cateye", colour: "Havana", priceFrom: 32990 },
       { model: "Henry Square", shape: "rectangle", colour: "Black", priceFrom: 31490 },
@@ -1865,12 +1892,6 @@ export const BRANDS: BrandData[] = [
           },
         ],
       },
-      { model: "Origins Aviator", shape: "aviator", colour: "Gunmetal", priceFrom: 7990 },
-      { model: "Lewis Rectangle", shape: "rectangle", colour: "Matte Black", priceFrom: 6990 },
-      { model: "Tailwind Shield", shape: "shield", colour: "Black", priceFrom: 8490 },
-      { model: "Glory Round", shape: "round", colour: "Gold", priceFrom: 7290 },
-      { model: "Edge Browline", shape: "browline", colour: "Tortoise", priceFrom: 7790 },
-      { model: "Sport Wrap", shape: "sport", colour: "Matte Grey", priceFrom: 8290 },
     ],
   },
   {
@@ -2137,6 +2158,88 @@ export const BRANDS: BrandData[] = [
       },
     ],
   },
+  {
+    slug: "puma",
+    name: "Puma",
+    tag: "Sport",
+    blurb: "Active styling and everyday durability — high performance sport optical frames.",
+    models: [
+      {
+        model: "Puma PU0450O",
+        shape: "rectangle",
+        colour: "Brown",
+        priceFrom: 10690,
+        variants: [
+          {
+            id: "brown",
+            name: "Brown",
+            lens: "Clear Demo",
+            swatch: "#8b5a2b",
+            images: { front: pumaPu0450o002Front, quarter: pumaPu0450o002Quarter, side: pumaPu0450o002Side },
+          },
+        ],
+      },
+      {
+        model: "Puma PU0447O",
+        shape: "rectangle",
+        colour: "Dark Grey / Black",
+        priceFrom: 8690,
+        variants: [
+          {
+            id: "dark-grey-black",
+            name: "Dark Grey / Black",
+            lens: "Clear Demo",
+            swatch: "#4a4b4d",
+            images: { front: pumaPu0447o001Front, quarter: pumaPu0447o001Quarter, side: pumaPu0447o001Side },
+          },
+        ],
+      },
+      {
+        model: "Puma PU0455O Series",
+        shape: "square",
+        colour: "Matte Black",
+        priceFrom: 10690,
+        variants: [
+          {
+            id: "matte-black",
+            name: "Matte Black",
+            lens: "Clear Demo",
+            swatch: "#171718",
+            images: { front: pumaPu0455o001Front, quarter: pumaPu0455o001Quarter, side: pumaPu0455o001Side },
+          },
+          {
+            id: "white-black",
+            name: "White & Black",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, #ffffff 0%, #7e7e82 50%, #171718 100%)",
+            images: { front: pumaPu0455o002Front, quarter: pumaPu0455o002Quarter, side: pumaPu0455o002Side },
+          },
+        ],
+      },
+      {
+        model: "Puma PU0486O Series",
+        shape: "rectangle",
+        colour: "Matte Black",
+        priceFrom: 8690,
+        variants: [
+          {
+            id: "matte-black",
+            name: "Matte Black",
+            lens: "Clear Demo",
+            swatch: "#171718",
+            images: { front: pumaPu0486o001Front, quarter: pumaPu0486o001Quarter, side: pumaPu0486o001Side },
+          },
+          {
+            id: "transparent",
+            name: "Transparent",
+            lens: "Clear Demo",
+            swatch: "linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(240,240,240,0.2) 100%)",
+            images: { front: pumaPu0486o005Front, quarter: pumaPu0486o005Quarter, side: pumaPu0486o005Side },
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 // Deterministically flag 2-3 "hot" (selling fast) models per brand.
@@ -2173,6 +2276,7 @@ export type House = {
   logo?: string;
   domain?: string;
   category?: Category;
+  comingSoon?: boolean;
 };
 
 export const HOUSES: House[] = [
@@ -2183,26 +2287,26 @@ export const HOUSES: House[] = [
   { slug: "montblanc", name: "Montblanc", tag: "German maison", note: "Refined optical & sun", domain: "montblanc.com", category: "glasses" },
   { slug: "puma", name: "Puma", tag: "Sport", note: "Active & everyday eyewear", domain: "puma.com", category: "glasses" },
   { slug: "silhouette", name: "Silhouette", tag: "Austrian craft", note: "Rimless lightweight titanium", logo: silhouetteLogo, domain: "silhouette.com", category: "glasses" },
-  { slug: "tom-ford", name: "Tom Ford", tag: "Modern luxury", note: "Optical & oversize sun", domain: "tomford.com", category: "glasses" },
+  { slug: "tom-ford", name: "Tom Ford", tag: "Modern luxury", note: "Optical & oversize sun", domain: "tomford.com", category: "glasses", comingSoon: true },
   { slug: "burberry", name: "Burberry", tag: "British heritage", note: "Check & monogram series", domain: "burberry.com", category: "glasses" },
   { slug: "philipp-plein", name: "Philipp Plein", tag: "Statement", note: "Bold, embellished frames", domain: "plein.com", category: "glasses" },
-  { name: "Versace", tag: "Italian luxury", note: "Baroque icon eyewear", domain: "versace.com", category: "glasses" },
-  { name: "Porsche Design", tag: "Engineered", note: "Precision minimalism", domain: "porsche-design.com", category: "glasses" },
-  { name: "Guess", tag: "Fashion", note: "Fashion-forward everyday", logo: guessLogo, domain: "guess.com", category: "glasses" },
+  { slug: "versace", name: "Versace", tag: "Italian luxury", note: "Baroque icon eyewear", domain: "versace.com", category: "glasses", comingSoon: true },
+  { slug: "porsche-design", name: "Porsche Design", tag: "Engineered", note: "Precision minimalism", domain: "porsche-design.com", category: "glasses", comingSoon: true },
+  { slug: "guess", name: "Guess", tag: "Fashion", note: "Fashion-forward everyday", logo: guessLogo, domain: "guess.com", category: "glasses", comingSoon: true },
   { slug: "police", name: "Police", tag: "Italian cool", note: "Sport & lifestyle", domain: "policelifestyle.com", category: "glasses" },
-  { slug: "carrera", name: "Carrera", tag: "Motorsport DNA", note: "Aviator & retro sport", domain: "carreraworld.com", category: "glasses" },
-  { name: "Modo", tag: "Urban design", note: "Ultra-light city frames", domain: "modo.com", category: "glasses" },
+  { slug: "carrera", name: "Carrera", tag: "Motorsport DNA", note: "Aviator & retro sport", domain: "carreraworld.com", category: "glasses", comingSoon: true },
+  { slug: "modo", name: "Modo", tag: "Urban design", note: "Ultra-light city frames", domain: "modo.com", category: "glasses", comingSoon: true },
   { slug: "maui-jim", name: "Maui Jim", tag: "Hawaii-born", note: "Alika & PolarizedPlus2®", logo: mauiJimLogo, domain: "mauijim.com", category: "glasses" },
-  { name: "Stepper", tag: "Skin-friendly", note: "SI-line comfort frames", domain: "steppereyewear.com", category: "glasses" },
+  { slug: "stepper", name: "Stepper", tag: "Skin-friendly", note: "SI-line comfort frames", domain: "steppereyewear.com", category: "glasses", comingSoon: true },
   { slug: "vogue", name: "Vogue Eyewear", tag: "Fashion-forward", note: "Playful, on-trend optical frames", domain: "vogue-eyewear.com", category: "glasses" },
   // ---- Lenses & Contact Lenses (ZEISS promoted to top) ----
   { slug: "zeiss", name: "ZEISS", tag: "Certified Vision Expert", note: "Precision prescription lenses & coatings", domain: "zeiss.com", category: "lenses" },
-  { name: "Hoya", tag: "Lens expert", note: "High-index & progressive lenses", domain: "hoyavision.com", category: "lenses" },
-  { name: "Essilor", tag: "Lens expert", note: "Varilux & Crizal coatings", domain: "essilor.com", category: "lenses" },
-  { name: "CooperVision", tag: "Contact lenses", note: "Daily & monthly soft lenses", domain: "coopervision.com", category: "lenses" },
-  { name: "Johnson & Johnson", tag: "Contact lenses", note: "Acuvue daily & bi-weekly", domain: "jnj.com", category: "lenses" },
-  { name: "Bausch & Lomb", tag: "Contact lenses", note: "Ultra & Biotrue lenses", domain: "bausch.com.au", category: "lenses" },
-  { name: "Alcon", tag: "Contact lenses", note: "Dailies & Air Optix", domain: "alcon.com", category: "lenses" },
+  { slug: "hoya", name: "Hoya", tag: "Lens expert", note: "High-index & progressive lenses", domain: "hoyavision.com", category: "lenses", comingSoon: true },
+  { slug: "essilor", name: "Essilor", tag: "Lens expert", note: "Varilux & Crizal coatings", domain: "essilor.com", category: "lenses", comingSoon: true },
+  { slug: "coopervision", name: "CooperVision", tag: "Contact lenses", note: "Daily & monthly soft lenses", domain: "coopervision.com", category: "lenses", comingSoon: true },
+  { slug: "jnj", name: "Johnson & Johnson", tag: "Contact lenses", note: "Acuvue daily & bi-weekly", domain: "jnj.com", category: "lenses", comingSoon: true },
+  { slug: "bausch", name: "Bausch & Lomb", tag: "Contact lenses", note: "Ultra & Biotrue lenses", domain: "bausch.com.au", category: "lenses", comingSoon: true },
+  { slug: "alcon", name: "Alcon", tag: "Contact lenses", note: "Dailies & Air Optix", domain: "alcon.com", category: "lenses", comingSoon: true },
   // ---- For Kids (placeholders) ----
   { name: "MyoCare", tag: "Myopia control", note: "ZEISS MyoCare lenses to slow myopia progression", domain: "zeiss.com", category: "kids" },
   { name: "MiYOSMART", tag: "Myopia control", note: "Hoya MiYOSMART D.I.M.S. spectacle lenses", domain: "hoyavision.com", category: "kids" },
