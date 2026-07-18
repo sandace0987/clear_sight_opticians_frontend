@@ -1,8 +1,9 @@
 import * as React from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Phone, Send } from "lucide-react";
+import { CONTACT_PHONE_RAW } from "@/lib/contact-config";
 
-const SHOP_WHATSAPP = "919440525789"; // shop number, digits only, country code first
+const SHOP_WHATSAPP = CONTACT_PHONE_RAW; // shop number, digits only, country code first
 
 type Props = {
   brand: string;
@@ -60,7 +61,7 @@ export function EnquireDialog({ brand, model, colour: initialColour, trigger }: 
 
         {/* Call now — top right (left of close X) */}
         <a
-          href="tel:+919440525789"
+          href={`tel:+${CONTACT_PHONE_RAW}`}
           className="absolute right-12 top-4 inline-flex items-center gap-1.5 bg-electric text-white px-3 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.14em] hover:opacity-90 transition"
           aria-label="Call store now"
         >

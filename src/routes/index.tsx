@@ -17,7 +17,7 @@ import {
   Quote,
   MessageCircle,
 } from "lucide-react";
-
+import { CONTACT_PHONE, CONTACT_PHONE_RAW, CONTACT_EMAIL } from "@/lib/contact-config";
 import { HOUSES } from "@/lib/brand-catalog";
 import heroPortraitLight from "@/assets/homepage/hero-portrait-light.webp";
 import heroPortraitDark from "@/assets/homepage/hero-portrait-dark.webp";
@@ -300,7 +300,7 @@ function HomePage() {
     ]
       .filter(Boolean)
       .join("\n");
-    window.open(`https://wa.me/919440525789?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
+    window.open(`https://wa.me/${CONTACT_PHONE_RAW}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
   };
 
   useEffect(() => {
@@ -712,7 +712,7 @@ function HomePage() {
                     </a>
                     <a
                       href={s.phoneHref}
-                      className="flex-1 text-center bg-secondary py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-accent transition-colors"
+                      className="flex-1 text-center bg-electric text-white py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-ink transition-colors"
                     >
                       Call
                     </a>
@@ -833,21 +833,21 @@ function HomePage() {
             <aside className="lg:col-span-4 space-y-8">
               <div>
                 <h3 className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground mb-3">Call</h3>
-                <a href="tel:+919440525789" className="text-2xl font-bold tracking-tight inline-flex items-center gap-3">
-                  <Phone className="size-5 text-electric" /> +91 94405 25789
+                <a href={`tel:+${CONTACT_PHONE_RAW}`} className="text-2xl font-bold tracking-tight inline-flex items-center gap-3">
+                  <Phone className="size-5 text-electric" /> {CONTACT_PHONE}
                 </a>
               </div>
               <div>
                 <h3 className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground mb-3">WhatsApp</h3>
-                <a href="https://wa.me/919440525789" target="_blank" rel="noopener noreferrer" className="text-2xl font-bold tracking-tight inline-flex items-center gap-3">
+                <a href={`https://wa.me/${CONTACT_PHONE_RAW}`} target="_blank" rel="noopener noreferrer" className="text-2xl font-bold tracking-tight inline-flex items-center gap-3">
                   <MessageCircle className="size-5 text-electric" /> Chat with us
                 </a>
               </div>
               <div>
                 <h3 className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground mb-3">Email</h3>
-                <a href="mailto:hello@clearsight.in" className="text-xl font-bold tracking-tight inline-flex items-center gap-3 break-all">
+                <a href={`mailto:${CONTACT_EMAIL}`} className="text-xl font-bold tracking-tight inline-flex items-center gap-3 break-all">
                   <Mail className="size-5 text-electric" />
-                  <span>hello@clearsight.in</span>
+                  <span>{CONTACT_EMAIL}</span>
                 </a>
               </div>
               <div>

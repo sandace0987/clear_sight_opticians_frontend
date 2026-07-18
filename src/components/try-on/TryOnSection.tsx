@@ -13,7 +13,7 @@ export function TryOnSection({ id }: Props) {
         <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase inline-flex items-center gap-2 mb-6">
           <Sparkles className="size-4" /> Coming Soon
         </span>
-        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tighter text-ink">
+        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tighter text-foreground">
           Building something <br className="hidden sm:block" />
           <span className="font-serif italic font-medium text-electric">awesome.</span>
         </h2>

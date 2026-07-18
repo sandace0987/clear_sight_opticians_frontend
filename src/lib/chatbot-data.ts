@@ -1,3 +1,5 @@
+import { CONTACT_PHONE, CONTACT_PHONE_RAW } from "./contact-config";
+
 export interface ChatQA {
   question: string;
   answer: string;
@@ -17,7 +19,7 @@ export const chatbotQA: ChatQA[] = [
   {
     question: "📅 How do I book an eye test?",
     answer:
-      "Eye testing at Clear Sight is <strong>computerized, precision-calibrated, and free of charge</strong> with any frame or lens purchase! Bookings take under a minute:<br/><br/>• Tap <a href=\"/\" class=\"text-electric underline font-semibold\">Book Eye Test</a> in the menu<br/>• Call us directly at <a href=\"tel:+919440525789\" class=\"text-electric underline font-semibold\">+91 94405 25789</a><br/>• Walk-ins are always welcome!",
+      `Eye testing at Clear Sight is <strong>computerized, precision-calibrated, and free of charge</strong> with any frame or lens purchase! Bookings take under a minute:<br/><br/>• Tap <a href="/" class="text-electric underline font-semibold">Book Eye Test</a> in the menu<br/>• Call us directly at <a href="tel:+${CONTACT_PHONE_RAW}" class="text-electric underline font-semibold">${CONTACT_PHONE}</a><br/>• Walk-ins are always welcome!`,
   },
   {
     question: "⚡ Do you have Ray-Ban Meta smart glasses?",
@@ -37,11 +39,12 @@ export const chatbotQA: ChatQA[] = [
   {
     question: "💬 Can I check frame price and stock availability?",
     answer:
-      "Absolutely! We can check live stock across our three Hyderabad warehouses instantly. Simply tap the <strong>WhatsApp</strong> button below or call us with the model name/number, and our opticians will assist you right away.",
+      `Absolutely! We can check live stock across our three Hyderabad warehouses instantly. Simply tap the <strong>WhatsApp</strong> button below or call us with the model name/number, and our opticians will assist you right away.`,
   },
 ];
 
 export const FALLBACK_MESSAGE =
-  'We\'d love to help! Reach out directly to our opticians on <a href="https://wa.me/919440525789" target="_blank" rel="noopener noreferrer" class="text-electric underline font-semibold">WhatsApp</a>, call us at <a href="tel:+919440525789" class="text-electric underline font-semibold">+91 94405 25789</a>, or visit any of our three stores in KPHB, Nizampet, or Bowenpally.';
+  `We'd love to help! Reach out directly to our opticians on <a href="https://wa.me/${CONTACT_PHONE_RAW}" target="_blank" rel="noopener noreferrer" class="text-electric underline font-semibold">WhatsApp</a>, call us at <a href="tel:+${CONTACT_PHONE_RAW}" class="text-electric underline font-semibold">${CONTACT_PHONE}</a>, or visit any of our three stores in KPHB, Nizampet, or Bowenpally.`;
+
 
 

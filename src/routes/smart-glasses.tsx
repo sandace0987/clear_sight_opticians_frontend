@@ -16,6 +16,7 @@ import { EnquireDialog } from "@/components/site/EnquireDialog";
 import { BRANDS } from "@/lib/brand-catalog";
 import { ModelCard } from "@/components/site/ModelCard";
 import { breadcrumbSchema, createSeoHead, SITE_LOGO } from "@/lib/seo";
+import { CONTACT_PHONE_RAW } from "@/lib/contact-config";
 
 
 const SMART_GLASSES_SCHEMA = {
@@ -369,7 +370,7 @@ function SmartGlassesPage() {
                 Book Demo <ArrowUpRight className="size-4" />
               </Link>
               <a
-                href="https://wa.me/919440525789?text=Hi%2C%20I%27d%20like%20to%20book%20a%20Meta%20smart%20glasses%20demo."
+                href={`https://wa.me/${CONTACT_PHONE_RAW}?text=Hi%2C%20I%27d%20like%20to%20book%20a%20Meta%20smart%20glasses%20demo.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border border-white/25 text-white px-8 py-4 rounded-full text-sm font-semibold inline-flex items-center gap-2 hover:bg-white/10 transition-colors"

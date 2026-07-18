@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Facebook } from "lucide-react";
 import logoUrl from "@/assets/miscellaneous/clear-sight-logo.avif";
+import { CONTACT_PHONE, CONTACT_PHONE_RAW, DEVELOPER_EMAIL } from "@/lib/contact-config";
 
 export function SiteFooter() {
   return (
@@ -58,14 +59,23 @@ export function SiteFooter() {
           <p className="mt-3 text-sm text-white/70">
             Also at Nizampet &amp; Bowenpally · Open daily 9:00 AM – 9:30 PM
           </p>
-          <a href="tel:+919440525789" className="mt-4 inline-block text-sm font-semibold text-white hover:text-electric">
-            +91 94405 25789
+          <a href={`tel:+${CONTACT_PHONE_RAW}`} className="mt-4 inline-block text-sm font-semibold text-white hover:text-electric">
+            {CONTACT_PHONE}
           </a>
         </div>
       </div>
 
       <div className="mx-auto max-w-7xl mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40">
         <p>© {new Date().getFullYear()} Clear Sight Opticians Private Limited.</p>
+        <p>
+          made with ❤️ by{" "}
+          <a
+            href={`mailto:${DEVELOPER_EMAIL}`}
+            className="hover:text-electric transition-colors underline decoration-dotted"
+          >
+            skb
+          </a>
+        </p>
         <p className="font-serif italic">Vision, made personal.</p>
       </div>
     </footer>

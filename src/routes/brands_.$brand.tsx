@@ -9,7 +9,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { TiltCard } from "@/components/motion/TiltCard";
 import { ModelCard } from "@/components/site/ModelCard";
 import { breadcrumbSchema, createSeoHead } from "@/lib/seo";
-
+import { CONTACT_PHONE_RAW } from "@/lib/contact-config";
 import pradaModelMale from "@/assets/brands/prada-model-male.webp";
 import pleinModel from "@/assets/brands/plein-model.webp";
 import vogueModel from "@/assets/brands/vogue-model.webp";
@@ -138,7 +138,7 @@ function BrandPage() {
 
             <div className="mt-8 flex flex-wrap gap-4">
               <a
-                href={`https://wa.me/919440525789?text=Hi%20Clear%20Sight%20Opticians,%20I'd%20like%20to%20enquire%20about%20the%20available%20inventory%20for%20${encodeURIComponent(brand.name)}%20frames.`}
+                href={`https://wa.me/${CONTACT_PHONE_RAW}?text=Hi%20Clear%20Sight%20Opticians,%20I'd%20like%20to%20enquire%20about%20the%20available%20inventory%20for%20${encodeURIComponent(brand.name)}%20frames.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-electric text-white px-6 py-3.5 rounded-full text-xs font-bold uppercase tracking-widest hover:opacity-90 transition"
@@ -146,7 +146,7 @@ function BrandPage() {
                 Enquire via WhatsApp
               </a>
               <a
-                href="tel:+919440525789"
+                href={`tel:+${CONTACT_PHONE_RAW}`}
                 className="bg-background border border-border px-6 py-3.5 rounded-full text-xs font-bold uppercase tracking-widest hover:border-electric hover:text-electric transition"
               >
                 Call Store Directly

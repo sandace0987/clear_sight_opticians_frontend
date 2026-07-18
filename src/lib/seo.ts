@@ -3,6 +3,8 @@ export const SITE_NAME = "Clear Sight Opticians";
 export const SITE_LOGO = `${SITE_URL}/clear-sight-logo.avif`;
 export const DEFAULT_SOCIAL_IMAGE = SITE_LOGO;
 
+import { CONTACT_PHONE, CONTACT_PHONE_RAW } from "./contact-config";
+
 type SeoMeta = Record<string, string>;
 type SeoLink = Record<string, string>;
 type SeoScript = { type: "application/ld+json"; children: string };
@@ -96,8 +98,8 @@ export type StoreLocation = {
   mapsUrl: string;
 };
 
-const PHONE_DISPLAY = "+91 94405 25789";
-const PHONE_E164 = "+919440525789";
+const PHONE_DISPLAY = CONTACT_PHONE;
+const PHONE_E164 = `+${CONTACT_PHONE_RAW}`;
 
 export const STORE_LOCATIONS: StoreLocation[] = [
   {

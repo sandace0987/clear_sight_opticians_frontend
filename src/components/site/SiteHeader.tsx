@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { AnimatedWordmark } from "./AnimatedWordmark";
 import { ThemeSwatches } from "./ThemeSwatches";
 import logoUrl from "@/assets/miscellaneous/clear-sight-logo.avif";
+import { CONTACT_PHONE_RAW } from "@/lib/contact-config";
 
 type NavItem = { to: string; hash?: string; label: string; route?: boolean };
 
@@ -147,7 +148,7 @@ export function SiteHeader() {
           {/* Desktop right */}
           <div className="hidden md:flex flex-1 items-center justify-end gap-3">
             <a
-              href="tel:+919440525789"
+              href={`tel:+${CONTACT_PHONE_RAW}`}
               className="hidden lg:inline-flex items-center gap-2 rounded-full bg-accent text-accent-foreground px-4 py-2 text-sm font-medium hover:bg-foreground hover:text-background transition-colors"
             >
               <Phone className="size-4" /> Call
