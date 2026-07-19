@@ -71,9 +71,9 @@ export function createSeoHead({
     links: [{ rel: "canonical", href: url }, ...links],
     scripts: schema.length
       ? schema.map((entry) => ({
-          type: "application/ld+json" as const,
-          children: JSON.stringify(entry),
-        }))
+        type: "application/ld+json" as const,
+        children: JSON.stringify(entry),
+      }))
       : undefined,
   };
 }

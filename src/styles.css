@@ -60,6 +60,9 @@
 [data-theme="classic-light"], 
 [data-theme="ash-rose"], 
 [data-theme="paper-ink"], 
+[data-theme="butter-green"], 
+[data-theme="cream-cherry"], 
+[data-theme="lime-red"], 
 [data-theme="titanium"], 
 [data-theme="whiskey-walnut"], 
 [data-theme="champagne"], 
@@ -73,6 +76,8 @@
 [data-theme="noir-gold"], 
 [data-theme="charcoal-ember"], 
 [data-theme="emerald-prestige"], 
+[data-theme="aureolin-bistre"], 
+[data-theme="violet-imperial"], 
 [data-theme="midnight-indigo"], 
 [data-theme="obsidian"], 
 [data-theme="amethyst"], 
@@ -522,6 +527,137 @@
   --electric-soft: #083344;
   --ink: #02030A;
   --fog: #0F172A;
+}
+
+
+/* 16. Butter / Green */
+[data-theme="butter-green"] {
+  --background: #ffefb3;
+  --foreground: #013e37;
+  --card: #fffff0;
+  --card-foreground: #013e37;
+  --popover: #fffff0;
+  --popover-foreground: #013e37;
+  --primary: #013e37;
+  --primary-foreground: #ffefb3;
+  --secondary: #d4ede9;
+  --secondary-foreground: #013e37;
+  --muted: #f0e099;
+  --muted-foreground: #1a5a50;
+  --accent: #013e37;
+  --accent-foreground: #ffefb3;
+  --border: #e8d98a;
+  --input: #f0e099;
+  --ring: #013e37;
+
+  --electric: #013e37;
+  --electric-soft: #d4ede9;
+  --ink: #001f1c;
+  --fog: #ffefb3;
+}
+
+/* 17. Aureolin / Bistre */
+[data-theme="aureolin-bistre"] {
+  --background: #261606;
+  --foreground: #fbe311;
+  --card: #341a08;
+  --card-foreground: #fbe311;
+  --popover: #341a08;
+  --popover-foreground: #fbe311;
+  --primary: #fbe311;
+  --primary-foreground: #261606;
+  --secondary: #3d2010;
+  --secondary-foreground: #fbe311;
+  --muted: #3d2010;
+  --muted-foreground: #c9a800;
+  --accent: #fbe311;
+  --accent-foreground: #261606;
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: #fbe311;
+
+  --electric: #fbe311;
+  --electric-soft: #4a3800;
+  --ink: #120b02;
+  --fog: #341a08;
+}
+
+/* 18. Cream Vanilla / Cherry Cola */
+[data-theme="cream-cherry"] {
+  --background: #efe6dd;
+  --foreground: #4a0001;
+  --card: #faf5f0;
+  --card-foreground: #4a0001;
+  --popover: #faf5f0;
+  --popover-foreground: #4a0001;
+  --primary: #9a0002;
+  --primary-foreground: #efe6dd;
+  --secondary: #e8cfc0;
+  --secondary-foreground: #4a0001;
+  --muted: #e8cfc0;
+  --muted-foreground: #7a2020;
+  --accent: #9a0002;
+  --accent-foreground: #ffffff;
+  --border: #d9c0b0;
+  --input: #e4d0c0;
+  --ring: #9a0002;
+
+  --electric: #9a0002;
+  --electric-soft: #f5e0dc;
+  --ink: #2a0000;
+  --fog: #efe6dd;
+}
+
+/* 19. Violet / Imperial Red */
+[data-theme="violet-imperial"] {
+  --background: #321847;
+  --foreground: #fdf4f4;
+  --card: #3f2058;
+  --card-foreground: #fdf4f4;
+  --popover: #3f2058;
+  --popover-foreground: #fdf4f4;
+  --primary: #fdf4f4;
+  --primary-foreground: #321847;
+  --secondary: #4a2870;
+  --secondary-foreground: #fdf4f4;
+  --muted: #4a2870;
+  --muted-foreground: #f15153;
+  --accent: #f15153;
+  --accent-foreground: #ffffff;
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: #f15153;
+
+  --electric: #f15153;
+  --electric-soft: #5c1520;
+  --ink: #1a0a28;
+  --fog: #3f2058;
+}
+
+/* 20. Lime / Vibrant Red */
+[data-theme="lime-red"] {
+  --background: #d3f00a;
+  --foreground: #c50000;
+  --card: #e0f72a;
+  --card-foreground: #c50000;
+  --popover: #e0f72a;
+  --popover-foreground: #c50000;
+  --primary: #f9100c;
+  --primary-foreground: #d3f00a;
+  --secondary: #b8d600;
+  --secondary-foreground: #c50000;
+  --muted: #c4e000;
+  --muted-foreground: #a00000;
+  --accent: #f9100c;
+  --accent-foreground: #ffffff;
+  --border: #a8c200;
+  --input: #b8d200;
+  --ring: #f9100c;
+
+  --electric: #f9100c;
+  --electric-soft: #ffe0e0;
+  --ink: #800000;
+  --fog: #d3f00a;
 }
 
 

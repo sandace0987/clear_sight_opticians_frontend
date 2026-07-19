@@ -86,9 +86,9 @@ const CatchGame = lazy(() =>
 export const Route = createFileRoute("/")({
   head: () => ({
     ...createSeoHead({
-      title: "Clear Sight Opticians | ZEISS Eye Tests, Designer Eyewear & Smart Glasses in Hyderabad",
+      title: "Clear Sight Opticians | ZEISS Vision Experts, Designer Eyewear & Smart Glasses in Hyderabad",
       description:
-        "Book ZEISS eye tests, prescription lenses, designer eyewear, contact lenses, computer glasses, and Ray-Ban Meta demos at Clear Sight Opticians in KPHB, Nizampet, and Bowenpally.",
+        "Book a ZEISS vision expert consultation, prescription lenses, designer eyewear, contact lenses, computer glasses, and Ray-Ban Meta demos at Clear Sight Opticians in KPHB, Nizampet, and Bowenpally.",
       path: "/",
       schema: [
         breadcrumbSchema([{ name: "Home", path: "/" }]),
@@ -410,62 +410,62 @@ function HomePage() {
                       show: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.95, ease: [0.16, 1, 0.3, 1] } },
                     }}
                     className="relative font-serif italic font-medium px-5 py-1 sm:px-8 sm:py-1.5 rounded-full inline-flex items-center justify-center"
-                  style={{
-                    backdropFilter: "blur(10px) saturate(170%) contrast(110%)",
-                    WebkitBackdropFilter: "blur(10px) saturate(170%) contrast(110%)",
-                    background:
-                      "radial-gradient(120% 140% at 25% 20%, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.12) 38%, rgba(255,255,255,0.04) 65%, rgba(255,255,255,0.18) 100%)",
-                    boxShadow:
-                      "inset 0 1px 1px rgba(255,255,255,0.85), inset 0 -2px 8px rgba(15,23,42,0.25), inset 0 0 30px rgba(255,255,255,0.18), 0 12px 40px -8px rgba(0,71,255,0.35)",
-                    border: "1px solid rgba(255,255,255,0.55)",
-                    textShadow: "0 2px 18px rgba(255,255,255,0.35)",
-                  }}
-                >
-                  <LetterShimmer text="smarter." offset={30} />
-                  <span
-                    aria-hidden
-                    className="pointer-events-none absolute inset-0 rounded-full lens-iridescence mix-blend-screen opacity-60"
                     style={{
+                      backdropFilter: "blur(10px) saturate(170%) contrast(110%)",
+                      WebkitBackdropFilter: "blur(10px) saturate(170%) contrast(110%)",
                       background:
-                        "linear-gradient(115deg, rgba(0,71,255,0.0) 0%, rgba(0,71,255,0.22) 20%, rgba(255,255,255,0.35) 38%, rgba(255,0,128,0.18) 58%, rgba(0,200,255,0.22) 78%, rgba(0,71,255,0.0) 100%)",
+                        "radial-gradient(120% 140% at 25% 20%, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.12) 38%, rgba(255,255,255,0.04) 65%, rgba(255,255,255,0.18) 100%)",
+                      boxShadow:
+                        "inset 0 1px 1px rgba(255,255,255,0.85), inset 0 -2px 8px rgba(15,23,42,0.25), inset 0 0 30px rgba(255,255,255,0.18), 0 12px 40px -8px rgba(0,71,255,0.35)",
+                      border: "1px solid rgba(255,255,255,0.55)",
+                      textShadow: "0 2px 18px rgba(255,255,255,0.35)",
                     }}
-                  />
-                  <span aria-hidden className="pointer-events-none absolute inset-0 rounded-full overflow-hidden">
+                  >
+                    <LetterShimmer text="smarter." offset={30} />
                     <span
-                      className="absolute top-0 bottom-0 w-[45%] lens-shimmer-track"
+                      aria-hidden
+                      className="pointer-events-none absolute inset-0 rounded-full lens-iridescence mix-blend-screen opacity-60"
                       style={{
                         background:
-                          "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.55) 50%, rgba(255,255,255,0) 100%)",
-                        filter: "blur(6px)",
-                        mixBlendMode: "screen",
+                          "linear-gradient(115deg, rgba(0,71,255,0.0) 0%, rgba(0,71,255,0.22) 20%, rgba(255,255,255,0.35) 38%, rgba(255,0,128,0.18) 58%, rgba(0,200,255,0.22) 78%, rgba(0,71,255,0.0) 100%)",
                       }}
                     />
-                  </span>
-                  <span
-                    aria-hidden
-                    className="pointer-events-none absolute rounded-full"
-                    style={{
-                      top: "12%",
-                      left: "10%",
-                      width: "38%",
-                      height: "30%",
-                      background: "radial-gradient(ellipse at center, rgba(255,255,255,0.7), rgba(255,255,255,0) 70%)",
-                      filter: "blur(2px)",
-                    }}
-                  />
-                  <span
-                    aria-hidden
-                    className="pointer-events-none absolute rounded-full"
-                    style={{
-                      bottom: "8%",
-                      left: "22%",
-                      right: "22%",
-                      height: "22%",
-                      background: "radial-gradient(ellipse at center, rgba(0,71,255,0.22), rgba(0,71,255,0) 70%)",
-                      filter: "blur(3px)",
-                    }}
-                  />
-                </motion.span>
+                    <span aria-hidden className="pointer-events-none absolute inset-0 rounded-full overflow-hidden">
+                      <span
+                        className="absolute top-0 bottom-0 w-[45%] lens-shimmer-track"
+                        style={{
+                          background:
+                            "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.55) 50%, rgba(255,255,255,0) 100%)",
+                          filter: "blur(6px)",
+                          mixBlendMode: "screen",
+                        }}
+                      />
+                    </span>
+                    <span
+                      aria-hidden
+                      className="pointer-events-none absolute rounded-full"
+                      style={{
+                        top: "12%",
+                        left: "10%",
+                        width: "38%",
+                        height: "30%",
+                        background: "radial-gradient(ellipse at center, rgba(255,255,255,0.7), rgba(255,255,255,0) 70%)",
+                        filter: "blur(2px)",
+                      }}
+                    />
+                    <span
+                      aria-hidden
+                      className="pointer-events-none absolute rounded-full"
+                      style={{
+                        bottom: "8%",
+                        left: "22%",
+                        right: "22%",
+                        height: "22%",
+                        background: "radial-gradient(ellipse at center, rgba(0,71,255,0.22), rgba(0,71,255,0) 70%)",
+                        filter: "blur(3px)",
+                      }}
+                    />
+                  </motion.span>
                 </span>
               </motion.h1>
               <motion.div

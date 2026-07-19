@@ -64,18 +64,16 @@ export function FAQSection() {
                 >
                   <span className="font-semibold text-lg pr-4 text-foreground/90">{faq.question}</span>
                   <span
-                    className={`size-8 rounded-full border border-border flex items-center justify-center shrink-0 transition-transform duration-300 ${
-                      isOpen ? "rotate-180 bg-electric text-white border-electric" : ""
-                    }`}
+                    className={`size-8 rounded-full border border-border flex items-center justify-center shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180 bg-electric text-white border-electric" : ""
+                      }`}
                   >
                     <ChevronDown className="size-4" />
                   </span>
                 </button>
 
                 <div
-                  className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                    isOpen ? "max-h-[300px] border-t border-border/40" : "max-h-0"
-                  }`}
+                  className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? "max-h-[300px] border-t border-border/40" : "max-h-0"
+                    }`}
                 >
                   <p className="p-6 text-muted-foreground leading-relaxed text-sm bg-secondary/10">
                     {faq.answer}
