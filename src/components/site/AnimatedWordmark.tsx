@@ -59,7 +59,7 @@ function ShufflingWord({
     <span
       suppressHydrationWarning
       className={cn(
-        "inline-block transition-all duration-200 ease-out will-change-transform",
+        "h-6 inline-flex items-center transition-all duration-200 ease-out will-change-transform",
         flip ? "opacity-0 -translate-y-1 blur-[2px]" : "opacity-100 translate-y-0 blur-0",
         STYLES[i],
         className,
@@ -73,7 +73,7 @@ function ShufflingWord({
 
 export function AnimatedWordmark() {
   return (
-    <span className="text-[13px] lg:text-[15px] whitespace-nowrap inline-flex items-baseline gap-2">
+    <span className="text-[13px] lg:text-[15px] whitespace-nowrap inline-flex items-center gap-2">
       <ShufflingWord word="Clear" interval={2200} delay={0} />
       <ShufflingWord word="Sight" interval={1700} delay={400} className="text-electric" />
       <ShufflingWord word="Opticians" interval={2900} delay={900} className="text-muted-foreground" />

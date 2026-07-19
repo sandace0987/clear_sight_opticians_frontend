@@ -12,7 +12,10 @@ import {
 interface UseImageSequenceResult {
   /** Get the best available frame image for a given progress [0, 1].
    *  Returns null if the frame hasn't loaded yet (fallback: hold last frame). */
-  getFrame: (progress: number) => HTMLImageElement | null;
+  getFrame: (
+    progress: number,
+    onLoaded?: (img: HTMLImageElement) => void
+  ) => HTMLImageElement | null;
   /** Call once the component has mounted so initial frames are preloaded */
   startPreload: () => void;
 }
@@ -24,7 +27,10 @@ export function useImageSequence(
   const lastIndexRef = useRef(1);
 
   const getFrame = useCallback(
-    (progress: number): HTMLImageElement | null => {
+    (
+      progress: number,
+      onLoaded?: (img: HTMLImageElement) => void
+    ): HTMLImageElement | null => {
       const clampedProgress = Math.max(0, Math.min(1, progress));
       const targetIndex = Math.max(
         1,
@@ -47,9 +53,15 @@ export function useImageSequence(
         return cached;
       }
 
-      // Frame not yet decoded — trigger async load and hold last known good frame
+      // Frame not yet decoded — trigger async load and hold last known good frame.
+      // Only update and trigger callback if the resolved frame is still the active target index.
       loadFrame(config, targetIndex).then((img) => {
-        lastFrameRef.current = img;
+        if (targetIndex === lastIndexRef.current) {
+          lastFrameRef.current = img;
+          if (onLoaded) {
+            onLoaded(img);
+          }
+        }
       });
 
       return lastFrameRef.current;

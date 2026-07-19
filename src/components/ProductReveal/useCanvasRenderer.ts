@@ -82,7 +82,7 @@ function drawImageCentered(
 
   const scaleX = canvasW / cropW;
   const scaleY = canvasH / cropH;
-  
+
   // Crop to fill (cover scale) on all devices
   const scale = Math.max(scaleX, scaleY);
 

@@ -309,7 +309,7 @@ function BrandPage() {
         )}
 
         {navSections.length > 0 && (
-          <div className="mt-10 sticky top-[108px] lg:top-[124px] z-30 -mx-4 px-4 py-3 bg-background/85 backdrop-blur-xl border-b border-border/60 flex flex-wrap gap-2">
+          <div className="mt-10 sticky top-[108px] lg:top-[124px] z-30 -mx-4 px-4 py-3 bg-background/90 backdrop-blur-xl border-b border-border/60 flex flex-wrap gap-2">
             {navSections.map((s) => (
               <a
                 key={s.id}

@@ -28,6 +28,8 @@ export interface TextCue {
   body?: string;
   /** Whether to render action CTA buttons at the end */
   showCTA?: boolean;
+  /** The target sharp frame index in the image sequence (1-indexed) */
+  keyframe: number;
 }
 
 export interface ProductRevealProps {

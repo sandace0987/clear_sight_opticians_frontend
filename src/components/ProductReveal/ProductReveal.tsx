@@ -219,6 +219,7 @@ export const ProductReveal: FC<ProductRevealProps> = ({
         <CanvasRenderer
           config={sequence}
           sectionRef={sectionRef}
+          textTimeline={textTimeline}
           onProgress={handleProgress}
         />
 
