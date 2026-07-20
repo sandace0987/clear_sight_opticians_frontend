@@ -9,14 +9,22 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
 import { Route as StoresRouteImport } from './routes/stores'
 import { Route as SmartGlassesRouteImport } from './routes/smart-glasses'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BrandsRouteImport } from './routes/brands'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as SplatRouteImport } from './routes/$'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BrandsBrandRouteImport } from './routes/brands_.$brand'
 
+const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
+  id: '/terms-and-conditions',
+  path: '/terms-and-conditions',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StoresRoute = StoresRouteImport.update({
   id: '/stores',
   path: '/stores',
@@ -25,6 +33,11 @@ const StoresRoute = StoresRouteImport.update({
 const SmartGlassesRoute = SmartGlassesRouteImport.update({
   id: '/smart-glasses',
   path: '/smart-glasses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -42,6 +55,11 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SplatRoute = SplatRouteImport.update({
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -55,74 +73,102 @@ const BrandsBrandRoute = BrandsBrandRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/$': typeof SplatRoute
   '/about': typeof AboutRoute
   '/brands': typeof BrandsRoute
   '/contact': typeof ContactRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/smart-glasses': typeof SmartGlassesRoute
   '/stores': typeof StoresRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/brands/$brand': typeof BrandsBrandRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/$': typeof SplatRoute
   '/about': typeof AboutRoute
   '/brands': typeof BrandsRoute
   '/contact': typeof ContactRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/smart-glasses': typeof SmartGlassesRoute
   '/stores': typeof StoresRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/brands/$brand': typeof BrandsBrandRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/$': typeof SplatRoute
   '/about': typeof AboutRoute
   '/brands': typeof BrandsRoute
   '/contact': typeof ContactRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/smart-glasses': typeof SmartGlassesRoute
   '/stores': typeof StoresRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/brands_/$brand': typeof BrandsBrandRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/$'
     | '/about'
     | '/brands'
     | '/contact'
+    | '/privacy-policy'
     | '/smart-glasses'
     | '/stores'
+    | '/terms-and-conditions'
     | '/brands/$brand'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/$'
     | '/about'
     | '/brands'
     | '/contact'
+    | '/privacy-policy'
     | '/smart-glasses'
     | '/stores'
+    | '/terms-and-conditions'
     | '/brands/$brand'
   id:
     | '__root__'
     | '/'
+    | '/$'
     | '/about'
     | '/brands'
     | '/contact'
+    | '/privacy-policy'
     | '/smart-glasses'
     | '/stores'
+    | '/terms-and-conditions'
     | '/brands_/$brand'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  SplatRoute: typeof SplatRoute
   AboutRoute: typeof AboutRoute
   BrandsRoute: typeof BrandsRoute
   ContactRoute: typeof ContactRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   SmartGlassesRoute: typeof SmartGlassesRoute
   StoresRoute: typeof StoresRoute
+  TermsAndConditionsRoute: typeof TermsAndConditionsRoute
   BrandsBrandRoute: typeof BrandsBrandRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terms-and-conditions': {
+      id: '/terms-and-conditions'
+      path: '/terms-and-conditions'
+      fullPath: '/terms-and-conditions'
+      preLoaderRoute: typeof TermsAndConditionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/stores': {
       id: '/stores'
       path: '/stores'
@@ -135,6 +181,13 @@ declare module '@tanstack/react-router' {
       path: '/smart-glasses'
       fullPath: '/smart-glasses'
       preLoaderRoute: typeof SmartGlassesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -158,6 +211,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$': {
+      id: '/$'
+      path: '/$'
+      fullPath: '/$'
+      preLoaderRoute: typeof SplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -177,11 +237,14 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  SplatRoute: SplatRoute,
   AboutRoute: AboutRoute,
   BrandsRoute: BrandsRoute,
   ContactRoute: ContactRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
   SmartGlassesRoute: SmartGlassesRoute,
   StoresRoute: StoresRoute,
+  TermsAndConditionsRoute: TermsAndConditionsRoute,
   BrandsBrandRoute: BrandsBrandRoute,
 }
 export const routeTree = rootRouteImport

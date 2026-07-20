@@ -6,6 +6,8 @@ interface UseCanvasRendererResult {
   canvasRef: React.RefObject<HTMLCanvasElement | null>;
   /** Call this every RAF tick with the image to draw */
   drawFrame: (img: HTMLImageElement) => void;
+  /** Reset the last-drawn image reference so the next drawFrame always repaints */
+  resetLastImg: () => void;
 }
 
 export function useCanvasRenderer(): UseCanvasRendererResult {
@@ -59,7 +61,11 @@ export function useCanvasRenderer(): UseCanvasRendererResult {
     drawImageCentered(ctx, img, w, h);
   }, []);
 
-  return { canvasRef, drawFrame };
+  const resetLastImg = useCallback(() => {
+    lastImgRef.current = null;
+  }, []);
+
+  return { canvasRef, drawFrame, resetLastImg };
 }
 
 /**
@@ -79,6 +85,9 @@ function drawImageCentered(
   const cropY = 0;
   const cropW = img.naturalWidth;
   const cropH = img.naturalHeight;
+
+  // If the browser dumped the image, naturalWidth is 0. Bail out to avoid Infinity scale/errors.
+  if (cropW === 0 || cropH === 0) return;
 
   const scaleX = canvasW / cropW;
   const scaleY = canvasH / cropH;

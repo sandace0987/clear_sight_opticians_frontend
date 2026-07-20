@@ -16,8 +16,9 @@ interface UseImageSequenceResult {
     progress: number,
     onLoaded?: (img: HTMLImageElement) => void
   ) => HTMLImageElement | null;
-  /** Call once the component has mounted so initial frames are preloaded */
-  startPreload: () => void;
+  /** Call once the component has mounted so initial frames are preloaded.
+   *  Returns a promise that resolves once the initial frames are ready. */
+  startPreload: () => Promise<void>;
 }
 
 export function useImageSequence(
@@ -25,6 +26,13 @@ export function useImageSequence(
 ): UseImageSequenceResult {
   const lastFrameRef = useRef<HTMLImageElement | null>(null);
   const lastIndexRef = useRef(1);
+
+  // Reset stale refs every time the config changes (i.e. every mount after
+  // the module-level cache was cleared on unmount)
+  useEffect(() => {
+    lastFrameRef.current = null;
+    lastIndexRef.current = 1;
+  }, [config]);
 
   const getFrame = useCallback(
     (
@@ -64,13 +72,16 @@ export function useImageSequence(
         }
       });
 
+      // Do NOT return the stale lastFrameRef here: if lastFrameRef was cleared on
+      // remount (after cache clear), returning it would draw a blank/stale image.
+      // Return null instead so the caller waits for the async load to finish.
       return lastFrameRef.current;
     },
     [config]
   );
 
-  const startPreload = useCallback(() => {
-    preloadInitialFrames(config, 24);
+  const startPreload = useCallback((): Promise<void> => {
+    return preloadInitialFrames(config, 24);
   }, [config]);
 
   // Idle-time preload the rest of the sequence in chunks

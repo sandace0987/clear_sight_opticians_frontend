@@ -1,0 +1,16 @@
+{
+  "name": "Clear Sight Opticians",
+  "short_name": "Clear Sight",
+  "description": "Premium eyewear, clinical-grade eye testing, and smart glasses in Hyderabad.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0b12",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/clear-sight-logo.avif",
+      "sizes": "192x192 512x512",
+      "type": "image/avif"
+    }
+  ]
+}

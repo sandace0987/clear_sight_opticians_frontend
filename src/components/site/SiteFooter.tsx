@@ -40,17 +40,22 @@ export function SiteFooter() {
         </div>
 
         <div className="md:col-span-3">
-          <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-5">Explore</h4>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-5">Explore</p>
           <ul className="space-y-3 text-sm">
             <li><Link to="/brands" className="hover:text-electric">Brands</Link></li>
             <li><Link to="/smart-glasses" className="hover:text-electric">Smart Glasses</Link></li>
             <li><Link to="/stores" className="hover:text-electric">Store Locator</Link></li>
             <li><Link to="/about" className="hover:text-electric">About</Link></li>
           </ul>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-3 mt-8">Legal</p>
+          <ul className="space-y-3 text-sm">
+            <li><Link to="/privacy-policy" className="hover:text-electric">Privacy Policy</Link></li>
+            <li><Link to="/terms-and-conditions" className="hover:text-electric">Terms &amp; Conditions</Link></li>
+          </ul>
         </div>
 
         <div className="md:col-span-4">
-          <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-5">Kukatpally (KPHB) Flagship</h4>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-5">Kukatpally (KPHB) Flagship</p>
           <p className="text-sm text-white/70 leading-relaxed">
             Shop #4, Padmaja Complex,<br />
             JNTU Road, 6th Phase, KPHB,<br />
@@ -67,6 +72,11 @@ export function SiteFooter() {
 
       <div className="mx-auto max-w-7xl mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40">
         <p>© {new Date().getFullYear()} Clear Sight Opticians Private Limited.</p>
+        <div className="flex items-center gap-4">
+          <Link to="/privacy-policy" className="hover:text-electric transition-colors">Privacy Policy</Link>
+          <span aria-hidden="true">·</span>
+          <Link to="/terms-and-conditions" className="hover:text-electric transition-colors">Terms &amp; Conditions</Link>
+        </div>
         <p>
           made with ❤️ by{" "}
           <a

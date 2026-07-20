@@ -75,7 +75,7 @@ export function SiteHeader() {
       { rootMargin: "-45% 0px -45% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] },
     );
     sections.forEach((s) => observer.observe(s));
-    
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
       observer.disconnect();
@@ -90,6 +90,7 @@ export function SiteHeader() {
       setOpen(false);
       return;
     }
+    
     e.preventDefault();
     if (!item.hash) {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -177,7 +178,8 @@ export function SiteHeader() {
             <ThemeSwatches />
             <button
               type="button"
-              aria-label="Open menu"
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
               className="inline-flex size-9 items-center justify-center rounded-full border border-border"
               onClick={() => setOpen((v) => !v)}
             >
@@ -204,7 +206,7 @@ export function SiteHeader() {
             const isActive = item.route
               ? location.pathname === item.to
               : location.pathname === "/" &&
-                (item.hash ? item.hash === activeSection : activeSection === undefined);
+              (item.hash ? item.hash === activeSection : activeSection === undefined);
             return (
               <Link
                 key={item.label}
@@ -236,14 +238,14 @@ export function SiteHeader() {
             const isActive = item.route
               ? location.pathname === item.to
               : location.pathname === "/" &&
-                (item.hash ? item.hash === activeSection : activeSection === undefined);
+              (item.hash ? item.hash === activeSection : activeSection === undefined);
             return (
               <Link
                 key={item.label}
                 to={item.to}
                 onClick={handleNavClick(item)}
                 className={cn(
-                  "py-2 text-sm font-medium",
+                  "py-3 px-2 -mx-2 text-sm font-medium",
                   isActive ? "text-electric font-bold" : "text-foreground/80",
                 )}
               >

@@ -98,8 +98,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         { name: "author", content: "Clear Sight Opticians" },
         { name: "theme-color", content: "#ffffff", media: "(prefers-color-scheme: light)" },
         { name: "theme-color", content: "#0b0b12", media: "(prefers-color-scheme: dark)" },
+        { name: "keywords", content: "best opticians in hyderabad, best opticians in kukatpally, kphb optician, nizampet optician, glasses store, eye test, eye care, designer eyewear, smart glasses, ZEISS eye test" },
+        { name: "geo.region", content: "IN-TG" },
+        { name: "geo.position", content: "17.493921;78.397634" },
+        { name: "ICBM", content: "17.493921,78.397634" },
       ],
       links: [
+        { rel: "manifest", href: "/manifest.webmanifest" },
         { rel: "stylesheet", href: appCss },
         { rel: "icon", type: "image/avif", href: "/clear-sight-logo.avif" },
         { rel: "apple-touch-icon", href: "/clear-sight-logo.avif" },
@@ -153,8 +158,14 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="flex min-h-screen flex-col text-foreground">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:rounded-md focus:bg-electric focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white focus:shadow-lg"
+        >
+          Skip to main content
+        </a>
         <SiteHeader />
-        <main className="flex-1">
+        <main id="main-content" className="flex-1">
           <PageTransition>
             <Outlet />
           </PageTransition>

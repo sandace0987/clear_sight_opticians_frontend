@@ -48,10 +48,14 @@ export function ChatBot() {
   const [showQuestions, setShowQuestions] = useState(true);
   const [showContact, setShowContact] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
+  const answerRef = useRef<HTMLDivElement>(null);
 
+  // Scroll to bottom only when chat first opens or on reset
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages, showQuestions]);
+    if (open) {
+      bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [open]);
 
   const toggle = useCallback(
     () =>
@@ -71,6 +75,10 @@ export function ChatBot() {
       { type: "bot", content: qa.answer, isHtml: true },
     ]);
     setShowQuestions(true);
+    // Scroll to the answer (answerRef sits right after messages, before question buttons)
+    setTimeout(() => {
+      answerRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
+    }, 50);
   };
 
   const handleOtherQuery = () => {
@@ -81,12 +89,18 @@ export function ChatBot() {
     ]);
     setShowContact(true);
     setShowQuestions(true);
+    setTimeout(() => {
+      answerRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
+    }, 50);
   };
 
   const reset = () => {
     setMessages([{ type: "bot", content: WELCOME }]);
     setShowContact(false);
     setShowQuestions(true);
+    setTimeout(() => {
+      bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 50);
   };
 
   return (
@@ -151,6 +165,10 @@ export function ChatBot() {
                     />
                   </div>
                 ))}
+
+                {/* answerRef sits here — after messages, before question buttons.
+                    Scrolling to this shows the latest answer without going past it. */}
+                <div ref={answerRef} />
 
                 {showQuestions && (
                   <div className="flex flex-col gap-2 pt-1">

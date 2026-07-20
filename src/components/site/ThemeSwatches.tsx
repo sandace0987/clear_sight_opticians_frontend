@@ -128,8 +128,9 @@ export function ThemeSwatches() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute right-0 top-full mt-2 w-72 max-h-[75vh] overflow-y-auto bg-background/95 backdrop-blur-xl border border-border/50 shadow-2xl rounded-2xl p-3.5 z-50 thin-scrollbar"
+            className="absolute right-0 top-full mt-2 w-72 bg-background/95 backdrop-blur-xl border border-border/50 shadow-2xl rounded-2xl overflow-hidden z-50"
           >
+            <div className="max-h-[75vh] overflow-y-auto p-3.5 thin-scrollbar flex flex-col">
             {/* ── Tabs header ── */}
             {(envEnableAssistant || envEnableFilters) && (
               <div className="flex border-b border-border/40 pb-2 mb-3 gap-1">
@@ -284,6 +285,7 @@ export function ThemeSwatches() {
                 )}
               </div>
             )}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

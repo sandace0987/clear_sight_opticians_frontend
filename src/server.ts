@@ -66,9 +66,90 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
   return brandedErrorResponse();
 }
 
+function generateSitemap(): string {
+  const baseUrl = "https://www.clearsightopticians.in";
+  
+  const corePages = [
+    { url: "/", changefreq: "weekly", priority: 1.0 },
+    { url: "/smart-glasses", changefreq: "weekly", priority: 0.9 },
+    { url: "/brands", changefreq: "weekly", priority: 0.9 },
+    { url: "/stores", changefreq: "monthly", priority: 0.9 },
+    { url: "/about", changefreq: "monthly", priority: 0.7 },
+    { url: "/privacy-policy", changefreq: "yearly", priority: 0.3 },
+    { url: "/terms-and-conditions", changefreq: "yearly", priority: 0.3 },
+  ];
+
+  const brandSlugs = [
+    'maui-jim',
+    'ray-ban',
+    'oakley',
+    'philipp-plein',
+    'prada',
+    'burberry',
+    'carrera',
+    'tom-ford',
+    'police',
+    'zeiss',
+    'vogue',
+    'silhouette',
+    'montblanc',
+    'puma',
+  ];
+  
+  const today = new Date().toISOString().split("T")[0];
+
+  const urls = [
+    ...corePages.map(page => `
+  <url>
+    <loc>${baseUrl}${page.url}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${page.priority.toFixed(1)}</priority>
+  </url>`),
+    ...brandSlugs.map(slug => `
+  <url>
+    <loc>${baseUrl}/brands/${slug}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>`)
+  ].join("");
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls}
+</urlset>`;
+}
+
+function generateRobotsTxt(): string {
+  return `User-agent: *
+Allow: /
+
+Sitemap: https://www.clearsightopticians.in/sitemap.xml`;
+}
+
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
+      const url = new URL(request.url);
+      
+      if (url.pathname === "/sitemap.xml") {
+        return new Response(generateSitemap(), {
+          headers: {
+            "Content-Type": "application/xml",
+            "Cache-Control": "public, max-age=3600, s-maxage=86400",
+          },
+        });
+      }
+      
+      if (url.pathname === "/robots.txt") {
+        return new Response(generateRobotsTxt(), {
+          headers: {
+            "Content-Type": "text/plain",
+            "Cache-Control": "public, max-age=3600, s-maxage=86400",
+          },
+        });
+      }
+
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
       return await normalizeCatastrophicSsrResponse(response);

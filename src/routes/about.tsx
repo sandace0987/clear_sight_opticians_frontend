@@ -6,24 +6,22 @@ import kphb1 from "@/assets/miscellaneous/kphb-interior-1.webp";
 import kphb2 from "@/assets/miscellaneous/kphb-interior-2.webp";
 import { StoreImageCarousel } from "@/components/site/StoreImageCarousel";
 import { Reveal } from "@/components/motion/Reveal";
+import { breadcrumbSchema, createSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About Clear Sight Opticians | Vision Experts in Hyderabad Since 2009" },
-      { name: "description", content: "Learn about Clear Sight Opticians, Hyderabad's trusted ZEISS Certified Vision Experts since 2009. Our journey, clinical expertise, and founders." },
-      { name: "keywords", content: "About Clear Sight Opticians, ZEISS Vision Expert Telangana, eye testing Hyderabad, luxury frames Hyderabad, Kukatpally opticians" },
-      { name: "robots", content: "index, follow" },
-      { property: "og:title", content: "About Clear Sight Opticians | Vision Experts since 2009" },
-      { property: "og:description", content: "Delivering clarity with style in Hyderabad since 2009. Meet Telangana's first ZEISS Certified Vision Experts." },
-      { property: "og:url", content: "https://www.clearsightopticians.in/about" },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [
-      { rel: "canonical", href: "https://www.clearsightopticians.in/about" }
-    ]
-  }),
+  head: () =>
+    createSeoHead({
+      title: "About Clear Sight Opticians | Vision Experts in Hyderabad Since 2009",
+      description:
+        "Learn about Clear Sight Opticians, Hyderabad's trusted ZEISS Certified Vision Experts since 2009. Our journey, clinical expertise, and founders.",
+      path: "/about",
+      schema: [
+        breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "About", path: "/about" },
+        ]),
+      ],
+    }),
   component: AboutPage,
 });
 

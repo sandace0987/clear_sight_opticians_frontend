@@ -66,7 +66,7 @@ const BRAND_CAMPAIGN_IMAGES: Record<string, string> = {
 };
 import { Gamepad2 } from "lucide-react";
 import { FAQSection } from "@/components/site/FAQSection";
-import { breadcrumbSchema, createSeoHead, itemListSchema, STORE_LOCATIONS } from "@/lib/seo";
+import { breadcrumbSchema, createSeoHead, faqSchema, itemListSchema, STORE_LOCATIONS } from "@/lib/seo";
 
 const ProductReveal = lazy(() =>
   import("@/components/ProductReveal/ProductReveal").then((module) => ({
@@ -83,6 +83,33 @@ const CatchGame = lazy(() =>
 );
 
 
+const HOMEPAGE_FAQS = [
+  {
+    question: "Where can I get a professional ZEISS eye test in Hyderabad?",
+    answer: "Clear Sight Opticians is a proud ZEISS Certified Vision Expert — the first partner in Telangana. You can get advanced, precise vision profiling and professional eye tests using state-of-the-art ZEISS diagnostic equipment at all three of our Hyderabad studios: Kukatpally (KPHB), Nizampet, and Bowenpally. Eye tests are complimentary with any eyewear purchase.",
+  },
+  {
+    question: "Can I get custom prescription lenses for Ray-Ban Meta smart glasses?",
+    answer: "Yes, absolutely. We specialize in fitting custom, high-index prescription lenses into Ray-Ban Meta and Oakley Meta smart glasses. Whether you need single vision, progressive, blue-light filtering, or transition lenses, our in-house optical lab fits them precisely without affecting the open-ear audio or camera systems.",
+  },
+  {
+    question: "What luxury designer eyewear brands do you stock?",
+    answer: "We carry a curated edit of the world's finest eyewear brands, including Prada, Gucci, Oakley, Ray-Ban, Maui Jim, Silhouette, Montblanc, and Tom Ford. Every frame we sell is 100% authentic and comes with its original case, certificate, and manufacturer warranty.",
+  },
+  {
+    question: "Do you offer walk-in appointments for vision check-ups?",
+    answer: "Yes, walk-ins are always welcome at all three of our Hyderabad locations. However, to minimize wait times during weekends or peak hours, we recommend booking a slot in advance by calling us or scheduling via WhatsApp through our Contact page.",
+  },
+  {
+    question: "Do you offer lifetime support for frames purchased from your store?",
+    answer: "Yes! Every frame purchased from Clear Sight Opticians qualifies for our complimentary lifetime fitting service. You can walk into any of our KPHB, Nizampet, or Bowenpally studios anytime for free frame adjustments, nose pad replacements, screw tightening, and ultrasonic deep cleaning.",
+  },
+  {
+    question: "Which Clear Sight store is nearest to me?",
+    answer: "Choose KPHB for JNTU, Kukatpally, Miyapur, and Pragathi Nagar; Nizampet for Bachupally and Hyder Nagar; and Bowenpally for Secunderabad, Cantonment, Sikh Village, Paradise, and Begumpet.",
+  },
+];
+
 export const Route = createFileRoute("/")({
   head: () => ({
     ...createSeoHead({
@@ -97,10 +124,10 @@ export const Route = createFileRoute("/")({
           "/stores",
           STORE_LOCATIONS.map((store) => ({ name: store.name, path: `/stores#${store.id}` })),
         ),
+        faqSchema(HOMEPAGE_FAQS),
       ],
     }),
     links: [
-      { rel: "canonical", href: "https://www.clearsightopticians.in/" },
       { rel: "preload", as: "image", href: heroPortraitLight, fetchPriority: "high" },
       { rel: "preload", as: "image", href: heroPortraitDark, fetchPriority: "high" },
     ],
@@ -325,8 +352,8 @@ function HomePage() {
           <motion.img
             src={isDark ? heroPortraitDark : heroPortraitLight}
             alt="Person wearing clear-frame luxury eyewear in cinematic blue light"
-            width={1920}
-            height={1080}
+            width={1500}
+            height={1191}
             fetchPriority="high"
             decoding="async"
             className="absolute inset-0 w-full h-full object-cover object-[center_20%]"

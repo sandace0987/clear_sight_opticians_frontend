@@ -82,12 +82,25 @@ export function preloadInitialFrames(
   return Promise.all(tasks).then(() => undefined);
 }
 
-/** Synchronous cache hit — returns null if frame not yet decoded */
+/** Synchronous cache hit — returns null if frame not yet decoded or if it was evicted by the browser */
 export function getCachedFrame(
   config: FrameSequenceConfig,
   frameIndex: number
 ): HTMLImageElement | null {
-  return cache.get(frameUrl(config, frameIndex)) ?? null;
+  const url = frameUrl(config, frameIndex);
+  const img = cache.get(url);
+  
+  if (img) {
+    // If the browser dumped the bitmap to save memory, naturalWidth becomes 0.
+    // We must remove it from the cache so it gets reloaded properly.
+    if (img.naturalWidth === 0 && img.complete) {
+      cache.delete(url);
+      return null;
+    }
+    return img;
+  }
+  
+  return null;
 }
 
 export function clearCache(): void {
