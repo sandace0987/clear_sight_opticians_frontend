@@ -72,11 +72,6 @@ export function SiteFooter() {
 
       <div className="mx-auto max-w-7xl mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40">
         <p>© {new Date().getFullYear()} Clear Sight Opticians Private Limited.</p>
-        <div className="flex items-center gap-4">
-          <Link to="/privacy-policy" className="hover:text-electric transition-colors">Privacy Policy</Link>
-          <span aria-hidden="true">·</span>
-          <Link to="/terms-and-conditions" className="hover:text-electric transition-colors">Terms &amp; Conditions</Link>
-        </div>
         <p>
           made with ❤️ by{" "}
           <a
