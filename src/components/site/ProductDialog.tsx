@@ -39,7 +39,7 @@ export function ProductDialog({ brand, model, priceFrom, variants, trigger, open
       {trigger ? <DialogTrigger asChild>{trigger}</DialogTrigger> : null}
       <DialogContent
         onClick={(e) => e.stopPropagation()}
-        className="max-w-3xl sm:rounded-2xl p-0 overflow-hidden"
+        className="max-w-3xl sm:rounded-2xl p-0 overflow-hidden [&>button:last-child]:absolute [&>button:last-child]:right-4 [&>button:last-child]:top-4 [&>button:last-child]:z-50 [&>button:last-child]:flex [&>button:last-child]:h-8 [&>button:last-child]:w-8 [&>button:last-child]:items-center [&>button:last-child]:justify-center [&>button:last-child]:rounded-full [&>button:last-child]:bg-black/85 [&>button:last-child]:text-white [&>button:last-child]:border [&>button:last-child]:border-white/10 [&>button:last-child]:shadow-lg [&>button:last-child]:opacity-100 [&>button:last-child]:hover:bg-black [&>button:last-child]:hover:opacity-100"
       >
         <div className="grid grid-cols-1 md:grid-cols-2">
           {/* Gallery */}

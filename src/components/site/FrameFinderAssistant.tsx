@@ -1,8 +1,10 @@
 import * as React from "react";
 import { X, Sparkles, ArrowRight, ArrowLeft, RefreshCw, Smartphone, Check } from "lucide-react";
+import { useNavigate } from "@tanstack/react-router";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { BRANDS, type GlassItem } from "@/lib/brand-catalog";
 import { ProductDialog } from "@/components/site/ProductDialog";
+import { useImageDominantColor } from "@/hooks/useImageDominantColor";
 import { CONTACT_PHONE_RAW } from "@/lib/contact-config";
 import { cn } from "@/lib/utils";
 
@@ -41,6 +43,71 @@ const SMART_GLASSES_PREF = [
   { id: "any", label: "Show me both options", desc: "Open to both tech and traditional eyewear" },
 ];
 
+interface RecommendationCardProps {
+  model: GlassItem;
+  brandName: string;
+  onClick: () => void;
+}
+
+function RecommendationCard({ model, brandName, onClick }: RecommendationCardProps) {
+  const variant = model.variants?.[0];
+  const imageSrc = model.image || variant?.images.front;
+  const { color } = useImageDominantColor(imageSrc || "");
+
+  const searchTxt = `Hi Clear Sight, I'd like to check out the ${brandName} ${model.model} frame recommended by the Frame Finder.`;
+  const whatsappUrl = `https://wa.me/${CONTACT_PHONE_RAW}?text=${encodeURIComponent(searchTxt)}`;
+
+  return (
+    <div
+      onClick={onClick}
+      className={cn(
+        "p-4 rounded-2xl border border-border/60 bg-secondary/15 flex items-center justify-between gap-4 transition-all duration-200 group/card",
+        model.variants && model.variants.length > 0
+          ? "cursor-pointer hover:bg-secondary/30 hover:border-electric/30 hover:shadow-sm"
+          : "cursor-default"
+      )}
+    >
+      <div className="flex items-center gap-4">
+        {/* Sleek horizontal rectangle with dynamic dominant background color matching cards strategy! */}
+        <div
+          className="w-20 h-14 rounded-xl border border-border/40 p-1 shrink-0 flex items-center justify-center overflow-hidden transition-colors"
+          style={{ backgroundColor: color || "rgba(255, 255, 255, 0.05)", transition: "background-color 0.4s ease" }}
+        >
+          {imageSrc ? (
+            <img src={imageSrc} alt="" className="max-h-full max-w-full w-auto object-contain" />
+          ) : (
+            <span className="text-[10px] font-bold text-muted-foreground uppercase">{model.shape}</span>
+          )}
+        </div>
+        <div>
+          <span className="text-[8px] font-bold uppercase tracking-widest text-electric">{brandName}</span>
+          <h4 className="font-bold text-sm tracking-tight text-foreground leading-snug group-hover/card:text-electric transition-colors">
+            {model.model}
+          </h4>
+          <div className="flex items-center gap-2 mt-1">
+            {model.priceFrom != null ? (
+              <span className="text-[10px] font-bold text-foreground/80">From ₹{model.priceFrom.toLocaleString("en-IN")}</span>
+            ) : (
+              <span className="text-[9px] text-muted-foreground">Contact store for price</span>
+            )}
+            <span className="size-1 rounded-full bg-neutral-300 dark:bg-neutral-700" />
+            <span className="text-[9px] text-muted-foreground uppercase font-semibold tracking-wider">{model.shape}</span>
+          </div>
+        </div>
+      </div>
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={(e) => e.stopPropagation()}
+        className="bg-electric text-white px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-wider hover:bg-ink transition shrink-0"
+      >
+        Enquire
+      </a>
+    </div>
+  );
+}
+
 export function FrameFinderAssistant({ open, onOpenChange }: FrameFinderAssistantProps) {
   const [step, setStep] = React.useState<Step>("welcome");
   const [budget, setBudget] = React.useState<number | null>(null);
@@ -50,6 +117,9 @@ export function FrameFinderAssistant({ open, onOpenChange }: FrameFinderAssistan
   const [loadingProgress, setLoadingProgress] = React.useState(0);
   const [recommendations, setRecommendations] = React.useState<{ model: GlassItem; brandName: string; score: number }[]>([]);
   const [selectedModel, setSelectedModel] = React.useState<{ model: GlassItem; brandName: string } | null>(null);
+
+  const navigate = useNavigate();
+  const isAllSkipped = budget === null && faceShape === null && frameType === null && smartPref === null;
 
   // Loading animation
   React.useEffect(() => {
@@ -249,10 +319,24 @@ export function FrameFinderAssistant({ open, onOpenChange }: FrameFinderAssistan
               <button
                 type="button"
                 onClick={() => {
-                  if (step === "budget") setStep("faceShape");
-                  if (step === "faceShape") setStep("frameType");
-                  if (step === "frameType") setStep("smart");
-                  if (step === "smart") setStep("loading");
+                  switch (step) {
+                    case "budget":
+                      setBudget(null);
+                      setStep("faceShape");
+                      break;
+                    case "faceShape":
+                      setFaceShape(null);
+                      setStep("frameType");
+                      break;
+                    case "frameType":
+                      setFrameType(null);
+                      setStep("smart");
+                      break;
+                    case "smart":
+                      setSmartPref(null);
+                      setStep("loading");
+                      break;
+                  }
                 }}
                 className="text-[10px] font-bold uppercase tracking-[0.16em] text-electric hover:underline"
               >
@@ -266,16 +350,24 @@ export function FrameFinderAssistant({ open, onOpenChange }: FrameFinderAssistan
                 <h3 className="text-xl font-bold tracking-tight mb-2">Select your maximum budget</h3>
                 <p className="text-xs text-muted-foreground mb-6">We'll filter our collection to keep matches in your desired price range.</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {BUDGET_OPTIONS.map((opt) => (
-                    <button
-                      key={opt.label}
-                      type="button"
-                      onClick={() => handleBudgetSelect(opt.max)}
-                      className="p-4 text-left rounded-2xl border border-border/60 bg-secondary/15 hover:bg-secondary/40 hover:border-electric/50 text-sm font-semibold transition"
-                    >
-                      {opt.label}
-                    </button>
-                  ))}
+                  {BUDGET_OPTIONS.map((opt) => {
+                    const isSelected = budget === opt.max;
+                    return (
+                      <button
+                        key={opt.label}
+                        type="button"
+                        onClick={() => handleBudgetSelect(opt.max)}
+                        className={cn(
+                          "p-4 text-left rounded-2xl border text-sm font-semibold transition-all duration-200",
+                          isSelected
+                            ? "border-electric bg-electric/10 text-electric shadow-sm"
+                            : "border-border/60 bg-secondary/15 hover:bg-secondary/40 hover:border-electric/50 text-foreground"
+                        )}
+                      >
+                        {opt.label}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
             )}
@@ -286,17 +378,25 @@ export function FrameFinderAssistant({ open, onOpenChange }: FrameFinderAssistan
                 <h3 className="text-xl font-bold tracking-tight mb-2">Identify your facial shape</h3>
                 <p className="text-xs text-muted-foreground mb-6">Recommended lens shapes are designed to balance and highlight your natural features.</p>
                 <div className="space-y-2 max-h-[300px] overflow-y-auto pr-1 thin-scrollbar">
-                  {FACE_SHAPES.map((opt) => (
-                    <button
-                      key={opt.id}
-                      type="button"
-                      onClick={() => handleFaceShapeSelect(opt.id)}
-                      className="w-full p-4 text-left rounded-2xl border border-border/60 bg-secondary/15 hover:bg-secondary/40 hover:border-electric/50 transition flex flex-col gap-0.5"
-                    >
-                      <span className="text-sm font-bold">{opt.label}</span>
-                      <span className="text-[10px] text-muted-foreground leading-normal">{opt.desc}</span>
-                    </button>
-                  ))}
+                  {FACE_SHAPES.map((opt) => {
+                    const isSelected = faceShape === opt.id;
+                    return (
+                      <button
+                        key={opt.id}
+                        type="button"
+                        onClick={() => handleFaceShapeSelect(opt.id)}
+                        className={cn(
+                          "w-full p-4 text-left rounded-2xl border transition-all duration-200 flex flex-col gap-0.5",
+                          isSelected
+                            ? "border-electric bg-electric/10 text-electric shadow-sm"
+                            : "border-border/60 bg-secondary/15 hover:bg-secondary/40 hover:border-electric/50 text-foreground"
+                        )}
+                      >
+                        <span className="text-sm font-bold">{opt.label}</span>
+                        <span className="text-[10px] text-muted-foreground leading-normal">{opt.desc}</span>
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
             )}
@@ -307,17 +407,25 @@ export function FrameFinderAssistant({ open, onOpenChange }: FrameFinderAssistan
                 <h3 className="text-xl font-bold tracking-tight mb-2">Choose your structural style</h3>
                 <p className="text-xs text-muted-foreground mb-6">Rimless is lightweight and minimalist, while full rim makes a bold statement.</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {FRAME_TYPES.map((opt) => (
-                    <button
-                      key={opt.id}
-                      type="button"
-                      onClick={() => handleFrameTypeSelect(opt.id)}
-                      className="p-4 text-left rounded-2xl border border-border/60 bg-secondary/15 hover:bg-secondary/40 hover:border-electric/50 transition flex flex-col gap-0.5"
-                    >
-                      <span className="text-sm font-bold">{opt.label}</span>
-                      <span className="text-[10px] text-muted-foreground leading-normal mt-0.5">{opt.desc}</span>
-                    </button>
-                  ))}
+                  {FRAME_TYPES.map((opt) => {
+                    const isSelected = frameType === opt.id;
+                    return (
+                      <button
+                        key={opt.id}
+                        type="button"
+                        onClick={() => handleFrameTypeSelect(opt.id)}
+                        className={cn(
+                          "p-4 text-left rounded-2xl border transition-all duration-200 flex flex-col gap-0.5",
+                          isSelected
+                            ? "border-electric bg-electric/10 text-electric shadow-sm"
+                            : "border-border/60 bg-secondary/15 hover:bg-secondary/40 hover:border-electric/50 text-foreground"
+                        )}
+                      >
+                        <span className="text-sm font-bold">{opt.label}</span>
+                        <span className="text-[10px] text-muted-foreground leading-normal mt-0.5">{opt.desc}</span>
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
             )}
@@ -328,17 +436,25 @@ export function FrameFinderAssistant({ open, onOpenChange }: FrameFinderAssistan
                 <h3 className="text-xl font-bold tracking-tight mb-2">Interest in Smart Glasses features?</h3>
                 <p className="text-xs text-muted-foreground mb-6">Select yes if you're looking for built-in camera, music audio, and Meta AI.</p>
                 <div className="space-y-2">
-                  {SMART_GLASSES_PREF.map((opt) => (
-                    <button
-                      key={opt.id}
-                      type="button"
-                      onClick={() => handleSmartSelect(opt.id)}
-                      className="w-full p-4 text-left rounded-2xl border border-border/60 bg-secondary/15 hover:bg-secondary/40 hover:border-electric/50 transition flex flex-col gap-0.5"
-                    >
-                      <span className="text-sm font-bold">{opt.label}</span>
-                      <span className="text-[10px] text-muted-foreground leading-normal">{opt.desc}</span>
-                    </button>
-                  ))}
+                  {SMART_GLASSES_PREF.map((opt) => {
+                    const isSelected = smartPref === opt.id;
+                    return (
+                      <button
+                        key={opt.id}
+                        type="button"
+                        onClick={() => handleSmartSelect(opt.id)}
+                        className={cn(
+                          "w-full p-4 text-left rounded-2xl border transition-all duration-200 flex flex-col gap-0.5",
+                          isSelected
+                            ? "border-electric bg-electric/10 text-electric shadow-sm"
+                            : "border-border/60 bg-secondary/15 hover:bg-secondary/40 hover:border-electric/50 text-foreground"
+                        )}
+                      >
+                        <span className="text-sm font-bold">{opt.label}</span>
+                        <span className="text-[10px] text-muted-foreground leading-normal">{opt.desc}</span>
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
             )}
@@ -366,88 +482,87 @@ export function FrameFinderAssistant({ open, onOpenChange }: FrameFinderAssistan
 
         {step === "results" && (
           <div className="p-6 sm:p-8 max-h-[85vh] overflow-y-auto thin-scrollbar">
-            <div className="text-center flex flex-col items-center mb-6">
-              <span className="text-[9px] font-bold uppercase tracking-[0.22em] text-electric block mb-1">
-                Your Matches
-              </span>
-              <h2 className="text-2xl font-bold tracking-tight">Top Recommended Frames</h2>
-              <p className="text-xs text-muted-foreground mt-1">Based on facial structure, style profile, and budget settings.</p>
-            </div>
+            {isAllSkipped ? (
+              <div className="text-center flex flex-col items-center py-6">
+                <div className="size-16 rounded-full bg-electric/10 border border-electric/30 flex items-center justify-center mb-6">
+                  <Sparkles className="size-7 text-electric" />
+                </div>
+                <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-electric block mb-2">
+                  No Preferences Given
+                </span>
+                <h2 className="text-2xl font-bold tracking-tighter max-w-sm">
+                  Uh-oh! You have not given any preferences.
+                </h2>
+                <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-sm">
+                  No worries! You can select and browse all frames manually to find the perfect style for yourself.
+                </p>
 
-            <div className="space-y-4">
-              {recommendations.map(({ model, brandName }, i) => {
-                const variant = model.variants?.[0];
-                const imageSrc = model.image || variant?.images.front;
-                const searchTxt = `Hi Clear Sight, I'd like to check out the ${brandName} ${model.model} frame recommended by the Frame Finder.`;
-                const whatsappUrl = `https://wa.me/${CONTACT_PHONE_RAW}?text=${encodeURIComponent(searchTxt)}`;
-
-                return (
-                  <div
-                    key={model.model}
-                    onClick={() => {
-                      if (model.variants && model.variants.length > 0) {
-                        setSelectedModel({ model, brandName });
-                      }
-                    }}
-                    className={cn(
-                      "p-4 rounded-2xl border border-border/60 bg-secondary/15 flex items-center justify-between gap-4 transition-all duration-200 group/card",
-                      model.variants && model.variants.length > 0
-                        ? "cursor-pointer hover:bg-secondary/30 hover:border-electric/30 hover:shadow-sm"
-                        : "cursor-default"
-                    )}
+                <div className="mt-8 flex flex-col sm:flex-row gap-3 w-full max-w-sm justify-center">
+                  <button
+                    type="button"
+                    onClick={resetAssistant}
+                    className="flex-1 inline-flex items-center justify-center gap-1.5 py-3 rounded-full text-xs font-bold uppercase tracking-widest border border-border hover:bg-secondary/35 text-muted-foreground hover:text-foreground transition"
                   >
-                    <div className="flex items-center gap-4">
-                      <div className="size-16 rounded-xl bg-background border p-1 shrink-0 flex items-center justify-center">
-                        {imageSrc ? (
-                          <img src={imageSrc} alt="" className="max-h-full max-w-full object-contain" />
-                        ) : (
-                          <span className="text-[10px] font-bold text-muted-foreground">{model.shape}</span>
-                        )}
-                      </div>
-                      <div>
-                        <span className="text-[8px] font-bold uppercase tracking-widest text-electric">{brandName}</span>
-                        <h4 className="font-bold text-sm tracking-tight text-foreground leading-snug group-hover/card:text-electric transition-colors">{model.model}</h4>
-                        <div className="flex items-center gap-2 mt-1">
-                          {model.priceFrom != null ? (
-                            <span className="text-[10px] font-bold text-foreground/80">From ₹{model.priceFrom.toLocaleString("en-IN")}</span>
-                          ) : (
-                            <span className="text-[9px] text-muted-foreground">Contact store for price</span>
-                          )}
-                          <span className="size-1 rounded-full bg-neutral-300 dark:bg-neutral-700" />
-                          <span className="text-[9px] text-muted-foreground uppercase font-semibold tracking-wider">{model.shape}</span>
-                        </div>
-                      </div>
-                    </div>
-                    <a
-                      href={whatsappUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="bg-electric text-white px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-wider hover:bg-ink transition shrink-0"
-                    >
-                      Enquire
-                    </a>
-                  </div>
-                );
-              })}
-            </div>
+                    <RefreshCw className="size-3.5" /> Start Over
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      onOpenChange(false);
+                      navigate({ to: "/brands" });
+                    }}
+                    className="flex-1 bg-electric text-white py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-ink transition"
+                  >
+                    Browse All Frames
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <>
+                <div className="text-center flex flex-col items-center mb-6">
+                  <span className="text-[9px] font-bold uppercase tracking-[0.22em] text-electric block mb-1">
+                    Your Matches
+                  </span>
+                  <h2 className="text-2xl font-bold tracking-tight">Top Recommended Frames</h2>
+                  <p className="text-xs text-muted-foreground mt-1">Based on facial structure, style profile, and budget settings.</p>
+                </div>
 
-            <div className="mt-8 flex gap-3 pt-4 border-t border-border/40">
-              <button
-                type="button"
-                onClick={resetAssistant}
-                className="flex-1 inline-flex items-center justify-center gap-1.5 py-3 rounded-full text-xs font-bold uppercase tracking-widest border border-border hover:bg-secondary/35 text-muted-foreground hover:text-foreground transition"
-              >
-                <RefreshCw className="size-3.5" /> Start Over
-              </button>
-              <button
-                type="button"
-                onClick={() => onOpenChange(false)}
-                className="flex-1 bg-electric text-white py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-ink transition"
-              >
-                Browse All Frames
-              </button>
-            </div>
+                <div className="space-y-4">
+                  {recommendations.map(({ model, brandName }) => (
+                    <RecommendationCard
+                      key={model.model}
+                      model={model}
+                      brandName={brandName}
+                      onClick={() => {
+                        if (model.variants && model.variants.length > 0) {
+                          setSelectedModel({ model, brandName });
+                        }
+                      }}
+                    />
+                  ))}
+                </div>
+
+                <div className="mt-8 flex gap-3 pt-4 border-t border-border/40">
+                  <button
+                    type="button"
+                    onClick={resetAssistant}
+                    className="flex-1 inline-flex items-center justify-center gap-1.5 py-3 rounded-full text-xs font-bold uppercase tracking-widest border border-border hover:bg-secondary/35 text-muted-foreground hover:text-foreground transition"
+                  >
+                    <RefreshCw className="size-3.5" /> Start Over
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      onOpenChange(false);
+                      navigate({ to: "/brands" });
+                    }}
+                    className="flex-1 bg-electric text-white py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-ink transition"
+                  >
+                    Browse All Frames
+                  </button>
+                </div>
+              </>
+            )}
           </div>
         )}
       </DialogContent>
