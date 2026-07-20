@@ -14,6 +14,8 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { ScrollToTop } from "@/components/site/ScrollToTop";
 import { PageTransition } from "@/components/motion/PageTransition";
+import { Glasses } from "lucide-react";
+import { useFeatureToggles } from "@/hooks/useFeatureToggles";
 import { ORGANIZATION_SCHEMA, createSeoHead } from "@/lib/seo";
 import appCss from "../styles.css?url";
 
@@ -138,6 +140,8 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isHome = pathname === "/";
+  const isBrandsRoute = pathname.startsWith("/brands");
+  const { enableAssistant } = useFeatureToggles();
 
   useEffect(() => {
     // Disable browser's auto scroll restoration on page reload
@@ -161,6 +165,21 @@ function RootComponent() {
         <Suspense fallback={null}>
           <ChatBot />
         </Suspense>
+
+        {isBrandsRoute && enableAssistant && (
+          <button
+            type="button"
+            onClick={() => window.dispatchEvent(new Event("open-frame-finder"))}
+            className="fixed bottom-6 left-6 z-50 flex items-center h-14 bg-electric text-white rounded-full hover:bg-ink shadow-lg border border-white/10 overflow-hidden group w-14 hover:w-44 px-4 active:scale-95 transition-all duration-300 ease-out"
+          >
+            <div className="shrink-0 size-6 flex items-center justify-center">
+              <Glasses className="size-6 transition-transform duration-300 group-hover:rotate-12" />
+            </div>
+            <span className="text-[10px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-200 delay-100 whitespace-nowrap ml-3">
+              Frame Finder
+            </span>
+          </button>
+        )}
       </div>
     </QueryClientProvider>
   );

@@ -42,22 +42,23 @@ export function ModelCard({ m, index, brandName }: { m: GlassItem; index: number
     >
       <div className="flex items-start justify-between gap-2">
         <div className="flex flex-col gap-1.5 items-start">
-          <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground">
-            0{index + 1}
-          </span>
+          <div className="flex items-center gap-2">
+            <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground">
+              0{index + 1}
+            </span>
+            {m.is_hot && (
+              <span className="inline-flex items-center gap-1 rounded-full bg-red-700/90 px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.16em] text-white/95">
+                Selling fast
+              </span>
+            )}
+          </div>
           {isZeiss && (
             <span className="inline-flex items-center gap-1 rounded-full bg-electric/10 border border-electric/30 px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.16em] text-electric">
               {GLOBAL_PROMO.badgeText}
             </span>
           )}
         </div>
-        {m.is_hot ? (
-          <span className="inline-flex items-center gap-1 rounded-full bg-red-700/90 px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.16em] text-white/95">
-            Selling fast
-          </span>
-        ) : (
-          <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-electric">{m.shape}</span>
-        )}
+        <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-electric">{m.shape}</span>
       </div>
 
       {m.image ? (

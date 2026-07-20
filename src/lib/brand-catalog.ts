@@ -398,6 +398,8 @@ export type GlassItem = {
   is_hot?: boolean;
   /** optional product line / collection used to group models into subsections on the brand page */
   line?: string;
+  frameType?: "full-rim" | "rimless" | "semi-rimless";
+  colors?: string[];
 };
 
 export type Category = "glasses" | "lenses" | "kids";
@@ -1817,14 +1819,7 @@ export const BRANDS: BrandData[] = [
     tag: "Motorsport DNA",
     blurb: "Bold, fearless silhouettes built on a motorsport heritage since 1956.",
     comingSoon: true,
-    models: [
-      { model: "Champion Aviator", shape: "aviator", colour: "Matte Black", priceFrom: 9990 },
-      { model: "Retro Round", shape: "round", colour: "Gold", priceFrom: 8490 },
-      { model: "Sport Shield", shape: "shield", colour: "Carbon", priceFrom: 11490 },
-      { model: "Hyperfit Square", shape: "rectangle", colour: "Black / Red", priceFrom: 8990 },
-      { model: "Browline 78", shape: "browline", colour: "Havana / Gold", priceFrom: 9290 },
-      { model: "Speedway Wrap", shape: "sport", colour: "Gunmetal", priceFrom: 10490 },
-    ],
+    models: [],
   },
   {
     slug: "tom-ford",
@@ -1832,14 +1827,7 @@ export const BRANDS: BrandData[] = [
     tag: "Modern luxury",
     blurb: "Polished, oversized silhouettes with signature T-temples and deep acetates.",
     comingSoon: true,
-    models: [
-      { model: "Anoushka Cat-Eye", shape: "cateye", colour: "Havana", priceFrom: 32990 },
-      { model: "Henry Square", shape: "rectangle", colour: "Black", priceFrom: 31490 },
-      { model: "Liane Oversized", shape: "oversized", colour: "Black / Gold", priceFrom: 34990 },
-      { model: "Marko Aviator", shape: "aviator", colour: "Gunmetal", priceFrom: 33490 },
-      { model: "Farrah Round", shape: "round", colour: "Tortoise / Gold", priceFrom: 30990 },
-      { model: "Geometric T", shape: "geometric", colour: "Crystal", priceFrom: 29990 },
-    ],
+    models: [],
   },
   {
     slug: "police",
@@ -2346,5 +2334,67 @@ export const housesByCategory = (category: Category) =>
   HOUSES.filter((h) => (h.category ?? "glasses") === category).sort(
     (a, b) => priorityIndex(a.name) - priorityIndex(b.name),
   );
+
+// Post-process BRANDS to dynamically populate frameType and colors if not explicitly defined
+BRANDS.forEach((brand) => {
+  brand.models.forEach((model) => {
+    // 1. Resolve frameType
+    if (!model.frameType) {
+      const modelLower = model.model.toLowerCase();
+      if (brand.slug === "silhouette" || modelLower.includes("rimless")) {
+        model.frameType = "rimless";
+      } else if (
+        modelLower.includes("semi-rimless") ||
+        modelLower.includes("half-rim") ||
+        modelLower.includes("half")
+      ) {
+        model.frameType = "semi-rimless";
+      } else {
+        model.frameType = "full-rim";
+      }
+    }
+
+    // 2. Resolve colors
+    if (!model.colors || model.colors.length === 0) {
+      const colorSet = new Set<string>();
+      const searchStrings = [model.colour.toLowerCase(), model.model.toLowerCase()];
+      if (model.variants) {
+        model.variants.forEach((v) => {
+          searchStrings.push(v.name.toLowerCase());
+          searchStrings.push(v.id.toLowerCase());
+          searchStrings.push(v.lens.toLowerCase());
+        });
+      }
+
+      const colorKeywords = [
+        { key: "black", matches: ["black", "dark", "obsidian", "charcoal", "midnight"] },
+        { key: "grey", matches: ["grey", "gray", "graphite", "smoke", "silver"] },
+        { key: "gold", matches: ["gold", "aureolin", "champagne"] },
+        { key: "silver", matches: ["silver", "chrome"] },
+        { key: "brown", matches: ["brown", "havana", "tortoise", "curry", "bistre", "cream", "butter", "cherry"] },
+        { key: "blue", matches: ["blue", "sapphire", "indigo", "deepwater"] },
+        { key: "green", matches: ["green", "lime", "olive"] },
+        { key: "red", matches: ["red", "ruby", "pink", "rose", "ember", "amethyst", "violet", "purple", "imperial"] },
+        { key: "clear", matches: ["clear", "transparent", "crystal"] },
+        { key: "white", matches: ["white", "cream"] },
+      ];
+
+      searchStrings.forEach((str) => {
+        colorKeywords.forEach((ck) => {
+          if (ck.matches.some((m) => str.includes(m))) {
+            colorSet.add(ck.key);
+          }
+        });
+      });
+
+      // Default fallback
+      if (colorSet.size === 0) {
+        colorSet.add("black");
+      }
+      model.colors = Array.from(colorSet);
+    }
+  });
+});
+
 
 

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowUpRight, ArrowLeft, Play, Volume2, VolumeX } from "lucide-react";
+import { ArrowUpRight, ArrowLeft, Play, Volume2, VolumeX, SlidersHorizontal, Glasses } from "lucide-react";
 import { getBrand, BRANDS, HOUSES, priorityIndex, type BrandData, type GlassItem } from "@/lib/brand-catalog";
 import { GlassSilhouette } from "@/components/site/GlassSilhouette";
 import { EnquireDialog } from "@/components/site/EnquireDialog";
@@ -8,6 +8,9 @@ import { ProductDialog } from "@/components/site/ProductDialog";
 import { Reveal } from "@/components/motion/Reveal";
 import { TiltCard } from "@/components/motion/TiltCard";
 import { ModelCard } from "@/components/site/ModelCard";
+import { BrandFilters, type FilterState } from "@/components/site/BrandFilters";
+import { FrameFinderAssistant } from "@/components/site/FrameFinderAssistant";
+import { useFeatureToggles } from "@/hooks/useFeatureToggles";
 import { breadcrumbSchema, createSeoHead } from "@/lib/seo";
 import { CONTACT_PHONE_RAW } from "@/lib/contact-config";
 import { GLOBAL_PROMO } from "@/lib/promo-config";
@@ -118,6 +121,120 @@ function BrandPage() {
   const otherBrands = BRANDS.filter((b) => b.slug !== brand.slug)
     .sort((a, b) => priorityIndex(a.name) - priorityIndex(b.name))
     .slice(0, 6);
+
+  const { enableFilters, enableAssistant } = useFeatureToggles();
+  const [assistantOpen, setAssistantOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    if (enableAssistant && sessionStorage.getItem("cs_assistant_prompted") !== "true") {
+      const timer = setTimeout(() => {
+        setAssistantOpen(true);
+        sessionStorage.setItem("cs_assistant_prompted", "true");
+      }, 800);
+      return () => clearTimeout(timer);
+    }
+  }, [enableAssistant]);
+
+  React.useEffect(() => {
+    const handleOpen = () => setAssistantOpen(true);
+    window.addEventListener("open-frame-finder", handleOpen);
+    return () => window.removeEventListener("open-frame-finder", handleOpen);
+  }, []);
+
+  const maxPriceLimit = React.useMemo(() => {
+    const prices = brand.models.map((m) => m.priceFrom ?? 0).filter((p) => p > 0);
+    return prices.length > 0 ? Math.max(...prices) : 0;
+  }, [brand.models]);
+
+  const [filters, setFilters] = React.useState<FilterState>({
+    search: "",
+    maxPrice: maxPriceLimit || 60000,
+    shapes: [],
+    types: [],
+    colors: [],
+  });
+
+  React.useEffect(() => {
+    setFilters({
+      search: "",
+      maxPrice: maxPriceLimit || 60000,
+      shapes: [],
+      types: [],
+      colors: [],
+    });
+  }, [brand.slug, maxPriceLimit]);
+
+  const availableShapes = React.useMemo(() => {
+    const shapes = new Set<string>();
+    brand.models.forEach((m) => {
+      if (m.shape) shapes.add(m.shape);
+    });
+    return Array.from(shapes);
+  }, [brand.models]);
+
+  const availableColors = React.useMemo(() => {
+    const colors = new Set<string>();
+    brand.models.forEach((m) => {
+      if (m.colors) m.colors.forEach((c) => colors.add(c));
+    });
+    return Array.from(colors);
+  }, [brand.models]);
+
+  const availableTypes = React.useMemo(() => {
+    const types = new Set<string>();
+    brand.models.forEach((m) => {
+      if (m.frameType) types.add(m.frameType);
+    });
+    return Array.from(types);
+  }, [brand.models]);
+
+  const handleResetFilters = () => {
+    setFilters({
+      search: "",
+      maxPrice: maxPriceLimit || 60000,
+      shapes: [],
+      types: [],
+      colors: [],
+    });
+  };
+
+  const filteredModels = React.useMemo(() => {
+    if (!enableFilters) return brand.models;
+
+    return brand.models.filter((m) => {
+      if (filters.search) {
+        const s = filters.search.toLowerCase();
+        const matchSearch =
+          m.model.toLowerCase().includes(s) ||
+          m.colour.toLowerCase().includes(s) ||
+          (m.variants &&
+            m.variants.some(
+              (v) => v.name.toLowerCase().includes(s) || v.lens.toLowerCase().includes(s)
+            ));
+        if (!matchSearch) return false;
+      }
+
+      if (m.priceFrom != null && m.priceFrom > filters.maxPrice) {
+        return false;
+      }
+
+      if (filters.shapes.length > 0 && !filters.shapes.includes(m.shape)) {
+        return false;
+      }
+
+      if (filters.types.length > 0 && (!m.frameType || !filters.types.includes(m.frameType))) {
+        return false;
+      }
+
+      if (filters.colors.length > 0) {
+        if (!m.colors || !m.colors.some((c) => filters.colors.includes(c))) {
+          return false;
+        }
+      }
+
+      return true;
+    });
+  }, [brand.models, filters, enableFilters]);
 
   if (brand.comingSoon) {
     return (
@@ -363,12 +480,45 @@ function BrandPage() {
           </div>
         )}
 
+        {enableFilters && (
+          <div className="mt-16">
+            <BrandFilters
+              filters={filters}
+              onChange={setFilters}
+              onReset={handleResetFilters}
+              availableShapes={availableShapes}
+              availableColors={availableColors}
+              availableTypes={availableTypes}
+              maxPriceLimit={maxPriceLimit}
+            />
+          </div>
+        )}
+
         {(() => {
-          const hasLines = brand.models.some((m) => m.line);
+          if (filteredModels.length === 0) {
+            return (
+              <div className="mt-16 text-center py-16 bg-secondary/20 border border-border/60 rounded-3xl">
+                <SlidersHorizontal className="size-10 text-muted-foreground mx-auto mb-4" />
+                <h3 className="text-xl font-bold tracking-tight">No frames match your filters</h3>
+                <p className="mt-2 text-sm text-muted-foreground max-w-sm mx-auto">
+                  Try broadening your search criteria or resetting your active filters to browse the brand's full collection.
+                </p>
+                <button
+                  type="button"
+                  onClick={handleResetFilters}
+                  className="mt-6 bg-electric text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-ink transition"
+                >
+                  Reset All Filters
+                </button>
+              </div>
+            );
+          }
+
+          const hasLines = filteredModels.some((m) => m.line);
           if (!hasLines) {
             return (
               <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                {brand.models.map((m, i) => (
+                {filteredModels.map((m, i) => (
                   <Reveal key={m.model} delay={(i % 3) * 0.05}>
                     <TiltCard max={5} className="h-full">
                       <ModelCard m={m} index={i} brandName={brand.name} />
@@ -378,8 +528,8 @@ function BrandPage() {
               </div>
             );
           }
-           const lines: string[] = [];
-          for (const m of brand.models) {
+          const lines: string[] = [];
+          for (const m of filteredModels) {
             const l = m.line ?? "Other";
             if (!lines.includes(l)) lines.push(l);
           }
@@ -391,7 +541,7 @@ function BrandPage() {
             }
           }
           return lines.map((line) => {
-            const models = brand.models.filter((m) => (m.line ?? "Other") === line);
+            const models = filteredModels.filter((m) => (m.line ?? "Other") === line);
             return (
               <section key={line} id={slugify(line)} className="scroll-mt-40 mt-16">
                 <div className="flex items-baseline justify-between gap-4 border-b border-border pb-4">
@@ -446,6 +596,8 @@ function BrandPage() {
 
         </div>
       </div>
+
+      <FrameFinderAssistant open={assistantOpen} onOpenChange={setAssistantOpen} />
     </div>
   );
 }

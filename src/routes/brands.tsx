@@ -1,10 +1,13 @@
+import * as React from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Glasses } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Reveal } from "@/components/motion/Reveal";
 import { TiltCard } from "@/components/motion/TiltCard";
 import { MagneticButton } from "@/components/motion/MagneticButton";
 import { housesByCategory, type House, BRANDS } from "@/lib/brand-catalog";
+import { FrameFinderAssistant } from "@/components/site/FrameFinderAssistant";
+import { useFeatureToggles } from "@/hooks/useFeatureToggles";
 import pradaModelMale from "@/assets/brands/prada-model-male.webp";
 import pleinModel from "@/assets/brands/plein-model.webp";
 import vogueModel from "@/assets/brands/vogue-model.webp";
@@ -76,6 +79,25 @@ export const Route = createFileRoute("/brands")({
 
 
 function BrandsPage() {
+  const [assistantOpen, setAssistantOpen] = React.useState(false);
+  const { enableAssistant } = useFeatureToggles();
+
+  React.useEffect(() => {
+    if (enableAssistant && sessionStorage.getItem("cs_assistant_prompted") !== "true") {
+      const timer = setTimeout(() => {
+        setAssistantOpen(true);
+        sessionStorage.setItem("cs_assistant_prompted", "true");
+      }, 800);
+      return () => clearTimeout(timer);
+    }
+  }, [enableAssistant]);
+
+  React.useEffect(() => {
+    const handleOpen = () => setAssistantOpen(true);
+    window.addEventListener("open-frame-finder", handleOpen);
+    return () => window.removeEventListener("open-frame-finder", handleOpen);
+  }, []);
+
   return (
     <div className="px-6 lg:px-10 py-16 lg:py-24">
       <div className="mx-auto max-w-7xl">
@@ -148,6 +170,8 @@ function BrandsPage() {
           </MagneticButton>
         </div>
       </div>
+
+      <FrameFinderAssistant open={assistantOpen} onOpenChange={setAssistantOpen} />
     </div>
   );
 }
