@@ -28,6 +28,7 @@ export function SiteHeader() {
   const { location } = useRouterState();
   const [showPromo, setShowPromo] = useState(true);
 
+  // Dismiss the scrolling promotion ribbon for the current page view (not persisted across reloads)
   const handleDismissPromo = () => {
     setShowPromo(false);
   };
