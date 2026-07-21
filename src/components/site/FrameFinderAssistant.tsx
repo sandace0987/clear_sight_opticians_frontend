@@ -86,7 +86,12 @@ function RecommendationCard({ model, brandName, onClick }: RecommendationCardPro
           </h4>
           <div className="flex items-center gap-2 mt-1">
             {model.priceFrom != null ? (
-              <span className="text-[10px] font-bold text-foreground/80">From ₹{model.priceFrom.toLocaleString("en-IN")}</span>
+              <span className="text-[10px] font-bold text-foreground/80">
+                {model.model.toLowerCase().includes("meta") || model.model.toLowerCase().includes("vanguard") || model.model.toLowerCase().includes("hstn")
+                  ? "Starting at "
+                  : "From "}
+                ₹{model.priceFrom.toLocaleString("en-IN")}
+              </span>
             ) : (
               <span className="text-[9px] text-muted-foreground">Contact store for price</span>
             )}

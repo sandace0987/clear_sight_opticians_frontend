@@ -19,10 +19,14 @@ export function EnquireDialog({ brand, model, colour: initialColour, trigger }: 
   const [colour, setColour] = React.useState(initialColour ?? "");
   const [prescription, setPrescription] = React.useState("No");
   const [notes, setNotes] = React.useState("");
+  const [isOpen, setIsOpen] = React.useState(false);
 
+  // Reset and prefill the colourway whenever the dialog is opened
   React.useEffect(() => {
-    if (initialColour) setColour(initialColour);
-  }, [initialColour]);
+    if (isOpen) {
+      setColour(initialColour ?? "");
+    }
+  }, [isOpen, initialColour]);
 
 
 
@@ -49,7 +53,7 @@ export function EnquireDialog({ brand, model, colour: initialColour, trigger }: 
   };
 
   return (
-    <Dialog>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent className="max-w-lg sm:rounded-2xl">
         <DialogHeader className="pr-28">

@@ -114,7 +114,12 @@ export function ModelCard({ m, index, brandName }: { m: GlassItem; index: number
       </p>
 
       {m.priceFrom != null && (
-        <p className="text-sm font-semibold mt-3">From ₹{m.priceFrom.toLocaleString("en-IN")}</p>
+        <p className="text-sm font-semibold mt-3">
+          {m.model.toLowerCase().includes("meta") || m.model.toLowerCase().includes("vanguard") || m.model.toLowerCase().includes("hstn")
+            ? "Starting at "
+            : "From "}
+          ₹{m.priceFrom.toLocaleString("en-IN")}
+        </p>
       )}
 
       {hasVariants && m.variants!.length > 1 && (
@@ -152,7 +157,7 @@ export function ModelCard({ m, index, brandName }: { m: GlassItem; index: number
         <EnquireDialog
           brand={brandName}
           model={m.model}
-          colour={hasVariants && variant ? variant.name : undefined}
+          colour={hasVariants && variant ? variant.name : m.colour}
           trigger={
             <button className="mt-5 w-full inline-flex items-center justify-center gap-2 bg-ink text-white py-3 rounded-full text-[11px] font-bold uppercase tracking-[0.18em] hover:bg-electric transition-colors">
               Enquire <ArrowUpRight className="size-3.5" />

@@ -90,7 +90,12 @@ export function ProductDialog({ brand, model, priceFrom, variants, trigger, open
             <h2 className="mt-2 text-3xl font-bold tracking-tighter">{model}</h2>
             {priceFrom != null && (
               <>
-                <p className="mt-3 text-lg font-semibold">From ₹{priceFrom.toLocaleString("en-IN")}</p>
+                <p className="mt-3 text-lg font-semibold">
+                  {model.toLowerCase().includes("meta") || model.toLowerCase().includes("vanguard") || model.toLowerCase().includes("hstn")
+                    ? "Starting at "
+                    : "From "}
+                  ₹{priceFrom.toLocaleString("en-IN")}
+                </p>
                 <p className="text-xs text-muted-foreground">GST included</p>
               </>
             )}

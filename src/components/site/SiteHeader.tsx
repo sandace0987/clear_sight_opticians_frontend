@@ -90,7 +90,7 @@ export function SiteHeader() {
       setOpen(false);
       return;
     }
-    
+
     e.preventDefault();
     if (!item.hash) {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -123,17 +123,24 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 bg-background/85 backdrop-blur-xl border-b border-border/60">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <div className="relative flex h-20 lg:h-24 items-center justify-between gap-2 sm:gap-4">
-          {/* Logo mark — left */}
           <Link
             to="/"
             onClick={handleLogoClick}
             aria-label="Clear Sight Opticians"
-            className="inline-flex items-center justify-start shrink-0"
+            className="relative inline-flex items-center justify-start shrink-0 h-14 lg:h-16 w-36 lg:w-44 overflow-hidden"
           >
+            {/* Base Logo: Normal in light mode, dimmed in dark mode */}
+            <img
+              src={logoUrl}
+              alt=""
+              className="absolute inset-0 h-full w-full object-contain shrink-0 transition-opacity duration-300 dark:opacity-50"
+            />
+
+            {/* Illuminated Overlay: Sweeping spotlight/torch in dark mode only, using original colors */}
             <img
               src={logoUrl}
               alt="Clear Sight Opticians"
-              className="h-14 lg:h-16 w-auto object-contain shrink-0"
+              className="absolute inset-0 h-full w-full object-contain shrink-0 hidden dark:block brightness-[1.8] saturate-[1.5] contrast-[1.1] drop-shadow-[0_0_20px_rgba(255,255,255,1)] drop-shadow-[0_0_40px_rgba(255,255,255,0.95)] dark-torch-mask"
             />
           </Link>
 
