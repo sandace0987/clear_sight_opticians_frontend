@@ -129,7 +129,21 @@ function RootShell({ children }: { children: React.ReactNode }) {
         />
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{if(localStorage.getItem('theme')==='dark')document.documentElement.classList.add('dark');}catch(e){}})();`,
+            __html: `(function(){try{
+              var saved = localStorage.getItem('theme') || 'classic-light';
+              var resolved = saved === 'dark' ? 'deep-midnight' : (saved === 'light' ? 'classic-light' : saved);
+              document.documentElement.setAttribute('data-theme', resolved);
+              var darkThemes = ["deep-midnight", "charcoal-ember", "noir-gold", "emerald-prestige", "aureolin-bistre", "violet-imperial", "forest-luxe", "neo-glass"];
+              if (darkThemes.indexOf(resolved) > -1) {
+                document.documentElement.classList.add('dark');
+              } else {
+                document.documentElement.classList.remove('dark');
+              }
+              var savedZoom = localStorage.getItem('zoom') || 'classic';
+              var zoomSizes = { compact: '14px', classic: '16px', relaxed: '18px' };
+              var size = zoomSizes[savedZoom] || '16px';
+              document.documentElement.style.fontSize = size;
+            }catch(e){}})();`,
           }}
         />
         <script
