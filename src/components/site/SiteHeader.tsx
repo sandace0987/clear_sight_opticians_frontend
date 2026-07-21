@@ -26,6 +26,11 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string | undefined>(undefined);
   const { location } = useRouterState();
+  const [showPromo, setShowPromo] = useState(true);
+
+  const handleDismissPromo = () => {
+    setShowPromo(false);
+  };
 
   useEffect(() => setOpen(false), [location.pathname]);
 
@@ -43,9 +48,9 @@ export function SiteHeader() {
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
 
-    const sections = SECTION_IDS
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => Boolean(el));
+    const sections = SECTION_IDS.map((id) => document.getElementById(id)).filter(
+      (el): el is HTMLElement => Boolean(el),
+    );
     if (!sections.length) {
       return () => window.removeEventListener("scroll", handleScroll);
     }
@@ -213,7 +218,7 @@ export function SiteHeader() {
             const isActive = item.route
               ? location.pathname === item.to
               : location.pathname === "/" &&
-              (item.hash ? item.hash === activeSection : activeSection === undefined);
+                (item.hash ? item.hash === activeSection : activeSection === undefined);
             return (
               <Link
                 key={item.label}
@@ -245,7 +250,7 @@ export function SiteHeader() {
             const isActive = item.route
               ? location.pathname === item.to
               : location.pathname === "/" &&
-              (item.hash ? item.hash === activeSection : activeSection === undefined);
+                (item.hash ? item.hash === activeSection : activeSection === undefined);
             return (
               <Link
                 key={item.label}
@@ -270,27 +275,37 @@ export function SiteHeader() {
         </nav>
       </div>
 
-      {location.pathname === "/" && (
-        <div className="w-full bg-electric text-white py-2 overflow-hidden whitespace-nowrap select-none border-t border-border/20 text-[10px] font-bold uppercase tracking-[0.25em]">
-          <div className="animate-[marquee_60s_linear_infinite] inline-flex gap-8 whitespace-nowrap">
-            <span>{GLOBAL_PROMO.text}</span>
-            <span>✦</span>
-            <span>Free ZEISS Certified Eye Test</span>
-            <span>✦</span>
-            <span>{GLOBAL_PROMO.text}</span>
-            <span>✦</span>
-            <span>Free ZEISS Certified Eye Test</span>
-            <span>✦</span>
-            {/* Duplicate for seamless looping marquee */}
-            <span>{GLOBAL_PROMO.text}</span>
-            <span>✦</span>
-            <span>Free ZEISS Certified Eye Test</span>
-            <span>✦</span>
-            <span>{GLOBAL_PROMO.text}</span>
-            <span>✦</span>
-            <span>Free ZEISS Certified Eye Test</span>
-            <span>✦</span>
+      {location.pathname === "/" && showPromo && (
+        <div className="relative w-full bg-electric text-white py-2 overflow-hidden select-none border-t border-border/20 text-[10px] font-bold uppercase tracking-[0.25em]">
+          <div className="w-full overflow-hidden pr-10 sm:pr-12">
+            <div className="animate-[marquee_60s_linear_infinite] inline-flex gap-8 whitespace-nowrap">
+              <span>{GLOBAL_PROMO.text}</span>
+              <span>✦</span>
+              <span>Free ZEISS Certified Eye Test</span>
+              <span>✦</span>
+              <span>{GLOBAL_PROMO.text}</span>
+              <span>✦</span>
+              <span>Free ZEISS Certified Eye Test</span>
+              <span>✦</span>
+              {/* Duplicate for seamless looping marquee */}
+              <span>{GLOBAL_PROMO.text}</span>
+              <span>✦</span>
+              <span>Free ZEISS Certified Eye Test</span>
+              <span>✦</span>
+              <span>{GLOBAL_PROMO.text}</span>
+              <span>✦</span>
+              <span>Free ZEISS Certified Eye Test</span>
+              <span>✦</span>
+            </div>
           </div>
+          <button
+            type="button"
+            onClick={handleDismissPromo}
+            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 text-white bg-black/25 hover:bg-black/40 p-1.5 rounded-full transition-all focus:outline-none focus:ring-1 focus:ring-white/50"
+            aria-label="Dismiss promotion banner"
+          >
+            <X className="size-3.5" />
+          </button>
         </div>
       )}
     </header>
