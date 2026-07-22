@@ -515,7 +515,7 @@ function HomePage() {
                 className="mt-8 sm:mt-10"
               >
                 <p className="text-white/85 text-base sm:text-lg max-w-md leading-relaxed">
-                  Discover Meta AI glasses, prescription contact lenses, and the world's finest luxury frames — fitted by experts.
+                  Luxury frames, Meta AI glasses, &amp; lenses — expertly fitted.
                 </p>
               </motion.div>
             </div>
