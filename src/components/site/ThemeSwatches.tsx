@@ -108,10 +108,9 @@ export function ThemeSwatches() {
       <div className="relative group p-[1.5px] rounded-full overflow-hidden isolate shadow-sm">
         {/* Slow clockwise rotating periphery border glow in accent color */}
         <div
-          className="absolute -inset-[150%] animate-[spin_4s_linear_infinite]"
+          className="absolute -inset-[150%] animate-[spin_7s_linear_infinite]"
           style={{
-            background: `conic-gradient(from 0deg, transparent 0 240deg, ${currentThemeObj.accent}66 270deg, ${currentThemeObj.accent} 310deg, #fff 330deg, ${currentThemeObj.accent} 345deg, transparent 360deg)`,
-            filter: "blur(0.5px)",
+            background: `conic-gradient(from 0deg, transparent 0 280deg, ${currentThemeObj.accent} 330deg, transparent 360deg)`,
           }}
         />
 
