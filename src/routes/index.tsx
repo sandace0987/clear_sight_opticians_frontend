@@ -51,7 +51,6 @@ import { TiltCard } from "@/components/motion/TiltCard";
 import { CountUp } from "@/components/motion/CountUp";
 import { MagneticButton } from "@/components/motion/MagneticButton";
 import { motion, AnimatePresence } from "framer-motion";
-import { SMART_GLASSES_SEQUENCE } from "@/components/ProductReveal/sequence";
 import { SMART_GLASSES_TEXT_TIMELINE } from "@/components/ProductReveal/textTimeline";
 
 import zeissModel from "@/assets/brands/zeiss-model.webp";
