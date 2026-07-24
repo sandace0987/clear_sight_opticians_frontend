@@ -138,26 +138,26 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 bg-background/85 backdrop-blur-xl border-b border-border/60">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="relative flex h-20 lg:h-24 items-center justify-between gap-2 sm:gap-4">
           <Link
             to="/"
             onClick={handleLogoClick}
             aria-label="Clear Sight Opticians"
-            className="relative inline-flex items-center justify-start shrink-0 h-[70px] lg:h-[80px] w-[180px] lg:w-[220px] overflow-hidden"
+            className="relative inline-flex items-center justify-start shrink-0 h-[70px] lg:h-[88px] w-[194px] lg:w-[230px] overflow-hidden"
           >
             {/* Base Logo: Normal in light mode, dimmed in dark mode */}
             <img
               src={logoUrl}
               alt=""
-              className="absolute inset-0 h-full w-full object-contain shrink-0 transition-opacity duration-300 dark:opacity-50"
+              className="absolute inset-0 h-full w-full object-contain object-left shrink-0 transition-opacity duration-300 dark:opacity-50"
             />
 
             {/* Illuminated Overlay: Sweeping spotlight/torch in dark mode only, using original colors */}
             <img
               src={logoUrl}
               alt="Clear Sight Opticians"
-              className="absolute inset-0 h-full w-full object-contain shrink-0 hidden dark:block brightness-[1.8] saturate-[1.5] contrast-[1.1] drop-shadow-[0_0_20px_rgba(255,255,255,1)] drop-shadow-[0_0_40px_rgba(255,255,255,0.95)] dark-torch-mask"
+              className="absolute inset-0 h-full w-full object-contain object-left shrink-0 hidden dark:block brightness-[1.8] saturate-[1.5] contrast-[1.1] drop-shadow-[0_0_20px_rgba(255,255,255,1)] drop-shadow-[0_0_40px_rgba(255,255,255,0.95)] dark-torch-mask"
             />
           </Link>
 

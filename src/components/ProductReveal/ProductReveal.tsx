@@ -77,7 +77,7 @@ const TextOverlay: FC<TextOverlayProps> = ({ cue, onBookDemo }) => {
 
 export const ProductReveal: FC<ProductRevealProps> = ({
   textTimeline,
-  id = "smart-glasses",
+  id = "ai-glasses",
 }) => {
   const [bookingOpen, setBookingOpen] = useState(false);
   const [activeCueIndex, setActiveCueIndex] = useState(0);

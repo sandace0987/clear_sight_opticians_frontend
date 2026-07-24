@@ -49,7 +49,7 @@ export function ProductDialog({ brand, model, priceFrom, variants, trigger, open
           >
             <ZoomViewer
               src={variant.images[view]}
-              alt={`${brand} ${model} — ${variant.name}, ${view} view`}
+              alt={`${brand} ${model} - ${variant.name}, ${view} view`}
               trigger={
                 <button
                   type="button"
@@ -58,7 +58,7 @@ export function ProductDialog({ brand, model, priceFrom, variants, trigger, open
                 >
                   <HoverLens
                     src={variant.images[view]}
-                    alt={`${brand} ${model} — ${variant.name}, ${view} view`}
+                    alt={`${brand} ${model} - ${variant.name}, ${view} view`}
                     width={900}
                     height={320}
                     className="h-full w-full flex items-center justify-center"
@@ -101,31 +101,52 @@ export function ProductDialog({ brand, model, priceFrom, variants, trigger, open
             )}
 
             <div className="mt-6">
-              <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground">Colour</span>
-              <div className="mt-2 flex items-center gap-3">
-                {variants.map((v) => (
-                  <span
-                    key={v.id}
-                    className={`inline-flex rounded-full p-0.5 transition-all ${
-                      v.id === variantId
-                        ? "ring-2 ring-electric ring-offset-1 ring-offset-background"
-                        : "ring-1 ring-border"
-                    }`}
-                  >
-                    <button
-                      type="button"
-                      onClick={() => setVariantId(v.id)}
-                      aria-label={v.name}
-                      title={v.name}
-                      className="size-7 rounded-full block overflow-hidden"
-                      style={{
-                        background: v.swatch,
-                        transform: "translateZ(0)",
-                        backfaceVisibility: "hidden",
-                      }}
-                    />
-                  </span>
-                ))}
+              <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground">
+                {brand.toLowerCase() === "zeiss" ? "Lens Type" : "Colour"}
+              </span>
+              <div className="mt-2 flex items-center gap-2.5 overflow-x-auto max-w-full p-1 pb-2 flex-nowrap swatch-scrollbar">
+                {variants.map((v) => {
+                  const isSelected = v.id === variantId;
+                  if (brand.toLowerCase() === "zeiss") {
+                    return (
+                      <button
+                        key={v.id}
+                        type="button"
+                        onClick={() => setVariantId(v.id)}
+                        className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg border transition-all shrink-0 ${
+                          isSelected
+                            ? "bg-electric text-white border-electric shadow-sm"
+                            : "bg-secondary/90 text-foreground/80 border-border hover:border-electric/50"
+                        }`}
+                      >
+                        {v.name}
+                      </button>
+                    );
+                  }
+                  return (
+                    <span
+                      key={v.id}
+                      className={`inline-flex shrink-0 rounded-full p-0.5 transition-all ${
+                        isSelected
+                          ? "ring-2 ring-electric ring-offset-1 ring-offset-background"
+                          : "ring-1 ring-border"
+                      }`}
+                    >
+                      <button
+                        type="button"
+                        onClick={() => setVariantId(v.id)}
+                        aria-label={v.name}
+                        title={v.name}
+                        className="size-7 rounded-full block overflow-hidden"
+                        style={{
+                          background: v.swatch,
+                          transform: "translateZ(0)",
+                          backfaceVisibility: "hidden",
+                        }}
+                      />
+                    </span>
+                  );
+                })}
               </div>
             </div>
 

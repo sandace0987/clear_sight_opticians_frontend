@@ -22,6 +22,8 @@ import { HOUSES } from "@/lib/brand-catalog";
 import { BookingModal } from "@/components/site/BookingModal";
 import heroPortraitLight from "@/assets/homepage/hero-portrait-light.webp";
 import heroPortraitDark from "@/assets/homepage/hero-portrait-dark.webp";
+import heroPortraitLightMobile from "@/assets/homepage/hero-portrait-light-mobile.webp";
+import heroPortraitDarkMobile from "@/assets/homepage/hero-portrait-dark-mobile.webp";
 import pradaModelMale from "@/assets/brands/prada-model-male.webp";
 import raybanModel from "@/assets/brands/rayban-model.webp";
 import oakleyModel from "@/assets/brands/oakley-model.webp";
@@ -54,7 +56,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { SMART_GLASSES_TEXT_TIMELINE } from "@/components/ProductReveal/textTimeline";
 
 import zeissModel from "@/assets/brands/zeiss-model.webp";
-import essilorModel from "@/assets/brands/essilor-model.webp";
+import alconModel from "@/assets/brands/alcon-model.webp";
+import bauschModel from "@/assets/brands/bausch-model.webp";
+import coopervisionModel from "@/assets/brands/coopervision-model.webp";
+import jnjModel from "@/assets/brands/acuvue-model.webp";
+import hoyaModel from "@/assets/brands/hoya-model.webp";
 
 const BRAND_CAMPAIGN_IMAGES: Record<string, string> = {
   prada: pradaModelMale,
@@ -67,7 +73,11 @@ const BRAND_CAMPAIGN_IMAGES: Record<string, string> = {
   burberry: burberryModel,
   "maui-jim": mauiJimModel,
   zeiss: zeissModel,
-  essilor: essilorModel,
+  coopervision: coopervisionModel,
+  alcon: alconModel,
+  bausch: bauschModel,
+  jnj: jnjModel,
+  hoya: hoyaModel,
 };
 import { Gamepad2 } from "lucide-react";
 import { FAQSection } from "@/components/site/FAQSection";
@@ -91,7 +101,7 @@ const CatchGame = lazy(() =>
 const HOMEPAGE_FAQS = [
   {
     question: "Where can I get a professional ZEISS eye test in Hyderabad?",
-    answer: "Clear Sight Opticians is a proud ZEISS Certified Vision Expert — the first partner in Telangana. You can get advanced, precise vision profiling and professional eye tests using state-of-the-art ZEISS diagnostic equipment at all three of our Hyderabad studios: Kukatpally (KPHB), Nizampet, and Bowenpally. Eye tests are complimentary with any eyewear purchase.",
+    answer: "Clear Sight Opticians is a proud ZEISS Certified Vision Expert - the first partner in Telangana. You can get advanced, precise vision profiling and professional eye tests using state-of-the-art ZEISS diagnostic equipment at all three of our Hyderabad studios: Kukatpally (KPHB), Nizampet, and Bowenpally. Eye tests are complimentary with any eyewear purchase.",
   },
   {
     question: "Can I get custom prescription lenses for Ray-Ban Meta AI glasses?",
@@ -213,7 +223,7 @@ function MarqueeItem({ b }: { b: MarqueeBrand }) {
 
 const WHY = [
   { icon: Eye, title: "Expert optical guidance", desc: "Certified optometrists with 15+ years on the floor." },
-  { icon: Gem, title: "Luxury & designer brands", desc: "From Prada to Persol — the world's finest, in one place." },
+  { icon: Gem, title: "Luxury & designer brands", desc: "From Prada to Persol - the world's finest, in one place." },
   { icon: Cpu, title: "AI eyewear, fitted", desc: "Ray-Ban Meta & Oakley Meta with on-site demos." },
   { icon: Sparkles, title: "Contact Lenses & Fitting", desc: "Daily, monthly & toric lenses from Acuvue, CooperVision & Alcon." },
   { icon: Store, title: "Multi-store convenience", desc: "Three premium stores, same expert care." },
@@ -262,15 +272,21 @@ const STORES = STORE_LOCATIONS.map((store) => ({
 const TESTIMONIALS = [
   {
     quote:
-      "Picked up the Ray-Ban Meta at Kukatpally — the team walked me through every feature, fitted them, and even helped with the app. Genuinely premium.",
-    name: "Aarav Reddy",
-    context: "Purchased Ray-Ban Meta Wayfarer",
+      "I recently bought my Oakley Meta HSTN glasses here and had an excellent experience. Mr. Ali helped get my prescription power added quickly and smoothly. He was incredibly patient, knowledgeable, and customer-first. Rare level of dedication!",
+    name: "Sandeep",
+    context: "Purchased Oakley Meta HSTN",
   },
   {
     quote:
-      "I wear glasses every day and these are the most flattering frames I've owned in years. The styling consultation was worth the visit alone.",
-    name: "Niharika Iyer",
-    context: "Bought Gucci Optical",
+      "I've been relying on Clear Sight for 16 years. On my very first visit, the owner replaced a damaged lens I had bought at another store, expecting nothing in return. That extraordinary commitment to service won me over - they even keep my contact lenses pre-stocked so I never have to wait.",
+    name: "Tejaswi R.",
+    context: "Customer for 16+ Years",
+  },
+  {
+    quote:
+      "Picked up the Ray-Ban Meta at Kukatpally - the team walked me through every feature, fitted them, and even helped with the app. Genuinely premium.",
+    name: "Aarav Reddy",
+    context: "Purchased Ray-Ban Meta Wayfarer",
   },
   {
     quote:
@@ -361,6 +377,26 @@ function HomePage() {
       {/* ============== HERO ============== */}
       <section className="px-4 sm:px-6 lg:px-10 pt-6 pb-16 lg:pb-24">
         <div className="relative w-full h-[calc(100svh-8rem)] sm:h-[calc(100svh-7.5rem)] lg:h-[calc(100vh-6.5rem)] overflow-hidden rounded-[28px] lg:rounded-[40px] bg-secondary">
+          {/* Mobile Portrait Hero Image */}
+          <motion.img
+            src={isDark ? heroPortraitDarkMobile : heroPortraitLightMobile}
+            alt="Person wearing clear-frame luxury eyewear in cinematic blue light"
+            width={941}
+            height={1672}
+            fetchPriority="high"
+            decoding="async"
+            className="absolute inset-0 w-full h-full object-cover object-center sm:hidden"
+            animate={{
+              scale: [1, 1.12, 1],
+            }}
+            transition={{
+              duration: 16,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+
+          {/* Desktop / Landscape Hero Image */}
           <motion.img
             src={isDark ? heroPortraitDark : heroPortraitLight}
             alt="Person wearing clear-frame luxury eyewear in cinematic blue light"
@@ -368,7 +404,7 @@ function HomePage() {
             height={1191}
             fetchPriority="high"
             decoding="async"
-            className="absolute inset-0 w-full h-full object-cover object-[center_20%]"
+            className="absolute inset-0 w-full h-full object-cover object-[center_20%] hidden sm:block"
             animate={{
               scale: [1, 1.12, 1],
             }}
@@ -414,10 +450,27 @@ function HomePage() {
                 animate="show"
                 variants={{ hidden: {}, show: { transition: { staggerChildren: 0.07, delayChildren: 0.1 } } }}
               >
-                {["See", "better.", "Look", "better."].map((w, i) => {
-                  const offsets = [0, 4, 12, 17];
+                {["See", "better."].map((w, i) => {
+                  const offsets = [0, 4];
                   return (
                     <span key={i} className="inline-block overflow-hidden align-baseline pb-[0.12em] mr-[0.28em]">
+                      <motion.span
+                        className="inline-block will-change-transform"
+                        variants={{
+                          hidden: { y: "110%" },
+                          show: { y: "0%", transition: { duration: 0.95, ease: [0.16, 1, 0.3, 1] } },
+                        }}
+                      >
+                        <LetterShimmer text={w} offset={offsets[i]} />
+                      </motion.span>
+                    </span>
+                  );
+                })}
+                <br />
+                {["Look", "better."].map((w, i) => {
+                  const offsets = [12, 17];
+                  return (
+                    <span key={`look-${i}`} className="inline-block overflow-hidden align-baseline pb-[0.12em] mr-[0.28em]">
                       <motion.span
                         className="inline-block will-change-transform"
                         variants={{
@@ -514,7 +567,7 @@ function HomePage() {
                 className="mt-8 sm:mt-10"
               >
                 <p className="text-white/85 text-base sm:text-lg max-w-md leading-relaxed">
-                  Luxury frames, Meta AI glasses, &amp; lenses — expertly fitted.
+                  Luxury frames, Meta AI glasses, &amp; lenses, all expertly fitted.
                 </p>
               </motion.div>
             </div>
@@ -592,10 +645,10 @@ function HomePage() {
 
 
       {/* ============== SMART GLASSES — LOOPING VIDEO REVEAL ============== */}
-      <Suspense fallback={<section id="smart-glasses" className="min-h-[50vh] bg-ink" />}>
+      <Suspense fallback={<section id="ai-glasses" className="min-h-[50vh] bg-ink" />}>
         <ProductReveal
           textTimeline={SMART_GLASSES_TEXT_TIMELINE}
-          id="smart-glasses"
+          id="ai-glasses"
         />
       </Suspense>
 
@@ -619,7 +672,7 @@ function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {["ray-ban", "oakley", "maui-jim", "prada", "montblanc", "silhouette", "zeiss", "essilor"]
+            {["ray-ban", "oakley", "maui-jim", "prada", "montblanc", "silhouette", "zeiss", "coopervision"]
               .map((s) => HOUSES.find((h) => h.slug === s))
               .filter((h): h is NonNullable<typeof h> => Boolean(h))
               .map((h, i) => (
@@ -834,7 +887,7 @@ function HomePage() {
               5.0 · 97 Google reviews
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {TESTIMONIALS.map((t) => (
               <figure key={t.name} className="bg-card border border-border rounded-3xl p-8 flex flex-col gap-6 shadow-sm">
                 <Quote className="size-6 text-electric" />

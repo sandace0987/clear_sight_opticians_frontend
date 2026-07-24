@@ -28,6 +28,14 @@ import modoModel from "@/assets/brands/modo-model.webp";
 import stepperModel from "@/assets/brands/stepper-model.webp";
 import zeissModel from "@/assets/brands/zeiss-model.webp";
 import essilorModel from "@/assets/brands/essilor-model.webp";
+import alconModel from "@/assets/brands/alcon-model.webp";
+import bauschModel from "@/assets/brands/bausch-model.webp";
+import coopervisionModel from "@/assets/brands/coopervision-model.webp";
+import jnjModel from "@/assets/brands/acuvue-model.webp";
+import hoyaModel from "@/assets/brands/hoya-model.webp";
+import miyosmartModel from "@/assets/brands/miyosmart-model.webp";
+import myocareModel from "@/assets/brands/myocare-model.webp";
+import kidsFramesModel from "@/assets/brands/kids-frames-model.webp";
 import { breadcrumbSchema, createSeoHead, itemListSchema } from "@/lib/seo";
 
 const BRAND_MODELS: Record<string, { src: string; alt: string }> = {
@@ -51,6 +59,14 @@ const BRAND_MODELS: Record<string, { src: string; alt: string }> = {
   stepper: { src: stepperModel, alt: "Model wearing Stepper skin-friendly frames" },
   zeiss: { src: zeissModel, alt: "ZEISS Certified Vision Expert diagnostic equipment and precision lenses" },
   essilor: { src: essilorModel, alt: "Essilor Varilux and Crizal precision lenses" },
+  alcon: { src: alconModel, alt: "Alcon Dailies and Air Optix contact lenses" },
+  bausch: { src: bauschModel, alt: "Bausch & Lomb Ultra and Biotrue contact lenses" },
+  coopervision: { src: coopervisionModel, alt: "CooperVision daily and monthly soft contact lenses" },
+  jnj: { src: jnjModel, alt: "Johnson & Johnson Acuvue contact lenses" },
+  hoya: { src: hoyaModel, alt: "Hoya high-index and progressive lenses" },
+  miyosmart: { src: miyosmartModel, alt: "Hoya MiYOSMART D.I.M.S. spectacle lenses for kids" },
+  myocare: { src: myocareModel, alt: "ZEISS MyoCare lenses for pediatric myopia control" },
+  "kids-frames": { src: kidsFramesModel, alt: "Flexible impact-resistant frames for kids" },
 };
 
 const SECTIONS = [
@@ -111,7 +127,7 @@ function BrandsPage() {
             A curated edit of the world's <span className="font-serif italic font-medium text-electric">finest eyewear.</span>
           </h1>
           <p className="mt-6 text-muted-foreground max-w-2xl text-lg">
-            From Italian ateliers to American icons — each brand we carry is hand-selected
+            From Italian ateliers to American icons - each brand we carry is hand-selected
             and stocked across our three premium stores.
           </p>
         </div>
@@ -160,7 +176,7 @@ function BrandsPage() {
               Looking for a brand we haven't listed?
             </h2>
             <p className="text-white/65 mt-3 max-w-lg">
-              We source on request — tell us what you're after.
+              We source on request - tell us what you're after.
             </p>
           </div>
           <MagneticButton>
@@ -228,7 +244,8 @@ function BrandCard({ h, index }: { h: House; index: number }) {
     </>
   );
 
-  const isClickable = h.slug && !h.comingSoon;
+  const isKidsOrNoProductCard = h.category === "kids" || ["myocare", "miyosmart", "kids-frames", "hoya"].includes(h.slug ?? "");
+  const isClickable = h.slug && !h.comingSoon && !isKidsOrNoProductCard;
   const className = isClickable
     ? "relative group bg-secondary/60 border border-border rounded-3xl p-8 hover:bg-ink hover:text-white transition-colors block h-full overflow-hidden"
     : "relative group bg-secondary/40 border border-border/60 rounded-3xl p-8 opacity-75 hover:opacity-90 transition-opacity block h-full overflow-hidden cursor-default";

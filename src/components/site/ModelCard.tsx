@@ -20,9 +20,11 @@ export function ModelCard({ m, index, brandName }: { m: GlassItem; index: number
 
   const isZeiss = brandName.toLowerCase() === "zeiss";
 
+  const isLensBrand = ["zeiss", "hoya", "essilor", "coopervision", "acuvue", "bausch-lomb", "bausch & lomb", "alcon"].includes(brandName.toLowerCase());
+
   return (
     <article
-      className={`group relative bg-secondary/60 border border-border rounded-3xl p-7 flex flex-col h-full ${hasVariants ? "cursor-pointer" : ""
+      className={`group relative overflow-hidden bg-secondary/60 border border-border rounded-3xl p-7 flex flex-col h-full ${hasVariants ? "cursor-pointer" : ""
         }`}
       onClick={hasVariants ? () => setOpen(true) : undefined}
       role={hasVariants ? "button" : undefined}
@@ -39,6 +41,13 @@ export function ModelCard({ m, index, brandName }: { m: GlassItem; index: number
       }
       aria-label={hasVariants ? `View ${m.model} details` : undefined}
     >
+      {m.badge && (
+        <div className="absolute top-0 left-0 z-20 overflow-hidden w-24 h-24 pointer-events-none">
+          <div className="absolute top-3.5 -left-7 w-28 text-center rotate-[-45deg] bg-electric text-white text-[9px] font-black uppercase tracking-[0.2em] py-1 shadow-lg">
+            {m.badge}
+          </div>
+        </div>
+      )}
       <div className="flex items-start justify-between gap-2">
         <div className="flex flex-col gap-1.5 items-start">
           <div className="flex items-center gap-2">
@@ -57,7 +66,9 @@ export function ModelCard({ m, index, brandName }: { m: GlassItem; index: number
             </span>
           )}
         </div>
-        <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-electric">{m.shape}</span>
+        <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-electric">
+          {isLensBrand ? "lenses" : m.shape}
+        </span>
       </div>
 
       {m.image ? (
@@ -83,7 +94,7 @@ export function ModelCard({ m, index, brandName }: { m: GlassItem; index: number
             <div className="flex items-center justify-center h-28">
               <img
                 src={variant.images.front}
-                alt={`${brandName} ${m.model} — ${variant.name}`}
+                alt={`${brandName} ${m.model} - ${variant.name}`}
                 width={900}
                 height={320}
                 loading="lazy"
@@ -108,7 +119,7 @@ export function ModelCard({ m, index, brandName }: { m: GlassItem; index: number
 
       <h3 className="text-xl font-bold tracking-tight">{m.model}</h3>
       <p className="text-xs text-muted-foreground mt-1 font-serif italic">
-        {hasVariants && variant ? variant.name : m.colour}
+        {isZeiss ? m.colour : (hasVariants && variant ? variant.name : m.colour)}
         {collection ? ` · ${collection}` : ""}
       </p>
 
@@ -122,33 +133,59 @@ export function ModelCard({ m, index, brandName }: { m: GlassItem; index: number
       )}
 
       {hasVariants && m.variants!.length > 1 && (
-        <div className="mt-3 flex items-center gap-2">
-          {m.variants!.map((v) => (
-            <span
-              key={v.id}
-              className={`inline-flex rounded-full p-0.5 transition-all ${
-                v.id === variantId
-                  ? "ring-2 ring-electric ring-offset-1 ring-offset-secondary"
-                  : "ring-1 ring-border"
-              }`}
-            >
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setVariantId(v.id);
-                }}
-                aria-label={v.name}
-                title={v.name}
-                className="size-5 rounded-full block overflow-hidden"
-                style={{
-                  background: v.swatch,
-                  transform: "translateZ(0)",
-                  backfaceVisibility: "hidden",
-                }}
-              />
-            </span>
-          ))}
+        <div className="mt-3 flex items-center gap-2 overflow-x-auto max-w-full p-1 pb-2 flex-nowrap swatch-scrollbar">
+          {m.variants!.map((v) => {
+            const isSelected = v.id === variantId;
+            if (isZeiss) {
+              return (
+                <button
+                  key={v.id}
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    React.startTransition(() => {
+                      setVariantId(v.id);
+                    });
+                  }}
+                  className={`px-3 py-1.5 text-xs font-semibold rounded-lg border transition-all shrink-0 ${
+                    isSelected
+                      ? "bg-electric text-white border-electric shadow-sm"
+                      : "bg-secondary/90 text-foreground/80 border-border hover:border-electric/50"
+                  }`}
+                >
+                  {v.name}
+                </button>
+              );
+            }
+            return (
+              <span
+                key={v.id}
+                className={`inline-flex shrink-0 rounded-full p-0.5 transition-all ${
+                  isSelected
+                    ? "ring-2 ring-electric ring-offset-1 ring-offset-secondary"
+                    : "ring-1 ring-border"
+                }`}
+              >
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    React.startTransition(() => {
+                      setVariantId(v.id);
+                    });
+                  }}
+                  aria-label={v.name}
+                  title={v.name}
+                  className="size-5 rounded-full block overflow-hidden"
+                  style={{
+                    background: v.swatch,
+                    transform: "translateZ(0)",
+                    backfaceVisibility: "hidden",
+                  }}
+                />
+              </span>
+            );
+          })}
         </div>
       )}
 

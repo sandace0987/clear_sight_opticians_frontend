@@ -64,7 +64,7 @@ export const Route = createFileRoute("/ai-glasses")({
 
 const FEATURES = [
   { icon: Camera, title: "12MP Ultra-wide Camera", desc: "Capture first-person photo & 1080p video, hands-free." },
-  { icon: Headphones, title: "Open-ear Audio", desc: "Music and calls — without earbuds blocking the world." },
+  { icon: Headphones, title: "Open-ear Audio", desc: "Music and calls - without earbuds blocking the world." },
   { icon: Cpu, title: "Meta AI On-demand", desc: "Ask, translate and identify anything, in real time." },
   { icon: Mic, title: "5-mic Array", desc: "Studio-clear voice even in loud environments." },
   { icon: BatteryCharging, title: "All-day Charging Case", desc: "Up to 36 hours total battery via the case." },
@@ -229,7 +229,7 @@ function AIGlassesPage() {
               <span className="font-serif italic font-medium text-electric">Meta AI.</span>
             </h1>
             <p className="mt-5 text-muted-foreground max-w-2xl text-lg">
-              Ray-Ban Meta and Oakley Meta — the frames you know, now with a 12MP camera,
+              Ray-Ban Meta and Oakley Meta - the frames you know, now with a 12MP camera,
               open-ear audio and on-demand Meta AI. In-store demos across all three premium stores.
             </p>
           </div>
@@ -259,7 +259,7 @@ function AIGlassesPage() {
             videoSrc={tab === "rayban" ? "/videos/rayban-meta.mp4" : "/videos/oakley-meta.mp4"}
             brand={tab === "rayban" ? "rayban" : "oakley"}
             headline={tab === "rayban" ? "Iconic style meets Meta AI." : "Built for the way you move."}
-            sub={tab === "rayban" ? "Capture, call, and ask Meta AI — without ever reaching for your phone." : "Capture, listen and talk to Meta AI — without breaking stride."}
+            sub={tab === "rayban" ? "Capture, call, and ask Meta AI - without ever reaching for your phone." : "Capture, listen and talk to Meta AI - without breaking stride."}
           />
         </div>
       </section>
@@ -277,7 +277,7 @@ function AIGlassesPage() {
                   Ray-Ban Meta Wayfarer (Gen 2)
                 </h2>
                 <p className="mt-2 text-sm text-muted-foreground max-w-xl">
-                  The Wayfarer you know — reimagined with Meta AI, a 12MP camera and open-ear audio.
+                  The Wayfarer you know - reimagined with Meta AI, a 12MP camera and open-ear audio.
                   Hollywood-iconic. Quietly intelligent.
                 </p>
               </div>
@@ -306,7 +306,7 @@ function AIGlassesPage() {
                 </h2>
                 <p className="mt-2 text-sm text-muted-foreground max-w-xl">
                   Sport-lifestyle silhouettes meets Meta AI. Advanced audio, hands-free capture
-                  and Prizm™ lens technology — engineered for athletes and active lifestyles.
+                  and Prizm™ lens technology - engineered for athletes and active lifestyles.
                 </p>
               </div>
             </div>
@@ -370,7 +370,7 @@ function AIGlassesPage() {
                 Book a private AI glasses demo.
               </h2>
               <p className="mt-4 text-white/75 max-w-lg text-base">
-                Try Meta AI, hands-free capture and open-ear audio in person — at any of
+                Try Meta AI, hands-free capture and open-ear audio in person - at any of
                 our three premium stores. Our team will walk you through every feature.
               </p>
               <ul className="mt-6 space-y-2 text-sm text-white/70">
@@ -380,7 +380,7 @@ function AIGlassesPage() {
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="size-1.5 rounded-full bg-electric" />
-                  No appointment needed — walk in anytime
+                  No appointment needed - walk in anytime
                 </li>
               </ul>
             </div>

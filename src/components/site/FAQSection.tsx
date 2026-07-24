@@ -9,7 +9,7 @@ interface FAQItem {
 const FAQS: FAQItem[] = [
   {
     question: "Where can I get a professional ZEISS eye test in Hyderabad?",
-    answer: "Clear Sight Opticians is a proud ZEISS Certified Vision Expert — the first partner in Telangana. You can get advanced, precise vision profiling and professional eye tests using state-of-the-art ZEISS diagnostic equipment at all three premium stores: Kukatpally (KPHB), Nizampet, and Bowenpally. Eye tests are complimentary with any eyewear purchase.",
+    answer: "Clear Sight Opticians is a proud ZEISS Certified Vision Expert - the first partner in Telangana. You can get advanced, precise vision profiling and professional eye tests using state-of-the-art ZEISS diagnostic equipment at all three premium stores: Kukatpally (KPHB), Nizampet, and Bowenpally. Eye tests are complimentary with any eyewear purchase.",
   },
   {
     question: "Can I get custom prescription lenses for Ray-Ban Meta AI glasses?",

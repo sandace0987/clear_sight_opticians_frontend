@@ -21,15 +21,26 @@ export function TiltCard({ children, className, max = 6 }: Props) {
   const reduced = useReducedMotion();
   const disabled = touch || reduced;
 
+  const rectRef = useRef<DOMRect | null>(null);
+
+  const handleEnter = () => {
+    if (disabled || !ref.current) return;
+    rectRef.current = ref.current.getBoundingClientRect();
+  };
+
   const handleMove = (e: React.MouseEvent) => {
     if (disabled) return;
-    const el = ref.current;
-    if (!el) return;
-    const r = el.getBoundingClientRect();
+    if (!rectRef.current && ref.current) {
+      rectRef.current = ref.current.getBoundingClientRect();
+    }
+    const r = rectRef.current;
+    if (!r || !r.width || !r.height) return;
     mx.set((e.clientX - r.left) / r.width - 0.5);
     my.set((e.clientY - r.top) / r.height - 0.5);
   };
+
   const handleLeave = () => {
+    rectRef.current = null;
     mx.set(0);
     my.set(0);
   };
@@ -37,6 +48,7 @@ export function TiltCard({ children, className, max = 6 }: Props) {
   return (
     <motion.div
       ref={ref}
+      onMouseEnter={handleEnter}
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
       style={

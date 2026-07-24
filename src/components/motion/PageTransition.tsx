@@ -35,15 +35,18 @@ export function PageTransition({ children }: { children: ReactNode }) {
     prevPathnameRef.current = routePathname;
   }, [routePathname]);
 
+  const isFirstMountRef = useRef(true);
+
+  useLayoutEffect(() => {
+    isFirstMountRef.current = false;
+  }, [routePathname]);
+
   if (reduced) return <>{children}</>;
 
-  // Enter-only transition: each route animates in fresh on commit. We deliberately
-  // avoid AnimatePresence "wait" mode here — holding the exiting <Outlet/> caused the
-  // previous page (e.g. home) to flash briefly before the new page mounted.
   return (
     <motion.div
       key={routePathname}
-      initial="hidden"
+      initial={isFirstMountRef.current ? false : "hidden"}
       animate="show"
       variants={pageTransition}
       style={{ willChange: "opacity, transform" }}

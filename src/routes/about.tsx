@@ -26,17 +26,17 @@ export const Route = createFileRoute("/about")({
 });
 
 const MILESTONES = [
-  { year: "2009", title: "Clear Sight — KPHB", desc: "Established with a vision to deliver premium eye care in Kukatpally." },
-  { year: "2011", title: "Clear Sight — Bowenpally", desc: "Expanded services with advanced eyewear collections." },
-  { year: "2019", title: "Clear Sight — Nizampet", desc: "Brought modern eye testing and branded eyewear closer to customers." },
-  { year: "2022", title: "ZEISS Vision Partner", desc: "Became a ZEISS Vision Partner — the 1st ECP in Telangana." },
+  { year: "2009", title: "Clear Sight - KPHB", desc: "Established with a vision to deliver premium eye care in Kukatpally." },
+  { year: "2011", title: "Clear Sight - Bowenpally", desc: "Expanded services with advanced eyewear collections." },
+  { year: "2019", title: "Clear Sight - Nizampet", desc: "Brought modern eye testing and branded eyewear closer to customers." },
+  { year: "2022", title: "ZEISS Vision Partner", desc: "Became a ZEISS Vision Partner - the 1st ECP in Telangana." },
   { year: "2025", title: "ZEISS Vision Expert", desc: "Achieved ZEISS Vision Expert recognition for next-generation precision vision care." },
 ];
 
 const VALUES = [
   { icon: Eye, title: "Advanced eye testing", desc: "Accurate, comfortable and reliable diagnostics with modern equipment." },
   { icon: Glasses, title: "Wide range of eyewear", desc: "International premium brands for every style and every face." },
-  { icon: ShieldCheck, title: "100% authentic products", desc: "Genuine brands, trusted quality — always." },
+  { icon: ShieldCheck, title: "100% authentic products", desc: "Genuine brands, trusted quality - always." },
   { icon: Users, title: "Expert, personal care", desc: "Your vision is our commitment, from test to fitting and beyond." },
 ];
 
@@ -51,10 +51,10 @@ function AboutPage() {
             Delivering clarity <span className="font-serif italic font-medium text-electric">with style.</span>
           </h1>
           <p className="mt-8 text-muted-foreground max-w-2xl text-lg leading-relaxed">
-            Clear Sight Opticians began in Kukatpally in 2009 with a simple idea — that
+            Clear Sight Opticians began in Kukatpally in 2009 with a simple idea - that
             buying glasses in Hyderabad should feel as considered as the frames themselves.
             Today we run three premium stores, fit the world's finest eyewear houses, and are proud
-            <span className="text-foreground font-medium"> ZEISS Certified Vision Experts</span> — the first eye-care
+            <span className="text-foreground font-medium"> ZEISS Certified Vision Experts</span> - the first eye-care
             professionals in Telangana to partner with ZEISS.
           </p>
         </div>
@@ -92,7 +92,7 @@ function AboutPage() {
         <div className="mx-auto max-w-7xl bg-ink text-white rounded-3xl p-8 lg:p-14 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-4">
             <div className="aspect-square rounded-3xl overflow-hidden border border-white/10">
-              <img src={madhuPhoto} alt="Madhu A — Founder & Chief Optometrist" className="w-full h-full object-cover" />
+              <img src={madhuPhoto} alt="Madhu A - Founder & Chief Optometrist" className="w-full h-full object-cover" />
             </div>
           </div>
           <div className="lg:col-span-8">
@@ -128,7 +128,7 @@ function AboutPage() {
       <section className="px-6 lg:px-10 pb-20 lg:pb-32">
         <div className="mx-auto max-w-7xl bg-secondary border border-border rounded-3xl p-10 lg:p-16 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
           <h2 className="text-3xl lg:text-5xl font-bold tracking-tighter max-w-2xl">
-            Come say hello — at any of our three premium stores.
+            Come say hello - at any of our three premium stores.
           </h2>
           <Link to="/stores" className="bg-electric text-white px-8 py-4 rounded-full text-sm font-semibold inline-flex items-center gap-2">
             Find a store <ArrowUpRight className="size-4" />

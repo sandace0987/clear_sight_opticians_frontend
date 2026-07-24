@@ -73,7 +73,7 @@ function PrivacyPolicyPage() {
           <p>We may collect the following information:</p>
           <ul className="list-disc pl-5 space-y-1">
             <li>Name, phone number, and email address when you book an eye test or contact us via our forms.</li>
-            <li>Browser type, operating system, referring URLs, and pages visited — collected automatically via standard server logs and analytics.</li>
+            <li>Browser type, operating system, referring URLs, and pages visited - collected automatically via standard server logs and analytics.</li>
             <li>Preferences saved locally in your browser (e.g., theme choice, zoom level) via <code className="text-xs bg-muted px-1 rounded">localStorage</code>. This data never leaves your device.</li>
           </ul>
         </Section>
@@ -100,7 +100,7 @@ function PrivacyPolicyPage() {
           <p>We use the following third-party services that may process data on our behalf:</p>
           <ul className="list-disc pl-5 space-y-2">
             <li>
-              <strong>Vercel</strong> — Our hosting provider. Vercel may collect server-side access
+              <strong>Vercel</strong> - Our hosting provider. Vercel may collect server-side access
               logs. See{" "}
               <a
                 href="https://vercel.com/legal/privacy-policy"
@@ -113,7 +113,7 @@ function PrivacyPolicyPage() {
               .
             </li>
             <li>
-              <strong>Google Maps</strong> — Embedded store locator maps. Google's use of data is
+              <strong>Google Maps</strong> - Embedded store locator maps. Google's use of data is
               governed by the{" "}
               <a
                 href="https://policies.google.com/privacy"
@@ -126,7 +126,7 @@ function PrivacyPolicyPage() {
               .
             </li>
             <li>
-              <strong>WhatsApp (Meta)</strong> — Our "Chat on WhatsApp" links open the WhatsApp
+              <strong>WhatsApp (Meta)</strong> - Our "Chat on WhatsApp" links open the WhatsApp
               application. Any communication sent through WhatsApp is subject to{" "}
               <a
                 href="https://www.whatsapp.com/legal/privacy-policy"
@@ -205,7 +205,7 @@ function PrivacyPolicyPage() {
           </p>
           <address className="not-italic space-y-1">
             <p><strong>Clear Sight Opticians</strong></p>
-            <p>KPHB Phase 1, Kukatpally, Hyderabad — 500072</p>
+            <p>KPHB Phase 1, Kukatpally, Hyderabad - 500072</p>
             <p>
               Email:{" "}
               <a href={`mailto:${CONTACT_EMAIL}`} className="text-electric hover:underline">

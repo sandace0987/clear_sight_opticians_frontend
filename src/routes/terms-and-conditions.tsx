@@ -107,8 +107,8 @@ function TermsPage() {
 
         <Section title="5. Intellectual Property">
           <p>
-            All original content on this Site — including text, graphics, logos, icons, and software
-            — is the property of {SITE_NAME} and is protected by applicable intellectual property laws.
+            All original content on this Site - including text, graphics, logos, icons, and software
+            - is the property of {SITE_NAME} and is protected by applicable intellectual property laws.
           </p>
           <p>
             Brand names, logos, and product imagery of third-party brands (including Ray-Ban, Oakley,
@@ -120,7 +120,7 @@ function TermsPage() {
             Video and image sequences used in scroll animations on this Site may include material
             derived from publicly available sources including YouTube. See our{" "}
             <Link to="/privacy-policy" className="text-electric hover:underline">
-              Privacy Policy — Video Content &amp; Attribution
+              Privacy Policy - Video Content &amp; Attribution
             </Link>{" "}
             section for details. If you believe your rights are affected, please contact us.
           </p>
@@ -177,7 +177,7 @@ function TermsPage() {
           </p>
           <address className="not-italic space-y-1">
             <p><strong>Clear Sight Opticians</strong></p>
-            <p>KPHB Phase 1, Kukatpally, Hyderabad — 500072</p>
+            <p>KPHB Phase 1, Kukatpally, Hyderabad - 500072</p>
             <p>
               Email:{" "}
               <a href={`mailto:${CONTACT_EMAIL}`} className="text-electric hover:underline">

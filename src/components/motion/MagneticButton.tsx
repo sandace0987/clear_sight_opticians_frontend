@@ -19,15 +19,26 @@ export function MagneticButton({ children, className, strength = 0.35 }: Props) 
   const reduced = useReducedMotion();
   const disabled = touch || reduced;
 
+  const rectRef = useRef<DOMRect | null>(null);
+
+  const handleEnter = () => {
+    if (disabled || !ref.current) return;
+    rectRef.current = ref.current.getBoundingClientRect();
+  };
+
   const handleMove = (e: React.MouseEvent) => {
     if (disabled) return;
-    const el = ref.current;
-    if (!el) return;
-    const r = el.getBoundingClientRect();
+    if (!rectRef.current && ref.current) {
+      rectRef.current = ref.current.getBoundingClientRect();
+    }
+    const r = rectRef.current;
+    if (!r || !r.width || !r.height) return;
     x.set((e.clientX - (r.left + r.width / 2)) * strength);
     y.set((e.clientY - (r.top + r.height / 2)) * strength);
   };
+
   const handleLeave = () => {
+    rectRef.current = null;
     x.set(0);
     y.set(0);
   };
@@ -35,6 +46,7 @@ export function MagneticButton({ children, className, strength = 0.35 }: Props) 
   return (
     <motion.div
       ref={ref}
+      onMouseEnter={handleEnter}
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
       style={disabled ? undefined : { x: sx, y: sy }}

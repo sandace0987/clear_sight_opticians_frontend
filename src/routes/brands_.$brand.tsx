@@ -35,6 +35,14 @@ import modoModel from "@/assets/brands/modo-model.webp";
 import stepperModel from "@/assets/brands/stepper-model.webp";
 import zeissModel from "@/assets/brands/zeiss-model.webp";
 import essilorModel from "@/assets/brands/essilor-model.webp";
+import alconModel from "@/assets/brands/alcon-model.webp";
+import bauschModel from "@/assets/brands/bausch-model.webp";
+import coopervisionModel from "@/assets/brands/coopervision-model.webp";
+import jnjModel from "@/assets/brands/acuvue-model.webp";
+import hoyaModel from "@/assets/brands/hoya-model.webp";
+import miyosmartModel from "@/assets/brands/miyosmart-model.webp";
+import myocareModel from "@/assets/brands/myocare-model.webp";
+import kidsFramesModel from "@/assets/brands/kids-frames-model.webp";
 
 const CAMPAIGN_IMAGES: Record<string, string> = {
   prada: pradaModelMale,
@@ -57,6 +65,14 @@ const CAMPAIGN_IMAGES: Record<string, string> = {
   stepper: stepperModel,
   zeiss: zeissModel,
   essilor: essilorModel,
+  alcon: alconModel,
+  bausch: bauschModel,
+  coopervision: coopervisionModel,
+  jnj: jnjModel,
+  hoya: hoyaModel,
+  miyosmart: miyosmartModel,
+  myocare: myocareModel,
+  "kids-frames": kidsFramesModel,
 };
 
 const getHouseOrBrand = (slug: string): BrandData | null => {
@@ -69,7 +85,7 @@ const getHouseOrBrand = (slug: string): BrandData | null => {
       slug: house.slug ?? slug,
       name: house.name,
       tag: house.tag,
-      blurb: house.note ? `${house.name} — ${house.note}.` : `Authentic ${house.name} designer frames and prescription eyewear.`,
+      blurb: house.note ? `${house.name} - ${house.note}.` : `Authentic ${house.name} designer frames and prescription eyewear.`,
       logo: house.logo,
       models: [],
     };

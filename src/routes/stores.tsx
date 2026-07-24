@@ -58,7 +58,7 @@ function StoresPage() {
           Three <span className="font-serif italic font-medium text-electric">premium stores.</span>
         </h1>
         <p className="mt-6 text-muted-foreground max-w-2xl text-lg">
-          Walk-ins welcome. Bring your prescription — or get one done with us, on the house.
+          Walk-ins welcome. Bring your prescription - or get one done with us, on the house.
         </p>
 
         <div className="mt-16 flex flex-col gap-6">

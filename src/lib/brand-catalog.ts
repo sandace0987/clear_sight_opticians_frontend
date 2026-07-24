@@ -362,6 +362,38 @@ import vgSapphireWhiteFront from "@/assets/products/oakley/oakley-vanguard/sapph
 import vgSapphireWhiteQuarter from "@/assets/products/oakley/oakley-vanguard/sapphire-white-quarter.webp";
 import vgBox from "@/assets/products/oakley/oakley-vanguard/box.webp";
 
+// Alcon Contact Lenses
+import alconAirOptixPlus from "@/assets/products/alcon/air-optix-plus-hydraglyde.webp";
+import alconPrecision1 from "@/assets/products/alcon/precision1-oneday.webp";
+import alconFreshlookBox1 from "@/assets/products/alcon/freshlook-box-1.webp";
+import alconFreshlookBox2 from "@/assets/products/alcon/freshlook-box-2.webp";
+import alconFreshlookHoney from "@/assets/products/alcon/freshlook-honey.webp";
+import alconFreshlookBrilliantBlue from "@/assets/products/alcon/freshlook-brilliant-blue.webp";
+import alconFreshlookPureHazel from "@/assets/products/alcon/freshlook-pure-hazel.webp";
+import alconFreshlookBlue from "@/assets/products/alcon/freshlook-blue.webp";
+import alconFreshlookGray from "@/assets/products/alcon/freshlook-gray.webp";
+import alconFreshlookTurquoise from "@/assets/products/alcon/freshlook-turquoise.webp";
+import alconFreshlookBrown from "@/assets/products/alcon/freshlook-brown.webp";
+import alconFreshlookTrueSapphire from "@/assets/products/alcon/freshlook-true-sapphire.webp";
+import alconFreshlookSterlingGray from "@/assets/products/alcon/freshlook-sterling-gray.webp";
+import alconFreshlookGemstoneGreen from "@/assets/products/alcon/freshlook-gemstone-green.webp";
+import alconFreshlookGreen from "@/assets/products/alcon/freshlook-green.webp";
+
+// Bausch & Lomb Contact Lenses
+import bauschPurevision2 from "@/assets/products/bausch/purevision2-hd.webp";
+import bauschSoflens59 from "@/assets/products/bausch/soflens-59.webp";
+import bauschSoflensToric from "@/assets/products/bausch/soflens-toric.webp";
+
+// CooperVision Contact Lenses
+import cooperAspireAirToric from "@/assets/products/coopervision/aspire-air-toric.webp";
+import cooperBiofinityAspirePro from "@/assets/products/coopervision/biofinity-aspire-pro.webp";
+import cooperMyDayOneDay from "@/assets/products/coopervision/myday-oneday.webp";
+
+// Johnson & Johnson Contact Lenses
+import jnjAcuvueOasysHydraclear from "@/assets/products/jnj/acuvue-oasys-hydraclear.webp";
+import jnjAcuvue1DayMoist from "@/assets/products/jnj/acuvue-1day-moist.webp";
+import jnjAcuvueVita from "@/assets/products/jnj/acuvue-vita.webp";
+
 // Silhouette Eyewear Binaries
 import sil5599_4540Front from "@/assets/products/silhouette/5599-4540-front.webp";
 import sil5599_4540Quarter from "@/assets/products/silhouette/5599-4540-quarter.webp";
@@ -398,6 +430,8 @@ export type GlassItem = {
   variants?: ColorVariant[];
   /** flags a model as trending — shows a "Selling fast" pill on the card */
   is_hot?: boolean;
+  /** badge text pill on card, e.g. "New" */
+  badge?: string;
   /** optional product line / collection used to group models into subsections on the brand page */
   line?: string;
   frameType?: "full-rim" | "rimless" | "semi-rimless";
@@ -426,7 +460,7 @@ export const BRANDS: BrandData[] = [
     slug: "maui-jim",
     name: "Maui Jim",
     tag: "Hawaii-born",
-    blurb: "Born on Wailea Beach in 1980. PolarizedPlus2® lenses cut glare and pump colour — sunglasses engineered for island light.",
+    blurb: "Born on Wailea Beach in 1980. PolarizedPlus2® lenses cut glare and pump colour - sunglasses engineered for island light.",
     logo: mauiJimLogo,
     models: [
       {
@@ -596,7 +630,7 @@ export const BRANDS: BrandData[] = [
     slug: "ray-ban",
     name: "Ray-Ban",
     tag: "American icon",
-    blurb: "Since 1937. The original Aviator and Wayfarer — engineered in Italy, worn worldwide.",
+    blurb: "Since 1937. The original Aviator and Wayfarer - engineered in Italy, worn worldwide.",
     models: [
       {
         model: "RB3794M",
@@ -934,7 +968,7 @@ export const BRANDS: BrandData[] = [
     slug: "oakley",
     name: "Oakley",
     tag: "Performance",
-    blurb: "Sport-built optics with Prizm lens tech — for the road, the trail and the everyday.",
+    blurb: "Sport-built optics with Prizm lens tech - for the road, the trail and the everyday.",
     models: [
       {
         model: "Meta HSTN",
@@ -1290,7 +1324,7 @@ export const BRANDS: BrandData[] = [
     slug: "philipp-plein",
     name: "Philipp Plein",
     tag: "Statement",
-    blurb: "Bold, embellished eyewear with gold hardware and the signature hexagon plaque — luxury with an edge.",
+    blurb: "Bold, embellished eyewear with gold hardware and the signature hexagon plaque - luxury with an edge.",
     models: [
       {
         model: "SPP 086M 400 49",
@@ -1412,7 +1446,7 @@ export const BRANDS: BrandData[] = [
     slug: "prada",
     name: "Prada",
     tag: "Italian luxury",
-    blurb: "Linea Rossa, Symbole and the iconic triangle plaque — refined, sculptural Milanese eyewear.",
+    blurb: "Linea Rossa, Symbole and the iconic triangle plaque - refined, sculptural Milanese eyewear.",
     models: [
       {
         model: "Linea Rossa PS 03QV",
@@ -1835,7 +1869,7 @@ export const BRANDS: BrandData[] = [
     slug: "police",
     name: "Police",
     tag: "Italian cool",
-    blurb: "Streetwise Italian style — sport meets lifestyle with attitude.",
+    blurb: "Streetwise Italian style - sport meets lifestyle with attitude.",
     models: [
       {
         model: "SPLP28 Forty 1 0703",
@@ -1889,14 +1923,14 @@ export const BRANDS: BrandData[] = [
     name: "ZEISS",
     tag: "Lens & vision expert",
     category: "lenses",
-    certified: "ZEISS Certified Vision Experts — Hyderabad",
+    certified: "ZEISS Certified Vision Experts - Hyderabad",
     blurb:
       "Over 175 years of precision optics. As certified ZEISS Vision Experts, we craft individualised prescription lenses with market-leading clarity, coatings and blue-light protection.",
     features: [
       { title: "DuraVision® Coatings", desc: "Anti-reflective, anti-scratch and easy-clean layers for lasting clarity." },
       { title: "BlueGuard", desc: "Blocks up to 40% of potentially harmful blue light while staying near-clear." },
       { title: "PhotoFusion X", desc: "Self-tinting lenses that darken outdoors and clear up fast indoors." },
-      { title: "UVProtect", desc: "Full UV protection up to 400nm across the entire lens — even clear lenses." },
+      { title: "UVProtect", desc: "Full UV protection up to 400nm across the entire lens - even clear lenses." },
       { title: "DriveSafe", desc: "Optimised for low-light and night driving with reduced glare from headlights." },
       { title: "Individual Fit", desc: "Lenses personalised to your frame, prescription and lifestyle." },
     ],
@@ -1906,14 +1940,59 @@ export const BRANDS: BrandData[] = [
         shape: "single vision",
         colour: "Clear · BlueGuard · DuraVision",
         image: zeissLens,
-        priceFrom: 6990,
+        badge: "New",
+        variants: [
+          {
+            id: "single-vision",
+            name: "Single Vision",
+            lens: "Single Vision Lenses",
+            swatch: "#0047FF",
+            images: { front: zeissLens, quarter: zeissLens, side: zeissLens },
+          },
+          {
+            id: "progressive",
+            name: "Progressive",
+            lens: "Progressive Lenses",
+            swatch: "#0b0b12",
+            images: { front: zeissLens, quarter: zeissLens, side: zeissLens },
+          },
+          {
+            id: "digital",
+            name: "Digital",
+            lens: "Digital Lenses",
+            swatch: "#00c8ff",
+            images: { front: zeissLens, quarter: zeissLens, side: zeissLens },
+          },
+        ],
       },
       {
         model: "SmartLife Lenses",
         shape: "progressive",
         colour: "Age-adaptive · DriveSafe · UVProtect",
         image: zeissLens,
-        priceFrom: 14990,
+        variants: [
+          {
+            id: "single-vision",
+            name: "Single Vision",
+            lens: "Single Vision Lenses",
+            swatch: "#0047FF",
+            images: { front: zeissLens, quarter: zeissLens, side: zeissLens },
+          },
+          {
+            id: "progressive",
+            name: "Progressive",
+            lens: "Progressive Lenses",
+            swatch: "#0b0b12",
+            images: { front: zeissLens, quarter: zeissLens, side: zeissLens },
+          },
+          {
+            id: "digital",
+            name: "Digital",
+            lens: "Digital Lenses",
+            swatch: "#00c8ff",
+            images: { front: zeissLens, quarter: zeissLens, side: zeissLens },
+          },
+        ],
       },
     ],
   },
@@ -1921,7 +2000,7 @@ export const BRANDS: BrandData[] = [
     slug: "vogue",
     name: "Vogue Eyewear",
     tag: "Fashion-forward",
-    blurb: "Playful, on-trend frames with feminine flair — designed to express personal style.",
+    blurb: "Playful, on-trend frames with feminine flair - designed to express personal style.",
     models: [
       {
         model: "VOGUE FRAME VO5497",
@@ -2152,7 +2231,7 @@ export const BRANDS: BrandData[] = [
     slug: "puma",
     name: "Puma",
     tag: "Sport",
-    blurb: "Active styling and everyday durability — high performance sport optical frames.",
+    blurb: "Active styling and everyday durability - high performance sport optical frames.",
     models: [
       {
         model: "Puma PU0450O",
@@ -2230,6 +2309,266 @@ export const BRANDS: BrandData[] = [
       },
     ],
   },
+  {
+    slug: "alcon",
+    name: "Alcon",
+    tag: "Eye Care Leader",
+    blurb: "World-leading contact lens innovation - from vibrant Freshlook colorways to high-breathability Air Optix and Precision1 daily disposables.",
+    category: "lenses",
+    models: [
+      {
+        model: "Freshlook Air Optix Colors (2 Lens Box)",
+        shape: "round",
+        colour: "Pure Hazel / Gemstone Green / Sterling Gray / True Sapphire / Turquoise / Green / Blue / Gray / Brown",
+        variants: [
+          {
+            id: "pure-hazel",
+            name: "Pure Hazel",
+            lens: "Monthly Color",
+            swatch: "linear-gradient(135deg, #b8860b 0%, #8b5a2b 100%)",
+            images: { front: alconFreshlookPureHazel, quarter: alconFreshlookBox1, side: alconFreshlookBox2 },
+          },
+          {
+            id: "gemstone-green",
+            name: "Gemstone Green",
+            lens: "Monthly Color",
+            swatch: "linear-gradient(135deg, #00fa9a 0%, #008050 100%)",
+            images: { front: alconFreshlookGemstoneGreen, quarter: alconFreshlookBox1, side: alconFreshlookBox2 },
+          },
+          {
+            id: "sterling-gray",
+            name: "Sterling Gray",
+            lens: "Monthly Color",
+            swatch: "linear-gradient(135deg, #e0e0e0 0%, #708090 100%)",
+            images: { front: alconFreshlookSterlingGray, quarter: alconFreshlookBox1, side: alconFreshlookBox2 },
+          },
+          {
+            id: "true-sapphire",
+            name: "True Sapphire",
+            lens: "Monthly Color",
+            swatch: "linear-gradient(135deg, #4169e1 0%, #00008b 100%)",
+            images: { front: alconFreshlookTrueSapphire, quarter: alconFreshlookBox1, side: alconFreshlookBox2 },
+          },
+          {
+            id: "turquoise",
+            name: "Turquoise",
+            lens: "Monthly Color",
+            swatch: "linear-gradient(135deg, #40e0d0 0%, #008b8b 100%)",
+            images: { front: alconFreshlookTurquoise, quarter: alconFreshlookBox1, side: alconFreshlookBox2 },
+          },
+          {
+            id: "green",
+            name: "Green",
+            lens: "Monthly Color",
+            swatch: "linear-gradient(135deg, #2e8b57 0%, #1e5631 100%)",
+            images: { front: alconFreshlookGreen, quarter: alconFreshlookBox1, side: alconFreshlookBox2 },
+          },
+          {
+            id: "blue",
+            name: "Blue",
+            lens: "Monthly Color",
+            swatch: "linear-gradient(135deg, #1e90ff 0%, #104e8b 100%)",
+            images: { front: alconFreshlookBlue, quarter: alconFreshlookBox1, side: alconFreshlookBox2 },
+          },
+          {
+            id: "gray",
+            name: "Gray",
+            lens: "Monthly Color",
+            swatch: "linear-gradient(135deg, #a9a9a9 0%, #4f4f4f 100%)",
+            images: { front: alconFreshlookGray, quarter: alconFreshlookBox1, side: alconFreshlookBox2 },
+          },
+          {
+            id: "brown",
+            name: "Brown",
+            lens: "Monthly Color",
+            swatch: "linear-gradient(135deg, #8b4513 0%, #4a2306 100%)",
+            images: { front: alconFreshlookBrown, quarter: alconFreshlookBox1, side: alconFreshlookBox2 },
+          },
+        ],
+      },
+      {
+        model: "Air Optix Plus HydraGlyde (Monthly 6 Pack)",
+        shape: "round",
+        colour: "Clear / Transparent",
+        variants: [
+          {
+            id: "clear",
+            name: "Clear",
+            lens: "Monthly Disposable (6 Pack)",
+            swatch: "linear-gradient(135deg, #e6f3ff 0%, #b3daff 100%)",
+            images: { front: alconAirOptixPlus, quarter: alconAirOptixPlus, side: alconAirOptixPlus },
+          },
+        ],
+      },
+      {
+        model: "Precision1 One-Day Daily Disposable (30 Pack)",
+        shape: "round",
+        colour: "Clear / Transparent",
+        variants: [
+          {
+            id: "clear",
+            name: "Clear",
+            lens: "Daily Disposable (30 Pack)",
+            swatch: "linear-gradient(135deg, #e6f3ff 0%, #80c1ff 100%)",
+            images: { front: alconPrecision1, quarter: alconPrecision1, side: alconPrecision1 },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "bausch",
+    name: "Bausch & Lomb",
+    tag: "Vision Care Pioneer",
+    blurb: "Clinical-grade contact lenses engineered for crisp HD optics, hydration, and astigmatism correction.",
+    category: "lenses",
+    models: [
+      {
+        model: "PureVision 2 HD Monthly (6 Lens Pack)",
+        shape: "round",
+        colour: "Clear",
+        variants: [
+          {
+            id: "clear",
+            name: "Clear",
+            lens: "Monthly High Definition",
+            swatch: "linear-gradient(135deg, #e6f7ff 0%, #91d5ff 100%)",
+            images: { front: bauschPurevision2, quarter: bauschPurevision2, side: bauschPurevision2 },
+          },
+        ],
+      },
+      {
+        model: "SofLens 59 Monthly (6 Lens Pack)",
+        shape: "round",
+        colour: "Clear",
+        variants: [
+          {
+            id: "clear",
+            name: "Clear",
+            lens: "Monthly Hydrogel",
+            swatch: "linear-gradient(135deg, #f0f9ff 0%, #bae7ff 100%)",
+            images: { front: bauschSoflens59, quarter: bauschSoflens59, side: bauschSoflens59 },
+          },
+        ],
+      },
+      {
+        model: "SofLens Toric for Astigmatism (6 Lens Pack)",
+        shape: "round",
+        colour: "Clear",
+        variants: [
+          {
+            id: "clear",
+            name: "Clear",
+            lens: "Monthly Toric / Astigmatism",
+            swatch: "linear-gradient(135deg, #e6f7ff 0%, #69c0ff 100%)",
+            images: { front: bauschSoflensToric, quarter: bauschSoflensToric, side: bauschSoflensToric },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "coopervision",
+    name: "CooperVision",
+    tag: "Global Soft Lens Specialist",
+    blurb: "Advanced silicone hydrogel technology delivering unmatched breathability and all-day natural moisture.",
+    category: "lenses",
+    models: [
+      {
+        model: "Biofinity / Aspire Pro Monthly (6 Lens Pack)",
+        shape: "round",
+        colour: "Clear",
+        variants: [
+          {
+            id: "clear",
+            name: "Clear",
+            lens: "Monthly Aquaform Hydrogel",
+            swatch: "linear-gradient(135deg, #e6fffb 0%, #87e8de 100%)",
+            images: { front: cooperBiofinityAspirePro, quarter: cooperBiofinityAspirePro, side: cooperBiofinityAspirePro },
+          },
+        ],
+      },
+      {
+        model: "Aspire Air Toric for Astigmatism (3 Lens Pack)",
+        shape: "round",
+        colour: "Clear",
+        variants: [
+          {
+            id: "clear",
+            name: "Clear",
+            lens: "Monthly Toric",
+            swatch: "linear-gradient(135deg, #e6fffb 0%, #5cdbd3 100%)",
+            images: { front: cooperAspireAirToric, quarter: cooperAspireAirToric, side: cooperAspireAirToric },
+          },
+        ],
+      },
+      {
+        model: "MyDay 1-Day Daily Disposable (30 Lens Pack)",
+        shape: "round",
+        colour: "Clear",
+        variants: [
+          {
+            id: "clear",
+            name: "Clear",
+            lens: "Daily Smart Silicone",
+            swatch: "linear-gradient(135deg, #e6f7ff 0%, #91d5ff 100%)",
+            images: { front: cooperMyDayOneDay, quarter: cooperMyDayOneDay, side: cooperMyDayOneDay },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "jnj",
+    name: "Johnson & Johnson",
+    tag: "Acuvue® Official Partner",
+    blurb: "World-class Acuvue® contact lenses with HydraClear and moisture-lock technology for sensitive eyes.",
+    category: "lenses",
+    models: [
+      {
+        model: "Acuvue Oasys with HydraClear Plus (6 Lens Pack)",
+        shape: "round",
+        colour: "Clear",
+        variants: [
+          {
+            id: "clear",
+            name: "Clear",
+            lens: "Bi-Weekly Disposable",
+            swatch: "linear-gradient(135deg, #f0f5ff 0%, #adc6ff 100%)",
+            images: { front: jnjAcuvueOasysHydraclear, quarter: jnjAcuvueOasysHydraclear, side: jnjAcuvueOasysHydraclear },
+          },
+        ],
+      },
+      {
+        model: "1-Day Acuvue Moist (30 Lens Pack)",
+        shape: "round",
+        colour: "Clear",
+        variants: [
+          {
+            id: "clear",
+            name: "Clear",
+            lens: "Daily Lacing Moisture",
+            swatch: "linear-gradient(135deg, #e6f7ff 0%, #69c0ff 100%)",
+            images: { front: jnjAcuvue1DayMoist, quarter: jnjAcuvue1DayMoist, side: jnjAcuvue1DayMoist },
+          },
+        ],
+      },
+      {
+        model: "Acuvue Vita Monthly Disposable (6 Lens Pack)",
+        shape: "round",
+        colour: "Clear",
+        variants: [
+          {
+            id: "clear",
+            name: "Clear",
+            lens: "Monthly HydraMax",
+            swatch: "linear-gradient(135deg, #f0f5ff 0%, #85a5ff 100%)",
+            images: { front: jnjAcuvueVita, quarter: jnjAcuvueVita, side: jnjAcuvueVita },
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 // Deterministically flag 2-3 "hot" (selling fast) models per brand.
@@ -2291,16 +2630,16 @@ export const HOUSES: House[] = [
   { slug: "vogue", name: "Vogue Eyewear", tag: "Fashion-forward", note: "Playful, on-trend optical frames", domain: "vogue-eyewear.com", category: "glasses" },
   // ---- Lenses & Contact Lenses (ZEISS promoted to top) ----
   { slug: "zeiss", name: "ZEISS", tag: "Certified Vision Expert", note: "Precision prescription lenses & coatings", domain: "zeiss.com", category: "lenses" },
-  { slug: "hoya", name: "Hoya", tag: "Lens expert", note: "High-index & progressive lenses", domain: "hoyavision.com", category: "lenses", comingSoon: true },
+  { slug: "hoya", name: "Hoya", tag: "Lens expert", note: "High-index & progressive lenses", domain: "hoyavision.com", category: "lenses" },
   { slug: "essilor", name: "Essilor", tag: "Lens expert", note: "Varilux & Crizal coatings", domain: "essilor.com", category: "lenses", comingSoon: true },
-  { slug: "coopervision", name: "CooperVision", tag: "Contact lenses", note: "Daily & monthly soft lenses", domain: "coopervision.com", category: "lenses", comingSoon: true },
-  { slug: "jnj", name: "Johnson & Johnson", tag: "Contact lenses", note: "Acuvue daily & bi-weekly", domain: "jnj.com", category: "lenses", comingSoon: true },
-  { slug: "bausch", name: "Bausch & Lomb", tag: "Contact lenses", note: "Ultra & Biotrue lenses", domain: "bausch.com.au", category: "lenses", comingSoon: true },
-  { slug: "alcon", name: "Alcon", tag: "Contact lenses", note: "Dailies & Air Optix", domain: "alcon.com", category: "lenses", comingSoon: true },
-  // ---- For Kids (placeholders) ----
-  { name: "MyoCare", tag: "Myopia control", note: "ZEISS MyoCare lenses to slow myopia progression", domain: "zeiss.com", category: "kids" },
-  { name: "MiYOSMART", tag: "Myopia control", note: "Hoya MiYOSMART D.I.M.S. spectacle lenses", domain: "hoyavision.com", category: "kids" },
-  { name: "Kids Frames", tag: "Durable & cute", note: "Flexible, impact-resistant frames for little ones", category: "kids" },
+  { slug: "coopervision", name: "CooperVision", tag: "Contact lenses", note: "Daily & monthly soft lenses", domain: "coopervision.com", category: "lenses" },
+  { slug: "jnj", name: "Johnson & Johnson", tag: "Contact lenses", note: "Acuvue daily & bi-weekly", domain: "jnj.com", category: "lenses" },
+  { slug: "bausch", name: "Bausch & Lomb", tag: "Contact lenses", note: "Ultra & Biotrue lenses", domain: "bausch.com.au", category: "lenses" },
+  { slug: "alcon", name: "Alcon", tag: "Contact lenses", note: "Dailies & Air Optix", domain: "alcon.com", category: "lenses" },
+  // ---- For Kids ----
+  { slug: "myocare", name: "MyoCare", tag: "Myopia control", note: "ZEISS MyoCare lenses to slow myopia progression", domain: "zeiss.com", category: "kids" },
+  { slug: "miyosmart", name: "MiYOSMART", tag: "Myopia control", note: "Hoya MiYOSMART D.I.M.S. spectacle lenses", domain: "hoyavision.com", category: "kids" },
+  { slug: "kids-frames", name: "Kids Frames", tag: "Durable & cute", note: "Flexible, impact-resistant frames for little ones", category: "kids" },
 ];
 
 /** Priority order (mirrors the homepage marquee) used to sort brand grids & "other houses". */
@@ -2323,6 +2662,10 @@ export const BRAND_PRIORITY = [
   "Philipp Plein",
   "Modo",
   "ZEISS",
+  "Alcon",
+  "Bausch & Lomb",
+  "CooperVision",
+  "Johnson & Johnson",
   "Hoya",
   "Essilor",
 ];

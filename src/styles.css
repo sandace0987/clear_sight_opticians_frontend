@@ -858,6 +858,25 @@
     border-radius: 10px;
   }
 
+  .swatch-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-electric) transparent;
+  }
+
+  .swatch-scrollbar::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .swatch-scrollbar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.06);
+    border-radius: 4px;
+  }
+
+  .swatch-scrollbar::-webkit-scrollbar-thumb {
+    background-color: var(--color-electric);
+    border-radius: 4px;
+  }
+
   .dark-torch-mask {
     mask-image: radial-gradient(circle 50px at center, black 20%, transparent 80%);
     -webkit-mask-image: radial-gradient(circle 50px at center, black 20%, transparent 80%);

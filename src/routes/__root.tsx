@@ -109,6 +109,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         { rel: "stylesheet", href: appCss },
         { rel: "icon", type: "image/avif", href: "/clear-sight-logo.avif" },
         { rel: "apple-touch-icon", href: "/clear-sight-logo.avif" },
+        { rel: "preload", href: "/hero-portrait-light-mobile.webp", as: "image", type: "image/webp", media: "(max-width: 639px)" },
+        { rel: "preload", href: "/hero-portrait-dark-mobile.webp", as: "image", type: "image/webp", media: "(max-width: 639px)" },
       ],
     }),
   shellComponent: RootShell,
