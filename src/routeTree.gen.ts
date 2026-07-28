@@ -9,11 +9,21 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ZeissEyeTestHyderabadRouteImport } from './routes/zeiss-eye-test-hyderabad'
+import { Route as WhatAreProgressiveLensesRouteImport } from './routes/what-are-progressive-lenses'
 import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
 import { Route as StoresRouteImport } from './routes/stores'
 import { Route as SmartGlassesRouteImport } from './routes/smart-glasses'
+import { Route as RayBanVsOakleyRouteImport } from './routes/ray-ban-vs-oakley'
+import { Route as RayBanMetaHyderabadRouteImport } from './routes/ray-ban-meta-hyderabad'
+import { Route as RayBanGlassesHyderabadRouteImport } from './routes/ray-ban-glasses-hyderabad'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as OpticianKphbRouteImport } from './routes/optician-kphb'
+import { Route as EyeTestHyderabadRouteImport } from './routes/eye-test-hyderabad'
+import { Route as DesignerEyewearHyderabadRouteImport } from './routes/designer-eyewear-hyderabad'
+import { Route as ContactLensesHyderabadRouteImport } from './routes/contact-lenses-hyderabad'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ComputerGlassesHyderabadRouteImport } from './routes/computer-glasses-hyderabad'
 import { Route as BrandsRouteImport } from './routes/brands'
 import { Route as AiGlassesRouteImport } from './routes/ai-glasses'
 import { Route as AboutRouteImport } from './routes/about'
@@ -21,6 +31,17 @@ import { Route as SplatRouteImport } from './routes/$'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BrandsBrandRouteImport } from './routes/brands_.$brand'
 
+const ZeissEyeTestHyderabadRoute = ZeissEyeTestHyderabadRouteImport.update({
+  id: '/zeiss-eye-test-hyderabad',
+  path: '/zeiss-eye-test-hyderabad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WhatAreProgressiveLensesRoute =
+  WhatAreProgressiveLensesRouteImport.update({
+    id: '/what-are-progressive-lenses',
+    path: '/what-are-progressive-lenses',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
   id: '/terms-and-conditions',
   path: '/terms-and-conditions',
@@ -36,9 +57,45 @@ const SmartGlassesRoute = SmartGlassesRouteImport.update({
   path: '/smart-glasses',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RayBanVsOakleyRoute = RayBanVsOakleyRouteImport.update({
+  id: '/ray-ban-vs-oakley',
+  path: '/ray-ban-vs-oakley',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RayBanMetaHyderabadRoute = RayBanMetaHyderabadRouteImport.update({
+  id: '/ray-ban-meta-hyderabad',
+  path: '/ray-ban-meta-hyderabad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RayBanGlassesHyderabadRoute = RayBanGlassesHyderabadRouteImport.update({
+  id: '/ray-ban-glasses-hyderabad',
+  path: '/ray-ban-glasses-hyderabad',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
   id: '/privacy-policy',
   path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OpticianKphbRoute = OpticianKphbRouteImport.update({
+  id: '/optician-kphb',
+  path: '/optician-kphb',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EyeTestHyderabadRoute = EyeTestHyderabadRouteImport.update({
+  id: '/eye-test-hyderabad',
+  path: '/eye-test-hyderabad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DesignerEyewearHyderabadRoute =
+  DesignerEyewearHyderabadRouteImport.update({
+    id: '/designer-eyewear-hyderabad',
+    path: '/designer-eyewear-hyderabad',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ContactLensesHyderabadRoute = ContactLensesHyderabadRouteImport.update({
+  id: '/contact-lenses-hyderabad',
+  path: '/contact-lenses-hyderabad',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -46,6 +103,12 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ComputerGlassesHyderabadRoute =
+  ComputerGlassesHyderabadRouteImport.update({
+    id: '/computer-glasses-hyderabad',
+    path: '/computer-glasses-hyderabad',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const BrandsRoute = BrandsRouteImport.update({
   id: '/brands',
   path: '/brands',
@@ -83,11 +146,21 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/ai-glasses': typeof AiGlassesRoute
   '/brands': typeof BrandsRoute
+  '/computer-glasses-hyderabad': typeof ComputerGlassesHyderabadRoute
   '/contact': typeof ContactRoute
+  '/contact-lenses-hyderabad': typeof ContactLensesHyderabadRoute
+  '/designer-eyewear-hyderabad': typeof DesignerEyewearHyderabadRoute
+  '/eye-test-hyderabad': typeof EyeTestHyderabadRoute
+  '/optician-kphb': typeof OpticianKphbRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/ray-ban-glasses-hyderabad': typeof RayBanGlassesHyderabadRoute
+  '/ray-ban-meta-hyderabad': typeof RayBanMetaHyderabadRoute
+  '/ray-ban-vs-oakley': typeof RayBanVsOakleyRoute
   '/smart-glasses': typeof SmartGlassesRoute
   '/stores': typeof StoresRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/what-are-progressive-lenses': typeof WhatAreProgressiveLensesRoute
+  '/zeiss-eye-test-hyderabad': typeof ZeissEyeTestHyderabadRoute
   '/brands/$brand': typeof BrandsBrandRoute
 }
 export interface FileRoutesByTo {
@@ -96,11 +169,21 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/ai-glasses': typeof AiGlassesRoute
   '/brands': typeof BrandsRoute
+  '/computer-glasses-hyderabad': typeof ComputerGlassesHyderabadRoute
   '/contact': typeof ContactRoute
+  '/contact-lenses-hyderabad': typeof ContactLensesHyderabadRoute
+  '/designer-eyewear-hyderabad': typeof DesignerEyewearHyderabadRoute
+  '/eye-test-hyderabad': typeof EyeTestHyderabadRoute
+  '/optician-kphb': typeof OpticianKphbRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/ray-ban-glasses-hyderabad': typeof RayBanGlassesHyderabadRoute
+  '/ray-ban-meta-hyderabad': typeof RayBanMetaHyderabadRoute
+  '/ray-ban-vs-oakley': typeof RayBanVsOakleyRoute
   '/smart-glasses': typeof SmartGlassesRoute
   '/stores': typeof StoresRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/what-are-progressive-lenses': typeof WhatAreProgressiveLensesRoute
+  '/zeiss-eye-test-hyderabad': typeof ZeissEyeTestHyderabadRoute
   '/brands/$brand': typeof BrandsBrandRoute
 }
 export interface FileRoutesById {
@@ -110,11 +193,21 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/ai-glasses': typeof AiGlassesRoute
   '/brands': typeof BrandsRoute
+  '/computer-glasses-hyderabad': typeof ComputerGlassesHyderabadRoute
   '/contact': typeof ContactRoute
+  '/contact-lenses-hyderabad': typeof ContactLensesHyderabadRoute
+  '/designer-eyewear-hyderabad': typeof DesignerEyewearHyderabadRoute
+  '/eye-test-hyderabad': typeof EyeTestHyderabadRoute
+  '/optician-kphb': typeof OpticianKphbRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/ray-ban-glasses-hyderabad': typeof RayBanGlassesHyderabadRoute
+  '/ray-ban-meta-hyderabad': typeof RayBanMetaHyderabadRoute
+  '/ray-ban-vs-oakley': typeof RayBanVsOakleyRoute
   '/smart-glasses': typeof SmartGlassesRoute
   '/stores': typeof StoresRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/what-are-progressive-lenses': typeof WhatAreProgressiveLensesRoute
+  '/zeiss-eye-test-hyderabad': typeof ZeissEyeTestHyderabadRoute
   '/brands_/$brand': typeof BrandsBrandRoute
 }
 export interface FileRouteTypes {
@@ -125,11 +218,21 @@ export interface FileRouteTypes {
     | '/about'
     | '/ai-glasses'
     | '/brands'
+    | '/computer-glasses-hyderabad'
     | '/contact'
+    | '/contact-lenses-hyderabad'
+    | '/designer-eyewear-hyderabad'
+    | '/eye-test-hyderabad'
+    | '/optician-kphb'
     | '/privacy-policy'
+    | '/ray-ban-glasses-hyderabad'
+    | '/ray-ban-meta-hyderabad'
+    | '/ray-ban-vs-oakley'
     | '/smart-glasses'
     | '/stores'
     | '/terms-and-conditions'
+    | '/what-are-progressive-lenses'
+    | '/zeiss-eye-test-hyderabad'
     | '/brands/$brand'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -138,11 +241,21 @@ export interface FileRouteTypes {
     | '/about'
     | '/ai-glasses'
     | '/brands'
+    | '/computer-glasses-hyderabad'
     | '/contact'
+    | '/contact-lenses-hyderabad'
+    | '/designer-eyewear-hyderabad'
+    | '/eye-test-hyderabad'
+    | '/optician-kphb'
     | '/privacy-policy'
+    | '/ray-ban-glasses-hyderabad'
+    | '/ray-ban-meta-hyderabad'
+    | '/ray-ban-vs-oakley'
     | '/smart-glasses'
     | '/stores'
     | '/terms-and-conditions'
+    | '/what-are-progressive-lenses'
+    | '/zeiss-eye-test-hyderabad'
     | '/brands/$brand'
   id:
     | '__root__'
@@ -151,11 +264,21 @@ export interface FileRouteTypes {
     | '/about'
     | '/ai-glasses'
     | '/brands'
+    | '/computer-glasses-hyderabad'
     | '/contact'
+    | '/contact-lenses-hyderabad'
+    | '/designer-eyewear-hyderabad'
+    | '/eye-test-hyderabad'
+    | '/optician-kphb'
     | '/privacy-policy'
+    | '/ray-ban-glasses-hyderabad'
+    | '/ray-ban-meta-hyderabad'
+    | '/ray-ban-vs-oakley'
     | '/smart-glasses'
     | '/stores'
     | '/terms-and-conditions'
+    | '/what-are-progressive-lenses'
+    | '/zeiss-eye-test-hyderabad'
     | '/brands_/$brand'
   fileRoutesById: FileRoutesById
 }
@@ -165,16 +288,40 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AiGlassesRoute: typeof AiGlassesRoute
   BrandsRoute: typeof BrandsRoute
+  ComputerGlassesHyderabadRoute: typeof ComputerGlassesHyderabadRoute
   ContactRoute: typeof ContactRoute
+  ContactLensesHyderabadRoute: typeof ContactLensesHyderabadRoute
+  DesignerEyewearHyderabadRoute: typeof DesignerEyewearHyderabadRoute
+  EyeTestHyderabadRoute: typeof EyeTestHyderabadRoute
+  OpticianKphbRoute: typeof OpticianKphbRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  RayBanGlassesHyderabadRoute: typeof RayBanGlassesHyderabadRoute
+  RayBanMetaHyderabadRoute: typeof RayBanMetaHyderabadRoute
+  RayBanVsOakleyRoute: typeof RayBanVsOakleyRoute
   SmartGlassesRoute: typeof SmartGlassesRoute
   StoresRoute: typeof StoresRoute
   TermsAndConditionsRoute: typeof TermsAndConditionsRoute
+  WhatAreProgressiveLensesRoute: typeof WhatAreProgressiveLensesRoute
+  ZeissEyeTestHyderabadRoute: typeof ZeissEyeTestHyderabadRoute
   BrandsBrandRoute: typeof BrandsBrandRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/zeiss-eye-test-hyderabad': {
+      id: '/zeiss-eye-test-hyderabad'
+      path: '/zeiss-eye-test-hyderabad'
+      fullPath: '/zeiss-eye-test-hyderabad'
+      preLoaderRoute: typeof ZeissEyeTestHyderabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/what-are-progressive-lenses': {
+      id: '/what-are-progressive-lenses'
+      path: '/what-are-progressive-lenses'
+      fullPath: '/what-are-progressive-lenses'
+      preLoaderRoute: typeof WhatAreProgressiveLensesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/terms-and-conditions': {
       id: '/terms-and-conditions'
       path: '/terms-and-conditions'
@@ -196,6 +343,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SmartGlassesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ray-ban-vs-oakley': {
+      id: '/ray-ban-vs-oakley'
+      path: '/ray-ban-vs-oakley'
+      fullPath: '/ray-ban-vs-oakley'
+      preLoaderRoute: typeof RayBanVsOakleyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ray-ban-meta-hyderabad': {
+      id: '/ray-ban-meta-hyderabad'
+      path: '/ray-ban-meta-hyderabad'
+      fullPath: '/ray-ban-meta-hyderabad'
+      preLoaderRoute: typeof RayBanMetaHyderabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ray-ban-glasses-hyderabad': {
+      id: '/ray-ban-glasses-hyderabad'
+      path: '/ray-ban-glasses-hyderabad'
+      fullPath: '/ray-ban-glasses-hyderabad'
+      preLoaderRoute: typeof RayBanGlassesHyderabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/privacy-policy': {
       id: '/privacy-policy'
       path: '/privacy-policy'
@@ -203,11 +371,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/optician-kphb': {
+      id: '/optician-kphb'
+      path: '/optician-kphb'
+      fullPath: '/optician-kphb'
+      preLoaderRoute: typeof OpticianKphbRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/eye-test-hyderabad': {
+      id: '/eye-test-hyderabad'
+      path: '/eye-test-hyderabad'
+      fullPath: '/eye-test-hyderabad'
+      preLoaderRoute: typeof EyeTestHyderabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/designer-eyewear-hyderabad': {
+      id: '/designer-eyewear-hyderabad'
+      path: '/designer-eyewear-hyderabad'
+      fullPath: '/designer-eyewear-hyderabad'
+      preLoaderRoute: typeof DesignerEyewearHyderabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact-lenses-hyderabad': {
+      id: '/contact-lenses-hyderabad'
+      path: '/contact-lenses-hyderabad'
+      fullPath: '/contact-lenses-hyderabad'
+      preLoaderRoute: typeof ContactLensesHyderabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/computer-glasses-hyderabad': {
+      id: '/computer-glasses-hyderabad'
+      path: '/computer-glasses-hyderabad'
+      fullPath: '/computer-glasses-hyderabad'
+      preLoaderRoute: typeof ComputerGlassesHyderabadRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/brands': {
@@ -261,11 +464,21 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AiGlassesRoute: AiGlassesRoute,
   BrandsRoute: BrandsRoute,
+  ComputerGlassesHyderabadRoute: ComputerGlassesHyderabadRoute,
   ContactRoute: ContactRoute,
+  ContactLensesHyderabadRoute: ContactLensesHyderabadRoute,
+  DesignerEyewearHyderabadRoute: DesignerEyewearHyderabadRoute,
+  EyeTestHyderabadRoute: EyeTestHyderabadRoute,
+  OpticianKphbRoute: OpticianKphbRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
+  RayBanGlassesHyderabadRoute: RayBanGlassesHyderabadRoute,
+  RayBanMetaHyderabadRoute: RayBanMetaHyderabadRoute,
+  RayBanVsOakleyRoute: RayBanVsOakleyRoute,
   SmartGlassesRoute: SmartGlassesRoute,
   StoresRoute: StoresRoute,
   TermsAndConditionsRoute: TermsAndConditionsRoute,
+  WhatAreProgressiveLensesRoute: WhatAreProgressiveLensesRoute,
+  ZeissEyeTestHyderabadRoute: ZeissEyeTestHyderabadRoute,
   BrandsBrandRoute: BrandsBrandRoute,
 }
 export const routeTree = rootRouteImport

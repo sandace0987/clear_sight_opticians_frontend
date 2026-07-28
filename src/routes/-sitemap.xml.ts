@@ -11,6 +11,56 @@ const pages = [
     changefreq: 'weekly',
   },
   {
+    path: '/eye-test-hyderabad',
+    priority: '0.9',
+    changefreq: 'weekly',
+  },
+  {
+    path: '/zeiss-eye-test-hyderabad',
+    priority: '0.9',
+    changefreq: 'weekly',
+  },
+  {
+    path: '/ray-ban-meta-hyderabad',
+    priority: '0.9',
+    changefreq: 'weekly',
+  },
+  {
+    path: '/ray-ban-glasses-hyderabad',
+    priority: '0.9',
+    changefreq: 'weekly',
+  },
+  {
+    path: '/designer-eyewear-hyderabad',
+    priority: '0.9',
+    changefreq: 'weekly',
+  },
+  {
+    path: '/contact-lenses-hyderabad',
+    priority: '0.9',
+    changefreq: 'weekly',
+  },
+  {
+    path: '/computer-glasses-hyderabad',
+    priority: '0.9',
+    changefreq: 'weekly',
+  },
+  {
+    path: '/optician-kphb',
+    priority: '0.9',
+    changefreq: 'weekly',
+  },
+  {
+    path: '/what-are-progressive-lenses',
+    priority: '0.9',
+    changefreq: 'weekly',
+  },
+  {
+    path: '/ray-ban-vs-oakley',
+    priority: '0.9',
+    changefreq: 'weekly',
+  },
+  {
     path: '/ai-glasses',
     priority: '0.9',
     changefreq: 'weekly',

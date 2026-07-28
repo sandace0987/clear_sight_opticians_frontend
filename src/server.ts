@@ -72,6 +72,16 @@ function generateSitemap(): string {
   
   const corePages = [
     { url: "/", changefreq: "weekly", priority: 1.0 },
+    { url: "/eye-test-hyderabad", changefreq: "weekly", priority: 0.9 },
+    { url: "/zeiss-eye-test-hyderabad", changefreq: "weekly", priority: 0.9 },
+    { url: "/ray-ban-meta-hyderabad", changefreq: "weekly", priority: 0.9 },
+    { url: "/ray-ban-glasses-hyderabad", changefreq: "weekly", priority: 0.9 },
+    { url: "/designer-eyewear-hyderabad", changefreq: "weekly", priority: 0.9 },
+    { url: "/contact-lenses-hyderabad", changefreq: "weekly", priority: 0.9 },
+    { url: "/computer-glasses-hyderabad", changefreq: "weekly", priority: 0.9 },
+    { url: "/optician-kphb", changefreq: "weekly", priority: 0.9 },
+    { url: "/what-are-progressive-lenses", changefreq: "weekly", priority: 0.9 },
+    { url: "/ray-ban-vs-oakley", changefreq: "weekly", priority: 0.9 },
     { url: "/ai-glasses", changefreq: "weekly", priority: 0.9 },
     { url: "/brands", changefreq: "weekly", priority: 0.9 },
     { url: "/stores", changefreq: "monthly", priority: 0.9 },
