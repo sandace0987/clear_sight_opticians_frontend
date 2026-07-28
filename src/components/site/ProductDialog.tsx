@@ -78,7 +78,7 @@ export function ProductDialog({ brand, model, priceFrom, variants, trigger, open
                     view === o.key ? "border-electric" : "border-neutral-200 hover:border-neutral-400"
                   }`}
                 >
-                  <img src={variant.images[o.key]} alt="" className="w-full h-full object-contain" />
+                  <img src={variant.images[o.key]} alt={`${brand} ${model} ${o.label}`} className="w-full h-full object-contain" />
                 </button>
               ))}
             </div>

@@ -101,8 +101,8 @@ export const Route = createFileRoute("/brands_/$brand")({
       ? `${b.name} Eyewear in Hyderabad | Clear Sight Opticians`
       : "Designer Eyewear Brands | Clear Sight Opticians";
     const desc = b
-      ? `Shop authentic ${b.name} prescription glasses and sunglasses at Clear Sight Opticians in Hyderabad.`
-      : "Curated designer frames and prescription eyewear at Clear Sight Opticians Hyderabad.";
+      ? `Shop authentic ${b.name} prescription glasses, sunglasses and frames at Clear Sight Opticians — KPHB, Nizampet & Bowenpally. ZEISS eye tests included. 100% genuine.`
+      : "Curated designer frames and prescription eyewear at Clear Sight Opticians — KPHB, Nizampet & Bowenpally, Hyderabad. ZEISS eye tests included.";
     return createSeoHead({
       title,
       description: desc,

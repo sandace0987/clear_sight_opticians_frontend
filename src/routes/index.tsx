@@ -126,8 +126,8 @@ const HOMEPAGE_FAQS = [
 ];
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    ...createSeoHead({
+  head: () => {
+    const seo = createSeoHead({
       title: "Clear Sight Opticians | ZEISS Vision Experts, Designer Eyewear & Smart Glasses in Hyderabad",
       description:
         "Book a ZEISS vision expert consultation, prescription lenses, designer eyewear, contact lenses, computer glasses, and Ray-Ban Meta demos at Clear Sight Opticians in KPHB, Nizampet, and Bowenpally.",
@@ -141,12 +141,21 @@ export const Route = createFileRoute("/")({
         ),
         faqSchema(HOMEPAGE_FAQS),
       ],
-    }),
-    links: [
-      { rel: "preload", as: "image", href: heroPortraitLight, fetchPriority: "high" },
-      { rel: "preload", as: "image", href: heroPortraitDark, fetchPriority: "high" },
-    ],
-  }),
+    });
+
+    return {
+      ...seo,
+      links: [
+        ...seo.links,
+        { rel: "preload", as: "image", href: heroPortraitLight, fetchPriority: "high" },
+        { rel: "preload", as: "image", href: heroPortraitDark, fetchPriority: "high" },
+        // Mobile hero preloads live here (homepage only) — removed from root to avoid
+        // preloading on /brands, /stores, etc. where they are not needed.
+        { rel: "preload", href: heroPortraitLightMobile, as: "image", type: "image/webp", media: "(max-width: 639px)" },
+        { rel: "preload", href: heroPortraitDarkMobile, as: "image", type: "image/webp", media: "(max-width: 639px)" },
+      ],
+    };
+  },
   component: HomePage,
 });
 
@@ -192,6 +201,9 @@ function MarqueeItem({ b }: { b: MarqueeBrand }) {
     <button
       type="button"
       onClick={() => setOn((v) => !v)}
+      // aria-label gives keyboard/screen-reader users the brand name since the
+      // button contains only an image and a visible text label that is aria-hidden.
+      aria-label={`${b.name}${b.ai ? " — AI-enabled eyewear" : " eyewear"}`}
       className="flex flex-col items-center justify-center gap-2 px-10 shrink-0 focus:outline-none"
     >
       <div className="relative flex items-center justify-center">
@@ -199,6 +211,11 @@ function MarqueeItem({ b }: { b: MarqueeBrand }) {
           src={b.logo ?? logoUrl(b.domain)}
           alt={`${b.name} logo`}
           loading="lazy"
+          // Explicit dimensions prevent CLS (layout shift) while the image loads.
+          // The CSS constrains the visual size; these attributes let the browser
+          // reserve the correct amount of layout space before paint.
+          width={200}
+          height={56}
           className={cn(
             "h-10 lg:h-14 w-auto max-w-[180px] object-contain transition duration-300 hover:opacity-100 hover:grayscale-0",
             on ? "opacity-100 grayscale-0" : "opacity-70 grayscale",
@@ -210,7 +227,7 @@ function MarqueeItem({ b }: { b: MarqueeBrand }) {
           </span>
         )}
       </div>
-      <span className="text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground whitespace-nowrap">
+      <span aria-hidden className="text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground whitespace-nowrap">
         {b.name}
       </span>
     </button>
@@ -445,6 +462,7 @@ function HomePage() {
           <div className="absolute inset-0 flex flex-col justify-end px-6 sm:px-10 lg:px-16 pb-12 sm:pb-16 lg:pb-20">
             <div className="max-w-3xl">
               <motion.h1
+                aria-label="Clear Sight Opticians Hyderabad — See better. Look better. Live smarter."
                 className="text-white text-4xl sm:text-6xl lg:text-8xl font-bold leading-[0.92] tracking-tighter"
                 initial="hidden"
                 animate="show"

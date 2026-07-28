@@ -2,6 +2,7 @@ import "./lib/error-capture";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
+import { HOUSES } from "./lib/brand-catalog";
 
 type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
@@ -74,28 +75,12 @@ function generateSitemap(): string {
     { url: "/ai-glasses", changefreq: "weekly", priority: 0.9 },
     { url: "/brands", changefreq: "weekly", priority: 0.9 },
     { url: "/stores", changefreq: "monthly", priority: 0.9 },
-    { url: "/about", changefreq: "monthly", priority: 0.7 },
+    { url: "/about", changefreq: "monthly", priority: 0.8 },
     { url: "/privacy-policy", changefreq: "yearly", priority: 0.3 },
     { url: "/terms-and-conditions", changefreq: "yearly", priority: 0.3 },
   ];
 
-  const brandSlugs = [
-    'maui-jim',
-    'ray-ban',
-    'oakley',
-    'philipp-plein',
-    'prada',
-    'burberry',
-    'carrera',
-    'tom-ford',
-    'police',
-    'zeiss',
-    'vogue',
-    'silhouette',
-    'montblanc',
-    'puma',
-  ];
-  
+  const brandSlugs = HOUSES.map((h) => h.slug);
   const today = new Date().toISOString().split("T")[0];
 
   const urls = [
@@ -124,8 +109,24 @@ function generateRobotsTxt(): string {
   return `User-agent: *
 Allow: /
 
+# Sitemap declaration
 Sitemap: https://www.clearsightopticians.in/sitemap.xml`;
 }
+
+// Security headers applied to all HTML responses.
+// These address Lighthouse Best Practices audit and prevent common web attacks.
+const SECURITY_HEADERS: Record<string, string> = {
+  // Prevent MIME-type sniffing (e.g. serving a PNG that contains JS)
+  "X-Content-Type-Options": "nosniff",
+  // Block the site from being embedded in iframes on other origins (clickjacking)
+  "X-Frame-Options": "SAMEORIGIN",
+  // Control referrer header sent with requests leaving the site
+  "Referrer-Policy": "strict-origin-when-cross-origin",
+  // Restrict browser features that could be abused by injected scripts
+  "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=()",
+  // Legacy XSS protection header (still respected by some older browsers)
+  "X-XSS-Protection": "1; mode=block",
+};
 
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
@@ -157,7 +158,12 @@ export default {
       const contentType = response.headers.get("content-type") ?? "";
       if (contentType.includes("text/html")) {
         const newHeaders = new Headers(response.headers);
+        // Cache: revalidate on every request (SSR pages may change per-deploy)
         newHeaders.set("Cache-Control", "public, max-age=0, must-revalidate");
+        // Apply security headers to all HTML responses
+        for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
+          newHeaders.set(key, value);
+        }
         return new Response(response.body, {
           status: response.status,
           statusText: response.statusText,

@@ -74,7 +74,7 @@ function RecommendationCard({ model, brandName, onClick }: RecommendationCardPro
           style={{ backgroundColor: color || "rgba(255, 255, 255, 0.05)", transition: "background-color 0.4s ease" }}
         >
           {imageSrc ? (
-            <img src={imageSrc} alt="" className="max-h-full max-w-full w-auto object-contain" />
+            <img src={imageSrc} alt={`${brandName} ${model.model}`} className="max-h-full max-w-full w-auto object-contain" />
           ) : (
             <span className="text-[10px] font-bold text-muted-foreground uppercase">{model.shape}</span>
           )}

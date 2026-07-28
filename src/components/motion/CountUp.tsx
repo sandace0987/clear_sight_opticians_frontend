@@ -13,7 +13,9 @@ type Props = {
 export function CountUp({ to, duration = 1.6, prefix = "", suffix = "", className }: Props) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.6 });
-  const [val, setVal] = useState(0);
+  // Initialize with `to` so SSR/Googlebot reads the real value, not "0".
+  // The client animation still counts up from 0 when the element scrolls into view.
+  const [val, setVal] = useState(to);
   const reduced = useReducedMotion();
 
   useEffect(() => {

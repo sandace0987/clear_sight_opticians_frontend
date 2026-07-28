@@ -15,29 +15,82 @@ import { motion } from "framer-motion";
 import { BRANDS } from "@/lib/brand-catalog";
 import { ModelCard } from "@/components/site/ModelCard";
 import { BookingModal } from "@/components/site/BookingModal";
-import { breadcrumbSchema, createSeoHead, SITE_LOGO } from "@/lib/seo";
+import { breadcrumbSchema, createSeoHead } from "@/lib/seo";
 import { CONTACT_PHONE_RAW } from "@/lib/contact-config";
 import rayBanLogoSvg from "@/assets/brands/ray-ban-logo.svg";
 
-const AI_GLASSES_SCHEMA = {
+const SITE_URL_BASE = "https://www.clearsightopticians.in";
+
+// Ray-Ban Meta Product schema — enables Product rich results
+const RAYBAN_META_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "Ray-Ban Meta AI Glasses (Wayfarer Gen 2)",
-  "image": SITE_LOGO,
-  "description": "Iconic Ray-Ban frames engineered with Meta AI, hands-free video capture, calls, and open-ear audio. Available at Clear Sight Opticians.",
-  "brand": {
-    "@type": "Brand",
-    "name": "Ray-Ban",
-  },
-  "offers": {
+  name: "Ray-Ban Meta AI Glasses (Wayfarer Gen 2)",
+  image: `${SITE_URL_BASE}/clear-sight-logo.avif`,
+  description:
+    "Iconic Ray-Ban frames engineered with Meta AI, hands-free 12MP video capture, calls, and open-ear audio. Available with prescription lenses at Clear Sight Opticians Hyderabad.",
+  brand: { "@type": "Brand", name: "Ray-Ban" },
+  offers: {
     "@type": "AggregateOffer",
-    "lowPrice": "29999",
-    "priceCurrency": "INR",
-    "availability": "https://schema.org/InStock",
-    "seller": {
-      "@type": "OpticalBusiness",
-      "name": "Clear Sight Opticians",
-    },
+    lowPrice: "29999",
+    highPrice: "49999",
+    priceCurrency: "INR",
+    availability: "https://schema.org/InStock",
+    seller: { "@type": "OpticalBusiness", name: "Clear Sight Opticians" },
+  },
+};
+
+// Oakley Meta Product schema — previously absent
+const OAKLEY_META_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "Oakley Meta AI Glasses (HSTN)",
+  image: `${SITE_URL_BASE}/clear-sight-logo.avif`,
+  description:
+    "Oakley sport-lifestyle frames with Meta AI, 12MP camera and Prizm lens technology. Demo and buy with prescription lenses at Clear Sight Opticians Hyderabad.",
+  brand: { "@type": "Brand", name: "Oakley" },
+  offers: {
+    "@type": "AggregateOffer",
+    lowPrice: "39999",
+    highPrice: "59999",
+    priceCurrency: "INR",
+    availability: "https://schema.org/InStock",
+    seller: { "@type": "OpticalBusiness", name: "Clear Sight Opticians" },
+  },
+};
+
+// VideoObject schemas — enables Google Video rich results
+const RAYBAN_VIDEO_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  name: "Ray-Ban Meta AI Glasses — Product Demo at Clear Sight Opticians",
+  description:
+    "Ray-Ban Meta Wayfarer Gen 2 demo — hands-free capture, open-ear audio and Meta AI. Available at Clear Sight Opticians in KPHB, Nizampet and Bowenpally, Hyderabad.",
+  thumbnailUrl: `${SITE_URL_BASE}/clear-sight-logo.avif`,
+  uploadDate: "2025-01-01",
+  contentUrl: `${SITE_URL_BASE}/videos/rayban-meta.mp4`,
+  embedUrl: `${SITE_URL_BASE}/ai-glasses`,
+  publisher: {
+    "@type": "Organization",
+    name: "Clear Sight Opticians",
+    logo: `${SITE_URL_BASE}/clear-sight-logo.avif`,
+  },
+};
+
+const OAKLEY_VIDEO_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  name: "Oakley Meta AI Glasses — Product Demo at Clear Sight Opticians",
+  description:
+    "Oakley Meta HSTN demo — sport-lifestyle AI eyewear with hands-free capture and Prizm lens technology. Available at Clear Sight Opticians Hyderabad.",
+  thumbnailUrl: `${SITE_URL_BASE}/clear-sight-logo.avif`,
+  uploadDate: "2025-01-01",
+  contentUrl: `${SITE_URL_BASE}/videos/oakley-meta.mp4`,
+  embedUrl: `${SITE_URL_BASE}/ai-glasses`,
+  publisher: {
+    "@type": "Organization",
+    name: "Clear Sight Opticians",
+    logo: `${SITE_URL_BASE}/clear-sight-logo.avif`,
   },
 };
 
@@ -54,7 +107,10 @@ export const Route = createFileRoute("/ai-glasses")({
           { name: "Home", path: "/" },
           { name: "AI Glasses", path: "/ai-glasses" },
         ]),
-        AI_GLASSES_SCHEMA,
+        RAYBAN_META_SCHEMA,
+        OAKLEY_META_SCHEMA,
+        RAYBAN_VIDEO_SCHEMA,
+        OAKLEY_VIDEO_SCHEMA,
       ],
     }),
   component: AIGlassesPage,
@@ -224,7 +280,10 @@ function AIGlassesPage() {
             <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">
               AI Glasses
             </span>
-            <h1 className="mt-3 text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tighter max-w-4xl leading-[1.02]">
+            <h1
+              aria-label="Ray-Ban Meta & Oakley Meta AI Glasses in Hyderabad — Iconic style meets Meta AI"
+              className="mt-3 text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tighter max-w-4xl leading-[1.02]"
+            >
               Iconic style meets{" "}
               <span className="font-serif italic font-medium text-electric">Meta AI.</span>
             </h1>

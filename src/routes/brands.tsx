@@ -123,7 +123,10 @@ function BrandsPage() {
       <div className="mx-auto max-w-7xl">
         <div className="relative">
           <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">The Houses</span>
-          <h1 className="mt-3 text-5xl lg:text-7xl font-bold tracking-tighter max-w-3xl">
+          <h1
+            aria-label="A curated edit of the world's finest designer eyewear brands in Hyderabad"
+            className="mt-3 text-5xl lg:text-7xl font-bold tracking-tighter max-w-3xl"
+          >
             A curated edit of the world's <span className="font-serif italic font-medium text-electric">finest eyewear.</span>
           </h1>
           <p className="mt-6 text-muted-foreground max-w-2xl text-lg">

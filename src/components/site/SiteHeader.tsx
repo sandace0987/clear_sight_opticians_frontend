@@ -53,13 +53,6 @@ export function SiteHeader() {
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
 
-    const sections = SECTION_IDS.map((id) => document.getElementById(id)).filter(
-      (el): el is HTMLElement => Boolean(el),
-    );
-    if (!sections.length) {
-      return () => window.removeEventListener("scroll", handleScroll);
-    }
-
     const visible = new Map<string, number>();
     const observer = new IntersectionObserver(
       (entries) => {
@@ -84,11 +77,35 @@ export function SiteHeader() {
       },
       { rootMargin: "-45% 0px -45% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] },
     );
-    sections.forEach((s) => observer.observe(s));
+
+    // Track which elements we've already handed to the observer so we don't
+    // double-observe the same node after Suspense element swaps.
+    const observed = new Set<HTMLElement>();
+
+    const observeSections = () => {
+      for (const id of SECTION_IDS) {
+        const el = document.getElementById(id);
+        if (el && !observed.has(el)) {
+          observer.observe(el);
+          observed.add(el);
+        }
+      }
+    };
+
+    // Initial observation
+    observeSections();
+
+    // MutationObserver: re-observe whenever Suspense replaces a fallback element
+    // with the real lazy-loaded component (both share the same id="ai-glasses" /
+    // id="try-on" but are different DOM nodes). Without this, the IntersectionObserver
+    // watches the now-unmounted fallback and never highlights these nav items.
+    const mo = new MutationObserver(observeSections);
+    mo.observe(document.body, { childList: true, subtree: true });
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
       observer.disconnect();
+      mo.disconnect();
     };
   }, [location.pathname]);
 
@@ -116,7 +133,14 @@ export function SiteHeader() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
       const el = document.getElementById(item.hash);
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (el) {
+        // scrollIntoView ignores the CSS scroll-margin / scroll-mt-* property,
+        // so the element top ends up hidden behind the sticky header. Manually
+        // subtract the header height to land exactly at the section top.
+        const headerHeight = document.querySelector("header")?.offsetHeight ?? 112;
+        const top = el.getBoundingClientRect().top + window.scrollY - headerHeight;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
     }
     setOpen(false);
   };
@@ -149,7 +173,7 @@ export function SiteHeader() {
             {/* Base Logo: Normal in light mode, dimmed in dark mode */}
             <img
               src={logoUrl}
-              alt=""
+              alt="Clear Sight Opticians"
               className="absolute inset-0 h-full w-full object-contain object-left shrink-0 transition-opacity duration-300 dark:opacity-50"
             />
 

@@ -54,7 +54,10 @@ function StoresPage() {
     <div className="px-6 lg:px-10 py-16 lg:py-24">
       <div className="mx-auto max-w-7xl">
         <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">Visit</span>
-        <h1 className="mt-3 text-5xl lg:text-7xl font-bold tracking-tighter max-w-3xl">
+        <h1
+          aria-label="Three premium optical stores in Hyderabad: KPHB, Nizampet & Bowenpally"
+          className="mt-3 text-5xl lg:text-7xl font-bold tracking-tighter max-w-3xl"
+        >
           Three <span className="font-serif italic font-medium text-electric">premium stores.</span>
         </h1>
         <p className="mt-6 text-muted-foreground max-w-2xl text-lg">

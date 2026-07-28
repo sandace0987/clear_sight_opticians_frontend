@@ -20,6 +20,26 @@ export const Route = createFileRoute("/about")({
           { name: "Home", path: "/" },
           { name: "About", path: "/about" },
         ]),
+        // Person schema for founder — EEAT signal for AI engines and Knowledge Panel
+        {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Madhu A",
+          jobTitle: "Founder & Chief Optometrist",
+          description:
+            "Licensed optometrist with over 15 years of experience in Hyderabad. Founder of Clear Sight Opticians and the first eye-care professional in Telangana to achieve ZEISS Vision Expert certification.",
+          worksFor: {
+            "@id": "https://www.clearsightopticians.in/#organization",
+          },
+          knowsAbout: [
+            "Optometry",
+            "ZEISS Vision Care",
+            "Designer Eyewear",
+            "Prescription Lenses",
+            "Contact Lens Fitting",
+          ],
+          url: "https://www.clearsightopticians.in/about",
+        },
       ],
     }),
   component: AboutPage,
@@ -47,7 +67,10 @@ function AboutPage() {
       <section className="px-6 lg:px-10 pt-16 lg:pt-24 pb-12">
         <div className="mx-auto max-w-7xl">
           <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">Since 2009</span>
-          <h1 className="mt-3 text-5xl lg:text-7xl font-bold tracking-tighter max-w-4xl leading-[1.02]">
+          <h1
+            aria-label="Clear Sight Opticians — Delivering vision clarity and designer eyewear with style in Hyderabad"
+            className="mt-3 text-5xl lg:text-7xl font-bold tracking-tighter max-w-4xl leading-[1.02]"
+          >
             Delivering clarity <span className="font-serif italic font-medium text-electric">with style.</span>
           </h1>
           <p className="mt-8 text-muted-foreground max-w-2xl text-lg leading-relaxed">

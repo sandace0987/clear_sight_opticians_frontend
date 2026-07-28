@@ -1,4 +1,4 @@
-import { BRANDS } from '@/lib/brand-catalog';
+import { HOUSES } from '@/lib/brand-catalog';
 
 const SITE_URL = 'https://www.clearsightopticians.in';
 
@@ -27,7 +27,7 @@ const pages = [
   },
   {
     path: '/about',
-    priority: '0.7',
+    priority: '0.8',
     changefreq: 'monthly',
   },
   {
@@ -52,8 +52,8 @@ function escapeXml(value: string): string {
 }
 
 function buildSitemap(): string {
-  const brandPages = BRANDS.map((b) => ({
-    path: `/brands/${b.slug}`,
+  const brandPages = HOUSES.map((h) => ({
+    path: `/brands/${h.slug}`,
     priority: '0.7',
     changefreq: 'weekly' as const,
   }));
@@ -73,8 +73,7 @@ function buildSitemap(): string {
     .join('');
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls}
 </urlset>`;
 }

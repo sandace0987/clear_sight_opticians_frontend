@@ -21,6 +21,12 @@ type SeoHeadOptions = {
   type?: "website" | "product";
   image?: string;
   noindex?: boolean;
+  /**
+   * When true, no <link rel="canonical"> is emitted.
+   * Use only in the root layout where each child route
+   * emits its own canonical — prevents duplicate canonicals.
+   */
+  noCanonical?: boolean;
   meta?: SeoMeta[];
   links?: SeoLink[];
   schema?: unknown[];
@@ -29,6 +35,41 @@ type SeoHeadOptions = {
 export function absoluteUrl(path = "/") {
   if (path.startsWith("http")) return path;
   return `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
+export function formatCanonicalUrl(path = "/"): string {
+  let cleanPath = path;
+  if (cleanPath.startsWith("http://") || cleanPath.startsWith("https://")) {
+    try {
+      const parsed = new URL(cleanPath);
+      cleanPath = parsed.pathname;
+    } catch {
+      // fallback
+    }
+  }
+
+  // Strip query parameters and hash fragments
+  cleanPath = cleanPath.split("?")[0].split("#")[0];
+
+  // Collapse duplicate slashes
+  cleanPath = cleanPath.replace(/\/+/g, "/");
+
+  // Ensure leading slash
+  if (!cleanPath.startsWith("/")) {
+    cleanPath = `/${cleanPath}`;
+  }
+
+  // Homepage canonical
+  if (cleanPath === "/") {
+    return `${SITE_URL}/`;
+  }
+
+  // Non-root routes: trim trailing slash for clean canonicals
+  if (cleanPath.length > 1 && cleanPath.endsWith("/")) {
+    cleanPath = cleanPath.slice(0, -1);
+  }
+
+  return `${SITE_URL}${cleanPath}`;
 }
 
 export function mapsSearchUrl(query: string) {
@@ -42,6 +83,7 @@ export function createSeoHead({
   type = "website",
   image = DEFAULT_SOCIAL_IMAGE,
   noindex = false,
+  noCanonical = false,
   meta = [],
   links = [],
   schema = [],
@@ -50,7 +92,8 @@ export function createSeoHead({
   links: SeoLink[];
   scripts?: SeoScript[];
 } {
-  const url = absoluteUrl(path);
+  const canonicalUrl = formatCanonicalUrl(path);
+  const canonicalLink = noCanonical ? [] : [{ rel: "canonical", href: canonicalUrl }];
   return {
     meta: [
       { title },
@@ -58,17 +101,20 @@ export function createSeoHead({
       { name: "robots", content: noindex ? "noindex, follow" : "index, follow" },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
-      { property: "og:url", content: url },
+      { property: "og:url", content: canonicalUrl },
       { property: "og:type", content: type },
       { property: "og:site_name", content: SITE_NAME },
       { property: "og:image", content: image },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:locale", content: "en_IN" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
       { name: "twitter:image", content: image },
       ...meta,
     ],
-    links: [{ rel: "canonical", href: url }, ...links],
+    links: [...canonicalLink, ...links],
     scripts: schema.length
       ? schema.map((entry) => ({
         type: "application/ld+json" as const,
@@ -221,11 +267,38 @@ export function storeSchema(location: StoreLocation) {
     areaServed: location.nearbyAreas.map((area) => ({ "@type": "Place", name: area })),
     availableLanguage: ["English", "Telugu", "Hindi"],
     hasMap: location.mapsUrl,
+    // AggregateRating enables star ratings in Google local pack and Knowledge Panel.
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "5.0",
+      reviewCount: "97",
+      bestRating: "5",
+      worstRating: "1",
+    },
+    review: [
+      {
+        "@type": "Review",
+        author: { "@type": "Person", name: "Sandeep" },
+        reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5, worstRating: 1 },
+        reviewBody: "Had an excellent experience buying Oakley Meta HSTN glasses here. Patient, knowledgeable, and customer-first service!",
+      },
+      {
+        "@type": "Review",
+        author: { "@type": "Person", name: "Tejaswi R." },
+        reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5, worstRating: 1 },
+        reviewBody: "Relying on Clear Sight for 16+ years. Extraordinary commitment to customer care.",
+      },
+    ],
   };
 }
 
-// Google Business Profile shared link (single listing covers all branches)
-const GBP_URL = "https://share.google/5bjvX2n0dfikf7Dcf";
+// Social profiles for entity linkage — used in Organization sameAs
+const SOCIAL_PROFILES = [
+  "https://www.instagram.com/clearsight.official",
+  "https://www.facebook.com/clearsight.official/",
+  // Google Business Profile shared link
+  "https://share.google/5bjvX2n0dfikf7Dcf",
+];
 
 export const ORGANIZATION_SCHEMA = {
   "@context": "https://schema.org",
@@ -238,7 +311,10 @@ export const ORGANIZATION_SCHEMA = {
       logo: SITE_LOGO,
       image: SITE_LOGO,
       telephone: PHONE_E164,
-      sameAs: [GBP_URL],
+      // foundingDate enables the "Est. 2009" Knowledge Panel signal
+      foundingDate: "2009",
+      slogan: "Vision, made personal.",
+      sameAs: SOCIAL_PROFILES,
       contactPoint: {
         "@type": "ContactPoint",
         telephone: PHONE_E164,
@@ -255,6 +331,15 @@ export const ORGANIZATION_SCHEMA = {
       url: `${SITE_URL}/`,
       publisher: { "@id": `${SITE_URL}/#organization` },
       inLanguage: "en-IN",
+      // SearchAction enables Sitelinks Searchbox in Google SERP
+      potentialAction: {
+        "@type": "SearchAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: `${SITE_URL}/brands?q={search_term_string}`,
+        },
+        "query-input": "required name=search_term_string",
+      },
     },
     ...STORE_LOCATIONS.map(storeSchema),
   ],
@@ -303,3 +388,30 @@ export function faqSchema(faqs: { question: string; answer: string }[]) {
   };
 }
 
+export function imageObjectSchema(url: string, caption?: string, width = 1200, height = 630) {
+  return {
+    "@type": "ImageObject",
+    contentUrl: absoluteUrl(url),
+    url: absoluteUrl(url),
+    width: `${width}`,
+    height: `${height}`,
+    ...(caption ? { caption } : {}),
+  };
+}
+
+export function reviewSchema(reviews: { author: string; rating: number; body: string }[]) {
+  return reviews.map((r) => ({
+    "@type": "Review",
+    author: {
+      "@type": "Person",
+      name: r.author,
+    },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: r.rating,
+      bestRating: 5,
+      worstRating: 1,
+    },
+    reviewBody: r.body,
+  }));
+}
