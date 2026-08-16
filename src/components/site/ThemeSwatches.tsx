@@ -10,14 +10,12 @@ const THEMES = [
   { id: "deep-midnight", label: "Deep Midnight", bg: "#0f0f13", accent: "#60A5FA" },
   { id: "charcoal-ember", label: "Charcoal & Ember", bg: "#1a1a1a", accent: "#e85d3a" },
 
-  // ── New palettes (from uploaded screenshots) ────────────
+  // ── Palettes ────────────────────────────────────────────
   { id: "butter-green", label: "Butter / Green", bg: "#ffefb3", accent: "#013e37" },
   { id: "aureolin-bistre", label: "Aureolin / Bistre", bg: "#261606", accent: "#fbe311" },
   { id: "cream-cherry", label: "Cream Vanilla / Cherry Cola", bg: "#efe6dd", accent: "#9a0002" },
   { id: "violet-imperial", label: "Violet / Imperial Red", bg: "#321847", accent: "#f15153" },
   { id: "lime-red", label: "Lime / Vibrant Red", bg: "#d3f00a", accent: "#f9100c" },
-
-  // ── Existing palettes ───────────────────────────────────
   { id: "noir-gold", label: "Noir & Gold", bg: "#0d0d0d", accent: "#c9a84c" },
   { id: "emerald-prestige", label: "Emerald Prestige", bg: "#064e3b", accent: "#c9a84c" },
   { id: "paper-ink", label: "Paper & Ink", bg: "#f5f3ee", accent: "#2d2d2d" },
@@ -28,9 +26,14 @@ const THEMES = [
 ];
 
 const DARK_THEMES = [
-  "deep-midnight", "charcoal-ember", "noir-gold", "emerald-prestige",
-  "aureolin-bistre", "violet-imperial",
-  "forest-luxe", "neo-glass",
+  "deep-midnight",
+  "charcoal-ember",
+  "noir-gold",
+  "emerald-prestige",
+  "aureolin-bistre",
+  "violet-imperial",
+  "forest-luxe",
+  "neo-glass",
 ];
 
 const ZOOM_LEVELS = [
@@ -40,6 +43,49 @@ const ZOOM_LEVELS = [
 ] as const;
 
 type ZoomId = (typeof ZOOM_LEVELS)[number]["id"];
+
+/**
+ * Vector SVG theme swatch circle.
+ * Mathematically precise 50/50 split circle with contrast border ring.
+ * 100% anti-aliased without clip-path or overflow bugs across all browsers.
+ */
+function SwatchIcon({
+  bg,
+  accent,
+  size = 20,
+  className,
+}: {
+  bg: string;
+  accent: string;
+  size?: number;
+  className?: string;
+}) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      className={cn("shrink-0 rounded-full shadow-xs", className)}
+      aria-hidden
+    >
+      {/* Top-Right Half (Background) */}
+      <path d="M4.22 4.22 A 11 11 0 0 1 19.78 19.78 Z" fill={bg} />
+      {/* Bottom-Left Half (Accent) */}
+      <path d="M4.22 4.22 A 11 11 0 0 0 19.78 19.78 Z" fill={accent} />
+      {/* Outer Contrast Ring */}
+      <circle
+        cx="12"
+        cy="12"
+        r="10.5"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        className="text-foreground/30"
+      />
+    </svg>
+  );
+}
 
 export function ThemeSwatches() {
   const [mounted, setMounted] = useState(false);
@@ -107,7 +153,7 @@ export function ThemeSwatches() {
   return (
     <div className="relative" ref={containerRef}>
       <div className="relative group p-[1.5px] rounded-full overflow-hidden isolate shadow-sm">
-        {/* Slow clockwise rotating periphery border glow in accent color */}
+        {/* Periphery border glow in accent color */}
         <div
           className="absolute -inset-[150%] animate-[spin_4s_linear_infinite]"
           style={{
@@ -119,16 +165,10 @@ export function ThemeSwatches() {
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="relative z-10 flex items-center gap-2 bg-background/90 backdrop-blur-md px-2 py-1.5 rounded-full border border-border/30 hover:bg-accent transition-colors"
+          className="relative z-10 flex items-center gap-2 bg-background/90 backdrop-blur-md px-2 py-1.5 rounded-full border border-border/30 hover:bg-accent transition-colors cursor-pointer"
           aria-label="Select theme"
         >
-          <div className="relative block overflow-hidden size-6 rounded-full border border-foreground/20 shadow-inner [transform:translateZ(0)] isolate shrink-0">
-            <div className="absolute inset-0" style={{ backgroundColor: currentThemeObj.bg }} />
-            <div
-              className="absolute inset-0"
-              style={{ backgroundColor: currentThemeObj.accent, clipPath: "polygon(100% 0, 100% 100%, 0 100%)" }}
-            />
-          </div>
+          <SwatchIcon bg={currentThemeObj.bg} accent={currentThemeObj.accent} size={22} />
           <ChevronDown className="size-4 text-muted-foreground mr-1" />
         </button>
       </div>
@@ -150,7 +190,7 @@ export function ThemeSwatches() {
                     type="button"
                     onClick={() => setActiveTab("aesthetics")}
                     className={cn(
-                      "flex-1 pb-1.5 text-center text-[10px] font-bold uppercase tracking-[0.18em] transition-colors border-b-2",
+                      "flex-1 pb-1.5 text-center text-[10px] font-bold uppercase tracking-[0.18em] transition-colors border-b-2 cursor-pointer",
                       activeTab === "aesthetics"
                         ? "border-electric text-electric"
                         : "border-transparent text-muted-foreground hover:text-foreground"
@@ -162,7 +202,7 @@ export function ThemeSwatches() {
                     type="button"
                     onClick={() => setActiveTab("advanced")}
                     className={cn(
-                      "flex-1 pb-1.5 text-center text-[10px] font-bold uppercase tracking-[0.18em] transition-colors border-b-2",
+                      "flex-1 pb-1.5 text-center text-[10px] font-bold uppercase tracking-[0.18em] transition-colors border-b-2 cursor-pointer",
                       activeTab === "advanced"
                         ? "border-electric text-electric"
                         : "border-transparent text-muted-foreground hover:text-foreground"
@@ -186,7 +226,7 @@ export function ThemeSwatches() {
                           key={z.id}
                           onClick={() => applyZoom(z.id)}
                           className={cn(
-                            "relative flex-1 py-1.5 text-xs font-semibold rounded-md transition-colors z-10",
+                            "relative flex-1 py-1.5 text-xs font-semibold rounded-md transition-colors z-10 cursor-pointer",
                             activeZoom === z.id
                               ? "text-foreground"
                               : "text-muted-foreground hover:text-foreground"
@@ -215,20 +255,14 @@ export function ThemeSwatches() {
                           key={theme.id}
                           onClick={() => applyTheme(theme.id)}
                           className={cn(
-                            "flex items-center gap-3 w-full px-3 py-2.5 rounded-xl text-sm font-medium transition-colors text-left",
+                            "flex items-center gap-3 w-full px-3 py-2.5 rounded-xl text-sm font-medium transition-all text-left cursor-pointer",
                             isActive
-                              ? "bg-accent/50 text-foreground font-semibold"
-                              : "text-muted-foreground hover:bg-accent/30 hover:text-foreground"
+                              ? "bg-foreground/10 text-foreground font-semibold ring-1 ring-foreground/15"
+                              : "text-muted-foreground hover:bg-foreground/5 hover:text-foreground"
                           )}
                         >
-                          <div className="relative block overflow-hidden size-5 rounded-full border border-foreground/20 shadow-inner [transform:translateZ(0)] isolate shrink-0">
-                            <div className="absolute inset-0" style={{ backgroundColor: theme.bg }} />
-                            <div
-                              className="absolute inset-0"
-                              style={{ backgroundColor: theme.accent, clipPath: "polygon(100% 0, 100% 100%, 0 100%)" }}
-                            />
-                          </div>
-                          <span className="flex-1 truncate">{theme.label}</span>
+                          <SwatchIcon bg={theme.bg} accent={theme.accent} size={20} />
+                          <span className="flex-1 truncate text-xs">{theme.label}</span>
                           {isActive && <Check className="size-4 text-electric shrink-0" />}
                         </button>
                       );
@@ -275,7 +309,7 @@ export function ThemeSwatches() {
                       <div className="flex-1">
                         <p className="text-xs font-bold text-foreground">Brand Page Filters</p>
                         <p className="text-[10px] text-muted-foreground leading-normal mt-0.5">
-                          Enable interactive search & filter controls.
+                          Enable interactive search &amp; filter controls.
                         </p>
                       </div>
                       <button
@@ -304,4 +338,3 @@ export function ThemeSwatches() {
     </div>
   );
 }
-
