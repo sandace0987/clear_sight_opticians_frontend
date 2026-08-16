@@ -15,6 +15,7 @@ const NAV: NavItem[] = [
   { to: "/", hash: undefined, label: "Home", subroute: "/" },
   { to: "/", hash: "ai-glasses", label: "AI Glasses", subroute: "/ai-glasses" },
   { to: "/", hash: "brands", label: "Brands", subroute: "/brands" },
+  { to: "/", hash: "corporate-gifting", label: "Corporate Gifting", subroute: "/corporate-gifting" },
   { to: "/", hash: "try-on", label: "Try On" },
   { to: "/", hash: "stores", label: "Stores", subroute: "/stores" },
   { to: "/", hash: "about", label: "About", subroute: "/about" },
@@ -110,6 +111,15 @@ export function SiteHeader() {
   }, [location.pathname]);
 
   const handleNavClick = (item: NavItem) => (e: React.MouseEvent) => {
+    if (item.to !== "/") {
+      if (item.subroute) {
+        e.preventDefault();
+        router.navigate({ to: item.subroute });
+      }
+      setOpen(false);
+      return;
+    }
+
     if (location.pathname !== "/") {
       if (item.label.includes("Contact") || item.hash === "contact") {
         e.preventDefault();
@@ -168,21 +178,23 @@ export function SiteHeader() {
             to="/"
             onClick={handleLogoClick}
             aria-label="Clear Sight Opticians"
-            className="relative inline-flex items-center justify-start shrink-0 h-[70px] lg:h-[88px] w-[194px] lg:w-[230px] overflow-hidden"
+            className="relative inline-flex items-center justify-start shrink-0 h-[70px] lg:h-[88px] w-[194px] lg:w-[230px]"
           >
-            {/* Base Logo: Normal in light mode, dimmed in dark mode */}
-            <img
-              src={logoUrl}
-              alt="Clear Sight Opticians"
-              className="absolute inset-0 h-full w-full object-contain object-left shrink-0 transition-opacity duration-300 dark:opacity-50"
-            />
+            <span className="relative h-full w-full overflow-hidden">
+              {/* Base Logo: Normal in light mode, dimmed in dark mode */}
+              <img
+                src={logoUrl}
+                alt="Clear Sight Opticians"
+                className="absolute inset-0 h-full w-full object-contain object-left shrink-0 transition-opacity duration-300 dark:opacity-50"
+              />
 
-            {/* Illuminated Overlay: Sweeping spotlight/torch in dark mode only, using original colors */}
-            <img
-              src={logoUrl}
-              alt="Clear Sight Opticians"
-              className="absolute inset-0 h-full w-full object-contain object-left shrink-0 hidden dark:block brightness-[1.8] saturate-[1.5] contrast-[1.1] drop-shadow-[0_0_20px_rgba(255,255,255,1)] drop-shadow-[0_0_40px_rgba(255,255,255,0.95)] dark-torch-mask"
-            />
+              {/* Illuminated Overlay: Sweeping spotlight/torch in dark mode only, using original colors */}
+              <img
+                src={logoUrl}
+                alt="Clear Sight Opticians"
+                className="absolute inset-0 h-full w-full object-contain object-left shrink-0 hidden dark:block brightness-[1.8] saturate-[1.5] contrast-[1.1] drop-shadow-[0_0_20px_rgba(255,255,255,1)] drop-shadow-[0_0_40px_rgba(255,255,255,0.95)] dark-torch-mask"
+              />
+            </span>
           </Link>
 
           {/* Wordmark — absolutely centered on desktop only */}

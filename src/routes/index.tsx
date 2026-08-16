@@ -20,6 +20,7 @@ import {
 import { CONTACT_PHONE, CONTACT_PHONE_RAW, CONTACT_EMAIL } from "@/lib/contact-config";
 import { HOUSES } from "@/lib/brand-catalog";
 import { BookingModal } from "@/components/site/BookingModal";
+import { HeroWebStrip, HERO_WEB_PRELOAD } from "@/components/site/HeroWebStrip";
 import heroPortraitLight from "@/assets/homepage/hero-portrait-light.webp";
 import heroPortraitDark from "@/assets/homepage/hero-portrait-dark.webp";
 import heroPortraitLightMobile from "@/assets/homepage/hero-portrait-light-mobile.webp";
@@ -38,6 +39,7 @@ import kphb2 from "@/assets/miscellaneous/kphb-interior-2.webp";
 import nizampet1 from "@/assets/miscellaneous/nizampet-1.webp";
 import nizampet2 from "@/assets/miscellaneous/nizampet-2.webp";
 import bowenpallyImg from "@/assets/miscellaneous/bowenpally.webp";
+import corporateBanner from "@/assets/miscellaneous/corporate-gifting.webp";
 
 import pumaModel from "@/assets/brands/puma-model.webp";
 import silhouetteModel from "@/assets/brands/silhouette-model.webp";
@@ -149,10 +151,9 @@ export const Route = createFileRoute("/")({
         ...seo.links,
         { rel: "preload", as: "image", href: heroPortraitLight, fetchPriority: "high" },
         { rel: "preload", as: "image", href: heroPortraitDark, fetchPriority: "high" },
-        // Mobile hero preloads live here (homepage only) — removed from root to avoid
-        // preloading on /brands, /stores, etc. where they are not needed.
         { rel: "preload", href: heroPortraitLightMobile, as: "image", type: "image/webp", media: "(max-width: 639px)" },
         { rel: "preload", href: heroPortraitDarkMobile, as: "image", type: "image/webp", media: "(max-width: 639px)" },
+        { rel: "preload", as: "image", href: HERO_WEB_PRELOAD, type: "image/webp" },
       ],
     };
   },
@@ -403,14 +404,8 @@ function HomePage() {
             fetchPriority="high"
             decoding="async"
             className="absolute inset-0 w-full h-full object-cover object-center sm:hidden"
-            animate={{
-              scale: [1, 1.12, 1],
-            }}
-            transition={{
-              duration: 16,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
+            animate={{ scale: [1, 1.12, 1] }}
+            transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
           />
 
           {/* Desktop / Landscape Hero Image */}
@@ -422,19 +417,13 @@ function HomePage() {
             fetchPriority="high"
             decoding="async"
             className="absolute inset-0 w-full h-full object-cover object-[center_20%] hidden sm:block"
-            animate={{
-              scale: [1, 1.12, 1],
-            }}
-            transition={{
-              duration: 16,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
+            animate={{ scale: [1, 1.12, 1] }}
+            transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
           />
 
-          {/* gradients */}
-          <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-ink/30 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
+          {/* gradients — readable type over hero */}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink/70 via-ink/30 to-transparent" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
 
           {/* Top badge */}
           <div className="absolute top-6 left-6 sm:top-8 sm:left-8 text-white/85 text-[11px] font-semibold uppercase tracking-[0.22em]">
@@ -888,6 +877,77 @@ function HomePage() {
         </div>
       </section>
 
+      {/* ============== CORPORATE GIFTING & EYE CAMPS SECTION ============== */}
+      <section id="corporate-gifting" className="scroll-mt-24 px-6 lg:px-10 py-20 lg:py-28 border-t border-border">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-6 space-y-6">
+              <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">
+                Corporate Solutions
+              </span>
+              <h2 className="text-4xl sm:text-5xl font-bold tracking-tighter leading-[1.05]">
+                Corporate Gifting &amp;{" "}
+                <span className="font-serif italic font-medium text-electric">
+                  On-Site Eye Camps.
+                </span>
+              </h2>
+              <p className="text-muted-foreground text-base leading-relaxed">
+                Elevate employee rewards and corporate gifting with luxury branded eyewear, Ray-Ban Meta AI smart glasses, blue-light computer glasses, and custom voucher packages. Plus, mobile clinical eye testing camps for tech campuses across Hyderabad.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div className="bg-secondary/60 border border-border rounded-2xl p-4">
+                  <p className="font-bold text-sm text-foreground">Executive &amp; VIP Gifts</p>
+                  <p className="text-xs text-muted-foreground mt-1">Ray-Ban Meta, Prada &amp; Montblanc with custom gift boxes</p>
+                </div>
+                <div className="bg-secondary/60 border border-border rounded-2xl p-4">
+                  <p className="font-bold text-sm text-foreground">Corporate Eye Camps</p>
+                  <p className="text-xs text-muted-foreground mt-1">On-site computerised vision testing in HITEC City &amp; Gachibowli</p>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-4 pt-4">
+                <Link
+                  to="/corporate-gifting"
+                  className="bg-electric text-white px-7 py-3.5 rounded-full text-xs font-bold uppercase tracking-[0.18em] hover:bg-ink transition-colors inline-flex items-center gap-2"
+                >
+                  More Details <ArrowUpRight className="size-4" />
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setBookingReason("Corporate Gifting & Bulk Order");
+                    setBookingOpen(true);
+                  }}
+                  className="bg-secondary text-foreground border border-border px-7 py-3.5 rounded-full text-xs font-bold uppercase tracking-[0.18em] hover:border-electric transition-colors inline-flex items-center gap-2 cursor-pointer"
+                >
+                  <Phone className="size-4 text-electric" /> Contact Us
+                </button>
+              </div>
+            </div>
+
+            <div className="lg:col-span-6">
+              <div className="relative rounded-3xl overflow-hidden border border-border shadow-xl bg-card">
+                <img
+                  src={corporateBanner}
+                  alt="Clear Sight Opticians Corporate Eyewear Gifting & Vouchers"
+                  className="w-full h-auto object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-6 left-6 right-6 text-white bg-black/40 backdrop-blur-md border border-white/10 rounded-2xl p-4 flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-bold">Thoughtful Gifts. Lasting Impressions.</p>
+                    <p className="text-xs text-white/70">GST Invoices · Volume Discounts · Campus Camps</p>
+                  </div>
+                  <span className="text-[10px] uppercase font-bold tracking-widest bg-electric px-3 py-1.5 rounded-full shrink-0">
+                    B2B Services
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ============== TESTIMONIALS ============== */}
       <section className="px-6 lg:px-10 py-20 lg:py-28 bg-secondary/40 border-t border-border">
         <div className="mx-auto max-w-7xl">
@@ -1024,6 +1084,7 @@ function HomePage() {
                 <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">Reason</span>
                 <select name="reason" className="bg-transparent border-b border-border py-3 focus:outline-none focus:border-electric transition-colors">
                   <option className="bg-card text-foreground">Eye test</option>
+                  <option className="bg-card text-foreground">Corporate Gifting &amp; Bulk Order</option>
                   <option className="bg-card text-foreground">AI glasses demo</option>
                   <option className="bg-card text-foreground">Glasses Service &amp; Repairs</option>
                   <option className="bg-card text-foreground">Kids Eyewear &amp; Myopia Care</option>

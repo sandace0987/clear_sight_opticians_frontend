@@ -12,6 +12,10 @@ const GUIDE_LINKS = [
   { to: "/designer-eyewear-hyderabad", label: "Designer Eyewear Edit" },
   { to: "/contact-lenses-hyderabad", label: "Prescription Contact Lenses" },
   { to: "/computer-glasses-hyderabad", label: "Blue Cut Computer Glasses" },
+  { to: "/corporate-gifting", label: "Corporate Gifting & Eye Camps" },
+  { to: "/corporate-eye-test-camps-hyderabad", label: "On-Site Corporate Eye Camps" },
+  { to: "/corporate-eyewear-vouchers-hyderabad", label: "Corporate Eyewear Vouchers" },
+  { to: "/executive-luxury-gifting-hyderabad", label: "Executive Luxury AI Gifting" },
   { to: "/optician-kphb", label: "Best Optician in KPHB" },
   { to: "/what-are-progressive-lenses", label: "Progressive Lenses Guide" },
   { to: "/ray-ban-vs-oakley", label: "Ray-Ban vs Oakley Comparison" },
@@ -67,6 +71,7 @@ export function SiteFooter() {
           <ul className="space-y-3 text-sm">
             <li><Link to="/brands" className="hover:text-electric">Brands</Link></li>
             <li><Link to="/ai-glasses" className="hover:text-electric">AI Glasses</Link></li>
+            <li><Link to="/corporate-gifting" className="hover:text-electric">Corporate Gifting</Link></li>
             <li><Link to="/stores" className="hover:text-electric">Store Locator</Link></li>
             <li><Link to="/about" className="hover:text-electric">About Us</Link></li>
           </ul>

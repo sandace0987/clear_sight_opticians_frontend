@@ -66,6 +66,26 @@ const pages = [
     changefreq: 'weekly',
   },
   {
+    path: '/corporate-gifting',
+    priority: '0.9',
+    changefreq: 'weekly',
+  },
+  {
+    path: '/corporate-eye-test-camps-hyderabad',
+    priority: '0.9',
+    changefreq: 'weekly',
+  },
+  {
+    path: '/corporate-eyewear-vouchers-hyderabad',
+    priority: '0.9',
+    changefreq: 'weekly',
+  },
+  {
+    path: '/executive-luxury-gifting-hyderabad',
+    priority: '0.9',
+    changefreq: 'weekly',
+  },
+  {
     path: '/brands',
     priority: '0.9',
     changefreq: 'weekly',

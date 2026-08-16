@@ -5,7 +5,7 @@ import { ChevronDown, Check } from "lucide-react";
 import { useFeatureToggles } from "@/hooks/useFeatureToggles";
 
 const THEMES = [
-  // ── Tier 1 ─────────────────────────────────────────────
+  // ── Featured ───────────────────────────────────────────
   { id: "classic-light", label: "Classic Light", bg: "#ffffff", accent: "#2563EB" },
   { id: "deep-midnight", label: "Deep Midnight", bg: "#0f0f13", accent: "#60A5FA" },
   { id: "charcoal-ember", label: "Charcoal & Ember", bg: "#1a1a1a", accent: "#e85d3a" },
@@ -61,8 +61,9 @@ export function ThemeSwatches() {
   useEffect(() => {
     // ── Theme ──
     const saved = localStorage.getItem("theme") || "classic-light";
-    const resolved =
+    const resolvedRaw =
       saved === "dark" ? "deep-midnight" : saved === "light" ? "classic-light" : saved;
+    const resolved = THEMES.some((t) => t.id === resolvedRaw) ? resolvedRaw : "classic-light";
     applyTheme(resolved, false);
 
     // ── Zoom ──

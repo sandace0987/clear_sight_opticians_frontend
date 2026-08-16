@@ -157,6 +157,7 @@ export function BookingModal({ isOpen, onClose, defaultReason = "Eye test" }: Bo
               className="bg-transparent border-b border-border py-2 text-sm focus:outline-none focus:border-electric transition-colors"
             >
               <option className="bg-card text-foreground">Eye test</option>
+              <option className="bg-card text-foreground">Corporate Gifting &amp; Bulk Order</option>
               <option className="bg-card text-foreground">AI glasses demo</option>
               <option className="bg-card text-foreground">Glasses Service &amp; Repairs</option>
               <option className="bg-card text-foreground">Kids Eyewear &amp; Myopia Care</option>

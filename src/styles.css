@@ -86,6 +86,7 @@
   --pattern-bg: url("/patterns/glasses-pattern-dark.svg");
 }
 
+/* Classic Light — also the CSS :root baseline (other themes override when selected) */
 :root,
 [data-theme="classic-light"] {
   --radius: 1rem;

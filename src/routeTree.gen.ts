@@ -20,7 +20,11 @@ import { Route as RayBanGlassesHyderabadRouteImport } from './routes/ray-ban-gla
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as OpticianKphbRouteImport } from './routes/optician-kphb'
 import { Route as EyeTestHyderabadRouteImport } from './routes/eye-test-hyderabad'
+import { Route as ExecutiveLuxuryGiftingHyderabadRouteImport } from './routes/executive-luxury-gifting-hyderabad'
 import { Route as DesignerEyewearHyderabadRouteImport } from './routes/designer-eyewear-hyderabad'
+import { Route as CorporateGiftingRouteImport } from './routes/corporate-gifting'
+import { Route as CorporateEyewearVouchersHyderabadRouteImport } from './routes/corporate-eyewear-vouchers-hyderabad'
+import { Route as CorporateEyeTestCampsHyderabadRouteImport } from './routes/corporate-eye-test-camps-hyderabad'
 import { Route as ContactLensesHyderabadRouteImport } from './routes/contact-lenses-hyderabad'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ComputerGlassesHyderabadRouteImport } from './routes/computer-glasses-hyderabad'
@@ -87,10 +91,33 @@ const EyeTestHyderabadRoute = EyeTestHyderabadRouteImport.update({
   path: '/eye-test-hyderabad',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ExecutiveLuxuryGiftingHyderabadRoute =
+  ExecutiveLuxuryGiftingHyderabadRouteImport.update({
+    id: '/executive-luxury-gifting-hyderabad',
+    path: '/executive-luxury-gifting-hyderabad',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const DesignerEyewearHyderabadRoute =
   DesignerEyewearHyderabadRouteImport.update({
     id: '/designer-eyewear-hyderabad',
     path: '/designer-eyewear-hyderabad',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CorporateGiftingRoute = CorporateGiftingRouteImport.update({
+  id: '/corporate-gifting',
+  path: '/corporate-gifting',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CorporateEyewearVouchersHyderabadRoute =
+  CorporateEyewearVouchersHyderabadRouteImport.update({
+    id: '/corporate-eyewear-vouchers-hyderabad',
+    path: '/corporate-eyewear-vouchers-hyderabad',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CorporateEyeTestCampsHyderabadRoute =
+  CorporateEyeTestCampsHyderabadRouteImport.update({
+    id: '/corporate-eye-test-camps-hyderabad',
+    path: '/corporate-eye-test-camps-hyderabad',
     getParentRoute: () => rootRouteImport,
   } as any)
 const ContactLensesHyderabadRoute = ContactLensesHyderabadRouteImport.update({
@@ -149,7 +176,11 @@ export interface FileRoutesByFullPath {
   '/computer-glasses-hyderabad': typeof ComputerGlassesHyderabadRoute
   '/contact': typeof ContactRoute
   '/contact-lenses-hyderabad': typeof ContactLensesHyderabadRoute
+  '/corporate-eye-test-camps-hyderabad': typeof CorporateEyeTestCampsHyderabadRoute
+  '/corporate-eyewear-vouchers-hyderabad': typeof CorporateEyewearVouchersHyderabadRoute
+  '/corporate-gifting': typeof CorporateGiftingRoute
   '/designer-eyewear-hyderabad': typeof DesignerEyewearHyderabadRoute
+  '/executive-luxury-gifting-hyderabad': typeof ExecutiveLuxuryGiftingHyderabadRoute
   '/eye-test-hyderabad': typeof EyeTestHyderabadRoute
   '/optician-kphb': typeof OpticianKphbRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
@@ -172,7 +203,11 @@ export interface FileRoutesByTo {
   '/computer-glasses-hyderabad': typeof ComputerGlassesHyderabadRoute
   '/contact': typeof ContactRoute
   '/contact-lenses-hyderabad': typeof ContactLensesHyderabadRoute
+  '/corporate-eye-test-camps-hyderabad': typeof CorporateEyeTestCampsHyderabadRoute
+  '/corporate-eyewear-vouchers-hyderabad': typeof CorporateEyewearVouchersHyderabadRoute
+  '/corporate-gifting': typeof CorporateGiftingRoute
   '/designer-eyewear-hyderabad': typeof DesignerEyewearHyderabadRoute
+  '/executive-luxury-gifting-hyderabad': typeof ExecutiveLuxuryGiftingHyderabadRoute
   '/eye-test-hyderabad': typeof EyeTestHyderabadRoute
   '/optician-kphb': typeof OpticianKphbRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
@@ -196,7 +231,11 @@ export interface FileRoutesById {
   '/computer-glasses-hyderabad': typeof ComputerGlassesHyderabadRoute
   '/contact': typeof ContactRoute
   '/contact-lenses-hyderabad': typeof ContactLensesHyderabadRoute
+  '/corporate-eye-test-camps-hyderabad': typeof CorporateEyeTestCampsHyderabadRoute
+  '/corporate-eyewear-vouchers-hyderabad': typeof CorporateEyewearVouchersHyderabadRoute
+  '/corporate-gifting': typeof CorporateGiftingRoute
   '/designer-eyewear-hyderabad': typeof DesignerEyewearHyderabadRoute
+  '/executive-luxury-gifting-hyderabad': typeof ExecutiveLuxuryGiftingHyderabadRoute
   '/eye-test-hyderabad': typeof EyeTestHyderabadRoute
   '/optician-kphb': typeof OpticianKphbRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
@@ -221,7 +260,11 @@ export interface FileRouteTypes {
     | '/computer-glasses-hyderabad'
     | '/contact'
     | '/contact-lenses-hyderabad'
+    | '/corporate-eye-test-camps-hyderabad'
+    | '/corporate-eyewear-vouchers-hyderabad'
+    | '/corporate-gifting'
     | '/designer-eyewear-hyderabad'
+    | '/executive-luxury-gifting-hyderabad'
     | '/eye-test-hyderabad'
     | '/optician-kphb'
     | '/privacy-policy'
@@ -244,7 +287,11 @@ export interface FileRouteTypes {
     | '/computer-glasses-hyderabad'
     | '/contact'
     | '/contact-lenses-hyderabad'
+    | '/corporate-eye-test-camps-hyderabad'
+    | '/corporate-eyewear-vouchers-hyderabad'
+    | '/corporate-gifting'
     | '/designer-eyewear-hyderabad'
+    | '/executive-luxury-gifting-hyderabad'
     | '/eye-test-hyderabad'
     | '/optician-kphb'
     | '/privacy-policy'
@@ -267,7 +314,11 @@ export interface FileRouteTypes {
     | '/computer-glasses-hyderabad'
     | '/contact'
     | '/contact-lenses-hyderabad'
+    | '/corporate-eye-test-camps-hyderabad'
+    | '/corporate-eyewear-vouchers-hyderabad'
+    | '/corporate-gifting'
     | '/designer-eyewear-hyderabad'
+    | '/executive-luxury-gifting-hyderabad'
     | '/eye-test-hyderabad'
     | '/optician-kphb'
     | '/privacy-policy'
@@ -291,7 +342,11 @@ export interface RootRouteChildren {
   ComputerGlassesHyderabadRoute: typeof ComputerGlassesHyderabadRoute
   ContactRoute: typeof ContactRoute
   ContactLensesHyderabadRoute: typeof ContactLensesHyderabadRoute
+  CorporateEyeTestCampsHyderabadRoute: typeof CorporateEyeTestCampsHyderabadRoute
+  CorporateEyewearVouchersHyderabadRoute: typeof CorporateEyewearVouchersHyderabadRoute
+  CorporateGiftingRoute: typeof CorporateGiftingRoute
   DesignerEyewearHyderabadRoute: typeof DesignerEyewearHyderabadRoute
+  ExecutiveLuxuryGiftingHyderabadRoute: typeof ExecutiveLuxuryGiftingHyderabadRoute
   EyeTestHyderabadRoute: typeof EyeTestHyderabadRoute
   OpticianKphbRoute: typeof OpticianKphbRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
@@ -385,11 +440,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EyeTestHyderabadRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/executive-luxury-gifting-hyderabad': {
+      id: '/executive-luxury-gifting-hyderabad'
+      path: '/executive-luxury-gifting-hyderabad'
+      fullPath: '/executive-luxury-gifting-hyderabad'
+      preLoaderRoute: typeof ExecutiveLuxuryGiftingHyderabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/designer-eyewear-hyderabad': {
       id: '/designer-eyewear-hyderabad'
       path: '/designer-eyewear-hyderabad'
       fullPath: '/designer-eyewear-hyderabad'
       preLoaderRoute: typeof DesignerEyewearHyderabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/corporate-gifting': {
+      id: '/corporate-gifting'
+      path: '/corporate-gifting'
+      fullPath: '/corporate-gifting'
+      preLoaderRoute: typeof CorporateGiftingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/corporate-eyewear-vouchers-hyderabad': {
+      id: '/corporate-eyewear-vouchers-hyderabad'
+      path: '/corporate-eyewear-vouchers-hyderabad'
+      fullPath: '/corporate-eyewear-vouchers-hyderabad'
+      preLoaderRoute: typeof CorporateEyewearVouchersHyderabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/corporate-eye-test-camps-hyderabad': {
+      id: '/corporate-eye-test-camps-hyderabad'
+      path: '/corporate-eye-test-camps-hyderabad'
+      fullPath: '/corporate-eye-test-camps-hyderabad'
+      preLoaderRoute: typeof CorporateEyeTestCampsHyderabadRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact-lenses-hyderabad': {
@@ -467,7 +550,12 @@ const rootRouteChildren: RootRouteChildren = {
   ComputerGlassesHyderabadRoute: ComputerGlassesHyderabadRoute,
   ContactRoute: ContactRoute,
   ContactLensesHyderabadRoute: ContactLensesHyderabadRoute,
+  CorporateEyeTestCampsHyderabadRoute: CorporateEyeTestCampsHyderabadRoute,
+  CorporateEyewearVouchersHyderabadRoute:
+    CorporateEyewearVouchersHyderabadRoute,
+  CorporateGiftingRoute: CorporateGiftingRoute,
   DesignerEyewearHyderabadRoute: DesignerEyewearHyderabadRoute,
+  ExecutiveLuxuryGiftingHyderabadRoute: ExecutiveLuxuryGiftingHyderabadRoute,
   EyeTestHyderabadRoute: EyeTestHyderabadRoute,
   OpticianKphbRoute: OpticianKphbRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
