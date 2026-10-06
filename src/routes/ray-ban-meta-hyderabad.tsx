@@ -86,7 +86,7 @@ const RAYBAN_META_FAQS = [
   {
     question: "What is the price of Ray-Ban Meta smart glasses in Hyderabad, India?",
     answer:
-      "Ray-Ban Meta smart glasses start from approximately ₹29,999 onwards in India depending on frame finish (Matte Black, Shiny Black, Shiny Caramel) and lens choice (Clear, Transitions, Polarized, or Prescription).",
+      "Ray-Ban Meta smart glasses start from approximately ₹29,999 onwards in India depending on frame finish and lens choice. Currently, Clear Sight Opticians offers a limited-time 20% discount on Ray-Ban Meta Gen-2 Wayfarers starting at ₹31,840 (regularly ₹39,800).",
   },
   {
     question: "Are Ray-Ban Meta smart glasses water-resistant?",
@@ -187,6 +187,23 @@ function RayBanMetaPage() {
                   WhatsApp Inquiry <ArrowUpRight className="size-4" />
                 </a>
               </div>
+
+              <div className="mt-8 p-4 rounded-2xl bg-electric/10 border border-electric/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-electric block">
+                    ⚡ Limited Time Promotion
+                  </span>
+                  <p className="text-xs sm:text-sm font-bold text-foreground mt-0.5">
+                    20% Off Ray-Ban Meta Gen-2 Wayfarers — Starting at ₹31,840 (Was ₹39,800)
+                  </p>
+                </div>
+                <Link
+                  to="/ray-ban-meta-offer-hyderabad"
+                  className="inline-flex items-center justify-center gap-1 bg-electric text-white px-4 py-2 rounded-full text-[11px] font-bold uppercase tracking-wider hover:bg-ink transition-colors shrink-0 w-fit"
+                >
+                  View Offer Details <ArrowUpRight className="size-3" />
+                </Link>
+              </div>
             </div>
 
             <div className="lg:col-span-5">
@@ -222,7 +239,7 @@ function RayBanMetaPage() {
               Where to buy Ray-Ban Meta AI smart glasses in Hyderabad?
             </h2>
             <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-              Ray-Ban Meta AI smart glasses are available for live demonstration and authorized purchase at Clear Sight Opticians in Hyderabad across three stores: Kukatpally (KPHB JNTU Road), Nizampet, and Bowenpally. Prices start at ₹29,999 in India. Clear Sight Opticians provides on-site optical customization, fitting high-index single vision, progressive, transition, and blue-cut computer lenses into your Ray-Ban Meta frames with digital centration accuracy.
+              Ray-Ban Meta AI smart glasses are available for live demonstration and authorized purchase at Clear Sight Opticians in Hyderabad across three stores: Kukatpally (KPHB JNTU Road), Nizampet, and Bowenpally. Prices start at ₹29,999 in India, with Ray-Ban Meta Gen-2 Wayfarers currently available at a limited-time 20% discount starting at ₹31,840 (reduced from ₹39,800). Clear Sight Opticians provides on-site optical customization, fitting high-index single vision, progressive, transition, and blue-cut computer lenses into your Ray-Ban Meta frames with digital centration accuracy.
             </p>
           </div>
         </div>

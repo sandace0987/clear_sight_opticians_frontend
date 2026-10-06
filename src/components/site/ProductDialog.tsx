@@ -6,12 +6,13 @@ import { EnquireDialog } from "@/components/site/EnquireDialog";
 import { ArrowUpRight } from "lucide-react";
 import type { ColorVariant } from "@/lib/brand-catalog";
 import { useImageDominantColor } from "@/hooks/useImageDominantColor";
-import { GLOBAL_PROMO } from "@/lib/promo-config";
+import { GLOBAL_PROMO, RAYBAN_META_PROMO } from "@/lib/promo-config";
 
 type Props = {
   brand: string;
   model: string;
   priceFrom?: number;
+  originalPrice?: number;
   variants: ColorVariant[];
   trigger?: React.ReactNode;
   open?: boolean;
@@ -24,7 +25,7 @@ const ORIENTATIONS: Array<{ key: keyof ColorVariant["images"]; label: string }> 
   { key: "side", label: "Side" },
 ];
 
-export function ProductDialog({ brand, model, priceFrom, variants, trigger, open, onOpenChange }: Props) {
+export function ProductDialog({ brand, model, priceFrom, originalPrice, variants, trigger, open, onOpenChange }: Props) {
   const [variantId, setVariantId] = React.useState(variants[0].id);
   const [view, setView] = React.useState<keyof ColorVariant["images"]>("front");
 
@@ -90,12 +91,21 @@ export function ProductDialog({ brand, model, priceFrom, variants, trigger, open
             <h2 className="mt-2 text-3xl font-bold tracking-tighter">{model}</h2>
             {priceFrom != null && (
               <>
-                <p className="mt-3 text-lg font-semibold">
-                  {model.toLowerCase().includes("meta") || model.toLowerCase().includes("vanguard") || model.toLowerCase().includes("hstn")
-                    ? "Starting at "
-                    : "From "}
-                  ₹{priceFrom.toLocaleString("en-IN")}
-                </p>
+                <div className="mt-3 flex items-baseline gap-2.5">
+                  <p className="text-lg font-semibold">
+                    {model.toLowerCase().includes("meta") || model.toLowerCase().includes("vanguard") || model.toLowerCase().includes("hstn")
+                      ? "Starting at "
+                      : "From "}
+                    <span className={originalPrice ? "text-electric font-bold" : ""}>
+                      ₹{priceFrom.toLocaleString("en-IN")}
+                    </span>
+                  </p>
+                  {originalPrice != null && (
+                    <span className="text-sm text-muted-foreground line-through">
+                      ₹{originalPrice.toLocaleString("en-IN")}
+                    </span>
+                  )}
+                </div>
                 <p className="text-xs text-muted-foreground">GST included</p>
               </>
             )}
@@ -171,6 +181,20 @@ export function ProductDialog({ brand, model, priceFrom, variants, trigger, open
                 </p>
                 <p className="text-[10px] text-muted-foreground mt-1 leading-normal">
                   {GLOBAL_PROMO.description}
+                </p>
+              </div>
+            )}
+
+            {brand.toLowerCase() === "ray-ban" && model.toLowerCase().includes("wayfarer") && model.toLowerCase().includes("meta") && (
+              <div className="mt-6 p-4 rounded-2xl bg-electric/5 border border-electric/25">
+                <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-electric block mb-1">
+                  Limited Time Offer
+                </span>
+                <p className="text-xs font-semibold text-foreground/90 leading-snug">
+                  {RAYBAN_META_PROMO.text}
+                </p>
+                <p className="text-[10px] text-muted-foreground mt-1 leading-normal">
+                  {RAYBAN_META_PROMO.description}
                 </p>
               </div>
             )}

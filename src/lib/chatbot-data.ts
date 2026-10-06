@@ -24,7 +24,7 @@ export const chatbotQA: ChatQA[] = [
   {
     question: "⚡ Do you have Ray-Ban Meta AI glasses?",
     answer:
-      "Yes! We have in-store display models and active stock for both <strong>Ray-Ban Meta Wayfarer</strong> and <strong>Oakley Meta HSTN</strong> AI glasses. Drop by any branch for a live hands-free demo of photo/video capture, calling, and Meta AI features.",
+      'Yes! We have in-store display models and active stock for both <strong>Ray-Ban Meta Wayfarer</strong> and <strong>Oakley Meta HSTN</strong> AI glasses. Drop by any branch for a live hands-free demo of photo/video capture, calling, and Meta AI features. Plus, we are currently running a limited-time <strong>20% discount on Ray-Ban Meta Gen-2 Wayfarers</strong> (starting at ₹31,840)! <a href="/ray-ban-meta-offer-hyderabad" class="text-electric underline font-semibold">View Offer Details →</a>',
   },
   {
     question: "🔬 What prescription lenses do you recommend?",

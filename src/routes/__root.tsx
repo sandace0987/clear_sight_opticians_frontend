@@ -13,6 +13,7 @@ import {
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { ScrollToTop } from "@/components/site/ScrollToTop";
+import { OfferPopup } from "@/components/site/OfferPopup";
 import { PageTransition } from "@/components/motion/PageTransition";
 import { Glasses } from "lucide-react";
 import { useFeatureToggles } from "@/hooks/useFeatureToggles";
@@ -214,6 +215,7 @@ function RootComponent() {
         <Suspense fallback={null}>
           <ChatBot />
         </Suspense>
+        <OfferPopup />
 
         {isBrandsRoute && enableAssistant && (
           <button

@@ -75,6 +75,7 @@ function generateSitemap(): string {
     { url: "/eye-test-hyderabad", changefreq: "weekly", priority: 0.9 },
     { url: "/zeiss-eye-test-hyderabad", changefreq: "weekly", priority: 0.9 },
     { url: "/ray-ban-meta-hyderabad", changefreq: "weekly", priority: 0.9 },
+    { url: "/ray-ban-meta-offer-hyderabad", changefreq: "weekly", priority: 0.9 },
     { url: "/ray-ban-glasses-hyderabad", changefreq: "weekly", priority: 0.9 },
     { url: "/designer-eyewear-hyderabad", changefreq: "weekly", priority: 0.9 },
     { url: "/contact-lenses-hyderabad", changefreq: "weekly", priority: 0.9 },

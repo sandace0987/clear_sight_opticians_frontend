@@ -8,6 +8,7 @@ const GUIDE_LINKS = [
   { to: "/eye-test-hyderabad", label: "Eye Test Hyderabad" },
   { to: "/zeiss-eye-test-hyderabad", label: "ZEISS 3D Refraction" },
   { to: "/ray-ban-meta-hyderabad", label: "Ray-Ban Meta Smart Glasses" },
+  { to: "/ray-ban-meta-offer-hyderabad", label: "Ray-Ban Meta 20% Off Deal" },
   { to: "/ray-ban-glasses-hyderabad", label: "Ray-Ban Glasses & Frames" },
   { to: "/designer-eyewear-hyderabad", label: "Designer Eyewear Edit" },
   { to: "/contact-lenses-hyderabad", label: "Prescription Contact Lenses" },

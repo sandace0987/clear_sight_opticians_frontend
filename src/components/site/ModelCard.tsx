@@ -106,6 +106,7 @@ export function ModelCard({ m, index, brandName }: { m: GlassItem; index: number
             brand={brandName}
             model={m.model}
             priceFrom={m.priceFrom}
+            originalPrice={m.originalPrice}
             variants={m.variants!}
             open={open}
             onOpenChange={setOpen}
@@ -124,12 +125,21 @@ export function ModelCard({ m, index, brandName }: { m: GlassItem; index: number
       </p>
 
       {m.priceFrom != null && (
-        <p className="text-sm font-semibold mt-3">
-          {m.model.toLowerCase().includes("meta") || m.model.toLowerCase().includes("vanguard") || m.model.toLowerCase().includes("hstn")
-            ? "Starting at "
-            : "From "}
-          ₹{m.priceFrom.toLocaleString("en-IN")}
-        </p>
+        <div className="mt-3 flex items-baseline gap-2">
+          <p className="text-sm font-semibold">
+            {m.model.toLowerCase().includes("meta") || m.model.toLowerCase().includes("vanguard") || m.model.toLowerCase().includes("hstn")
+              ? "Starting at "
+              : "From "}
+            <span className={m.originalPrice ? "text-electric font-bold" : ""}>
+              ₹{m.priceFrom.toLocaleString("en-IN")}
+            </span>
+          </p>
+          {m.originalPrice != null && (
+            <span className="text-xs text-muted-foreground line-through">
+              ₹{m.originalPrice.toLocaleString("en-IN")}
+            </span>
+          )}
+        </div>
       )}
 
       {hasVariants && m.variants!.length > 1 && (

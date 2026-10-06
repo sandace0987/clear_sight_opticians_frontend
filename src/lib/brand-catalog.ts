@@ -427,6 +427,8 @@ export type GlassItem = {
   image?: string;
   /** omit to leave price blank (hidden on card & dialog) */
   priceFrom?: number;
+  /** original price before discount (displays crossed out) */
+  originalPrice?: number;
   variants?: ColorVariant[];
   /** flags a model as trending — shows a "Selling fast" pill on the card */
   is_hot?: boolean;
@@ -915,8 +917,10 @@ export const BRANDS: BrandData[] = [
         model: "Ray-Ban Meta Wayfarer (Gen 2)",
         shape: "wayfarer",
         colour: "6 colourways",
-        priceFrom: 39800,
+        priceFrom: 31840,
+        originalPrice: 39800,
         line: "Meta Glasses",
+        badge: "20% Off",
         variants: [
           {
             id: "matte-black-clear",

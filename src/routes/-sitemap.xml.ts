@@ -26,6 +26,11 @@ const pages = [
     changefreq: 'weekly',
   },
   {
+    path: '/ray-ban-meta-offer-hyderabad',
+    priority: '0.9',
+    changefreq: 'weekly',
+  },
+  {
     path: '/ray-ban-glasses-hyderabad',
     priority: '0.9',
     changefreq: 'weekly',
