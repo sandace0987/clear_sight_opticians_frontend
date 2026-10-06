@@ -9,132 +9,56 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ZeissEyeTestHyderabadRouteImport } from './routes/zeiss-eye-test-hyderabad'
-import { Route as WhatAreProgressiveLensesRouteImport } from './routes/what-are-progressive-lenses'
-import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
-import { Route as StoresRouteImport } from './routes/stores'
-import { Route as SmartGlassesRouteImport } from './routes/smart-glasses'
-import { Route as RayBanVsOakleyRouteImport } from './routes/ray-ban-vs-oakley'
-import { Route as RayBanMetaOfferHyderabadRouteImport } from './routes/ray-ban-meta-offer-hyderabad'
-import { Route as RayBanMetaHyderabadRouteImport } from './routes/ray-ban-meta-hyderabad'
-import { Route as RayBanGlassesHyderabadRouteImport } from './routes/ray-ban-glasses-hyderabad'
-import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
-import { Route as OpticianKphbRouteImport } from './routes/optician-kphb'
-import { Route as EyeTestHyderabadRouteImport } from './routes/eye-test-hyderabad'
-import { Route as ExecutiveLuxuryGiftingHyderabadRouteImport } from './routes/executive-luxury-gifting-hyderabad'
-import { Route as DesignerEyewearHyderabadRouteImport } from './routes/designer-eyewear-hyderabad'
-import { Route as CorporateGiftingRouteImport } from './routes/corporate-gifting'
-import { Route as CorporateEyewearVouchersHyderabadRouteImport } from './routes/corporate-eyewear-vouchers-hyderabad'
-import { Route as CorporateEyeTestCampsHyderabadRouteImport } from './routes/corporate-eye-test-camps-hyderabad'
-import { Route as ContactLensesHyderabadRouteImport } from './routes/contact-lenses-hyderabad'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as ComputerGlassesHyderabadRouteImport } from './routes/computer-glasses-hyderabad'
-import { Route as BrandsRouteImport } from './routes/brands'
-import { Route as AiGlassesRouteImport } from './routes/ai-glasses'
-import { Route as AboutRouteImport } from './routes/about'
-import { Route as SplatRouteImport } from './routes/$'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SplatRouteImport } from './routes/$'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AiGlassesRouteImport } from './routes/ai-glasses'
+import { Route as BrandsRouteImport } from './routes/brands'
+import { Route as ComputerGlassesHyderabadRouteImport } from './routes/computer-glasses-hyderabad'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ContactLensesHyderabadRouteImport } from './routes/contact-lenses-hyderabad'
+import { Route as CorporateEyeTestCampsHyderabadRouteImport } from './routes/corporate-eye-test-camps-hyderabad'
+import { Route as CorporateEyewearVouchersHyderabadRouteImport } from './routes/corporate-eyewear-vouchers-hyderabad'
+import { Route as CorporateGiftingRouteImport } from './routes/corporate-gifting'
+import { Route as DesignerEyewearHyderabadRouteImport } from './routes/designer-eyewear-hyderabad'
+import { Route as ExecutiveLuxuryGiftingHyderabadRouteImport } from './routes/executive-luxury-gifting-hyderabad'
+import { Route as EyeTestHyderabadRouteImport } from './routes/eye-test-hyderabad'
+import { Route as OpticianKphbRouteImport } from './routes/optician-kphb'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as RayBanGlassesHyderabadRouteImport } from './routes/ray-ban-glasses-hyderabad'
+import { Route as RayBanMetaHyderabadRouteImport } from './routes/ray-ban-meta-hyderabad'
+import { Route as RayBanMetaOfferHyderabadRouteImport } from './routes/ray-ban-meta-offer-hyderabad'
+import { Route as RayBanVsOakleyRouteImport } from './routes/ray-ban-vs-oakley'
+import { Route as SmartGlassesRouteImport } from './routes/smart-glasses'
+import { Route as StoresRouteImport } from './routes/stores'
+import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
+import { Route as WhatAreProgressiveLensesRouteImport } from './routes/what-are-progressive-lenses'
+import { Route as ZeissEyeTestHyderabadRouteImport } from './routes/zeiss-eye-test-hyderabad'
 import { Route as BrandsBrandRouteImport } from './routes/brands_.$brand'
 
-const ZeissEyeTestHyderabadRoute = ZeissEyeTestHyderabadRouteImport.update({
-  id: '/zeiss-eye-test-hyderabad',
-  path: '/zeiss-eye-test-hyderabad',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const WhatAreProgressiveLensesRoute =
-  WhatAreProgressiveLensesRouteImport.update({
-    id: '/what-are-progressive-lenses',
-    path: '/what-are-progressive-lenses',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
-  id: '/terms-and-conditions',
-  path: '/terms-and-conditions',
+const SplatRoute = SplatRouteImport.update({
+  id: '/$',
+  path: '/$',
   getParentRoute: () => rootRouteImport,
 } as any)
-const StoresRoute = StoresRouteImport.update({
-  id: '/stores',
-  path: '/stores',
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SmartGlassesRoute = SmartGlassesRouteImport.update({
-  id: '/smart-glasses',
-  path: '/smart-glasses',
+const AiGlassesRoute = AiGlassesRouteImport.update({
+  id: '/ai-glasses',
+  path: '/ai-glasses',
   getParentRoute: () => rootRouteImport,
 } as any)
-const RayBanVsOakleyRoute = RayBanVsOakleyRouteImport.update({
-  id: '/ray-ban-vs-oakley',
-  path: '/ray-ban-vs-oakley',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RayBanMetaOfferHyderabadRoute =
-  RayBanMetaOfferHyderabadRouteImport.update({
-    id: '/ray-ban-meta-offer-hyderabad',
-    path: '/ray-ban-meta-offer-hyderabad',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const RayBanMetaHyderabadRoute = RayBanMetaHyderabadRouteImport.update({
-  id: '/ray-ban-meta-hyderabad',
-  path: '/ray-ban-meta-hyderabad',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RayBanGlassesHyderabadRoute = RayBanGlassesHyderabadRouteImport.update({
-  id: '/ray-ban-glasses-hyderabad',
-  path: '/ray-ban-glasses-hyderabad',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
-  id: '/privacy-policy',
-  path: '/privacy-policy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const OpticianKphbRoute = OpticianKphbRouteImport.update({
-  id: '/optician-kphb',
-  path: '/optician-kphb',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EyeTestHyderabadRoute = EyeTestHyderabadRouteImport.update({
-  id: '/eye-test-hyderabad',
-  path: '/eye-test-hyderabad',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ExecutiveLuxuryGiftingHyderabadRoute =
-  ExecutiveLuxuryGiftingHyderabadRouteImport.update({
-    id: '/executive-luxury-gifting-hyderabad',
-    path: '/executive-luxury-gifting-hyderabad',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const DesignerEyewearHyderabadRoute =
-  DesignerEyewearHyderabadRouteImport.update({
-    id: '/designer-eyewear-hyderabad',
-    path: '/designer-eyewear-hyderabad',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const CorporateGiftingRoute = CorporateGiftingRouteImport.update({
-  id: '/corporate-gifting',
-  path: '/corporate-gifting',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CorporateEyewearVouchersHyderabadRoute =
-  CorporateEyewearVouchersHyderabadRouteImport.update({
-    id: '/corporate-eyewear-vouchers-hyderabad',
-    path: '/corporate-eyewear-vouchers-hyderabad',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const CorporateEyeTestCampsHyderabadRoute =
-  CorporateEyeTestCampsHyderabadRouteImport.update({
-    id: '/corporate-eye-test-camps-hyderabad',
-    path: '/corporate-eye-test-camps-hyderabad',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ContactLensesHyderabadRoute = ContactLensesHyderabadRouteImport.update({
-  id: '/contact-lenses-hyderabad',
-  path: '/contact-lenses-hyderabad',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
+const BrandsRoute = BrandsRouteImport.update({
+  id: '/brands',
+  path: '/brands',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ComputerGlassesHyderabadRoute =
@@ -143,29 +67,105 @@ const ComputerGlassesHyderabadRoute =
     path: '/computer-glasses-hyderabad',
     getParentRoute: () => rootRouteImport,
   } as any)
-const BrandsRoute = BrandsRouteImport.update({
-  id: '/brands',
-  path: '/brands',
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AiGlassesRoute = AiGlassesRouteImport.update({
-  id: '/ai-glasses',
-  path: '/ai-glasses',
+const ContactLensesHyderabadRoute = ContactLensesHyderabadRouteImport.update({
+  id: '/contact-lenses-hyderabad',
+  path: '/contact-lenses-hyderabad',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
+const CorporateEyeTestCampsHyderabadRoute =
+  CorporateEyeTestCampsHyderabadRouteImport.update({
+    id: '/corporate-eye-test-camps-hyderabad',
+    path: '/corporate-eye-test-camps-hyderabad',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CorporateEyewearVouchersHyderabadRoute =
+  CorporateEyewearVouchersHyderabadRouteImport.update({
+    id: '/corporate-eyewear-vouchers-hyderabad',
+    path: '/corporate-eyewear-vouchers-hyderabad',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CorporateGiftingRoute = CorporateGiftingRouteImport.update({
+  id: '/corporate-gifting',
+  path: '/corporate-gifting',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SplatRoute = SplatRouteImport.update({
-  id: '/$',
-  path: '/$',
+const DesignerEyewearHyderabadRoute =
+  DesignerEyewearHyderabadRouteImport.update({
+    id: '/designer-eyewear-hyderabad',
+    path: '/designer-eyewear-hyderabad',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ExecutiveLuxuryGiftingHyderabadRoute =
+  ExecutiveLuxuryGiftingHyderabadRouteImport.update({
+    id: '/executive-luxury-gifting-hyderabad',
+    path: '/executive-luxury-gifting-hyderabad',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const EyeTestHyderabadRoute = EyeTestHyderabadRouteImport.update({
+  id: '/eye-test-hyderabad',
+  path: '/eye-test-hyderabad',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const OpticianKphbRoute = OpticianKphbRouteImport.update({
+  id: '/optician-kphb',
+  path: '/optician-kphb',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RayBanGlassesHyderabadRoute = RayBanGlassesHyderabadRouteImport.update({
+  id: '/ray-ban-glasses-hyderabad',
+  path: '/ray-ban-glasses-hyderabad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RayBanMetaHyderabadRoute = RayBanMetaHyderabadRouteImport.update({
+  id: '/ray-ban-meta-hyderabad',
+  path: '/ray-ban-meta-hyderabad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RayBanMetaOfferHyderabadRoute =
+  RayBanMetaOfferHyderabadRouteImport.update({
+    id: '/ray-ban-meta-offer-hyderabad',
+    path: '/ray-ban-meta-offer-hyderabad',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const RayBanVsOakleyRoute = RayBanVsOakleyRouteImport.update({
+  id: '/ray-ban-vs-oakley',
+  path: '/ray-ban-vs-oakley',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SmartGlassesRoute = SmartGlassesRouteImport.update({
+  id: '/smart-glasses',
+  path: '/smart-glasses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StoresRoute = StoresRouteImport.update({
+  id: '/stores',
+  path: '/stores',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
+  id: '/terms-and-conditions',
+  path: '/terms-and-conditions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WhatAreProgressiveLensesRoute =
+  WhatAreProgressiveLensesRouteImport.update({
+    id: '/what-are-progressive-lenses',
+    path: '/what-are-progressive-lenses',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ZeissEyeTestHyderabadRoute = ZeissEyeTestHyderabadRouteImport.update({
+  id: '/zeiss-eye-test-hyderabad',
+  path: '/zeiss-eye-test-hyderabad',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BrandsBrandRoute = BrandsBrandRouteImport.update({
@@ -377,165 +377,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/zeiss-eye-test-hyderabad': {
-      id: '/zeiss-eye-test-hyderabad'
-      path: '/zeiss-eye-test-hyderabad'
-      fullPath: '/zeiss-eye-test-hyderabad'
-      preLoaderRoute: typeof ZeissEyeTestHyderabadRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/what-are-progressive-lenses': {
-      id: '/what-are-progressive-lenses'
-      path: '/what-are-progressive-lenses'
-      fullPath: '/what-are-progressive-lenses'
-      preLoaderRoute: typeof WhatAreProgressiveLensesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/terms-and-conditions': {
-      id: '/terms-and-conditions'
-      path: '/terms-and-conditions'
-      fullPath: '/terms-and-conditions'
-      preLoaderRoute: typeof TermsAndConditionsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/stores': {
-      id: '/stores'
-      path: '/stores'
-      fullPath: '/stores'
-      preLoaderRoute: typeof StoresRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/smart-glasses': {
-      id: '/smart-glasses'
-      path: '/smart-glasses'
-      fullPath: '/smart-glasses'
-      preLoaderRoute: typeof SmartGlassesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ray-ban-vs-oakley': {
-      id: '/ray-ban-vs-oakley'
-      path: '/ray-ban-vs-oakley'
-      fullPath: '/ray-ban-vs-oakley'
-      preLoaderRoute: typeof RayBanVsOakleyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ray-ban-meta-offer-hyderabad': {
-      id: '/ray-ban-meta-offer-hyderabad'
-      path: '/ray-ban-meta-offer-hyderabad'
-      fullPath: '/ray-ban-meta-offer-hyderabad'
-      preLoaderRoute: typeof RayBanMetaOfferHyderabadRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ray-ban-meta-hyderabad': {
-      id: '/ray-ban-meta-hyderabad'
-      path: '/ray-ban-meta-hyderabad'
-      fullPath: '/ray-ban-meta-hyderabad'
-      preLoaderRoute: typeof RayBanMetaHyderabadRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ray-ban-glasses-hyderabad': {
-      id: '/ray-ban-glasses-hyderabad'
-      path: '/ray-ban-glasses-hyderabad'
-      fullPath: '/ray-ban-glasses-hyderabad'
-      preLoaderRoute: typeof RayBanGlassesHyderabadRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/privacy-policy': {
-      id: '/privacy-policy'
-      path: '/privacy-policy'
-      fullPath: '/privacy-policy'
-      preLoaderRoute: typeof PrivacyPolicyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/optician-kphb': {
-      id: '/optician-kphb'
-      path: '/optician-kphb'
-      fullPath: '/optician-kphb'
-      preLoaderRoute: typeof OpticianKphbRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/eye-test-hyderabad': {
-      id: '/eye-test-hyderabad'
-      path: '/eye-test-hyderabad'
-      fullPath: '/eye-test-hyderabad'
-      preLoaderRoute: typeof EyeTestHyderabadRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/executive-luxury-gifting-hyderabad': {
-      id: '/executive-luxury-gifting-hyderabad'
-      path: '/executive-luxury-gifting-hyderabad'
-      fullPath: '/executive-luxury-gifting-hyderabad'
-      preLoaderRoute: typeof ExecutiveLuxuryGiftingHyderabadRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/designer-eyewear-hyderabad': {
-      id: '/designer-eyewear-hyderabad'
-      path: '/designer-eyewear-hyderabad'
-      fullPath: '/designer-eyewear-hyderabad'
-      preLoaderRoute: typeof DesignerEyewearHyderabadRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/corporate-gifting': {
-      id: '/corporate-gifting'
-      path: '/corporate-gifting'
-      fullPath: '/corporate-gifting'
-      preLoaderRoute: typeof CorporateGiftingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/corporate-eyewear-vouchers-hyderabad': {
-      id: '/corporate-eyewear-vouchers-hyderabad'
-      path: '/corporate-eyewear-vouchers-hyderabad'
-      fullPath: '/corporate-eyewear-vouchers-hyderabad'
-      preLoaderRoute: typeof CorporateEyewearVouchersHyderabadRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/corporate-eye-test-camps-hyderabad': {
-      id: '/corporate-eye-test-camps-hyderabad'
-      path: '/corporate-eye-test-camps-hyderabad'
-      fullPath: '/corporate-eye-test-camps-hyderabad'
-      preLoaderRoute: typeof CorporateEyeTestCampsHyderabadRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact-lenses-hyderabad': {
-      id: '/contact-lenses-hyderabad'
-      path: '/contact-lenses-hyderabad'
-      fullPath: '/contact-lenses-hyderabad'
-      preLoaderRoute: typeof ContactLensesHyderabadRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/computer-glasses-hyderabad': {
-      id: '/computer-glasses-hyderabad'
-      path: '/computer-glasses-hyderabad'
-      fullPath: '/computer-glasses-hyderabad'
-      preLoaderRoute: typeof ComputerGlassesHyderabadRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/brands': {
-      id: '/brands'
-      path: '/brands'
-      fullPath: '/brands'
-      preLoaderRoute: typeof BrandsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ai-glasses': {
-      id: '/ai-glasses'
-      path: '/ai-glasses'
-      fullPath: '/ai-glasses'
-      preLoaderRoute: typeof AiGlassesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/$': {
@@ -545,11 +391,165 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SplatRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-glasses': {
+      id: '/ai-glasses'
+      path: '/ai-glasses'
+      fullPath: '/ai-glasses'
+      preLoaderRoute: typeof AiGlassesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/brands': {
+      id: '/brands'
+      path: '/brands'
+      fullPath: '/brands'
+      preLoaderRoute: typeof BrandsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/computer-glasses-hyderabad': {
+      id: '/computer-glasses-hyderabad'
+      path: '/computer-glasses-hyderabad'
+      fullPath: '/computer-glasses-hyderabad'
+      preLoaderRoute: typeof ComputerGlassesHyderabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact-lenses-hyderabad': {
+      id: '/contact-lenses-hyderabad'
+      path: '/contact-lenses-hyderabad'
+      fullPath: '/contact-lenses-hyderabad'
+      preLoaderRoute: typeof ContactLensesHyderabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/corporate-eye-test-camps-hyderabad': {
+      id: '/corporate-eye-test-camps-hyderabad'
+      path: '/corporate-eye-test-camps-hyderabad'
+      fullPath: '/corporate-eye-test-camps-hyderabad'
+      preLoaderRoute: typeof CorporateEyeTestCampsHyderabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/corporate-eyewear-vouchers-hyderabad': {
+      id: '/corporate-eyewear-vouchers-hyderabad'
+      path: '/corporate-eyewear-vouchers-hyderabad'
+      fullPath: '/corporate-eyewear-vouchers-hyderabad'
+      preLoaderRoute: typeof CorporateEyewearVouchersHyderabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/corporate-gifting': {
+      id: '/corporate-gifting'
+      path: '/corporate-gifting'
+      fullPath: '/corporate-gifting'
+      preLoaderRoute: typeof CorporateGiftingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/designer-eyewear-hyderabad': {
+      id: '/designer-eyewear-hyderabad'
+      path: '/designer-eyewear-hyderabad'
+      fullPath: '/designer-eyewear-hyderabad'
+      preLoaderRoute: typeof DesignerEyewearHyderabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/executive-luxury-gifting-hyderabad': {
+      id: '/executive-luxury-gifting-hyderabad'
+      path: '/executive-luxury-gifting-hyderabad'
+      fullPath: '/executive-luxury-gifting-hyderabad'
+      preLoaderRoute: typeof ExecutiveLuxuryGiftingHyderabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/eye-test-hyderabad': {
+      id: '/eye-test-hyderabad'
+      path: '/eye-test-hyderabad'
+      fullPath: '/eye-test-hyderabad'
+      preLoaderRoute: typeof EyeTestHyderabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/optician-kphb': {
+      id: '/optician-kphb'
+      path: '/optician-kphb'
+      fullPath: '/optician-kphb'
+      preLoaderRoute: typeof OpticianKphbRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ray-ban-glasses-hyderabad': {
+      id: '/ray-ban-glasses-hyderabad'
+      path: '/ray-ban-glasses-hyderabad'
+      fullPath: '/ray-ban-glasses-hyderabad'
+      preLoaderRoute: typeof RayBanGlassesHyderabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ray-ban-meta-hyderabad': {
+      id: '/ray-ban-meta-hyderabad'
+      path: '/ray-ban-meta-hyderabad'
+      fullPath: '/ray-ban-meta-hyderabad'
+      preLoaderRoute: typeof RayBanMetaHyderabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ray-ban-meta-offer-hyderabad': {
+      id: '/ray-ban-meta-offer-hyderabad'
+      path: '/ray-ban-meta-offer-hyderabad'
+      fullPath: '/ray-ban-meta-offer-hyderabad'
+      preLoaderRoute: typeof RayBanMetaOfferHyderabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ray-ban-vs-oakley': {
+      id: '/ray-ban-vs-oakley'
+      path: '/ray-ban-vs-oakley'
+      fullPath: '/ray-ban-vs-oakley'
+      preLoaderRoute: typeof RayBanVsOakleyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/smart-glasses': {
+      id: '/smart-glasses'
+      path: '/smart-glasses'
+      fullPath: '/smart-glasses'
+      preLoaderRoute: typeof SmartGlassesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/stores': {
+      id: '/stores'
+      path: '/stores'
+      fullPath: '/stores'
+      preLoaderRoute: typeof StoresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms-and-conditions': {
+      id: '/terms-and-conditions'
+      path: '/terms-and-conditions'
+      fullPath: '/terms-and-conditions'
+      preLoaderRoute: typeof TermsAndConditionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/what-are-progressive-lenses': {
+      id: '/what-are-progressive-lenses'
+      path: '/what-are-progressive-lenses'
+      fullPath: '/what-are-progressive-lenses'
+      preLoaderRoute: typeof WhatAreProgressiveLensesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/zeiss-eye-test-hyderabad': {
+      id: '/zeiss-eye-test-hyderabad'
+      path: '/zeiss-eye-test-hyderabad'
+      fullPath: '/zeiss-eye-test-hyderabad'
+      preLoaderRoute: typeof ZeissEyeTestHyderabadRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/brands_/$brand': {

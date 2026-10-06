@@ -137,7 +137,9 @@ export const Route = createFileRoute("/brands_/$brand")({
   errorComponent: ({ error }) => (
     <div className="px-6 lg:px-10 py-24 mx-auto max-w-3xl text-center">
       <h1 className="text-3xl font-bold tracking-tight">Something went wrong</h1>
-      <p className="mt-3 text-muted-foreground">{error.message}</p>
+      <p className="mt-3 text-muted-foreground">
+        {error instanceof Error ? error.message : String(error)}
+      </p>
     </div>
   ),
   component: BrandPage,
