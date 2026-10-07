@@ -22,9 +22,9 @@ export const chatbotQA: ChatQA[] = [
       `Eye testing at Clear Sight is <strong>computerized, precision-calibrated, and free of charge</strong> with any frame or lens purchase! Bookings take under a minute:<br/><br/>• Tap <a href="/" class="text-electric underline font-semibold">Book Eye Test</a> in the menu<br/>• Call us directly at <a href="tel:+${CONTACT_PHONE_RAW}" class="text-electric underline font-semibold">${CONTACT_PHONE}</a><br/>• Walk-ins are always welcome!`,
   },
   {
-    question: "⚡ Do you have Ray-Ban Meta AI glasses?",
+    question: "⚡ Do you have Ray-Ban Meta & Oakley Meta AI glasses?",
     answer:
-      'Yes! We have in-store display models and active stock for both <strong>Ray-Ban Meta Wayfarer</strong> and <strong>Oakley Meta HSTN</strong> AI glasses. Drop by any branch for a live hands-free demo of photo/video capture, calling, and Meta AI features. Plus, we are currently running a limited-time <strong>20% discount on Ray-Ban Meta Gen-2 Wayfarers</strong> (starting at ₹31,840)! <a href="/ray-ban-meta-offer-hyderabad" class="text-electric underline font-semibold">View Offer Details →</a>',
+      'Yes! We have in-store display models and active stock for both <strong>Ray-Ban Meta Wayfarer</strong> and <strong>Oakley Meta HSTN & Vanguard</strong> AI glasses. Drop by any branch for a live hands-free demo of photo/video capture, calling, and Meta AI features. Plus, we are currently running limited-time offers: <strong>20% off Ray-Ban Meta Wayfarers</strong> (from ₹31,840) and <strong>up to 20% off Oakley Meta glasses</strong> (from ₹33,440)! <a href="/ray-ban-meta-offer-hyderabad" class="text-electric underline font-semibold">Ray-Ban Offer →</a> · <a href="/oakley-meta-offer-hyderabad" class="text-electric underline font-semibold">Oakley Offer →</a>',
   },
   {
     question: "🔬 What prescription lenses do you recommend?",

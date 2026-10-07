@@ -23,6 +23,7 @@ import { Route as CorporateGiftingRouteImport } from './routes/corporate-gifting
 import { Route as DesignerEyewearHyderabadRouteImport } from './routes/designer-eyewear-hyderabad'
 import { Route as ExecutiveLuxuryGiftingHyderabadRouteImport } from './routes/executive-luxury-gifting-hyderabad'
 import { Route as EyeTestHyderabadRouteImport } from './routes/eye-test-hyderabad'
+import { Route as OakleyMetaOfferHyderabadRouteImport } from './routes/oakley-meta-offer-hyderabad'
 import { Route as OpticianKphbRouteImport } from './routes/optician-kphb'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as RayBanGlassesHyderabadRouteImport } from './routes/ray-ban-glasses-hyderabad'
@@ -111,6 +112,12 @@ const EyeTestHyderabadRoute = EyeTestHyderabadRouteImport.update({
   path: '/eye-test-hyderabad',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OakleyMetaOfferHyderabadRoute =
+  OakleyMetaOfferHyderabadRouteImport.update({
+    id: '/oakley-meta-offer-hyderabad',
+    path: '/oakley-meta-offer-hyderabad',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const OpticianKphbRoute = OpticianKphbRouteImport.update({
   id: '/optician-kphb',
   path: '/optician-kphb',
@@ -189,6 +196,7 @@ export interface FileRoutesByFullPath {
   '/designer-eyewear-hyderabad': typeof DesignerEyewearHyderabadRoute
   '/executive-luxury-gifting-hyderabad': typeof ExecutiveLuxuryGiftingHyderabadRoute
   '/eye-test-hyderabad': typeof EyeTestHyderabadRoute
+  '/oakley-meta-offer-hyderabad': typeof OakleyMetaOfferHyderabadRoute
   '/optician-kphb': typeof OpticianKphbRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/ray-ban-glasses-hyderabad': typeof RayBanGlassesHyderabadRoute
@@ -217,6 +225,7 @@ export interface FileRoutesByTo {
   '/designer-eyewear-hyderabad': typeof DesignerEyewearHyderabadRoute
   '/executive-luxury-gifting-hyderabad': typeof ExecutiveLuxuryGiftingHyderabadRoute
   '/eye-test-hyderabad': typeof EyeTestHyderabadRoute
+  '/oakley-meta-offer-hyderabad': typeof OakleyMetaOfferHyderabadRoute
   '/optician-kphb': typeof OpticianKphbRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/ray-ban-glasses-hyderabad': typeof RayBanGlassesHyderabadRoute
@@ -246,6 +255,7 @@ export interface FileRoutesById {
   '/designer-eyewear-hyderabad': typeof DesignerEyewearHyderabadRoute
   '/executive-luxury-gifting-hyderabad': typeof ExecutiveLuxuryGiftingHyderabadRoute
   '/eye-test-hyderabad': typeof EyeTestHyderabadRoute
+  '/oakley-meta-offer-hyderabad': typeof OakleyMetaOfferHyderabadRoute
   '/optician-kphb': typeof OpticianKphbRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/ray-ban-glasses-hyderabad': typeof RayBanGlassesHyderabadRoute
@@ -276,6 +286,7 @@ export interface FileRouteTypes {
     | '/designer-eyewear-hyderabad'
     | '/executive-luxury-gifting-hyderabad'
     | '/eye-test-hyderabad'
+    | '/oakley-meta-offer-hyderabad'
     | '/optician-kphb'
     | '/privacy-policy'
     | '/ray-ban-glasses-hyderabad'
@@ -304,6 +315,7 @@ export interface FileRouteTypes {
     | '/designer-eyewear-hyderabad'
     | '/executive-luxury-gifting-hyderabad'
     | '/eye-test-hyderabad'
+    | '/oakley-meta-offer-hyderabad'
     | '/optician-kphb'
     | '/privacy-policy'
     | '/ray-ban-glasses-hyderabad'
@@ -332,6 +344,7 @@ export interface FileRouteTypes {
     | '/designer-eyewear-hyderabad'
     | '/executive-luxury-gifting-hyderabad'
     | '/eye-test-hyderabad'
+    | '/oakley-meta-offer-hyderabad'
     | '/optician-kphb'
     | '/privacy-policy'
     | '/ray-ban-glasses-hyderabad'
@@ -361,6 +374,7 @@ export interface RootRouteChildren {
   DesignerEyewearHyderabadRoute: typeof DesignerEyewearHyderabadRoute
   ExecutiveLuxuryGiftingHyderabadRoute: typeof ExecutiveLuxuryGiftingHyderabadRoute
   EyeTestHyderabadRoute: typeof EyeTestHyderabadRoute
+  OakleyMetaOfferHyderabadRoute: typeof OakleyMetaOfferHyderabadRoute
   OpticianKphbRoute: typeof OpticianKphbRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   RayBanGlassesHyderabadRoute: typeof RayBanGlassesHyderabadRoute
@@ -475,6 +489,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EyeTestHyderabadRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/oakley-meta-offer-hyderabad': {
+      id: '/oakley-meta-offer-hyderabad'
+      path: '/oakley-meta-offer-hyderabad'
+      fullPath: '/oakley-meta-offer-hyderabad'
+      preLoaderRoute: typeof OakleyMetaOfferHyderabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/optician-kphb': {
       id: '/optician-kphb'
       path: '/optician-kphb'
@@ -578,6 +599,7 @@ const rootRouteChildren: RootRouteChildren = {
   DesignerEyewearHyderabadRoute: DesignerEyewearHyderabadRoute,
   ExecutiveLuxuryGiftingHyderabadRoute: ExecutiveLuxuryGiftingHyderabadRoute,
   EyeTestHyderabadRoute: EyeTestHyderabadRoute,
+  OakleyMetaOfferHyderabadRoute: OakleyMetaOfferHyderabadRoute,
   OpticianKphbRoute: OpticianKphbRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   RayBanGlassesHyderabadRoute: RayBanGlassesHyderabadRoute,

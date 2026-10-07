@@ -1,5 +1,5 @@
 import * as React from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowUpRight,
   Camera,
@@ -10,6 +10,7 @@ import {
   Mic,
   Volume2,
   VolumeX,
+  Zap,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { BRANDS } from "@/lib/brand-catalog";
@@ -51,8 +52,8 @@ const OAKLEY_META_SCHEMA = {
   brand: { "@type": "Brand", name: "Oakley" },
   offers: {
     "@type": "AggregateOffer",
-    lowPrice: "39999",
-    highPrice: "59999",
+    lowPrice: "33440",
+    highPrice: "52300",
     priceCurrency: "INR",
     availability: "https://schema.org/InStock",
     seller: { "@type": "OpticalBusiness", name: "Clear Sight Opticians" },
@@ -327,7 +328,7 @@ function AIGlassesPage() {
       {tab === "rayban" && (
         <section className="px-4 sm:px-6 lg:px-10 py-10">
           <div className="mx-auto max-w-7xl">
-            <div className="flex items-baseline justify-between gap-4 border-b border-border pb-5 mb-10">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border pb-5 mb-10">
               <div>
                 <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">
                   AI Eyewear
@@ -340,6 +341,12 @@ function AIGlassesPage() {
                   Hollywood-iconic. Quietly intelligent.
                 </p>
               </div>
+              <Link
+                to="/ray-ban-meta-offer-hyderabad"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric/10 border border-electric/30 text-electric text-xs font-bold uppercase tracking-wider hover:bg-electric hover:text-white transition-all shrink-0 w-fit"
+              >
+                <Zap className="size-3.5 fill-current" /> 20% Off Offer (₹31,840) →
+              </Link>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
@@ -355,7 +362,7 @@ function AIGlassesPage() {
       {tab === "oakley" && (
         <section className="px-4 sm:px-6 lg:px-10 py-10">
           <div className="mx-auto max-w-7xl">
-            <div className="flex items-baseline justify-between gap-4 border-b border-border pb-5 mb-10">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border pb-5 mb-10">
               <div>
                 <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">
                   Performance AI Eyewear
@@ -368,6 +375,12 @@ function AIGlassesPage() {
                   and Prizm™ lens technology - engineered for athletes and active lifestyles.
                 </p>
               </div>
+              <Link
+                to="/oakley-meta-offer-hyderabad"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric/10 border border-electric/30 text-electric text-xs font-bold uppercase tracking-wider hover:bg-electric hover:text-white transition-all shrink-0 w-fit"
+              >
+                <Zap className="size-3.5 fill-current" /> Up to 20% Off Sale (From ₹33,440) →
+              </Link>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">

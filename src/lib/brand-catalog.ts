@@ -978,8 +978,10 @@ export const BRANDS: BrandData[] = [
         model: "Meta HSTN",
         shape: "round",
         colour: "8 colourways",
-        priceFrom: 41800,
+        priceFrom: 33440,
+        originalPrice: 41800,
         line: "Meta Glasses",
+        badge: "20% Off",
         is_hot: true,
         variants: [
           {
@@ -1044,8 +1046,10 @@ export const BRANDS: BrandData[] = [
         model: "Meta Vanguard",
         shape: "sport",
         colour: "7 colourways",
-        priceFrom: 52300,
+        priceFrom: 47070,
+        originalPrice: 52300,
         line: "Meta Glasses",
+        badge: "10% Off",
         is_hot: true,
         variants: [
           {

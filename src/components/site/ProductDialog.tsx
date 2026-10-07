@@ -6,7 +6,7 @@ import { EnquireDialog } from "@/components/site/EnquireDialog";
 import { ArrowUpRight } from "lucide-react";
 import type { ColorVariant } from "@/lib/brand-catalog";
 import { useImageDominantColor } from "@/hooks/useImageDominantColor";
-import { GLOBAL_PROMO, RAYBAN_META_PROMO } from "@/lib/promo-config";
+import { GLOBAL_PROMO, RAYBAN_META_PROMO, OAKLEY_META_PROMO } from "@/lib/promo-config";
 
 type Props = {
   brand: string;
@@ -195,6 +195,28 @@ export function ProductDialog({ brand, model, priceFrom, originalPrice, variants
                 </p>
                 <p className="text-[10px] text-muted-foreground mt-1 leading-normal">
                   {RAYBAN_META_PROMO.description}
+                </p>
+              </div>
+            )}
+
+            {brand.toLowerCase() === "oakley" && model.toLowerCase().includes("meta") && (
+              <div className="mt-6 p-4 rounded-2xl bg-electric/5 border border-electric/25">
+                <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-electric block mb-1">
+                  Limited Time Offer
+                </span>
+                <p className="text-xs font-semibold text-foreground/90 leading-snug">
+                  {model.toLowerCase().includes("hstn")
+                    ? "20% Off Oakley Meta HSTN"
+                    : model.toLowerCase().includes("vanguard")
+                    ? "10% Off Oakley Meta Vanguard"
+                    : OAKLEY_META_PROMO.text}
+                </p>
+                <p className="text-[10px] text-muted-foreground mt-1 leading-normal">
+                  {model.toLowerCase().includes("hstn")
+                    ? `Save ₹${OAKLEY_META_PROMO.hstn.saving.toLocaleString("en-IN")} instantly. Limited-time promotional price ₹${OAKLEY_META_PROMO.hstn.discountedPrice.toLocaleString("en-IN")} (regular ₹${OAKLEY_META_PROMO.hstn.originalPrice.toLocaleString("en-IN")}).`
+                    : model.toLowerCase().includes("vanguard")
+                    ? `Save ₹${OAKLEY_META_PROMO.vanguard.saving.toLocaleString("en-IN")} instantly. Limited-time promotional price ₹${OAKLEY_META_PROMO.vanguard.discountedPrice.toLocaleString("en-IN")} (regular ₹${OAKLEY_META_PROMO.vanguard.originalPrice.toLocaleString("en-IN")}).`
+                    : OAKLEY_META_PROMO.description}
                 </p>
               </div>
             )}
