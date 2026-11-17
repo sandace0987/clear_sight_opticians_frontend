@@ -11,13 +11,14 @@ import { CONTACT_PHONE, CONTACT_PHONE_RAW } from "@/lib/contact-config";
 
 const rayBanData = BRANDS.find((b) => b.slug === "ray-ban");
 const rayBanMetaModels = rayBanData?.models.filter((m) => m.model.toLowerCase().includes("meta")) || rayBanData?.models || [];
+const rayBanGen3Models = rayBanMetaModels.filter((model) => model.model.includes("Gen 3"));
 
 export const Route = createFileRoute("/ray-ban-meta-hyderabad")({
   head: () =>
     createSeoHead({
-      title: "Ray-Ban Meta Smart Glasses in Hyderabad | Demo & Buy | Clear Sight",
+      title: "Ray-Ban Meta Gen 3 & Gen 2 in Hyderabad | Demo & Buy | Clear Sight",
       description:
-        "Try & buy authentic Ray-Ban Meta AI smart glasses in Hyderabad with custom prescription lenses. Live hands-free 12MP camera, audio & Meta AI demo at KPHB, Nizampet & Bowenpally.",
+        "Try Ray-Ban Meta Gen 3 Wayfarer and Aviator, plus Gen 2, in Hyderabad. Explore colourways, prescription options and book a demo at KPHB, Nizampet or Bowenpally.",
       path: "/ray-ban-meta-hyderabad",
       type: "product",
       schema: [
@@ -43,6 +44,16 @@ export const Route = createFileRoute("/ray-ban-meta-hyderabad")({
             seller: { "@type": "OpticalBusiness", name: "Clear Sight Opticians" },
           },
         },
+        ...rayBanGen3Models.map((model) => ({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          name: model.model,
+          image: model.variants?.map((variant) => `${SITE_URL}${variant.images.front}`),
+          description: `${model.model} with 3K video, 12 MP camera, six-microphone array, Meta AI and prescription-ready lenses. Available for in-store demo and purchase in Hyderabad.`,
+          brand: { "@type": "Brand", name: "Ray-Ban" },
+          category: "Smart glasses",
+          additionalProperty: { "@type": "PropertyValue", name: "Starting price", value: "₹44,300; variant pricing varies" },
+        })),
         {
           "@context": "https://schema.org",
           "@type": "VideoObject",
@@ -66,7 +77,17 @@ const RAYBAN_META_FAQS = [
   {
     question: "Where can I try and buy Ray-Ban Meta AI smart glasses in Hyderabad?",
     answer:
-      "Clear Sight Opticians offers live in-store hands-free demos and authorized sales for Ray-Ban Meta AI glasses across all three Hyderabad locations: KPHB (Padmaja Complex JNTU Rd), Nizampet (Blooming Dale Rd), and Bowenpally (Sikh Rd).",
+      "Clear Sight Opticians offers live in-store demos and sales of Ray-Ban Meta Gen 3 Wayfarer and Aviator, as well as Gen 2, across KPHB (Padmaja Complex JNTU Road), Nizampet (Blooming Dale Road) and Bowenpally (Sikh Road), Hyderabad.",
+  },
+  {
+    question: "Which Ray-Ban Meta Gen 3 models are available in Hyderabad?",
+    answer:
+      "Clear Sight showcases Ray-Ban Meta Gen 3 Wayfarer and Aviator in the colourways shown on our Gen 3 page. Zena is not included. Contact a store to confirm your preferred colourway before visiting.",
+  },
+  {
+    question: "What is the Ray-Ban Meta Gen 3 price in Hyderabad?",
+    answer:
+      "Ray-Ban Meta Gen 3 starts at ₹44,300, with prices varying by frame and lens colour. Visit Clear Sight Opticians to explore colourways and prescription options.",
   },
   {
     question: "Can I fit prescription power lenses into Ray-Ban Meta smart glasses?",
@@ -86,7 +107,7 @@ const RAYBAN_META_FAQS = [
   {
     question: "What is the price of Ray-Ban Meta smart glasses in Hyderabad, India?",
     answer:
-      "Ray-Ban Meta smart glasses start from approximately ₹29,999 onwards in India depending on frame finish and lens choice. Currently, Clear Sight Opticians offers a limited-time 20% discount on Ray-Ban Meta Gen-2 Wayfarers starting at ₹31,840 (regularly ₹39,800).",
+      "Ray-Ban Meta Gen 3 starts at ₹44,300, with colourway pricing varying. Ray-Ban Meta Gen 2 Wayfarers remain on a separate limited-time offer starting at ₹31,840 (regularly ₹39,800).",
   },
   {
     question: "Are Ray-Ban Meta smart glasses water-resistant?",
@@ -96,7 +117,7 @@ const RAYBAN_META_FAQS = [
   {
     question: "Which frame styles are available in the Ray-Ban Meta collection?",
     answer:
-      "The collection includes the iconic Wayfarer (Standard & Large fits), Headliner (rounded unisex fit), and Skyler silhouettes available in various frame colors and lens tints.",
+      "The Ray-Ban Meta family at Clear Sight includes Gen 3 Wayfarer and Aviator, plus Gen 2 styles such as Wayfarer, Headliner and Skyler in assorted frame colours and lens tints.",
   },
   {
     question: "How do I pair Ray-Ban Meta glasses with my smartphone?",
@@ -167,7 +188,7 @@ function RayBanMetaPage() {
                 Ray-Ban Meta <span className="font-serif italic font-medium text-electric">smart glasses</span> in Hyderabad.
               </h1>
               <p className="mt-6 text-muted-foreground text-base sm:text-lg leading-relaxed max-w-2xl">
-                Experience iconic style fused with Meta AI. Capture 12MP point-of-view video, take phone calls, stream music, and talk to Meta AI—custom fitted with your optical prescription power at Clear Sight Opticians (KPHB, Nizampet, Bowenpally).
+                Discover Ray-Ban Meta Gen 3 Wayfarer and Aviator with 3K video, Meta AI and open-ear audio. Try the latest colourways at Clear Sight Opticians in KPHB, Nizampet or Bowenpally; ask our opticians about prescription options and Gen 2 styles too.
               </p>
 
               <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -191,17 +212,17 @@ function RayBanMetaPage() {
               <div className="mt-8 p-4 rounded-2xl bg-electric/10 border border-electric/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
                   <span className="text-[10px] font-black uppercase tracking-[0.2em] text-electric block">
-                    ⚡ Limited Time Promotion
+                    New · Ray-Ban Meta Gen 3
                   </span>
                   <p className="text-xs sm:text-sm font-bold text-foreground mt-0.5">
-                    20% Off Ray-Ban Meta Gen-2 Wayfarers — Starting at ₹31,840 (Was ₹39,800)
+                    Wayfarer & Aviator smart glasses · From ₹44,300
                   </p>
                 </div>
                 <Link
-                  to="/ray-ban-meta-offer-hyderabad"
+                  to="/ray-ban-meta-gen-3-hyderabad"
                   className="inline-flex items-center justify-center gap-1 bg-electric text-white px-4 py-2 rounded-full text-[11px] font-bold uppercase tracking-wider hover:bg-ink transition-colors shrink-0 w-fit"
                 >
-                  View Offer Details <ArrowUpRight className="size-3" />
+                  Explore Gen 3 <ArrowUpRight className="size-3" />
                 </Link>
               </div>
             </div>
@@ -209,17 +230,14 @@ function RayBanMetaPage() {
             <div className="lg:col-span-5">
               <TiltCard max={6}>
                 <div className="relative rounded-3xl overflow-hidden border border-border shadow-2xl bg-ink aspect-video md:aspect-[4/3] flex items-center justify-center p-4">
-                  <video
-                    src="/videos/rayban-meta.mp4"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="w-full h-full object-cover rounded-2xl"
+                  <img
+                    src="/products/ray-ban-meta-gen3/colourways/wayfarer-shiny-black-transitions-grey-front.webp"
+                    alt="Ray-Ban Meta Gen 3 Wayfarer in Shiny Black with Transitions Grey lenses"
+                    className="w-full h-full object-contain rounded-2xl"
                   />
                   <div className="absolute bottom-4 left-4 right-4 bg-black/70 backdrop-blur border border-white/20 p-3 rounded-xl text-white text-xs flex items-center justify-between">
-                    <span>Ray-Ban Meta Wayfarer Gen 2</span>
-                    <span className="text-electric font-bold">In Stock · KPHB</span>
+                    <span>Ray-Ban Meta Gen 3 · Wayfarer &amp; Aviator</span>
+                    <span className="text-electric font-bold">Demo at 3 Hyderabad stores</span>
                   </div>
                 </div>
               </TiltCard>
@@ -227,6 +245,30 @@ function RayBanMetaPage() {
           </div>
         </div>
       </section>
+
+      <section className="px-6 py-12 lg:px-10 lg:py-16">
+        <div className="mx-auto max-w-7xl rounded-3xl border border-electric/25 bg-electric/5 p-6 sm:p-9">
+          <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-3xl">
+              <span className="text-electric text-[10px] font-bold uppercase tracking-[0.22em]">New · Available in Hyderabad</span>
+              <h2 className="mt-2 text-3xl font-bold tracking-tighter sm:text-4xl">Ray-Ban Meta <span className="font-serif italic font-medium text-electric">Gen 3.</span></h2>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Explore Wayfarer and Aviator colourways with 3K video, six microphones, an assignable action button and up to nine hours of battery life. Available for demo and purchase at KPHB, Nizampet and Bowenpally.</p>
+            </div>
+            <Link to="/ray-ban-meta-gen-3-hyderabad" className="inline-flex w-fit shrink-0 items-center gap-2 rounded-full bg-ink px-5 py-3 text-[10px] font-bold uppercase tracking-[0.15em] text-white transition-colors hover:bg-electric">Explore Gen 3 collection <ArrowUpRight className="size-3.5" /></Link>
+          </div>
+          <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+            {rayBanGen3Models.map((model, index) => <ModelCard key={model.model} m={model} index={index} brandName="Ray-Ban" />)}
+          </div>
+          <p className="mt-4 text-[10px] leading-relaxed text-muted-foreground">Gen 3 starts at ₹44,300; prices vary by colourway. Visit a Clear Sight store to explore available variants.</p>
+        </div>
+      </section>
+
+      <div className="px-6 lg:px-10 pb-2">
+        <div className="mx-auto max-w-7xl rounded-2xl border border-border bg-secondary/40 px-5 py-4 sm:flex sm:items-center sm:justify-between sm:gap-4">
+          <p className="text-xs sm:text-sm font-bold text-foreground">Looking for Ray-Ban Meta Gen 2? The Wayfarer offer is still available.</p>
+          <Link to="/ray-ban-meta-offer-hyderabad" className="mt-3 inline-flex w-fit items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-electric hover:text-ink sm:mt-0">View Gen 2 offer <ArrowUpRight className="size-3" /></Link>
+        </div>
+      </div>
 
       {/* ── Direct Answer AEO Block ── */}
       <section className="px-6 lg:px-10 py-10 bg-secondary/40 border-y border-border">
@@ -239,7 +281,7 @@ function RayBanMetaPage() {
               Where to buy Ray-Ban Meta AI smart glasses in Hyderabad?
             </h2>
             <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-              Ray-Ban Meta AI smart glasses are available for live demonstration and authorized purchase at Clear Sight Opticians in Hyderabad across three stores: Kukatpally (KPHB JNTU Road), Nizampet, and Bowenpally. Prices start at ₹29,999 in India, with Ray-Ban Meta Gen-2 Wayfarers currently available at a limited-time 20% discount starting at ₹31,840 (reduced from ₹39,800). Clear Sight Opticians provides on-site optical customization, fitting high-index single vision, progressive, transition, and blue-cut computer lenses into your Ray-Ban Meta frames with digital centration accuracy.
+              Ray-Ban Meta Gen 3 Wayfarer and Aviator, as well as Gen 2 models, are available for live demonstration and purchase at Clear Sight Opticians in Hyderabad: Kukatpally (KPHB JNTU Road), Nizampet and Bowenpally. Gen 3 starts at ₹44,300, with prices varying by colourway. Gen 2 Wayfarers remain on a separate limited-time offer. Clear Sight opticians can advise on prescription lens options and fit.
             </p>
           </div>
         </div>
@@ -252,7 +294,7 @@ function RayBanMetaPage() {
             <div>
               <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">In-Stock Models</span>
               <h2 className="text-3xl sm:text-5xl font-bold tracking-tighter mt-2">
-                Ray-Ban Meta <span className="font-serif italic font-medium text-electric">model lineup.</span>
+                Ray-Ban Meta Gen 2 <span className="font-serif italic font-medium text-electric">model lineup.</span>
               </h2>
               <p className="text-muted-foreground text-sm mt-2 max-w-xl">
                 Explore available Ray-Ban Meta smart glasses styles. Click any frame to inspect color variants, lens powers, and enquire directly.
@@ -268,7 +310,7 @@ function RayBanMetaPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {rayBanMetaModels.slice(0, 6).map((m, i) => (
+            {rayBanMetaModels.filter((model) => !model.model.includes("Gen 3")).slice(0, 6).map((m, i) => (
               <Reveal key={m.model} delay={i * 0.05}>
                 <ModelCard m={m} index={i} brandName="Ray-Ban" />
               </Reveal>

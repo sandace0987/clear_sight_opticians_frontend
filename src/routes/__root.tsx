@@ -105,7 +105,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         { name: "author", content: "Clear Sight Opticians" },
         { name: "theme-color", content: "#ffffff", media: "(prefers-color-scheme: light)" },
         { name: "theme-color", content: "#0b0b12", media: "(prefers-color-scheme: dark)" },
-        { name: "keywords", content: "best opticians in hyderabad, best opticians in kukatpally, kphb optician, nizampet optician, glasses store, eye test, eye care, designer eyewear, AI glasses, ZEISS eye test" },
+        { name: "keywords", content: "best opticians in hyderabad, best opticians in kukatpally, kphb optician, nizampet optician, glasses store, eye test, eye care, designer eyewear, AI glasses, Ray-Ban Meta Gen 3 Hyderabad, Meta Gen 3 Wayfarer, Meta Gen 3 Aviator, ZEISS eye test" },
         { name: "geo.region", content: "IN-TG" },
         { name: "geo.position", content: "17.493921;78.397634" },
         { name: "ICBM", content: "17.493921,78.397634" },

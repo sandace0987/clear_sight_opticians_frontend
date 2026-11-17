@@ -98,10 +98,14 @@ export const Route = createFileRoute("/brands_/$brand")({
   head: ({ params }) => {
     const b = getHouseOrBrand(params.brand);
     const title = b
-      ? `${b.name} Eyewear in Hyderabad | Clear Sight Opticians`
+      ? b.slug === "ray-ban"
+        ? "Ray-Ban Meta Gen 3 & Ray-Ban Eyewear in Hyderabad | Clear Sight"
+        : `${b.name} Eyewear in Hyderabad | Clear Sight Opticians`
       : "Designer Eyewear Brands | Clear Sight Opticians";
     const desc = b
-      ? `Shop authentic ${b.name} prescription glasses, sunglasses and frames at Clear Sight Opticians — KPHB, Nizampet & Bowenpally. ZEISS eye tests included. 100% genuine.`
+      ? b.slug === "ray-ban"
+        ? "Explore authentic Ray-Ban glasses, sunglasses and Ray-Ban Meta Gen 3 Wayfarer and Aviator in Hyderabad. Visit Clear Sight Opticians in KPHB, Nizampet or Bowenpally for a demo and colourway enquiry."
+        : `Shop authentic ${b.name} prescription glasses, sunglasses and frames at Clear Sight Opticians — KPHB, Nizampet & Bowenpally. ZEISS eye tests included. 100% genuine.`
       : "Curated designer frames and prescription eyewear at Clear Sight Opticians — KPHB, Nizampet & Bowenpally, Hyderabad. ZEISS eye tests included.";
     return createSeoHead({
       title,
@@ -414,20 +418,25 @@ function BrandPage() {
     );
   }
 
+  const prioritizeLines = (lines: string[]) =>
+    brand.slug === "ray-ban"
+      ? [...lines].sort((a, b) => {
+          const rank = (line: string) =>
+            line === "Meta Glasses Gen 3" ? 0 : line === "Meta Glasses" ? 1 : 2;
+          return rank(a) - rank(b);
+        })
+      : lines;
+  const lineLabel = (line: string) =>
+    brand.slug === "ray-ban" && line === "Meta Glasses" ? "Meta Glasses Gen 2" : line;
+
   const lineList: string[] = [];
   for (const m of brand.models) {
     const l = m.line ?? "Other";
     if (m.line && !lineList.includes(l)) lineList.push(l);
   }
-  if (lineList.includes("Meta Glasses")) {
-    const idx = lineList.indexOf("Meta Glasses");
-    if (idx > -1) {
-      lineList.splice(idx, 1);
-      lineList.unshift("Meta Glasses");
-    }
-  }
+  const orderedLineList = prioritizeLines(lineList);
   const navSections: { id: string; label: string }[] = [
-    ...lineList.map((l) => ({ id: slugify(l), label: l })),
+    ...orderedLineList.map((l) => ({ id: slugify(l), label: lineLabel(l) })),
   ];
 
   return (
@@ -636,19 +645,12 @@ function BrandPage() {
             const l = m.line ?? "Other";
             if (!lines.includes(l)) lines.push(l);
           }
-          if (lines.includes("Meta Glasses")) {
-            const idx = lines.indexOf("Meta Glasses");
-            if (idx > -1) {
-              lines.splice(idx, 1);
-              lines.unshift("Meta Glasses");
-            }
-          }
-          return lines.map((line) => {
+          return prioritizeLines(lines).map((line) => {
             const models = filteredModels.filter((m) => (m.line ?? "Other") === line);
             return (
               <section key={line} id={slugify(line)} className="scroll-mt-40 mt-16">
                 <div className="flex items-baseline justify-between gap-4 border-b border-border pb-4">
-                  <h2 className="text-2xl lg:text-3xl font-bold tracking-tight">{line}</h2>
+                  <h2 className="text-2xl lg:text-3xl font-bold tracking-tight">{lineLabel(line)}</h2>
                 </div>
                 <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                   {models.map((m, i) => (

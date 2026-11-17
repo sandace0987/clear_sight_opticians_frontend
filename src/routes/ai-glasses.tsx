@@ -60,6 +60,29 @@ const OAKLEY_META_SCHEMA = {
   },
 };
 
+const RAYBAN_GEN3_SCHEMA = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: "Ray-Ban Meta Wayfarer (Gen 3)",
+    image: `${SITE_URL_BASE}/products/ray-ban-meta-gen3/colourways/wayfarer-shiny-black-transitions-grey-front.webp`,
+    description: "Ray-Ban Meta Gen 3 Wayfarer with a 12 MP camera, 3K video, six-microphone array, Meta AI and up to nine hours of battery life. Demo and purchase available in Hyderabad.",
+    brand: { "@type": "Brand", name: "Ray-Ban" },
+    category: "Smart glasses",
+    additionalProperty: { "@type": "PropertyValue", name: "Starting price", value: "₹44,300; variant pricing varies" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: "Ray-Ban Meta Aviator (Gen 3)",
+    image: `${SITE_URL_BASE}/products/ray-ban-meta-gen3/colourways/aviator-havana-transitions-brown-front.webp`,
+    description: "Ray-Ban Meta Gen 3 Aviator with a 12 MP camera, 3K video, six-microphone array, Meta AI and up to nine hours of battery life. Demo and purchase available in Hyderabad.",
+    brand: { "@type": "Brand", name: "Ray-Ban" },
+    category: "Smart glasses",
+    additionalProperty: { "@type": "PropertyValue", name: "Starting price", value: "₹44,300; variant pricing varies" },
+  },
+];
+
 // VideoObject schemas — enables Google Video rich results
 const RAYBAN_VIDEO_SCHEMA = {
   "@context": "https://schema.org",
@@ -98,9 +121,9 @@ const OAKLEY_VIDEO_SCHEMA = {
 export const Route = createFileRoute("/ai-glasses")({
   head: () =>
     createSeoHead({
-      title: "Ray-Ban Meta & Oakley Meta AI Glasses | Clear Sight Opticians",
+      title: "Ray-Ban Meta Gen 3 & Oakley Meta AI Glasses in Hyderabad | Clear Sight",
       description:
-        "Shop Ray-Ban Meta Wayfarer Gen 2 and Oakley Meta HSTN AI glasses at Clear Sight Opticians. Experience hands-free capture, calls, and Meta AI. Book a demo at KPHB, Nizampet or Bowenpally.",
+        "Explore Ray-Ban Meta Gen 3 Wayfarer and Aviator, Ray-Ban Meta Gen 2 and Oakley Meta AI glasses in Hyderabad. Book an in-store demo at KPHB, Nizampet or Bowenpally.",
       path: "/ai-glasses",
       type: "product",
       schema: [
@@ -109,6 +132,7 @@ export const Route = createFileRoute("/ai-glasses")({
           { name: "AI Glasses", path: "/ai-glasses" },
         ]),
         RAYBAN_META_SCHEMA,
+        ...RAYBAN_GEN3_SCHEMA,
         OAKLEY_META_SCHEMA,
         RAYBAN_VIDEO_SCHEMA,
         OAKLEY_VIDEO_SCHEMA,
@@ -269,6 +293,9 @@ function AIGlassesPage() {
   const raybanMetaModels = BRANDS.find((b) => b.slug === "ray-ban")
     ?.models.filter((m) => m.line === "Meta Glasses") || [];
 
+  const raybanMetaGen3Models = BRANDS.find((b) => b.slug === "ray-ban")
+    ?.models.filter((m) => m.line === "Meta Glasses Gen 3") || [];
+
   const oakleyMetaModels = BRANDS.find((b) => b.slug === "oakley")
     ?.models.filter((m) => m.line === "Meta Glasses") || [];
 
@@ -353,6 +380,20 @@ function AIGlassesPage() {
               {raybanMetaModels.map((m, idx) => (
                 <ModelCard key={m.model} m={m} index={idx} brandName="Ray-Ban" />
               ))}
+            </div>
+
+            <div className="mt-14 rounded-3xl border border-electric/25 bg-electric/5 p-6 sm:p-8">
+              <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <span className="text-electric text-[10px] font-bold uppercase tracking-[0.22em]">New generation · Hyderabad</span>
+                  <h3 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Ray-Ban Meta <span className="font-serif italic font-medium text-electric">Gen 3.</span></h3>
+                  <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">Meet the Wayfarer and Aviator with 3K video, six microphones, an assignable action button and up to nine hours of battery life. Available for demo and purchase at all three Clear Sight stores.</p>
+                </div>
+                <Link to="/ray-ban-meta-gen-3-hyderabad" className="inline-flex w-fit shrink-0 items-center gap-2 rounded-full bg-ink px-5 py-3 text-[10px] font-bold uppercase tracking-[0.14em] text-white transition-colors hover:bg-electric">Explore Gen 3 <ArrowUpRight className="size-3.5" /></Link>
+              </div>
+              <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+                {raybanMetaGen3Models.map((model, index) => <ModelCard key={model.model} m={model} index={index} brandName="Ray-Ban" />)}
+              </div>
             </div>
           </div>
         </section>

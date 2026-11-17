@@ -23,7 +23,7 @@ export const Route = createFileRoute("/designer-eyewear-hyderabad")({
     createSeoHead({
       title: "Luxury & Designer Eyewear in Hyderabad | Prada, Tom Ford, Ray-Ban",
       description:
-        "Explore luxury designer frames in Hyderabad from Prada, Oakley, Montblanc, Silhouette, Maui Jim & Tom Ford at Clear Sight Opticians. Authorized optical boutique with certified fitting.",
+        "Explore luxury frames and Ray-Ban Meta Gen 3 Wayfarer and Aviator in Hyderabad at Clear Sight Opticians. Book a demo or styling visit at KPHB, Nizampet or Bowenpally.",
       path: "/designer-eyewear-hyderabad",
       schema: [
         breadcrumbSchema([
@@ -89,7 +89,7 @@ const DESIGNER_FAQS = [
   {
     question: "Do you carry Ray-Ban Meta AI smart glasses in your luxury stores?",
     answer:
-      "Yes. Ray-Ban Meta Wayfarer and Headliner smart glasses are available for live in-store demos and custom prescription lens fitting at KPHB, Nizampet, and Bowenpally.",
+      "Yes. Ray-Ban Meta Gen 3 Wayfarer and Aviator, plus selected Gen 2 styles, are available for in-store demos and prescription lens consultations at KPHB, Nizampet and Bowenpally. Contact the preferred store to confirm a colourway.",
   },
   {
     question: "What warranty comes with luxury designer eyewear?",
@@ -115,7 +115,7 @@ const DESIGNER_FAQS = [
 
 const LUXURY_HOUSES = [
   { name: "Prada Milano & Linea Rossa", tag: "Italian Luxury", desc: "Avant-garde Italian styling, iconic Symbole temples, and high-performance sport-luxury frames." },
-  { name: "Ray-Ban & Ray-Ban Meta", tag: "American Icon", desc: "Wayfarer, Aviator, Clubmaster, and hands-free AI smart eyewear equipped with 12MP cameras." },
+  { name: "Ray-Ban & Ray-Ban Meta", tag: "American Icon", desc: "Wayfarer, Aviator, Clubmaster, and Gen 3 smart eyewear with 3K video, Meta AI and prescription-ready lenses." },
   { name: "Oakley & Oakley Meta", tag: "Sport & Lifestyle", desc: "Prizm™ lens optics, O Matter™ durable frames, and Meta HSTN smart lifestyle eyewear." },
   { name: "Silhouette Austria", tag: "Rimless Craftsmanship", desc: "Ultra-lightweight high-tech titanium frames engineered for weightless all-day comfort." },
   { name: "Montblanc", tag: "German Heritage", desc: "Refined business-class eyewear featuring gold-plated details and classic double-bridge accents." },
@@ -249,6 +249,20 @@ function DesignerEyewearPage() {
                 </div>
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 py-16 lg:px-10 lg:py-20">
+        <div className="mx-auto grid max-w-7xl overflow-hidden rounded-3xl border border-border bg-ink text-white lg:grid-cols-12">
+          <div className="flex flex-col justify-center p-7 sm:p-10 lg:col-span-7">
+            <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#d8c8a7]">New · Smart eyewear</span>
+            <h2 className="mt-3 text-3xl font-bold tracking-tighter sm:text-4xl">Ray-Ban Meta Gen 3 in Hyderabad.</h2>
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/70">Discover Wayfarer and Aviator colourways with Meta AI, 3K video and up to nine hours of battery life. Available for demo and purchase at Clear Sight's KPHB, Nizampet and Bowenpally stores.</p>
+            <Link to="/ray-ban-meta-gen-3-hyderabad" className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-electric px-5 py-3 text-[10px] font-bold uppercase tracking-[0.15em] text-white transition-colors hover:bg-white hover:text-ink">Explore Gen 3 collection <ArrowUpRight className="size-3.5" /></Link>
+          </div>
+          <div className="relative min-h-[240px] bg-[#e4e2df] lg:col-span-5">
+            <img src="/products/ray-ban-meta-gen3/colourways/aviator-havana-transitions-brown-front.webp" alt="Ray-Ban Meta Gen 3 Aviator in Havana with Transitions Brown lenses" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
           </div>
         </div>
       </section>

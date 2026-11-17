@@ -31,6 +31,8 @@ export function ProductDialog({ brand, model, priceFrom, originalPrice, variants
 
   const variant = variants.find((v) => v.id === variantId) ?? variants[0];
   const { color } = useImageDominantColor(variant.images[view]);
+  const isMetaGen3 = model.toLowerCase().includes("gen 3");
+  const variantDescription = `${variant.name}${isMetaGen3 ? ` with ${variant.lens} lenses` : ""}`;
 
   return (
     // Stop synthetic click events from Radix's portal bubbling up the React tree
@@ -50,7 +52,7 @@ export function ProductDialog({ brand, model, priceFrom, originalPrice, variants
           >
             <ZoomViewer
               src={variant.images[view]}
-              alt={`${brand} ${model} - ${variant.name}, ${view} view`}
+              alt={`${brand} ${model} - ${variantDescription}, ${view} view`}
               trigger={
                 <button
                   type="button"
@@ -59,7 +61,7 @@ export function ProductDialog({ brand, model, priceFrom, originalPrice, variants
                 >
                   <HoverLens
                     src={variant.images[view]}
-                    alt={`${brand} ${model} - ${variant.name}, ${view} view`}
+                    alt={`${brand} ${model} - ${variantDescription}, ${view} view`}
                     width={900}
                     height={320}
                     className="h-full w-full flex items-center justify-center"
@@ -79,7 +81,7 @@ export function ProductDialog({ brand, model, priceFrom, originalPrice, variants
                     view === o.key ? "border-electric" : "border-neutral-200 hover:border-neutral-400"
                   }`}
                 >
-                  <img src={variant.images[o.key]} alt={`${brand} ${model} ${o.label}`} className="w-full h-full object-contain" />
+                  <img src={variant.images[o.key]} alt={`${brand} ${model} ${variantDescription}, ${o.label} view`} className="w-full h-full object-contain" />
                 </button>
               ))}
             </div>
@@ -106,7 +108,7 @@ export function ProductDialog({ brand, model, priceFrom, originalPrice, variants
                     </span>
                   )}
                 </div>
-                <p className="text-xs text-muted-foreground">GST included</p>
+                {!isMetaGen3 && <p className="text-xs text-muted-foreground">GST included</p>}
               </>
             )}
 
@@ -145,8 +147,8 @@ export function ProductDialog({ brand, model, priceFrom, originalPrice, variants
                       <button
                         type="button"
                         onClick={() => setVariantId(v.id)}
-                        aria-label={v.name}
-                        title={v.name}
+                        aria-label={isMetaGen3 ? `${v.name} frame with ${v.lens} lenses` : v.name}
+                        title={isMetaGen3 ? `${v.name} · ${v.lens}` : v.name}
                         className="size-7 rounded-full block overflow-hidden"
                         style={{
                           background: v.swatch,
@@ -185,7 +187,7 @@ export function ProductDialog({ brand, model, priceFrom, originalPrice, variants
               </div>
             )}
 
-            {brand.toLowerCase() === "ray-ban" && model.toLowerCase().includes("wayfarer") && model.toLowerCase().includes("meta") && (
+            {brand.toLowerCase() === "ray-ban" && model.toLowerCase().includes("wayfarer") && model.toLowerCase().includes("meta") && model.toLowerCase().includes("gen 2") && (
               <div className="mt-6 p-4 rounded-2xl bg-electric/5 border border-electric/25">
                 <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-electric block mb-1">
                   Limited Time Offer

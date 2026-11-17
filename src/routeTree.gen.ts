@@ -27,6 +27,7 @@ import { Route as OakleyMetaOfferHyderabadRouteImport } from './routes/oakley-me
 import { Route as OpticianKphbRouteImport } from './routes/optician-kphb'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as RayBanGlassesHyderabadRouteImport } from './routes/ray-ban-glasses-hyderabad'
+import { Route as RayBanMetaGen3HyderabadRouteImport } from './routes/ray-ban-meta-gen-3-hyderabad'
 import { Route as RayBanMetaHyderabadRouteImport } from './routes/ray-ban-meta-hyderabad'
 import { Route as RayBanMetaOfferHyderabadRouteImport } from './routes/ray-ban-meta-offer-hyderabad'
 import { Route as RayBanVsOakleyRouteImport } from './routes/ray-ban-vs-oakley'
@@ -133,6 +134,11 @@ const RayBanGlassesHyderabadRoute = RayBanGlassesHyderabadRouteImport.update({
   path: '/ray-ban-glasses-hyderabad',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RayBanMetaGen3HyderabadRoute = RayBanMetaGen3HyderabadRouteImport.update({
+  id: '/ray-ban-meta-gen-3-hyderabad',
+  path: '/ray-ban-meta-gen-3-hyderabad',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RayBanMetaHyderabadRoute = RayBanMetaHyderabadRouteImport.update({
   id: '/ray-ban-meta-hyderabad',
   path: '/ray-ban-meta-hyderabad',
@@ -200,6 +206,7 @@ export interface FileRoutesByFullPath {
   '/optician-kphb': typeof OpticianKphbRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/ray-ban-glasses-hyderabad': typeof RayBanGlassesHyderabadRoute
+  '/ray-ban-meta-gen-3-hyderabad': typeof RayBanMetaGen3HyderabadRoute
   '/ray-ban-meta-hyderabad': typeof RayBanMetaHyderabadRoute
   '/ray-ban-meta-offer-hyderabad': typeof RayBanMetaOfferHyderabadRoute
   '/ray-ban-vs-oakley': typeof RayBanVsOakleyRoute
@@ -229,6 +236,7 @@ export interface FileRoutesByTo {
   '/optician-kphb': typeof OpticianKphbRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/ray-ban-glasses-hyderabad': typeof RayBanGlassesHyderabadRoute
+  '/ray-ban-meta-gen-3-hyderabad': typeof RayBanMetaGen3HyderabadRoute
   '/ray-ban-meta-hyderabad': typeof RayBanMetaHyderabadRoute
   '/ray-ban-meta-offer-hyderabad': typeof RayBanMetaOfferHyderabadRoute
   '/ray-ban-vs-oakley': typeof RayBanVsOakleyRoute
@@ -259,6 +267,7 @@ export interface FileRoutesById {
   '/optician-kphb': typeof OpticianKphbRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/ray-ban-glasses-hyderabad': typeof RayBanGlassesHyderabadRoute
+  '/ray-ban-meta-gen-3-hyderabad': typeof RayBanMetaGen3HyderabadRoute
   '/ray-ban-meta-hyderabad': typeof RayBanMetaHyderabadRoute
   '/ray-ban-meta-offer-hyderabad': typeof RayBanMetaOfferHyderabadRoute
   '/ray-ban-vs-oakley': typeof RayBanVsOakleyRoute
@@ -290,6 +299,7 @@ export interface FileRouteTypes {
     | '/optician-kphb'
     | '/privacy-policy'
     | '/ray-ban-glasses-hyderabad'
+    | '/ray-ban-meta-gen-3-hyderabad'
     | '/ray-ban-meta-hyderabad'
     | '/ray-ban-meta-offer-hyderabad'
     | '/ray-ban-vs-oakley'
@@ -319,6 +329,7 @@ export interface FileRouteTypes {
     | '/optician-kphb'
     | '/privacy-policy'
     | '/ray-ban-glasses-hyderabad'
+    | '/ray-ban-meta-gen-3-hyderabad'
     | '/ray-ban-meta-hyderabad'
     | '/ray-ban-meta-offer-hyderabad'
     | '/ray-ban-vs-oakley'
@@ -348,6 +359,7 @@ export interface FileRouteTypes {
     | '/optician-kphb'
     | '/privacy-policy'
     | '/ray-ban-glasses-hyderabad'
+    | '/ray-ban-meta-gen-3-hyderabad'
     | '/ray-ban-meta-hyderabad'
     | '/ray-ban-meta-offer-hyderabad'
     | '/ray-ban-vs-oakley'
@@ -378,6 +390,7 @@ export interface RootRouteChildren {
   OpticianKphbRoute: typeof OpticianKphbRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   RayBanGlassesHyderabadRoute: typeof RayBanGlassesHyderabadRoute
+  RayBanMetaGen3HyderabadRoute: typeof RayBanMetaGen3HyderabadRoute
   RayBanMetaHyderabadRoute: typeof RayBanMetaHyderabadRoute
   RayBanMetaOfferHyderabadRoute: typeof RayBanMetaOfferHyderabadRoute
   RayBanVsOakleyRoute: typeof RayBanVsOakleyRoute
@@ -517,6 +530,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RayBanGlassesHyderabadRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ray-ban-meta-gen-3-hyderabad': {
+      id: '/ray-ban-meta-gen-3-hyderabad'
+      path: '/ray-ban-meta-gen-3-hyderabad'
+      fullPath: '/ray-ban-meta-gen-3-hyderabad'
+      preLoaderRoute: typeof RayBanMetaGen3HyderabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ray-ban-meta-hyderabad': {
       id: '/ray-ban-meta-hyderabad'
       path: '/ray-ban-meta-hyderabad'
@@ -603,6 +623,7 @@ const rootRouteChildren: RootRouteChildren = {
   OpticianKphbRoute: OpticianKphbRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   RayBanGlassesHyderabadRoute: RayBanGlassesHyderabadRoute,
+  RayBanMetaGen3HyderabadRoute: RayBanMetaGen3HyderabadRoute,
   RayBanMetaHyderabadRoute: RayBanMetaHyderabadRoute,
   RayBanMetaOfferHyderabadRoute: RayBanMetaOfferHyderabadRoute,
   RayBanVsOakleyRoute: RayBanVsOakleyRoute,

@@ -24,7 +24,7 @@ export const chatbotQA: ChatQA[] = [
   {
     question: "⚡ Do you have Ray-Ban Meta & Oakley Meta AI glasses?",
     answer:
-      'Yes! We have in-store display models and active stock for both <strong>Ray-Ban Meta Wayfarer</strong> and <strong>Oakley Meta HSTN & Vanguard</strong> AI glasses. Drop by any branch for a live hands-free demo of photo/video capture, calling, and Meta AI features. Plus, we are currently running limited-time offers: <strong>20% off Ray-Ban Meta Wayfarers</strong> (from ₹31,840) and <strong>up to 20% off Oakley Meta glasses</strong> (from ₹33,440)! <a href="/ray-ban-meta-offer-hyderabad" class="text-electric underline font-semibold">Ray-Ban Offer →</a> · <a href="/oakley-meta-offer-hyderabad" class="text-electric underline font-semibold">Oakley Offer →</a>',
+      'Yes! We have <strong>Ray-Ban Meta Gen 3 Wayfarer and Aviator</strong>, Ray-Ban Meta Gen 2 Wayfarer and <strong>Oakley Meta HSTN & Vanguard</strong> for in-store demos and purchase at KPHB, Nizampet and Bowenpally. Gen 3 starts at ₹44,300 and features 3K video, a 12 MP camera, six-mic array and up to nine hours of battery life. Prices vary by frame and lens colourway. <a href="/ray-ban-meta-gen-3-hyderabad" class="text-electric underline font-semibold">Explore Ray-Ban Meta Gen 3 →</a><br/><br/>Limited-time Gen 2 Wayfarer and Oakley Meta offers are listed on their offer pages: <a href="/ray-ban-meta-offer-hyderabad" class="text-electric underline font-semibold">Ray-Ban Gen 2 Offer →</a> · <a href="/oakley-meta-offer-hyderabad" class="text-electric underline font-semibold">Oakley Offer →</a>',
   },
   {
     question: "🔬 What prescription lenses do you recommend?",

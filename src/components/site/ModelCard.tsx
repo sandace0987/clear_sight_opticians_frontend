@@ -19,6 +19,7 @@ export function ModelCard({ m, index, brandName }: { m: GlassItem; index: number
   const { color } = useImageDominantColor(imageSrc);
 
   const isZeiss = brandName.toLowerCase() === "zeiss";
+  const isMetaGen3 = m.model.toLowerCase().includes("gen 3");
 
   const isLensBrand = ["zeiss", "hoya", "essilor", "coopervision", "acuvue", "bausch-lomb", "bausch & lomb", "alcon"].includes(brandName.toLowerCase());
 
@@ -94,7 +95,7 @@ export function ModelCard({ m, index, brandName }: { m: GlassItem; index: number
             <div className="flex items-center justify-center h-28">
               <img
                 src={variant.images.front}
-                alt={`${brandName} ${m.model} - ${variant.name}`}
+                alt={`${brandName} ${m.model} - ${variant.name}${isMetaGen3 ? ` with ${variant.lens} lenses` : ""}`}
                 width={900}
                 height={320}
                 loading="lazy"
@@ -120,7 +121,7 @@ export function ModelCard({ m, index, brandName }: { m: GlassItem; index: number
 
       <h3 className="text-xl font-bold tracking-tight">{m.model}</h3>
       <p className="text-xs text-muted-foreground mt-1 font-serif italic">
-        {isZeiss ? m.colour : (hasVariants && variant ? variant.name : m.colour)}
+        {isZeiss ? m.colour : (hasVariants && variant ? (isMetaGen3 ? `${variant.name} · ${variant.lens}` : variant.name) : m.colour)}
         {collection ? ` · ${collection}` : ""}
       </p>
 
@@ -141,7 +142,6 @@ export function ModelCard({ m, index, brandName }: { m: GlassItem; index: number
           )}
         </div>
       )}
-
       {hasVariants && m.variants!.length > 1 && (
         <div className="mt-3 flex items-center gap-2 overflow-x-auto max-w-full p-1 pb-2 flex-nowrap swatch-scrollbar">
           {m.variants!.map((v) => {
@@ -184,8 +184,8 @@ export function ModelCard({ m, index, brandName }: { m: GlassItem; index: number
                       setVariantId(v.id);
                     });
                   }}
-                  aria-label={v.name}
-                  title={v.name}
+                  aria-label={isMetaGen3 ? `${v.name} frame with ${v.lens} lenses` : v.name}
+                  title={isMetaGen3 ? `${v.name} · ${v.lens}` : v.name}
                   className="size-5 rounded-full block overflow-hidden"
                   style={{
                     background: v.swatch,
@@ -203,7 +203,7 @@ export function ModelCard({ m, index, brandName }: { m: GlassItem; index: number
         <EnquireDialog
           brand={brandName}
           model={m.model}
-          colour={hasVariants && variant ? variant.name : m.colour}
+          colour={hasVariants && variant ? (isMetaGen3 ? `${variant.name} / ${variant.lens}` : variant.name) : m.colour}
           trigger={
             <button className="mt-5 w-full inline-flex items-center justify-center gap-2 bg-ink text-white py-3 rounded-full text-[11px] font-bold uppercase tracking-[0.18em] hover:bg-electric transition-colors">
               Enquire <ArrowUpRight className="size-3.5" />

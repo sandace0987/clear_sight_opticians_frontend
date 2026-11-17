@@ -32,7 +32,7 @@ export const Route = createFileRoute("/executive-luxury-gifting-hyderabad")({
     createSeoHead({
       title: "Executive Luxury Eyewear & AI Smart Glasses Gifting in Hyderabad | Clear Sight Opticians",
       description:
-        "Bespoke luxury eyewear gifting for CXOs, board members, and VIP clients in Hyderabad. Ray-Ban Meta AI smart glasses, Prada Milano, Silhouette Titanium, and Montblanc luxury frames with white-glove packaging.",
+        "Bespoke luxury eyewear gifting in Hyderabad, including Ray-Ban Meta Gen 3 Wayfarer and Aviator, Prada Milano, Silhouette Titanium and Montblanc. Enquire about executive fitting and current availability.",
       path: "/executive-luxury-gifting-hyderabad",
       schema: [
         breadcrumbSchema([
@@ -55,7 +55,7 @@ const LUXURY_FAQS = [
   {
     question: "Can Ray-Ban Meta AI smart glasses be customized with prescription lenses for executive gifts?",
     answer:
-      "Yes! Our in-house optical lab specializes in fitting precision single vision, progressive, transition, and blue-light filtering prescription lenses into Ray-Ban Meta and Oakley Meta smart glasses without altering open-ear audio or dual 12MP camera functionality.",
+      "Ray-Ban Meta Gen 3 is prescription-ready. Our opticians can advise on compatible single-vision, progressive and Transitions lens options for the chosen frame and prescription.",
   },
   {
     question: "What luxury packaging options are provided for VIP corporate gifts?",
@@ -78,8 +78,8 @@ const EXECUTIVE_HIGHLIGHTS = [
   {
     title: "Ray-Ban Meta AI Smart Glasses",
     tag: "Next-Gen Tech & Executive Audio",
-    desc: "Hands-free Meta AI voice assistance, open-ear spatial audio speakers, and 12MP ultra-wide camera. The pinnacle gift for tech leaders & senior executives.",
-    brands: "Wayfarer, Headliner & Skyler styles",
+    desc: "Ray-Ban Meta Gen 3 Wayfarer and Aviator bring Meta AI, 3K video, open-ear audio and prescription-ready lenses to executive gifting. Ask our team about colourways and current pricing.",
+    brands: "Gen 3 Wayfarer & Aviator · KPHB · Nizampet · Bowenpally",
   },
   {
     title: "Prada Milano & Linea Rossa",
@@ -234,6 +234,9 @@ function ExecutiveLuxuryGiftingPage() {
                 </div>
               ))}
             </div>
+            <Link to="/ray-ban-meta-gen-3-hyderabad" className="inline-flex w-fit items-center gap-2 rounded-full bg-ink px-5 py-3 text-[10px] font-bold uppercase tracking-[0.15em] text-white transition-colors hover:bg-electric">
+              Explore Ray-Ban Meta Gen 3 <ArrowUpRight className="size-3.5" />
+            </Link>
           </div>
 
           <div className="space-y-4 pt-6">

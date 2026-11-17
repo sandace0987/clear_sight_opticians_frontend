@@ -318,7 +318,6 @@ import rbmBlueSapphireBox from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/
 import rbmGreySapphireFront from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-transparent-grey-sapphire-front.webp";
 import rbmGreySapphireQuarter from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-transparent-grey-sapphire-quarter.webp";
 import rbmGreySapphireBox from "@/assets/products/ray-ban/ray-ban-meta-wayfarer/wayfarer-shiny-transparent-grey-sapphire-box.webp";
-
 // Oakley Meta HSTN WebP Binaries
 import hstnClearGrey from "@/assets/products/oakley/oakley-hstn/clear-grey.webp";
 import hstnClearBlack from "@/assets/products/oakley/oakley-hstn/clear-black.webp";
@@ -963,6 +962,124 @@ export const BRANDS: BrandData[] = [
             lens: "Transitions® Sapphire",
             swatch: "linear-gradient(135deg, #71717a 0%, #52525b 50%, #60a5fa 100%)",
             images: { front: rbmGreySapphireFront, quarter: rbmGreySapphireQuarter, side: rbmGreySapphireBox },
+          },
+        ],
+      },
+      {
+        model: "Ray-Ban Meta Wayfarer (Gen 3)",
+        shape: "wayfarer",
+        colour: "8 colourways",
+        priceFrom: 44300,
+        line: "Meta Glasses Gen 3",
+        badge: "New · Gen 3",
+        variants: [
+          {
+            id: "havana-green",
+            name: "Havana",
+            lens: "Green",
+            swatch: "linear-gradient(135deg, #4a3225 0%, #74513b 55%, #31583c 100%)",
+            images: { front: "/products/ray-ban-meta-gen3/colourways/wayfarer-havana-green-front.webp", quarter: "/products/ray-ban-meta-gen3/colourways/wayfarer-havana-green-quarter.webp", side: "/products/ray-ban-meta-gen3/colourways/wayfarer-havana-green-rear.webp" },
+          },
+          {
+            id: "matte-black-graphite-green-transitions",
+            name: "Matte Black",
+            lens: "Transitions® Graphite Green",
+            swatch: "linear-gradient(135deg, #09090b 0%, #27272a 55%, #56675d 100%)",
+            images: { front: "/products/ray-ban-meta-gen3/colourways/wayfarer-matte-black-graphite-green-front.webp", quarter: "/products/ray-ban-meta-gen3/colourways/wayfarer-matte-black-graphite-green-quarter.webp", side: "/products/ray-ban-meta-gen3/colourways/wayfarer-matte-black-graphite-green-rear.webp" },
+          },
+          {
+            id: "matte-black-grey",
+            name: "Matte Black",
+            lens: "Grey",
+            swatch: "linear-gradient(135deg, #09090b 0%, #27272a 55%, #777b82 100%)",
+            images: { front: "/products/ray-ban-meta-gen3/colourways/wayfarer-matte-black-grey-front.webp", quarter: "/products/ray-ban-meta-gen3/colourways/wayfarer-matte-black-grey-quarter.webp", side: "/products/ray-ban-meta-gen3/colourways/wayfarer-matte-black-grey-rear.webp" },
+          },
+          {
+            id: "shiny-black-polarised-green",
+            name: "Shiny Black",
+            lens: "Polarised Green",
+            swatch: "linear-gradient(135deg, #101012 0%, #202022 55%, #31563a 100%)",
+            images: { front: "/products/ray-ban-meta-gen3/colourways/wayfarer-shiny-black-polarised-green-front.webp", quarter: "/products/ray-ban-meta-gen3/colourways/wayfarer-shiny-black-polarised-green-quarter.webp", side: "/products/ray-ban-meta-gen3/colourways/wayfarer-shiny-black-polarised-green-rear.webp" },
+          },
+          {
+            id: "shiny-black-transitions-grey",
+            name: "Shiny Black",
+            lens: "Transitions® Grey",
+            swatch: "linear-gradient(135deg, #111113 0%, #303034 55%, #8b8c91 100%)",
+            images: { front: "/products/ray-ban-meta-gen3/colourways/wayfarer-shiny-black-transitions-grey-front.webp", quarter: "/products/ray-ban-meta-gen3/colourways/wayfarer-shiny-black-transitions-grey-quarter.webp", side: "/products/ray-ban-meta-gen3/colourways/wayfarer-shiny-black-transitions-grey-rear.webp" },
+          },
+          {
+            id: "transparent-black-aquamarine",
+            name: "Transparent Black",
+            lens: "Transitions® Aquamarine",
+            swatch: "linear-gradient(135deg, #111113 0%, #303034 55%, #54b9b2 100%)",
+            images: { front: "/products/ray-ban-meta-gen3/colourways/wayfarer-transparent-black-aquamarine-front.webp", quarter: "/products/ray-ban-meta-gen3/colourways/wayfarer-transparent-black-aquamarine-quarter.webp", side: "/products/ray-ban-meta-gen3/colourways/wayfarer-transparent-black-aquamarine-rear.webp" },
+          },
+          {
+            id: "transparent-matte-ocean-blue-transitions-grey",
+            name: "Transparent Matte Ocean Blue",
+            lens: "Transitions® Grey",
+            swatch: "linear-gradient(135deg, #6e8da1 0%, #405b6e 55%, #8b8c91 100%)",
+            images: { front: "/products/ray-ban-meta-gen3/colourways/wayfarer-transparent-matte-ocean-blue-front.webp", quarter: "/products/ray-ban-meta-gen3/colourways/wayfarer-transparent-matte-ocean-blue-quarter.webp", side: "/products/ray-ban-meta-gen3/colourways/wayfarer-transparent-matte-ocean-blue-rear.webp" },
+          },
+          {
+            id: "matte-black-clear",
+            name: "Matte Black",
+            lens: "Clear",
+            swatch: "linear-gradient(135deg, #080809 0%, #222225 55%, #e6e7e8 100%)",
+            images: { front: "/products/ray-ban-meta-gen3/colourways/wayfarer-matte-black-clear-front.webp", quarter: "/products/ray-ban-meta-gen3/colourways/wayfarer-matte-black-clear-quarter.webp", side: "/products/ray-ban-meta-gen3/colourways/wayfarer-matte-black-clear-rear.webp" },
+          },
+        ],
+      },
+      {
+        model: "Ray-Ban Meta Aviator (Gen 3)",
+        shape: "aviator",
+        colour: "6 colourways",
+        priceFrom: 44300,
+        line: "Meta Glasses Gen 3",
+        badge: "New · Gen 3",
+        variants: [
+          {
+            id: "havana-transitions-brown",
+            name: "Havana",
+            lens: "Transitions® Brown",
+            swatch: "linear-gradient(135deg, #35251c 0%, #725039 55%, #9a6b48 100%)",
+            images: { front: "/products/ray-ban-meta-gen3/colourways/aviator-havana-transitions-brown-front.webp", quarter: "/products/ray-ban-meta-gen3/colourways/aviator-havana-transitions-brown-quarter.webp", side: "/products/ray-ban-meta-gen3/colourways/aviator-havana-transitions-brown-rear.webp" },
+          },
+          {
+            id: "havana-brown",
+            name: "Havana",
+            lens: "Brown",
+            swatch: "linear-gradient(135deg, #35251c 0%, #725039 55%, #a4774d 100%)",
+            images: { front: "/products/ray-ban-meta-gen3/colourways/aviator-havana-brown-front.webp", quarter: "/products/ray-ban-meta-gen3/colourways/aviator-havana-brown-quarter.webp", side: "/products/ray-ban-meta-gen3/colourways/aviator-havana-brown-rear.webp" },
+          },
+          {
+            id: "milky-warm-beige-limited-edition-transitions-brown",
+            name: "Milky Warm Beige (Limited Edition)",
+            lens: "Transitions® Brown",
+            swatch: "linear-gradient(135deg, #e7d7c5 0%, #b7a38e 55%, #946742 100%)",
+            images: { front: "/products/ray-ban-meta-gen3/colourways/aviator-milky-warm-beige-transitions-brown-front.webp", quarter: "/products/ray-ban-meta-gen3/colourways/aviator-milky-warm-beige-transitions-brown-quarter.webp", side: "/products/ray-ban-meta-gen3/colourways/aviator-milky-warm-beige-transitions-brown-rear.webp" },
+          },
+          {
+            id: "shiny-black-transitions-graphite-green",
+            name: "Shiny Black",
+            lens: "Transitions® Graphite Green",
+            swatch: "linear-gradient(135deg, #111113 0%, #303034 55%, #31443b 100%)",
+            images: { front: "/products/ray-ban-meta-gen3/colourways/aviator-shiny-black-transitions-graphite-green-front.webp", quarter: "/products/ray-ban-meta-gen3/colourways/aviator-shiny-black-transitions-graphite-green-quarter.webp", side: "/products/ray-ban-meta-gen3/colourways/aviator-shiny-black-transitions-graphite-green-rear.webp" },
+          },
+          {
+            id: "shiny-black-polarised-green",
+            name: "Shiny Black",
+            lens: "Polarised Green",
+            swatch: "linear-gradient(135deg, #101012 0%, #202022 55%, #31563a 100%)",
+            images: { front: "/products/ray-ban-meta-gen3/colourways/aviator-shiny-black-polarised-green-front.webp", quarter: "/products/ray-ban-meta-gen3/colourways/aviator-shiny-black-polarised-green-quarter.webp", side: "/products/ray-ban-meta-gen3/colourways/aviator-shiny-black-polarised-green-rear.webp" },
+          },
+          {
+            id: "transparent-umber-transitions-jade",
+            name: "Transparent Umber",
+            lens: "Transitions® Jade",
+            swatch: "linear-gradient(135deg, #78604c 0%, #92765d 55%, #3c725e 100%)",
+            images: { front: "/products/ray-ban-meta-gen3/colourways/aviator-transparent-umber-transitions-jade-front.webp", quarter: "/products/ray-ban-meta-gen3/colourways/aviator-transparent-umber-transitions-jade-quarter.webp", side: "/products/ray-ban-meta-gen3/colourways/aviator-transparent-umber-transitions-jade-rear.webp" },
           },
         ],
       },

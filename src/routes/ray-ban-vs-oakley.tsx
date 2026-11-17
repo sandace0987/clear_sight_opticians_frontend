@@ -12,14 +12,15 @@ import { CONTACT_PHONE, CONTACT_PHONE_RAW } from "@/lib/contact-config";
 const rayBanBrand = BRANDS.find((b) => b.slug === "ray-ban");
 const oakleyBrand = BRANDS.find((b) => b.slug === "oakley");
 const featuredRayBan = rayBanBrand?.models.slice(0, 3) || [];
+const featuredRayBanGen3 = rayBanBrand?.models.filter((model) => model.line === "Meta Glasses Gen 3") || [];
 const featuredOakley = oakleyBrand?.models.slice(0, 3) || [];
 
 export const Route = createFileRoute("/ray-ban-vs-oakley")({
   head: () =>
     createSeoHead({
-      title: "Ray-Ban vs Oakley: Which Eyewear Brand is Best for You? (2026 Guide)",
+      title: "Ray-Ban vs Oakley: Gen 3 vs Oakley Meta Guide | Hyderabad",
       description:
-        "In-depth comparison of Ray-Ban vs Oakley glasses, sunglasses, Meta AI technology, frame durability & lens performance. Find out which fits your style and active lifestyle at Clear Sight.",
+        "Compare Ray-Ban Meta Gen 3 Wayfarer and Aviator with Oakley Meta in Hyderabad. Explore smart-glasses features, colourways, prescription options and in-store demos at Clear Sight Opticians.",
       path: "/ray-ban-vs-oakley",
       type: "website",
       schema: [
@@ -33,7 +34,7 @@ export const Route = createFileRoute("/ray-ban-vs-oakley")({
           "@type": "Article",
           headline: "Ray-Ban vs Oakley: Detailed Eyewear, Lens & Smart Glasses Comparison Guide",
           description:
-            "Expert breakdown comparing Ray-Ban and Oakley optical frames, G-15 vs Prizm lens technologies, Ray-Ban Meta vs Oakley Meta HSTN AI glasses, and frame durability at Clear Sight Opticians.",
+            "Expert breakdown comparing Ray-Ban and Oakley optical frames, G-15 vs Prizm lenses, Ray-Ban Meta Gen 3 Wayfarer and Aviator, Oakley Meta AI glasses, and local demos at Clear Sight Opticians Hyderabad.",
           author: {
             "@type": "Person",
             name: "Madhu A",
@@ -68,7 +69,12 @@ const RAYBAN_VS_OAKLEY_FAQS = [
   {
     question: "How do Ray-Ban Meta and Oakley Meta smart glasses compare?",
     answer:
-      "Ray-Ban Meta (Wayfarer & Headliner) offers iconic everyday lifestyle styling with hands-free 12MP video capture and Meta AI. Oakley Meta (HSTN series) blends sport-lifestyle frame aesthetics with Meta AI technology and Prizm lens options.",
+      "Ray-Ban Meta Gen 3 Wayfarer and Aviator offer classic everyday silhouettes with 3K video, a 12 MP camera, a six-microphone array and an assignable action button. Oakley Meta HSTN and Vanguard focus on active and sport-lifestyle styling with Meta AI. Try the options at Clear Sight Opticians in Hyderabad.",
+  },
+  {
+    question: "Where can I try Ray-Ban Meta Gen 3 in Hyderabad?",
+    answer:
+      "Clear Sight Opticians has Ray-Ban Meta Gen 3 Wayfarer and Aviator available for demo and purchase at its KPHB, Nizampet and Bowenpally stores. Contact the preferred branch to check colourway availability.",
   },
   {
     question: "Which brand is more durable for active sports: Ray-Ban or Oakley?",
@@ -83,7 +89,7 @@ const RAYBAN_VS_OAKLEY_FAQS = [
   {
     question: "Are Ray-Ban or Oakley glasses more expensive in India?",
     answer:
-      "Both brands occupy a similar premium price tier. Ray-Ban frames start from ₹6,500 to ₹15,000+ (Ray-Ban Meta ₹29,999+). Oakley frames start from ₹7,200 to ₹18,000+ (Oakley Meta ₹39,999+).",
+      "Ray-Ban Meta Gen 3 starts at ₹44,300, with colourway prices varying by frame and lens. Oakley Meta pricing and current offers vary by model.",
   },
   {
     question: "Which brand is better suited for formal business attire?",
@@ -235,6 +241,22 @@ function RayBanVsOakleyPage() {
           </div>
         </div>
       </section>
+      <section className="px-6 py-16 lg:px-10 lg:py-20">
+        <div className="mx-auto max-w-7xl rounded-3xl border border-electric/25 bg-electric/5 p-6 sm:p-9">
+          <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <span className="text-electric text-[10px] font-bold uppercase tracking-[0.22em]">New in Hyderabad</span>
+              <h2 className="mt-2 text-3xl font-bold tracking-tighter sm:text-4xl">Ray-Ban Meta Gen 3 <span className="font-serif italic font-medium text-electric">Wayfarer &amp; Aviator.</span></h2>
+              <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground">Gen 3 starts at ₹44,300. Explore available colourways and book a demo at KPHB, Nizampet or Bowenpally.</p>
+            </div>
+            <Link to="/ray-ban-meta-gen-3-hyderabad" className="inline-flex w-fit shrink-0 items-center gap-2 rounded-full bg-ink px-5 py-3 text-[10px] font-bold uppercase tracking-[0.15em] text-white transition-colors hover:bg-electric">View Gen 3 collection <ArrowUpRight className="size-3.5" /></Link>
+          </div>
+          <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+            {featuredRayBanGen3.map((model, index) => <ModelCard key={model.model} m={model} index={index} brandName="Ray-Ban" />)}
+          </div>
+        </div>
+      </section>
+
       <section className="px-6 lg:px-10 py-16 bg-secondary/30 border-y border-border">
         <div className="mx-auto max-w-5xl">
           <div className="text-center mb-10">
