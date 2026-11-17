@@ -308,7 +308,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "Comprehensive eye test, no upsell, and they had Oakley Meta in stock with a serious discount. New regulars.",
+      "Comprehensive eye test, no upsell, and they had Oakley Meta in stock. New regulars.",
     name: "Dr. Karthik Rao",
     context: "Oakley Meta + lenses",
   },

@@ -10,7 +10,6 @@ import {
   Mic,
   Volume2,
   VolumeX,
-  Zap,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { BRANDS } from "@/lib/brand-catalog";
@@ -33,8 +32,8 @@ const RAYBAN_META_SCHEMA = {
   brand: { "@type": "Brand", name: "Ray-Ban" },
   offers: {
     "@type": "AggregateOffer",
-    lowPrice: "29999",
-    highPrice: "49999",
+    lowPrice: "39800",
+    highPrice: "39800",
     priceCurrency: "INR",
     availability: "https://schema.org/InStock",
     seller: { "@type": "OpticalBusiness", name: "Clear Sight Opticians" },
@@ -52,7 +51,7 @@ const OAKLEY_META_SCHEMA = {
   brand: { "@type": "Brand", name: "Oakley" },
   offers: {
     "@type": "AggregateOffer",
-    lowPrice: "33440",
+    lowPrice: "41800",
     highPrice: "52300",
     priceCurrency: "INR",
     availability: "https://schema.org/InStock",
@@ -355,34 +354,7 @@ function AIGlassesPage() {
       {tab === "rayban" && (
         <section className="px-4 sm:px-6 lg:px-10 py-10">
           <div className="mx-auto max-w-7xl">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border pb-5 mb-10">
-              <div>
-                <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">
-                  AI Eyewear
-                </span>
-                <h2 className="mt-2 text-2xl lg:text-3xl font-bold tracking-tight">
-                  Ray-Ban Meta Wayfarer (Gen 2)
-                </h2>
-                <p className="mt-2 text-sm text-muted-foreground max-w-xl">
-                  The Wayfarer you know - reimagined with Meta AI, a 12MP camera and open-ear audio.
-                  Hollywood-iconic. Quietly intelligent.
-                </p>
-              </div>
-              <Link
-                to="/ray-ban-meta-offer-hyderabad"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric/10 border border-electric/30 text-electric text-xs font-bold uppercase tracking-wider hover:bg-electric hover:text-white transition-all shrink-0 w-fit"
-              >
-                <Zap className="size-3.5 fill-current" /> 20% Off Offer (₹31,840) →
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-              {raybanMetaModels.map((m, idx) => (
-                <ModelCard key={m.model} m={m} index={idx} brandName="Ray-Ban" />
-              ))}
-            </div>
-
-            <div className="mt-14 rounded-3xl border border-electric/25 bg-electric/5 p-6 sm:p-8">
+            <div className="rounded-3xl border border-electric/25 bg-electric/5 p-6 sm:p-8">
               <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                 <div>
                   <span className="text-electric text-[10px] font-bold uppercase tracking-[0.22em]">New generation · Hyderabad</span>
@@ -393,6 +365,21 @@ function AIGlassesPage() {
               </div>
               <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
                 {raybanMetaGen3Models.map((model, index) => <ModelCard key={model.model} m={model} index={index} brandName="Ray-Ban" />)}
+              </div>
+            </div>
+
+            <div className="mt-14 border-t border-border pt-10">
+              <div className="mb-8">
+                <span className="text-electric text-xs font-bold tracking-[0.22em] uppercase">Previous generation</span>
+                <h3 className="mt-2 text-2xl lg:text-3xl font-bold tracking-tight">Ray-Ban Meta Wayfarer (Gen 2)</h3>
+                <p className="mt-2 text-sm text-muted-foreground max-w-xl">
+                  The Wayfarer you know, with Meta AI, a 12 MP camera and open-ear audio. Starting at ₹39,800.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                {raybanMetaModels.map((m, idx) => (
+                  <ModelCard key={m.model} m={m} index={idx} brandName="Ray-Ban" />
+                ))}
               </div>
             </div>
           </div>
@@ -416,12 +403,6 @@ function AIGlassesPage() {
                   and Prizm™ lens technology - engineered for athletes and active lifestyles.
                 </p>
               </div>
-              <Link
-                to="/oakley-meta-offer-hyderabad"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric/10 border border-electric/30 text-electric text-xs font-bold uppercase tracking-wider hover:bg-electric hover:text-white transition-all shrink-0 w-fit"
-              >
-                <Zap className="size-3.5 fill-current" /> Up to 20% Off Sale (From ₹33,440) →
-              </Link>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">

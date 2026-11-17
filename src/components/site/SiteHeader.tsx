@@ -7,7 +7,7 @@ import { ThemeSwatches } from "./ThemeSwatches";
 import { BookingModal } from "./BookingModal";
 import logoUrl from "@/assets/miscellaneous/clear-sight-logo.avif";
 import { CONTACT_PHONE_RAW } from "@/lib/contact-config";
-import { GLOBAL_PROMO, RAYBAN_META_PROMO, OAKLEY_META_PROMO } from "@/lib/promo-config";
+import { GLOBAL_PROMO } from "@/lib/promo-config";
 
 type NavItem = { to: string; hash?: string; label: string; subroute?: string };
 
@@ -331,19 +331,11 @@ export function SiteHeader() {
               <span>✦</span>
               <span>Free ZEISS Global Certified Eye Test</span>
               <span>✦</span>
-              <span>{RAYBAN_META_PROMO.text}</span>
-              <span>✦</span>
-              <span>{OAKLEY_META_PROMO.text}</span>
-              <span>✦</span>
               <span>Limited Time Only</span>
               <span>✦</span>
               <span>{GLOBAL_PROMO.text}</span>
               <span>✦</span>
               <span>Free ZEISS Global Certified Eye Test</span>
-              <span>✦</span>
-              <span>{RAYBAN_META_PROMO.text}</span>
-              <span>✦</span>
-              <span>{OAKLEY_META_PROMO.text}</span>
               <span>✦</span>
               <span>Limited Time Only</span>
               <span>✦</span>
@@ -352,19 +344,11 @@ export function SiteHeader() {
               <span>✦</span>
               <span>Free ZEISS Global Certified Eye Test</span>
               <span>✦</span>
-              <span>{RAYBAN_META_PROMO.text}</span>
-              <span>✦</span>
-              <span>{OAKLEY_META_PROMO.text}</span>
-              <span>✦</span>
               <span>Limited Time Only</span>
               <span>✦</span>
               <span>{GLOBAL_PROMO.text}</span>
               <span>✦</span>
               <span>Free ZEISS Global Certified Eye Test</span>
-              <span>✦</span>
-              <span>{RAYBAN_META_PROMO.text}</span>
-              <span>✦</span>
-              <span>{OAKLEY_META_PROMO.text}</span>
               <span>✦</span>
               <span>Limited Time Only</span>
               <span>✦</span>

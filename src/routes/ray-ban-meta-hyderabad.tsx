@@ -37,8 +37,8 @@ export const Route = createFileRoute("/ray-ban-meta-hyderabad")({
           brand: { "@type": "Brand", name: "Ray-Ban" },
           offers: {
             "@type": "AggregateOffer",
-            lowPrice: "29999",
-            highPrice: "49999",
+            lowPrice: "39800",
+            highPrice: "39800",
             priceCurrency: "INR",
             availability: "https://schema.org/InStock",
             seller: { "@type": "OpticalBusiness", name: "Clear Sight Opticians" },
@@ -107,7 +107,7 @@ const RAYBAN_META_FAQS = [
   {
     question: "What is the price of Ray-Ban Meta smart glasses in Hyderabad, India?",
     answer:
-      "Ray-Ban Meta Gen 3 starts at ₹44,300, with colourway pricing varying. Ray-Ban Meta Gen 2 Wayfarers remain on a separate limited-time offer starting at ₹31,840 (regularly ₹39,800).",
+      "Ray-Ban Meta Gen 3 starts at ₹44,300, with colourway pricing varying. Ray-Ban Meta Gen 2 Wayfarer starts at ₹39,800.",
   },
   {
     question: "Are Ray-Ban Meta smart glasses water-resistant?",
@@ -263,13 +263,6 @@ function RayBanMetaPage() {
         </div>
       </section>
 
-      <div className="px-6 lg:px-10 pb-2">
-        <div className="mx-auto max-w-7xl rounded-2xl border border-border bg-secondary/40 px-5 py-4 sm:flex sm:items-center sm:justify-between sm:gap-4">
-          <p className="text-xs sm:text-sm font-bold text-foreground">Looking for Ray-Ban Meta Gen 2? The Wayfarer offer is still available.</p>
-          <Link to="/ray-ban-meta-offer-hyderabad" className="mt-3 inline-flex w-fit items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-electric hover:text-ink sm:mt-0">View Gen 2 offer <ArrowUpRight className="size-3" /></Link>
-        </div>
-      </div>
-
       {/* ── Direct Answer AEO Block ── */}
       <section className="px-6 lg:px-10 py-10 bg-secondary/40 border-y border-border">
         <div className="mx-auto max-w-5xl">
@@ -281,7 +274,7 @@ function RayBanMetaPage() {
               Where to buy Ray-Ban Meta AI smart glasses in Hyderabad?
             </h2>
             <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-              Ray-Ban Meta Gen 3 Wayfarer and Aviator, as well as Gen 2 models, are available for live demonstration and purchase at Clear Sight Opticians in Hyderabad: Kukatpally (KPHB JNTU Road), Nizampet and Bowenpally. Gen 3 starts at ₹44,300, with prices varying by colourway. Gen 2 Wayfarers remain on a separate limited-time offer. Clear Sight opticians can advise on prescription lens options and fit.
+              Ray-Ban Meta Gen 3 Wayfarer and Aviator, as well as Gen 2 models, are available for live demonstration and purchase at Clear Sight Opticians in Hyderabad: Kukatpally (KPHB JNTU Road), Nizampet and Bowenpally. Gen 3 starts at ₹44,300, with prices varying by colourway. Gen 2 Wayfarer starts at ₹39,800. Clear Sight opticians can advise on prescription lens options and fit.
             </p>
           </div>
         </div>

@@ -89,7 +89,7 @@ const RAYBAN_VS_OAKLEY_FAQS = [
   {
     question: "Are Ray-Ban or Oakley glasses more expensive in India?",
     answer:
-      "Ray-Ban Meta Gen 3 starts at ₹44,300, with colourway prices varying by frame and lens. Oakley Meta pricing and current offers vary by model.",
+      "Ray-Ban Meta Gen 3 starts at ₹44,300, with colourway prices varying by frame and lens. Ray-Ban Meta Gen 2 Wayfarer starts at ₹39,800; Oakley Meta HSTN starts at ₹41,800 and Vanguard at ₹52,300.",
   },
   {
     question: "Which brand is better suited for formal business attire?",
